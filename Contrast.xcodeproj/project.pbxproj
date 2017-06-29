@@ -82,9 +82,8 @@
 				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
 				218487361F05473F009EE112 /* GridView.swift */,
 				218487371F05473F009EE112 /* MenuBarController.swift */,
-				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
+				218487501F0547AD009EE112 /* Colors */,
 				218487391F05473F009EE112 /* NSScreen+Screenshot.swift */,
-				2184873A1F05473F009EE112 /* Score.swift */,
 				2184873B1F05473F009EE112 /* ViewController.swift */,
 			);
 			path = Sources;
@@ -99,6 +98,15 @@
 				218487421F05473F009EE112 /* Info.plist */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		218487501F0547AD009EE112 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
+				2184873A1F05473F009EE112 /* Score.swift */,
+			);
+			name = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
