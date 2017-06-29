@@ -14,17 +14,25 @@ private final class ButtonCell: NSButtonCell {
 	override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {
 		let bounds = controlView.bounds
 
+		let fill = NSBezierPath(roundedRect: bounds, xRadius: 4, yRadius: 4)
+		NSColor(white: 1, alpha: 0.05).setFill()
+		fill.fill()
+
 		let border = NSBezierPath(roundedRect: bounds.insetBy(dx: 0.5, dy: 0.5), xRadius: 4, yRadius: 4)
 		NSColor(white: 0, alpha: 0.2).setStroke()
 		border.stroke()
 	}
 
 	override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {
+		guard let image = image else { return }
+
 		let bounds = controlView.bounds
 
-		let fill = NSBezierPath(roundedRect: bounds.insetBy(dx: 1, dy: 1), xRadius: 4, yRadius: 4)
-		NSColor(white: 1, alpha: 0.05).setFill()
-		fill.fill()
+		var rect = CGRect(origin: .zero, size: image.size)
+		rect.origin.x += (bounds.width - rect.width) / 2
+		rect.origin.y += (bounds.height - rect.height) / 2
+
+		image.tinting(with: NSColor(white: 0, alpha: isHighlighted ? 1 : 0.7)).draw(in: rect)
 	}
 }
 
