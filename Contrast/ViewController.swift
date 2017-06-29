@@ -16,10 +16,13 @@ class ViewController: NSViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		calculateContrastRatio()
+		colorWellDidChange(self)
 	}
 
 	@IBAction func colorWellDidChange(_ sender: Any?) {
+		scoreLabel.textColor = colorWell1.color
+		MenuBarController.shared?.backgroundColor = colorWell2.color
+
 		calculateContrastRatio()
 	}
 

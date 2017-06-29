@@ -27,6 +27,15 @@ final class MenuBarController {
 		return (NSApp.delegate as? AppDelegate)?.menuBarController
 	}
 
+	var backgroundColor: NSColor = .clear {
+		didSet {
+			arrowView.layer?.backgroundColor = backgroundColor.cgColor
+
+			popover.contentViewController?.view.wantsLayer = true
+			popover.contentViewController?.view.layer?.backgroundColor = backgroundColor.cgColor
+		}
+	}
+
 
 	// MARK: - Initializers
 
@@ -70,6 +79,7 @@ final class MenuBarController {
 		guard let container = popover.contentViewController?.view.superview else { return }
 
 		container.addSubview(arrowView)
+		arrowView.layer?.backgroundColor = backgroundColor.cgColor
 
 		NSLayoutConstraint.activate([
 			arrowView.centerXAnchor.constraint(equalTo: container.centerXAnchor),

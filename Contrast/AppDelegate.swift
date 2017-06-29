@@ -13,11 +13,16 @@ import AppKit
 	// MARK: - Properties
 
 	let menuBarController = MenuBarController()
+	fileprivate var windowController: NSWindowController?
 }
 
 
 extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		menuBarController.showPopover(self)
+//		menuBarController.showPopover(self)
+
+		let eyeDropper = EyeDropper()
+		eyeDropper.magnify()
+		windowController = eyeDropper
 	}
 }

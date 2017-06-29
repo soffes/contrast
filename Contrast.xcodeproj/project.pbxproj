@@ -15,6 +15,9 @@
 		2184871B1F046971009EE112 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184871A1F046971009EE112 /* Score.swift */; };
 		2184871F1F046DD9009EE112 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184871E1F046DD9009EE112 /* MenuBarController.swift */; };
 		218487221F046EB3009EE112 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218487201F046EB3009EE112 /* Popover.storyboard */; };
+		218487241F048559009EE112 /* EyeDropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487231F048559009EE112 /* EyeDropper.swift */; };
+		218487281F048E78009EE112 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487271F048E78009EE112 /* EyeDropperWindow.swift */; };
+		2184872A1F04A4EC009EE112 /* NSScreen+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487291F04A4EC009EE112 /* NSScreen+Screenshot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		2184871A1F046971009EE112 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		2184871E1F046DD9009EE112 /* MenuBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		218487211F046EB3009EE112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Popover.storyboard; sourceTree = "<group>"; };
+		218487231F048559009EE112 /* EyeDropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropper.swift; sourceTree = "<group>"; };
+		218487271F048E78009EE112 /* EyeDropperWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperWindow.swift; sourceTree = "<group>"; };
+		218487291F04A4EC009EE112 /* NSScreen+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSScreen+Screenshot.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,9 @@
 				218487181F046439009EE112 /* NSColor+Contrast.swift */,
 				2184871A1F046971009EE112 /* Score.swift */,
 				2184871E1F046DD9009EE112 /* MenuBarController.swift */,
+				218487231F048559009EE112 /* EyeDropper.swift */,
+				218487271F048E78009EE112 /* EyeDropperWindow.swift */,
+				218487291F04A4EC009EE112 /* NSScreen+Screenshot.swift */,
 				2184870D1F04642C009EE112 /* Assets.xcassets */,
 				2184870F1F04642C009EE112 /* Main.storyboard */,
 				218487201F046EB3009EE112 /* Popover.storyboard */,
@@ -149,8 +158,11 @@
 				2184871B1F046971009EE112 /* Score.swift in Sources */,
 				218487191F046439009EE112 /* NSColor+Contrast.swift in Sources */,
 				2184870C1F04642C009EE112 /* ViewController.swift in Sources */,
+				218487281F048E78009EE112 /* EyeDropperWindow.swift in Sources */,
 				2184870A1F04642C009EE112 /* AppDelegate.swift in Sources */,
 				2184871F1F046DD9009EE112 /* MenuBarController.swift in Sources */,
+				2184872A1F04A4EC009EE112 /* NSScreen+Screenshot.swift in Sources */,
+				218487241F048559009EE112 /* EyeDropper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
