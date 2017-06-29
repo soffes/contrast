@@ -18,7 +18,6 @@ extension NSColor {
 		var red: CGFloat = 0
 		var green: CGFloat = 0
 		var blue: CGFloat = 0
-
 		getRed(&red, green: &green, blue: &blue, alpha: nil)
 
 		red = red <= 0.03928 ? red / 12.92 : pow(((red + 0.055) / 1.055), 2.4)
@@ -26,6 +25,24 @@ extension NSColor {
 		blue = blue <= 0.03928 ? blue / 12.92 : pow(((blue + 0.055) / 1.055), 2.4)
 
 		return 0.2126 * red + 0.7152 * green + 0.0722 * blue
+	}
+
+	// From http://24ways.org/2010/calculating-color-contrast
+	var yiq: CGFloat {
+		if colorSpace != .sRGB {
+			return usingColorSpace(.sRGB)?.yiq ?? 0
+		}
+
+		var red: CGFloat = 0
+		var green: CGFloat = 0
+		var blue: CGFloat = 0
+		getRed(&red, green: &green, blue: &blue, alpha: nil)
+
+		return (red * 255 * 299 + green * 255 * 587 + blue * 255 * 114) / 1000
+	}
+
+	var isDark: Bool {
+		return yiq < 128
 	}
 
 	// From https://www.w3.org/TR/WCAG20/#contrast-ratiodef
