@@ -70,6 +70,15 @@ private final class EyeDropperWindowView: NSView {
 	override func mouseMoved(with event: NSEvent) {
 		let position = event.locationInWindow
 
+		positionReticle(at: position)
+	}
+
+	private func positionReticle(at position: CGPoint) {
+		// TODO: This won't work on multiple screens
+		guard let screen = NSScreen.main() else { return }
+
+		let position = convert(position, from: nil)
+		
 		var rect = reticleView.bounds
 		rect.origin.x = position.x - rect.width / 2
 		rect.origin.y = position.y - rect.height / 2
@@ -79,7 +88,7 @@ private final class EyeDropperWindowView: NSView {
 		let magnification: CGFloat = 10
 		let captureSize = CGSize(width: 17, height: 17)
 
-		let image = NSScreen.main()!.screenshot(frame: CGRect(x: position.x - (captureSize.width / 2), y: position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height))!
+		let image = screen.screenshot(frame: CGRect(x: position.x - (captureSize.width / 2), y: screen.frame.height - position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height))!
 
 		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification))
 		scaled.lockFocus()

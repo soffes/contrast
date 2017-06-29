@@ -8,11 +8,21 @@
 
 import AppKit
 
+protocol EyeDropperDelegate: class {
+	func eyeDropperDidCancel()
+}
+
 final class EyeDropper: NSWindowController {
+
+	// MARK: - Properties
+
+	weak var delegate: EyeDropperDelegate?
+
 
 	// MARK: - Initializer
 
-	init() {
+	init(delegate: EyeDropperDelegate) {
+		self.delegate = delegate
 		super.init(window: EyeDropperWindow())
 	}
 	
@@ -25,6 +35,7 @@ final class EyeDropper: NSWindowController {
 
 	@objc func cancel(_ sender: Any?) {
 		window?.orderOut(sender)
+		delegate?.eyeDropperDidCancel()
 	}
 
 

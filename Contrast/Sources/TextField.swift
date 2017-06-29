@@ -65,7 +65,7 @@ final class TextField: NSTextField {
 		isBezeled = false
 		backgroundColor = .clear
 		focusRingType = .none
-		font = NSFont(name: "Menlo-Bold", size: 12)
+		font = NSFont(name: "Menlo", size: 12)
 	}
 
 	required init?(coder: NSCoder) {

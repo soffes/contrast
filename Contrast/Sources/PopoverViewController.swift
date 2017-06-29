@@ -23,8 +23,8 @@ class PopoverViewController: NSViewController {
 		return view
 	}()
 
-	private let foregroundInput = ColorInput()
-	private let backgroundInput = ColorInput()
+	fileprivate let foregroundInput = ColorInput()
+	fileprivate let backgroundInput = ColorInput()
 
 	private let contrastRatioLabel: Label = {
 		let view = Label()
@@ -64,6 +64,12 @@ class PopoverViewController: NSViewController {
 		stackView.addArrangedSubview(backgroundInput)
 		stackView.setCustomSpacing(4, after: backgroundInput)
 		stackView.addArrangedSubview(contrastRatioLabel)
+
+		foregroundInput.button.target = self
+		foregroundInput.button.action = #selector(pickColor)
+
+		backgroundInput.button.target = self
+		backgroundInput.button.action = #selector(pickColor)
 
 		NSLayoutConstraint.activate([
 			view.heightAnchor.constraint(equalToConstant: 54),
@@ -129,5 +135,25 @@ class PopoverViewController: NSViewController {
 
 		foregroundInput.theme = theme
 		foregroundInput.color = theme.foregroundColor
+	}
+
+	fileprivate var windowController: NSWindowController?
+
+	@objc private func pickColor(_ sender: Button) {
+		foregroundInput.button.isActive = foregroundInput.button == sender
+		backgroundInput.button.isActive = backgroundInput.button == sender
+
+		let eyeDropper = EyeDropper(delegate: self)
+		eyeDropper.magnify()
+		windowController = eyeDropper
+	}
+}
+
+
+extension PopoverViewController: EyeDropperDelegate {
+	func eyeDropperDidCancel() {
+		windowController = nil
+		foregroundInput.button.isActive = false
+		backgroundInput.button.isActive = false
 	}
 }
