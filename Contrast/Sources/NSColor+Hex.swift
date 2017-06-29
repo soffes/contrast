@@ -19,10 +19,18 @@ extension NSColor {
 			hex = hex.substring(from: hex.index(hex.startIndex, offsetBy: 2))
 		}
 
-		// Invalid if not 3, 6, or 8 characters
+		// Invalid if not 1, 2, 3, 6, or 8 characters
 		let length = hex.characters.count
-		if length != 3 && length != 6 && length != 8 {
+		if length != 1 && length != 2 && length != 3 && length != 6 && length != 8 {
 			return nil
+		}
+
+		if length == 1 {
+			hex = "\(hex)\(hex)\(hex)\(hex)\(hex)\(hex)ff"
+		}
+
+		if length == 2 {
+			hex = "\(hex)\(hex)\(hex)ff"
 		}
 
 		// Make the string 8 characters long for easier parsing

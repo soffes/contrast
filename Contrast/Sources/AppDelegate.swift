@@ -21,9 +21,9 @@ extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		menuBarController.showPopover(self)
 
-		let eyeDropper = EyeDropper()
-		eyeDropper.magnify()
-		windowController = eyeDropper
+//		let eyeDropper = EyeDropper()
+//		eyeDropper.magnify()
+//		windowController = eyeDropper
 
 
 //		let list = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID)! //as! [[String: Any]]

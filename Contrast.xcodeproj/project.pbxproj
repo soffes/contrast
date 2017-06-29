@@ -15,13 +15,16 @@
 		218487481F05473F009EE112 /* NSColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487381F05473F009EE112 /* NSColor+Contrast.swift */; };
 		218487491F05473F009EE112 /* NSScreen+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487391F05473F009EE112 /* NSScreen+Screenshot.swift */; };
 		2184874A1F05473F009EE112 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873A1F05473F009EE112 /* Score.swift */; };
-		2184874B1F05473F009EE112 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873B1F05473F009EE112 /* ViewController.swift */; };
+		2184874B1F05473F009EE112 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873B1F05473F009EE112 /* PopoverViewController.swift */; };
 		2184874C1F05473F009EE112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2184873D1F05473F009EE112 /* Assets.xcassets */; };
 		2184874D1F05473F009EE112 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2184873E1F05473F009EE112 /* Main.storyboard */; };
-		2184874E1F05473F009EE112 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218487401F05473F009EE112 /* Popover.storyboard */; };
-		218487521F054873009EE112 /* NSColor+DefaultColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487511F054873009EE112 /* NSColor+DefaultColors.swift */; };
 		218487541F054926009EE112 /* NSColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487531F054926009EE112 /* NSColor+Hex.swift */; };
 		2184876E1F054CA2009EE112 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184876D1F054CA2009EE112 /* ColorTests.swift */; };
+		218487931F055B21009EE112 /* ColorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487921F055B21009EE112 /* ColorInput.swift */; };
+		218487951F055B42009EE112 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487941F055B42009EE112 /* TextField.swift */; };
+		218487971F055B81009EE112 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487961F055B81009EE112 /* Button.swift */; };
+		218487991F055D10009EE112 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487981F055D10009EE112 /* Theme.swift */; };
+		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2184878E1F055827009EE112 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218487331F05473F009EE112 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,16 +60,19 @@
 		218487381F05473F009EE112 /* NSColor+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Contrast.swift"; sourceTree = "<group>"; };
 		218487391F05473F009EE112 /* NSScreen+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSScreen+Screenshot.swift"; sourceTree = "<group>"; };
 		2184873A1F05473F009EE112 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
-		2184873B1F05473F009EE112 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2184873B1F05473F009EE112 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		2184873D1F05473F009EE112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2184873F1F05473F009EE112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		218487411F05473F009EE112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Popover.storyboard; sourceTree = "<group>"; };
 		218487421F05473F009EE112 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		218487511F054873009EE112 /* NSColor+DefaultColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+DefaultColors.swift"; sourceTree = "<group>"; };
 		218487531F054926009EE112 /* NSColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Hex.swift"; sourceTree = "<group>"; };
 		2184875C1F054C3D009EE112 /* ContrastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContrastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		218487691F054C8F009EE112 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		2184876D1F054CA2009EE112 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
+		218487921F055B21009EE112 /* ColorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorInput.swift; sourceTree = "<group>"; };
+		218487941F055B42009EE112 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		218487961F055B81009EE112 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		218487981F055D10009EE112 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				218487561F0549F0009EE112 /* Application */,
-				218487571F0549F4009EE112 /* Form */,
+				218487571F0549F4009EE112 /* Popover */,
 				218487551F0549E8009EE112 /* Eye Dropper */,
 				218487501F0547AD009EE112 /* Colors */,
 			);
@@ -117,7 +136,6 @@
 			children = (
 				2184873D1F05473F009EE112 /* Assets.xcassets */,
 				2184873E1F05473F009EE112 /* Main.storyboard */,
-				218487401F05473F009EE112 /* Popover.storyboard */,
 				218487421F05473F009EE112 /* Info.plist */,
 				218487691F054C8F009EE112 /* Tests-Info.plist */,
 			);
@@ -130,7 +148,6 @@
 				2184873A1F05473F009EE112 /* Score.swift */,
 				218487531F054926009EE112 /* NSColor+Hex.swift */,
 				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
-				218487511F054873009EE112 /* NSColor+DefaultColors.swift */,
 			);
 			name = Colors;
 			sourceTree = "<group>";
@@ -150,17 +167,22 @@
 			isa = PBXGroup;
 			children = (
 				218487331F05473F009EE112 /* AppDelegate.swift */,
-				218487371F05473F009EE112 /* MenuBarController.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
 		};
-		218487571F0549F4009EE112 /* Form */ = {
+		218487571F0549F4009EE112 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
-				2184873B1F05473F009EE112 /* ViewController.swift */,
+				218487371F05473F009EE112 /* MenuBarController.swift */,
+				2184873B1F05473F009EE112 /* PopoverViewController.swift */,
+				218487921F055B21009EE112 /* ColorInput.swift */,
+				218487941F055B42009EE112 /* TextField.swift */,
+				2184879A1F055D49009EE112 /* Label.swift */,
+				218487961F055B81009EE112 /* Button.swift */,
+				218487981F055D10009EE112 /* Theme.swift */,
 			);
-			name = Form;
+			name = Popover;
 			sourceTree = "<group>";
 		};
 		2184876C1F054CA2009EE112 /* Tests */ = {
@@ -181,6 +203,7 @@
 				218487021F04642C009EE112 /* Sources */,
 				218487031F04642C009EE112 /* Frameworks */,
 				218487041F04642C009EE112 /* Resources */,
+				2184878E1F055827009EE112 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2184874C1F05473F009EE112 /* Assets.xcassets in Resources */,
-				2184874E1F05473F009EE112 /* Popover.storyboard in Resources */,
 				2184874D1F05473F009EE112 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,11 +302,15 @@
 				218487481F05473F009EE112 /* NSColor+Contrast.swift in Sources */,
 				218487541F054926009EE112 /* NSColor+Hex.swift in Sources */,
 				2184874A1F05473F009EE112 /* Score.swift in Sources */,
-				218487521F054873009EE112 /* NSColor+DefaultColors.swift in Sources */,
-				2184874B1F05473F009EE112 /* ViewController.swift in Sources */,
+				218487951F055B42009EE112 /* TextField.swift in Sources */,
+				2184879B1F055D49009EE112 /* Label.swift in Sources */,
+				2184874B1F05473F009EE112 /* PopoverViewController.swift in Sources */,
+				218487971F055B81009EE112 /* Button.swift in Sources */,
+				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
 				218487441F05473F009EE112 /* EyeDropper.swift in Sources */,
 				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
 				218487461F05473F009EE112 /* GridView.swift in Sources */,
+				218487991F055D10009EE112 /* Theme.swift in Sources */,
 				218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */,
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
 			);
@@ -315,14 +341,6 @@
 				2184873F1F05473F009EE112 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		218487401F05473F009EE112 /* Popover.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				218487411F05473F009EE112 /* Base */,
-			);
-			name = Popover.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

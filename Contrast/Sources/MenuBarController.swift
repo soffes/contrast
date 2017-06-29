@@ -16,24 +16,8 @@ final class MenuBarController {
 
 	private let popover: NSPopover
 
-	private let arrowView: NSView = {
-		let view = NSView()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.wantsLayer = true
-		return view
-	}()
-
 	static var shared: MenuBarController? {
 		return (NSApp.delegate as? AppDelegate)?.menuBarController
-	}
-
-	var backgroundColor: NSColor = .clear {
-		didSet {
-			arrowView.layer?.backgroundColor = backgroundColor.cgColor
-
-			popover.contentViewController?.view.wantsLayer = true
-			popover.contentViewController?.view.layer?.backgroundColor = backgroundColor.cgColor
-		}
 	}
 
 
@@ -47,7 +31,7 @@ final class MenuBarController {
 
 		// Create popover
 		popover = NSPopover()
-		popover.contentViewController = NSStoryboard(name: "Popover", bundle: nil).instantiateInitialController() as? NSViewController
+		popover.contentViewController = PopoverViewController()
 
 		// Setup button in menu bar item
 		statusItem.button?.target = self
@@ -74,19 +58,6 @@ final class MenuBarController {
 
 		NSApp.activate(ignoringOtherApps: true)
 		popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-
-		// Add arrow view hack
-		guard let container = popover.contentViewController?.view.superview else { return }
-
-		container.addSubview(arrowView)
-		arrowView.layer?.backgroundColor = backgroundColor.cgColor
-
-		NSLayoutConstraint.activate([
-			arrowView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-			arrowView.topAnchor.constraint(equalTo: container.topAnchor),
-			arrowView.widthAnchor.constraint(equalTo: container.widthAnchor),
-			arrowView.heightAnchor.constraint(equalToConstant: 15)
-		])
 	}
 
 	@objc func dismissPopover(_ sender: Any?) {
