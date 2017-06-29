@@ -31,15 +31,12 @@ final class EyeDropper: NSWindowController {
 	}
 
 
-	// MARK: - NSResponder
+	// MARK: - Actions
 
 	@objc func cancel(_ sender: Any?) {
 		window?.orderOut(sender)
 		delegate?.eyeDropperDidCancel()
 	}
-
-
-	// MARK: - Actions
 
 	func magnify() {
 

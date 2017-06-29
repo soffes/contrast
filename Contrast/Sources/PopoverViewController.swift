@@ -10,6 +10,8 @@ import Cocoa
 
 class PopoverViewController: NSViewController {
 
+	// MARK: - Properties
+
 	private let stackView: NSStackView = {
 		let view = NSStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -46,6 +48,11 @@ class PopoverViewController: NSViewController {
 		view.wantsLayer = true
 		return view
 	}()
+
+	fileprivate var windowController: EyeDropper?
+
+
+	// MARK: - NSViewController
 
 	override func loadView() {
 		view = NSView()
@@ -108,17 +115,12 @@ class PopoverViewController: NSViewController {
 		])
 	}
 
-//	@IBAction func colorWellDidChange(_ sender: Any?) {
-//		scoreLabel.textColor = colorWell1.color
-//		MenuBarController.shared?.backgroundColor = colorWell2.color
-//
-//		calculateContrastRatio()
-//	}
-//
-//	private func calculateContrastRatio() {
-//		let contrastRatio = NSColor.contrastRatio(colorWell1.color, colorWell2.color)
-//		scoreLabel.stringValue = Score(contrastRatio: contrastRatio).description
-//	}
+	override func viewDidDisappear() {
+		super.viewDidDisappear()
+
+		windowController?.cancel(self)
+	}
+
 
 	// MARK: - Private
 
@@ -136,8 +138,6 @@ class PopoverViewController: NSViewController {
 		foregroundInput.theme = theme
 		foregroundInput.color = theme.foregroundColor
 	}
-
-	fileprivate var windowController: NSWindowController?
 
 	@objc private func pickColor(_ sender: Button) {
 		foregroundInput.button.isActive = foregroundInput.button == sender
