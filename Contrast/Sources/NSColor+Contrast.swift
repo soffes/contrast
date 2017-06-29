@@ -9,10 +9,10 @@
 import AppKit
 
 extension NSColor {
-	// From https://en.wikipedia.org/wiki/Relative_luminance
+	// From https://www.w3.org/TR/WCAG20/#relativeluminancedef
 	var relativeLuminance: CGFloat {
-		if colorSpace != .displayP3 {
-			return usingColorSpace(.displayP3)?.relativeLuminance ?? 0
+		if colorSpace != .sRGB {
+			return usingColorSpace(.sRGB)?.relativeLuminance ?? 0
 		}
 
 		var red: CGFloat = 0
@@ -21,11 +21,15 @@ extension NSColor {
 
 		getRed(&red, green: &green, blue: &blue, alpha: nil)
 
+		red = red <= 0.03928 ? red / 12.92 : pow(((red + 0.055) / 1.055), 2.4)
+		green = green <= 0.03928 ? green / 12.92 : pow(((green + 0.055) / 1.055), 2.4)
+		blue = blue <= 0.03928 ? blue / 12.92 : pow(((blue + 0.055) / 1.055), 2.4)
+
 		return 0.2126 * red + 0.7152 * green + 0.0722 * blue
 	}
 
 	// From https://www.w3.org/TR/WCAG20/#contrast-ratiodef
-	static func constrastRatio(_ color1: NSColor, _ color2: NSColor) -> CGFloat {
+	static func contrastRatio(_ color1: NSColor, _ color2: NSColor) -> CGFloat {
 		let lum1 = color1.relativeLuminance
 		let lum2 = color2.relativeLuminance
 

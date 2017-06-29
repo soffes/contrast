@@ -19,7 +19,20 @@
 		2184874C1F05473F009EE112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2184873D1F05473F009EE112 /* Assets.xcassets */; };
 		2184874D1F05473F009EE112 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2184873E1F05473F009EE112 /* Main.storyboard */; };
 		2184874E1F05473F009EE112 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218487401F05473F009EE112 /* Popover.storyboard */; };
+		218487521F054873009EE112 /* NSColor+DefaultColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487511F054873009EE112 /* NSColor+DefaultColors.swift */; };
+		218487541F054926009EE112 /* NSColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487531F054926009EE112 /* NSColor+Hex.swift */; };
+		2184876E1F054CA2009EE112 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184876D1F054CA2009EE112 /* ColorTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		218487611F054C3E009EE112 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218486FE1F04642C009EE112 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 218487051F04642C009EE112;
+			remoteInfo = Contrast;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,10 +49,22 @@
 		2184873F1F05473F009EE112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		218487411F05473F009EE112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Popover.storyboard; sourceTree = "<group>"; };
 		218487421F05473F009EE112 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		218487511F054873009EE112 /* NSColor+DefaultColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+DefaultColors.swift"; sourceTree = "<group>"; };
+		218487531F054926009EE112 /* NSColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Hex.swift"; sourceTree = "<group>"; };
+		2184875C1F054C3D009EE112 /* ContrastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContrastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		218487691F054C8F009EE112 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		2184876D1F054CA2009EE112 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		218487031F04642C009EE112 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		218487591F054C3D009EE112 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -61,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				218487061F04642C009EE112 /* Contrast.app */,
+				2184875C1F054C3D009EE112 /* ContrastTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +96,7 @@
 			children = (
 				218487321F05473F009EE112 /* Sources */,
 				2184873C1F05473F009EE112 /* Support */,
+				2184876C1F054CA2009EE112 /* Tests */,
 			);
 			path = Contrast;
 			sourceTree = "<group>";
@@ -77,14 +104,10 @@
 		218487321F05473F009EE112 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				218487331F05473F009EE112 /* AppDelegate.swift */,
-				218487341F05473F009EE112 /* EyeDropper.swift */,
-				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
-				218487361F05473F009EE112 /* GridView.swift */,
-				218487371F05473F009EE112 /* MenuBarController.swift */,
+				218487561F0549F0009EE112 /* Application */,
+				218487571F0549F4009EE112 /* Form */,
+				218487551F0549E8009EE112 /* Eye Dropper */,
 				218487501F0547AD009EE112 /* Colors */,
-				218487391F05473F009EE112 /* NSScreen+Screenshot.swift */,
-				2184873B1F05473F009EE112 /* ViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -96,6 +119,7 @@
 				2184873E1F05473F009EE112 /* Main.storyboard */,
 				218487401F05473F009EE112 /* Popover.storyboard */,
 				218487421F05473F009EE112 /* Info.plist */,
+				218487691F054C8F009EE112 /* Tests-Info.plist */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -103,10 +127,48 @@
 		218487501F0547AD009EE112 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
 				2184873A1F05473F009EE112 /* Score.swift */,
+				218487531F054926009EE112 /* NSColor+Hex.swift */,
+				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
+				218487511F054873009EE112 /* NSColor+DefaultColors.swift */,
 			);
 			name = Colors;
+			sourceTree = "<group>";
+		};
+		218487551F0549E8009EE112 /* Eye Dropper */ = {
+			isa = PBXGroup;
+			children = (
+				218487341F05473F009EE112 /* EyeDropper.swift */,
+				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
+				218487361F05473F009EE112 /* GridView.swift */,
+				218487391F05473F009EE112 /* NSScreen+Screenshot.swift */,
+			);
+			name = "Eye Dropper";
+			sourceTree = "<group>";
+		};
+		218487561F0549F0009EE112 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				218487331F05473F009EE112 /* AppDelegate.swift */,
+				218487371F05473F009EE112 /* MenuBarController.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		218487571F0549F4009EE112 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				2184873B1F05473F009EE112 /* ViewController.swift */,
+			);
+			name = Form;
+			sourceTree = "<group>";
+		};
+		2184876C1F054CA2009EE112 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2184876D1F054CA2009EE112 /* ColorTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +191,24 @@
 			productReference = 218487061F04642C009EE112 /* Contrast.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2184875B1F054C3D009EE112 /* ContrastTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 218487631F054C3E009EE112 /* Build configuration list for PBXNativeTarget "ContrastTests" */;
+			buildPhases = (
+				218487581F054C3D009EE112 /* Sources */,
+				218487591F054C3D009EE112 /* Frameworks */,
+				2184875A1F054C3D009EE112 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				218487621F054C3E009EE112 /* PBXTargetDependency */,
+			);
+			name = ContrastTests;
+			productName = ContrastTests;
+			productReference = 2184875C1F054C3D009EE112 /* ContrastTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -143,6 +223,12 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = UP9C8XM22A;
 						ProvisioningStyle = Automatic;
+					};
+					2184875B1F054C3D009EE112 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = UP9C8XM22A;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 218487051F04642C009EE112;
 					};
 				};
 			};
@@ -160,6 +246,7 @@
 			projectRoot = "";
 			targets = (
 				218487051F04642C009EE112 /* Contrast */,
+				2184875B1F054C3D009EE112 /* ContrastTests */,
 			);
 		};
 /* End PBXProject section */
@@ -175,6 +262,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2184875A1F054C3D009EE112 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -184,7 +278,9 @@
 			files = (
 				218487491F05473F009EE112 /* NSScreen+Screenshot.swift in Sources */,
 				218487481F05473F009EE112 /* NSColor+Contrast.swift in Sources */,
+				218487541F054926009EE112 /* NSColor+Hex.swift in Sources */,
 				2184874A1F05473F009EE112 /* Score.swift in Sources */,
+				218487521F054873009EE112 /* NSColor+DefaultColors.swift in Sources */,
 				2184874B1F05473F009EE112 /* ViewController.swift in Sources */,
 				218487441F05473F009EE112 /* EyeDropper.swift in Sources */,
 				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
@@ -194,7 +290,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		218487581F054C3D009EE112 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2184876E1F054CA2009EE112 /* ColorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		218487621F054C3E009EE112 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 218487051F04642C009EE112 /* Contrast */;
+			targetProxy = 218487611F054C3E009EE112 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2184873E1F05473F009EE112 /* Main.storyboard */ = {
@@ -340,6 +452,36 @@
 			};
 			name = Release;
 		};
+		218487641F054C3E009EE112 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UP9C8XM22A;
+				INFOPLIST_FILE = "Contrast/Support/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.ContrastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contrast.app/Contents/MacOS/Contrast";
+			};
+			name = Debug;
+		};
+		218487651F054C3E009EE112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UP9C8XM22A;
+				INFOPLIST_FILE = "Contrast/Support/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.ContrastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contrast.app/Contents/MacOS/Contrast";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -360,6 +502,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		218487631F054C3E009EE112 /* Build configuration list for PBXNativeTarget "ContrastTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				218487641F054C3E009EE112 /* Debug */,
+				218487651F054C3E009EE112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

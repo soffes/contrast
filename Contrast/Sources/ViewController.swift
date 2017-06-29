@@ -27,7 +27,7 @@ class ViewController: NSViewController {
 	}
 
 	private func calculateContrastRatio() {
-		let contrastRatio = NSColor.constrastRatio(colorWell1.color, colorWell2.color)
+		let contrastRatio = NSColor.contrastRatio(colorWell1.color, colorWell2.color)
 		scoreLabel.stringValue = Score(contrastRatio: contrastRatio).description
 	}
 }
