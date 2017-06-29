@@ -10,13 +10,13 @@ import AppKit
 
 private final class EyeDropperWindowView: NSView {
 	let reticleView: NSView = {
-		let view = NSView(frame: CGRect(x: 0, y: 0, width: 128, height: 128))
+		let view = NSView(frame: CGRect(x: 0, y: 0, width: 170, height: 170))
 		view.isHidden = true
 
 		let layer = CAShapeLayer()
 		layer.lineWidth = 4
 		layer.path = CGPath(ellipseIn: view.bounds.insetBy(dx: layer.lineWidth / 2, dy: layer.lineWidth / 2), transform: nil)
-		layer.strokeColor = NSColor.black.cgColor
+		layer.strokeColor = NSColor(white: 0.125, alpha: 1).cgColor
 		layer.fillColor = nil
 
 		view.wantsLayer = true
@@ -24,6 +24,9 @@ private final class EyeDropperWindowView: NSView {
 
 		return view
 	}()
+
+	private let imageView = NSImageView()
+	private let gridView = GridView(rows: 17, columns: 17, dimension: 10)
 
 	private var trackingArea: NSTrackingArea?
 	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved, .cursorUpdate, .mouseEnteredAndExited, .activeInActiveApp]
@@ -38,6 +41,24 @@ private final class EyeDropperWindowView: NSView {
 		self.trackingArea = trackingArea
 
 		addSubview(reticleView)
+
+		let maskPath = CGPath(ellipseIn: reticleView.bounds.insetBy(dx: 4, dy: 4), transform: nil)
+		var mask = CAShapeLayer()
+		mask.path = maskPath
+
+		imageView.imageAlignment = .alignCenter
+		imageView.imageScaling = .scaleNone
+		imageView.frame = reticleView.bounds
+		imageView.wantsLayer = true
+		imageView.layer?.mask = mask
+		reticleView.addSubview(imageView)
+
+		mask = CAShapeLayer()
+		mask.path = maskPath
+
+		gridView.wantsLayer = true
+		gridView.layer?.mask = mask
+		reticleView.addSubview(gridView)
 	}
 
 	override func updateTrackingAreas() {
@@ -54,6 +75,20 @@ private final class EyeDropperWindowView: NSView {
 		rect.origin.y = position.y - rect.height / 2
 
 		reticleView.frame = rect
+
+		let magnification: CGFloat = 10
+		let captureSize = CGSize(width: 17, height: 17)
+
+		let image = NSScreen.main()!.screenshot(frame: CGRect(x: position.x - (captureSize.width / 2), y: position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height))!
+
+		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification))
+		scaled.lockFocus()
+
+		NSGraphicsContext.current()?.imageInterpolation = .none
+		image.draw(in: CGRect(x: 0, y: 0, width: captureSize.width * magnification, height: captureSize.height * magnification), from: CGRect(origin: .zero, size: captureSize), operation: .sourceOver, fraction: 1)
+		scaled.unlockFocus()
+
+		imageView.image = scaled
 	}
 }
 
@@ -65,6 +100,8 @@ final class EyeDropperWindow: NSWindow {
 	init() {
 		super.init(contentRect: NSScreen.main()?.frame ?? .zero, styleMask: .borderless, backing: .buffered, defer: false)
 
+		identifier = "com.nothingmagical.contrast.eyedropper"
+		
 		backgroundColor = .clear
 		isOpaque = false
 		hasShadow = false

@@ -24,5 +24,25 @@ extension AppDelegate: NSApplicationDelegate {
 		let eyeDropper = EyeDropper()
 		eyeDropper.magnify()
 		windowController = eyeDropper
+
+
+//		let list = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID)! //as! [[String: Any]]
+
+//		print("count: \(list.count)")
+//
+//		let filtered = list//.filter {
+//			if $0[String(kCGWindowOwnerPID)] as? pid_t == NSRunningApplication.current().processIdentifier {
+//				return false
+//			}
+//
+//			return true
+//		}
+//
+//		print("count: \(filtered.count)")
+
+//		let cgImage = CGImage(windowListFromArrayScreenBounds: NSScreen.main()!.frame, windowArray: filtered as CFArray, imageOption: .nominalResolution)
+//		let image = NSImage()
+//		image.addRepresentation(NSBitmapImageRep(cgImage: cgImage!))
+//		print("image: \(image)")
 	}
 }
