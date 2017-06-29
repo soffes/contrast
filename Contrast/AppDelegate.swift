@@ -19,7 +19,7 @@ import AppKit
 
 extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-//		menuBarController.showPopover(self)
+		menuBarController.showPopover(self)
 
 		let eyeDropper = EyeDropper()
 		eyeDropper.magnify()
