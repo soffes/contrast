@@ -89,8 +89,6 @@ class PopoverViewController: NSViewController {
 	override func viewDidAppear() {
 		super.viewDidAppear()
 
-		view.window?.makeFirstResponder(foregroundInput.textField)
-
 		guard let container = view.superview, arrowView.superview == nil else { return }
 
 		container.addSubview(arrowView)
@@ -125,5 +123,11 @@ class PopoverViewController: NSViewController {
 
 		scoreLabel.textColor = theme.foregroundColor
 		contrastRatioLabel.textColor = theme.foregroundColor
+
+		backgroundInput.theme = theme
+		backgroundInput.color = theme.backgroundColor
+
+		foregroundInput.theme = theme
+		foregroundInput.color = theme.foregroundColor
 	}
 }

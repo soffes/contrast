@@ -12,7 +12,12 @@ final class ColorInput: NSControl {
 
 	// MARK: - Properties
 
-	var color: NSColor = .white
+	var color: NSColor = .white {
+		didSet {
+			textField.stringValue = color.hex() ?? ""
+		}
+	}
+
 	var theme: Theme = .default {
 		didSet {
 			button.theme = theme
