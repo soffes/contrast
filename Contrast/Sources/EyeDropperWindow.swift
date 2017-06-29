@@ -73,9 +73,9 @@ private final class EyeDropperWindowView: NSView {
 		positionReticle(at: position)
 	}
 
-	private func positionReticle(at position: CGPoint) {
+	func positionReticle(at position: CGPoint) {
 		// TODO: This won't work on multiple screens
-		guard let screen = NSScreen.main() else { return }
+		guard let screen = NSScreen.main(), let window = window else { return }
 
 		let position = convert(position, from: nil)
 		
@@ -88,13 +88,21 @@ private final class EyeDropperWindowView: NSView {
 		let magnification: CGFloat = 10
 		let captureSize = CGSize(width: 17, height: 17)
 
-		let image = screen.screenshot(frame: CGRect(x: position.x - (captureSize.width / 2), y: screen.frame.height - position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height))!
+		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: screen.frame.height - position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height)
+		let windowID = UInt32(window.windowNumber)
+
+		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID, []) else { return }
 
 		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification))
 		scaled.lockFocus()
 
-		NSGraphicsContext.current()?.imageInterpolation = .none
-		image.draw(in: CGRect(x: 0, y: 0, width: captureSize.width * magnification, height: captureSize.height * magnification), from: CGRect(origin: .zero, size: captureSize), operation: .sourceOver, fraction: 1)
+		if let gc = NSGraphicsContext.current() {
+			gc.imageInterpolation = .none
+
+			let scaledRect = CGRect(x: 0, y: 0, width: captureSize.width * magnification, height: captureSize.height * magnification)
+			gc.cgContext.draw(cgImage, in: scaledRect)
+		}
+
 		scaled.unlockFocus()
 
 		imageView.image = scaled
@@ -134,5 +142,6 @@ final class EyeDropperWindow: NSWindow {
 		super.becomeKey()
 		NSCursor.hide()
 		view.reticleView.isHidden = false
+		view.positionReticle(at: mouseLocationOutsideOfEventStream)
 	}
 }
