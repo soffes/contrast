@@ -13,16 +13,43 @@ final class ColorInput: NSControl {
 	// MARK: - Properties
 
 	var color: NSColor = .white
+	var theme: Theme = .default {
+		didSet {
+			button.theme = theme
+			textField.theme = theme
+		}
+	}
 
-	let button: Button = {
-		let view = Button()
+	private let stackView: NSStackView = {
+		let view = NSStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
+		view.spacing = 8
 		return view
 	}()
 
-	let textField: TextField = {
-		let view = TextField()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		return view
-	}()
+	let button: Button = Button()
+
+	let textField = TextField()
+
+
+	// MARK: - Initializers
+
+	override init(frame: NSRect) {
+		super.init(frame: frame)
+
+		stackView.addArrangedSubview(button)
+		stackView.addArrangedSubview(textField)
+		addSubview(stackView)
+
+		NSLayoutConstraint.activate([
+			stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+			stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+			stackView.topAnchor.constraint(equalTo: topAnchor),
+			stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+		])
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 }

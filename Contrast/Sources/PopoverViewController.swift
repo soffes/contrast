@@ -13,6 +13,7 @@ class PopoverViewController: NSViewController {
 	private let stackView: NSStackView = {
 		let view = NSStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
+		view.spacing = 8
 		return view
 	}()
 
@@ -22,13 +23,14 @@ class PopoverViewController: NSViewController {
 		view.contentInsets = EdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
 		return view
 	}()
-//
-//	private let foregroundInput: ColorInput
-//	private let backgroundInput: ColorInput
+
+	private let foregroundInput = ColorInput()
+	private let backgroundInput = ColorInput()
 
 	private let contrastRatioLabel: Label = {
 		let view = Label()
 		view.font = .systemFont(ofSize: 12, weight: NSFontWeightBold)
+		view.alignment = .right
 		view.contentInsets = EdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
 		return view
 	}()
@@ -57,6 +59,9 @@ class PopoverViewController: NSViewController {
 		view.addSubview(stackView)
 
 		stackView.addArrangedSubview(scoreLabel)
+		stackView.addArrangedSubview(foregroundInput)
+		stackView.addSpace()
+		stackView.addArrangedSubview(backgroundInput)
 		stackView.addArrangedSubview(contrastRatioLabel)
 
 		NSLayoutConstraint.activate([

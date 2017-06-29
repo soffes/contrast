@@ -27,6 +27,8 @@ final class LabelCell: NSTextFieldCell {
 		var rect = super.drawingRect(forBounds: theRect)
 		rect.origin.x += contentInsets.left
 		rect.origin.y += contentInsets.top
+		rect.size.width -= contentInsets.right
+		rect.size.height -= contentInsets.bottom
 		return rect
 	}
 }
