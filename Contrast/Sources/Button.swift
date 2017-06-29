@@ -8,19 +8,41 @@
 
 import AppKit
 
+extension Theme {
+	var buttonFillColor: NSColor {
+		if isDark {
+			return NSColor(white: 0, alpha: 0.1)
+		}
+
+		return NSColor(white: 1, alpha: 0.05)
+	}
+
+	var buttonBorderColor: NSColor {
+		if isDark {
+			return NSColor(white: 0, alpha: 0.3)
+		}
+
+		return NSColor(white: 0, alpha: 0.2)
+	}
+
+	func buttonImageColor(_ isHighlighted: Bool) -> NSColor {
+		return NSColor(white: isDark ? 1 : 0, alpha: isHighlighted ? 1 : 0.7)
+	}
+}
+
+
 private final class ButtonCell: NSButtonCell {
+
 	var theme: Theme = .default
 
 	override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {
 		let bounds = controlView.bounds
 
-		let fill = NSBezierPath(roundedRect: bounds, xRadius: 4, yRadius: 4)
-		NSColor(white: 1, alpha: 0.05).setFill()
-		fill.fill()
+		theme.buttonFillColor.setFill()
+		NSBezierPath(roundedRect: bounds, xRadius: 4, yRadius: 4).fill()
 
-		let border = NSBezierPath(roundedRect: bounds.insetBy(dx: 0.5, dy: 0.5), xRadius: 4, yRadius: 4)
-		NSColor(white: 0, alpha: 0.2).setStroke()
-		border.stroke()
+		theme.buttonBorderColor.setStroke()
+		NSBezierPath(roundedRect: bounds.insetBy(dx: 0.5, dy: 0.5), xRadius: 4, yRadius: 4).stroke()
 	}
 
 	override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {
@@ -32,7 +54,7 @@ private final class ButtonCell: NSButtonCell {
 		rect.origin.x += (bounds.width - rect.width) / 2
 		rect.origin.y += (bounds.height - rect.height) / 2
 
-		image.tinting(with: NSColor(white: 0, alpha: isHighlighted ? 1 : 0.7)).draw(in: rect)
+		image.tinting(with: theme.buttonImageColor(isHighlighted)).draw(in: rect)
 	}
 }
 

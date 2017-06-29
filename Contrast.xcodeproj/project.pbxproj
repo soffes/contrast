@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21616E661F0587B20095EFAC /* SpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21616E651F0587B20095EFAC /* SpaceView.swift */; };
 		21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21616E671F058A220095EFAC /* NSImage+Tint.swift */; };
 		218487431F05473F009EE112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487331F05473F009EE112 /* AppDelegate.swift */; };
 		218487441F05473F009EE112 /* EyeDropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487341F05473F009EE112 /* EyeDropper.swift */; };
@@ -53,7 +52,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		21616E651F0587B20095EFAC /* SpaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceView.swift; sourceTree = "<group>"; };
 		21616E671F058A220095EFAC /* NSImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218487331F05473F009EE112 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				218487571F0549F4009EE112 /* Popover */,
 				218487551F0549E8009EE112 /* Eye Dropper */,
 				218487501F0547AD009EE112 /* Colors */,
-				21616E651F0587B20095EFAC /* SpaceView.swift */,
 				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
 			);
 			path = Sources;
@@ -306,7 +303,6 @@
 			files = (
 				21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */,
 				218487491F05473F009EE112 /* NSScreen+Screenshot.swift in Sources */,
-				21616E661F0587B20095EFAC /* SpaceView.swift in Sources */,
 				218487481F05473F009EE112 /* NSColor+Contrast.swift in Sources */,
 				218487541F054926009EE112 /* NSColor+Hex.swift in Sources */,
 				2184874A1F05473F009EE112 /* Score.swift in Sources */,

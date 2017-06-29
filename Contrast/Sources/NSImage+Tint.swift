@@ -9,7 +9,7 @@
 import AppKit
 
 extension NSImage {
-	func tinting(with tintColor: NSColor) -> NSImage! {
+	func tinting(with tintColor: NSColor) -> NSImage {
 		guard let cgImage = self.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return self }
 
 		return NSImage(size: size, flipped: false) { bounds in

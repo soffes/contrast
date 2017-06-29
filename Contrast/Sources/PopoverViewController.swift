@@ -13,7 +13,6 @@ class PopoverViewController: NSViewController {
 	private let stackView: NSStackView = {
 		let view = NSStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.spacing = 8
 		return view
 	}()
 
@@ -59,9 +58,11 @@ class PopoverViewController: NSViewController {
 		view.addSubview(stackView)
 
 		stackView.addArrangedSubview(scoreLabel)
+		stackView.setCustomSpacing(4, after: scoreLabel)
 		stackView.addArrangedSubview(foregroundInput)
-		stackView.addSpace()
+		stackView.setCustomSpacing(12, after: foregroundInput)
 		stackView.addArrangedSubview(backgroundInput)
+		stackView.setCustomSpacing(4, after: backgroundInput)
 		stackView.addArrangedSubview(contrastRatioLabel)
 
 		NSLayoutConstraint.activate([
@@ -81,10 +82,14 @@ class PopoverViewController: NSViewController {
 		// Testing
 		scoreLabel.stringValue = "AAA"
 		contrastRatioLabel.stringValue = "21.00"
+
+		foregroundInput.textField.nextKeyView = backgroundInput.textField
 	}
 
 	override func viewDidAppear() {
 		super.viewDidAppear()
+
+		view.window?.makeFirstResponder(foregroundInput.textField)
 
 		guard let container = view.superview, arrowView.superview == nil else { return }
 
