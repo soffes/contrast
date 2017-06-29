@@ -10,6 +10,14 @@ import Cocoa
 
 class PopoverViewController: NSViewController {
 
+	// MARK: - Types
+
+	private enum Position {
+		case foreground
+		case background
+	}
+
+
 	// MARK: - Properties
 
 	private let stackView: NSStackView = {
@@ -36,7 +44,7 @@ class PopoverViewController: NSViewController {
 		return view
 	}()
 
-	private var theme = Theme.`default` {
+	fileprivate var theme = Theme.`default` {
 		didSet {
 			themeDidChange()
 		}
@@ -49,6 +57,7 @@ class PopoverViewController: NSViewController {
 		return view
 	}()
 
+	fileprivate var position: Position = .foreground
 	fileprivate var windowController: EyeDropper?
 
 
@@ -91,12 +100,6 @@ class PopoverViewController: NSViewController {
 		])
 
 		themeDidChange()
-
-		// Testing
-		scoreLabel.stringValue = "AAA"
-		contrastRatioLabel.stringValue = "21.00"
-
-		foregroundInput.textField.nextKeyView = backgroundInput.textField
 	}
 
 	override func viewDidAppear() {
@@ -137,11 +140,17 @@ class PopoverViewController: NSViewController {
 
 		foregroundInput.theme = theme
 		foregroundInput.color = theme.foregroundColor
+
+		let contrastRatio = NSColor.contrastRatio(theme.foregroundColor, theme.backgroundColor)
+		contrastRatioLabel.stringValue = String(format: "%0.2f", contrastRatio)
+		scoreLabel.stringValue = Score(contrastRatio: contrastRatio).description
 	}
 
 	@objc private func pickColor(_ sender: Button) {
 		foregroundInput.button.isActive = foregroundInput.button == sender
 		backgroundInput.button.isActive = backgroundInput.button == sender
+
+		position = foregroundInput.button.isActive ? .foreground : .background
 
 		let eyeDropper = EyeDropper(delegate: self)
 		eyeDropper.magnify()
@@ -151,6 +160,15 @@ class PopoverViewController: NSViewController {
 
 
 extension PopoverViewController: EyeDropperDelegate {
+	func eyeDropperDidSelectColor(_ color: NSColor) {
+		switch position {
+		case .foreground:
+			theme.foregroundColor = color
+		case .background:
+			theme.backgroundColor = color
+		}
+	}
+
 	func eyeDropperDidCancel() {
 		windowController = nil
 		foregroundInput.button.isActive = false

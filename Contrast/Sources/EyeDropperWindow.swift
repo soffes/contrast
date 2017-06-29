@@ -25,11 +25,24 @@ private final class EyeDropperWindowView: NSView {
 		return view
 	}()
 
-	private let imageView = NSImageView()
-	private let gridView = GridView(rows: 17, columns: 17, dimension: 10)
+	fileprivate let imageView = NSImageView()
+
+	private let magnification: CGFloat = 20
+	private let captureSize = CGSize(width: 17, height: 17)
+	private let gridView: GridView
 
 	private var trackingArea: NSTrackingArea?
 	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved, .cursorUpdate, .mouseEnteredAndExited, .activeInActiveApp]
+
+	init() {
+		gridView = GridView(rows: Int(captureSize.height), columns: Int(captureSize.width), dimension: magnification / 2)
+
+		super.init(frame: .zero)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 
 	func setupTracking() {
 		if self.trackingArea != nil {
@@ -85,9 +98,6 @@ private final class EyeDropperWindowView: NSView {
 
 		reticleView.frame = rect
 
-		let magnification: CGFloat = 10
-		let captureSize = CGSize(width: 17, height: 17)
-
 		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: screen.frame.height - position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height)
 		let windowID = UInt32(window.windowNumber)
 
@@ -112,7 +122,16 @@ private final class EyeDropperWindowView: NSView {
 
 final class EyeDropperWindow: NSWindow {
 
+	// MARK: - Properties
+
 	private let view = EyeDropperWindowView()
+
+	var image: NSImage? {
+		return view.imageView.image
+	}
+
+
+	// MARK: - Initializers
 
 	init() {
 		super.init(contentRect: NSScreen.main()?.frame ?? .zero, styleMask: .borderless, backing: .buffered, defer: false)
@@ -127,6 +146,9 @@ final class EyeDropperWindow: NSWindow {
 		view.setupTracking()
 		contentView = view
 	}
+
+
+	// MARK: - NSWindow
 
 	override var canBecomeKey: Bool {
 		return true

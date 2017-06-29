@@ -9,6 +9,7 @@
 import AppKit
 
 protocol EyeDropperDelegate: class {
+	func eyeDropperDidSelectColor(_ color: NSColor)
 	func eyeDropperDidCancel()
 }
 
@@ -24,6 +25,9 @@ final class EyeDropper: NSWindowController {
 	init(delegate: EyeDropperDelegate) {
 		self.delegate = delegate
 		super.init(window: EyeDropperWindow())
+
+		let click = NSClickGestureRecognizer(target: self, action: #selector(selectColor))
+		window?.contentView?.addGestureRecognizer(click)
 	}
 	
 	required init?(coder: NSCoder) {
@@ -36,6 +40,19 @@ final class EyeDropper: NSWindowController {
 	@objc func cancel(_ sender: Any?) {
 		window?.orderOut(sender)
 		delegate?.eyeDropperDidCancel()
+	}
+
+	@objc private func selectColor() {
+		if let window = window as? EyeDropperWindow,
+			let image = window.image,
+			let data = image.tiffRepresentation,
+			let rasterized = NSBitmapImageRep(data: data),
+			let color = rasterized.colorAt(x: rasterized.pixelsWide / 2, y: rasterized.pixelsHigh / 2) {
+
+				delegate?.eyeDropperDidSelectColor(color)
+		}
+
+		cancel(self)
 	}
 
 	func magnify() {

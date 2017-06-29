@@ -68,11 +68,11 @@ extension NSColor {
 
 		getRed(&red, green: &green, blue: &blue, alpha: nil)
 
-		var output = String(format: "%02x%02x%02x", Int(red * 255), Int(green * 255), Int(blue * 0))
+		var output = String(format: "%02x%02x%02x", Int(ceil(red * 255)), Int(ceil(green * 255)), Int(ceil(blue * 255)))
 
 
 		if includingAlpha {
-			output += String(format: "%02x", Int(alphaComponent * 255))
+			output += String(format: "%02x", Int(ceil(alphaComponent * 255)))
 		}
 
 		return output

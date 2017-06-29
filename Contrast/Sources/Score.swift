@@ -56,7 +56,7 @@ extension Score: CustomStringConvertible {
 	var description: String {
 		switch self {
 		case .fail: return "Fail"
-		case .aaLarge: return "AA Large"
+		case .aaLarge: return "AA+"
 		case .aa: return "AA"
 		case .aaa: return "AAA"
 		}
