@@ -8,21 +8,44 @@
 
 import AppKit
 
+fileprivate extension Theme {
+	func textFieldBackground(isFirstResponder: Bool) -> NSColor {
+		if isFirstResponder {
+			return isDark ? NSColor(white: 0, alpha: 0.4) : NSColor.white
+		}
+
+		return isDark ? NSColor(white: 0, alpha: 0.2) : NSColor(white: 0, alpha: 0.05)
+	}
+
+	func textFieldBorder(isFirstResponder: Bool) -> NSColor {
+		if isFirstResponder {
+			return isDark ? NSColor(white: 0, alpha: 0.8) : NSColor(white: 0, alpha: 0.4)
+		}
+
+		return isDark ? NSColor(white: 0, alpha: 0.5) : NSColor(white: 0, alpha: 0.2)
+	}
+
+	var textFieldTextColor: NSColor {
+		return isDark ? .white : .black
+	}
+}
+
+
 private final class TextFieldCell: NSTextFieldCell {
 	var theme: Theme = .default
 
 	override func drawInterior(withFrame frame: NSRect, in view: NSView) {
 		let bounds = view.bounds.insetBy(dx: 4, dy: 4)
 
-		NSColor(white: 0, alpha: showsFirstResponder ? 0.4 : 0.2).setStroke()
+		theme.textFieldBorder(isFirstResponder: showsFirstResponder).setStroke()
 		NSBezierPath(roundedRect: bounds.insetBy(dx: 0.5, dy: 0.5), xRadius: 4, yRadius: 4).stroke()
 
-		(showsFirstResponder ? NSColor.white : NSColor(white: 0, alpha: 0.05)).setFill()
+		theme.textFieldBackground(isFirstResponder: showsFirstResponder).setFill()
 		NSBezierPath(roundedRect: bounds.insetBy(dx: 1, dy: 1), xRadius: 4, yRadius: 4).fill()
 
 		// Custom focus ring
 		if showsFirstResponder {
-			NSColor(white: 0, alpha: 0.2).setStroke()
+			theme.focusRingColor.setStroke()
 
 			let path = NSBezierPath(roundedRect: view.bounds.insetBy(dx: 2, dy: 2), xRadius: 7, yRadius: 7)
 			path.lineWidth = 4
@@ -98,6 +121,7 @@ final class TextField: NSTextField {
 
 	private func themeDidChange() {
 		textFieldCell?.theme = theme
+		textColor = theme.textFieldTextColor
 		setNeedsDisplay()
 	}
 }

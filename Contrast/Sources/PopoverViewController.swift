@@ -12,9 +12,16 @@ class PopoverViewController: NSViewController {
 
 	// MARK: - Types
 
-	private enum Position {
+	fileprivate enum Position {
 		case foreground
 		case background
+
+		var opposite: Position {
+			switch self {
+			case .foreground: return .background
+			case .background: return .foreground
+			}
+		}
 	}
 
 
@@ -57,8 +64,18 @@ class PopoverViewController: NSViewController {
 		return view
 	}()
 
-	fileprivate var position: Position = .foreground
-	fileprivate var windowController: EyeDropper?
+	fileprivate var position: Position? {
+		didSet {
+			foregroundInput.button.isActive = position == .foreground
+			backgroundInput.button.isActive = position == .background
+		}
+	}
+	
+	fileprivate var windowController: EyeDropper? {
+		willSet {
+			windowController?.window?.orderOut(self)
+		}
+	}
 
 
 	// MARK: - NSViewController
@@ -147,10 +164,7 @@ class PopoverViewController: NSViewController {
 	}
 
 	@objc private func pickColor(_ sender: Button) {
-		foregroundInput.button.isActive = foregroundInput.button == sender
-		backgroundInput.button.isActive = backgroundInput.button == sender
-
-		position = foregroundInput.button.isActive ? .foreground : .background
+		position = foregroundInput.button == sender ? .foreground : .background
 
 		let eyeDropper = EyeDropper(delegate: self)
 		eyeDropper.magnify()
@@ -160,18 +174,30 @@ class PopoverViewController: NSViewController {
 
 
 extension PopoverViewController: EyeDropperDelegate {
-	func eyeDropperDidSelectColor(_ color: NSColor) {
+	func eyeDropperDidSelectColor(_ color: NSColor, continuePicking: Bool) {
+		guard let position = position else { return }
+
 		switch position {
 		case .foreground:
 			theme.foregroundColor = color
 		case .background:
 			theme.backgroundColor = color
 		}
+
+		if continuePicking {
+			self.position = position.opposite
+
+			let eyeDropper = EyeDropper(delegate: self)
+			eyeDropper.magnify()
+			windowController = eyeDropper
+		} else {
+			windowController = nil
+			self.position = nil
+		}
 	}
 
 	func eyeDropperDidCancel() {
 		windowController = nil
-		foregroundInput.button.isActive = false
-		backgroundInput.button.isActive = false
+		position = nil
 	}
 }

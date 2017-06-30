@@ -9,7 +9,7 @@
 import AppKit
 
 protocol EyeDropperDelegate: class {
-	func eyeDropperDidSelectColor(_ color: NSColor)
+	func eyeDropperDidSelectColor(_ color: NSColor, continuePicking: Bool)
 	func eyeDropperDidCancel()
 }
 
@@ -25,9 +25,6 @@ final class EyeDropper: NSWindowController {
 	init(delegate: EyeDropperDelegate) {
 		self.delegate = delegate
 		super.init(window: EyeDropperWindow())
-
-		let click = NSClickGestureRecognizer(target: self, action: #selector(selectColor))
-		window?.contentView?.addGestureRecognizer(click)
 	}
 	
 	required init?(coder: NSCoder) {
@@ -35,24 +32,21 @@ final class EyeDropper: NSWindowController {
 	}
 
 
+	// MARK: - NSResponder
+
+	override func mouseDown(with event: NSEvent) {
+		let shouldContinue = event.modifierFlags.contains(.shift)
+
+		if let color = currentColor() {
+			delegate?.eyeDropperDidSelectColor(color, continuePicking: shouldContinue)
+		}
+	}
+
 	// MARK: - Actions
 
 	@objc func cancel(_ sender: Any?) {
 		window?.orderOut(sender)
 		delegate?.eyeDropperDidCancel()
-	}
-
-	@objc private func selectColor() {
-		if let window = window as? EyeDropperWindow,
-			let image = window.image,
-			let data = image.tiffRepresentation,
-			let rasterized = NSBitmapImageRep(data: data),
-			let color = rasterized.colorAt(x: rasterized.pixelsWide / 2, y: rasterized.pixelsHigh / 2) {
-
-				delegate?.eyeDropperDidSelectColor(color)
-		}
-
-		cancel(self)
 	}
 
 	func magnify() {
@@ -67,5 +61,21 @@ final class EyeDropper: NSWindowController {
 
 		NSApp.activate(ignoringOtherApps: true)
 		window.makeKeyAndOrderFront(self)
+	}
+
+
+	// MARK: - Private
+
+	private func currentColor() -> NSColor? {
+		guard let window = window as? EyeDropperWindow,
+			let image = window.image,
+			let data = image.tiffRepresentation,
+			let rasterized = NSBitmapImageRep(data: data),
+			let color = rasterized.colorAt(x: rasterized.pixelsWide / 2, y: rasterized.pixelsHigh / 2)
+		else {
+			return nil
+		}
+
+		return color
 	}
 }

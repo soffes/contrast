@@ -24,6 +24,13 @@ struct Theme {
 
 
 extension Theme {
+	var focusRingColor: NSColor {
+		return NSColor(white: 0, alpha: 0.2)
+	}
+}
+
+
+extension Theme {
 	private static var defaultDarkBackground: NSColor {
 		return NSColor(hex: "2e")!
 	}
