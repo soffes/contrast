@@ -99,11 +99,15 @@ class PopoverViewController: NSViewController {
 		stackView.setCustomSpacing(4, after: backgroundInput)
 		stackView.addArrangedSubview(contrastRatioLabel)
 
-		foregroundInput.button.target = self
-		foregroundInput.button.action = #selector(pickColor)
+		for button in [foregroundInput.button, backgroundInput.button] {
+			button.target = self
+			button.action = #selector(pickColor)
+		}
 
-		backgroundInput.button.target = self
-		backgroundInput.button.action = #selector(pickColor)
+		for textField in [foregroundInput.textField, backgroundInput.textField] {
+			textField.target = self
+			textField.action = #selector(editColor)
+		}
 
 		NSLayoutConstraint.activate([
 			view.heightAnchor.constraint(equalToConstant: 54),
@@ -170,6 +174,16 @@ class PopoverViewController: NSViewController {
 		let eyeDropper = EyeDropper(delegate: self)
 		eyeDropper.magnify()
 		windowController = eyeDropper
+	}
+
+	@objc private func editColor(_ sender: TextField) {
+		guard let color = NSColor(hex: sender.stringValue) else { return }
+
+		if sender == foregroundInput.textField {
+			theme.foregroundColor = color
+		} else  {
+			theme.backgroundColor = color
+		}
 	}
 }
 

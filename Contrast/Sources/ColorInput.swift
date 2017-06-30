@@ -14,7 +14,13 @@ final class ColorInput: NSControl {
 
 	var color: NSColor = .white {
 		didSet {
-			textField.stringValue = color.hex() ?? ""
+			let hex = color.hex() ?? ""
+
+			if textField.stringValue.lowercased() == hex.lowercased() {
+				return
+			}
+			
+			textField.stringValue = hex
 		}
 	}
 
