@@ -11,9 +11,7 @@ import AppKit
 final class LabelCell: NSTextFieldCell {
 	// MARK: - Properties
 
-	var contentInsets: EdgeInsets = EdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-
-		{
+	var contentInsets = NSEdgeInsetsZero {
 		didSet {
 			controlView?.needsLayout = true
 		}
@@ -48,17 +46,29 @@ final class Label: NSTextField {
 		}
 	}
 
+	private var labelCell: LabelCell? {
+		return cell as? LabelCell
+	}
+
 
 	// MARK: - Initializers
 
 	override init(frame frameRect: NSRect) {
 		super.init(frame: frameRect)
-		initialize()
+
+		guard let cell = labelCell else { return }
+
+		cell.isEditable = false
+		cell.drawsBackground = false
+		cell.usesSingleLineMode = true
+		cell.lineBreakMode = .byTruncatingTail
+		cell.isScrollable = false
+		cell.isEnabled = false
+		cell.isBezeled = false
 	}
 
 	required init?(coder: NSCoder) {
-		super.init(coder: coder)
-		initialize()
+		fatalError("init(coder:) has not been implemented")
 	}
 
 
@@ -76,24 +86,5 @@ final class Label: NSTextField {
 
 	override class func cellClass() -> AnyClass? {
 		return LabelCell.self
-	}
-
-
-	// MARK: - Private
-
-	var labelCell: LabelCell? {
-		return cell as? LabelCell
-	}
-
-	private func initialize() {
-		if let cell = labelCell {
-			cell.isEditable = false
-			cell.drawsBackground = false
-			cell.usesSingleLineMode = true
-			cell.lineBreakMode = .byTruncatingTail
-			cell.isScrollable = false
-			cell.isEnabled = false
-			cell.isBezeled = false
-		}
 	}
 }
