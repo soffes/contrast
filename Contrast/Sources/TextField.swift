@@ -64,7 +64,7 @@ private final class TextFieldCell: NSTextFieldCell {
 	}
 
 	private func adjust(_ frame: CGRect) -> CGRect {
-		return frame.insetBy(dx: 10, dy: 4)
+		return frame.insetBy(dx: 10, dy: 5)
 	}
 }
 
@@ -78,16 +78,6 @@ final class TextField: NSTextField {
 		}
 	}
 
-	override var stringValue: String {
-		didSet {
-			attributedStringValue = NSAttributedString(string: stringValue, attributes: [
-				NSFontAttributeName: NSFont(name: "Native-Regular", size: 13)!,
-				NSForegroundColorAttributeName: theme.textFieldTextColor,
-				NSKernAttributeName: 0.29
-			])
-		}
-	}
-
 
 	// MARK: - Initializers
 
@@ -98,6 +88,8 @@ final class TextField: NSTextField {
 		isBezeled = false
 		backgroundColor = .clear
 		focusRingType = .none
+
+		font = NSFont(name: "Native-Regular", size: 13)
 	}
 
 	required init?(coder: NSCoder) {
@@ -108,7 +100,7 @@ final class TextField: NSTextField {
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
-		return CGSize(width: 63 + 8, height: 22 + 8)
+		return CGSize(width: 62 + 8, height: 22 + 8)
 	}
 
 
@@ -130,6 +122,7 @@ final class TextField: NSTextField {
 
 	private func themeDidChange() {
 		textFieldCell?.theme = theme
+		textColor = theme.textFieldTextColor
 		setNeedsDisplay()
 	}
 }
