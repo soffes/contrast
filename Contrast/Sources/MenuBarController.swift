@@ -34,9 +34,14 @@ final class MenuBarController {
 		popover.contentViewController = PopoverViewController()
 
 		// Setup button in menu bar item
-		statusItem.button?.target = self
-		statusItem.button?.action = #selector(togglePopover)
-		statusItem.button?.sendAction(on: .leftMouseDown)
+		NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
+			if event.window == self?.statusItem.button?.window {
+				self?.togglePopover(self?.statusItem.button)
+				return nil
+			}
+
+			return event
+		}
 
 		// Register for notifications
 		NotificationCenter.default.addObserver(self, selector: #selector(dismissPopover), name: .NSApplicationWillResignActive, object: nil)
@@ -56,11 +61,15 @@ final class MenuBarController {
 	@objc func showPopover(_ sender: Any?) {
 		guard let button = statusItem.button else { return }
 
+		button.isHighlighted = true
+
 		NSApp.activate(ignoringOtherApps: true)
 		popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
 	}
 
 	@objc func dismissPopover(_ sender: Any?) {
+		statusItem.button?.isHighlighted = false
+
 		popover.close()
 
 		if NSApp.isActive {
