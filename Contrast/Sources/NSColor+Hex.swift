@@ -75,6 +75,6 @@ extension NSColor {
 			output += String(format: "%02x", Int(ceil(alphaComponent * 255)))
 		}
 
-		return output
+		return output.uppercased()
 	}
 }
