@@ -8,11 +8,11 @@
 
 import AppKit
 
-final class MenuBarController {
+final class MenuBarController: NSObject {
 
 	// MARK: - Properties
 
-	private let statusItem: NSStatusItem
+	fileprivate let statusItem: NSStatusItem
 
 	private let popover: NSPopover
 
@@ -23,7 +23,7 @@ final class MenuBarController {
 
 	// MARK: - Initializers
 
-	init() {
+	override init() {
 		// Create menu bar item
 		let statusBar = NSStatusBar.system()
 		statusItem = statusBar.statusItem(withLength: 28)
@@ -33,10 +33,22 @@ final class MenuBarController {
 		popover = NSPopover()
 		popover.contentViewController = PopoverViewController()
 
-		// Setup button in menu bar item
+		super.init()
+
+		// Show popover event
 		NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
 			if event.window == self?.statusItem.button?.window {
 				self?.togglePopover(self?.statusItem.button)
+				return nil
+			}
+
+			return event
+		}
+
+		// Show menu event
+		NSEvent.addLocalMonitorForEvents(matching: .rightMouseDown) { [weak self] event in
+			if event.window == self?.statusItem.button?.window, let button = self?.statusItem.button {
+				self?.showMenu(button, event: event)
 				return nil
 			}
 
@@ -49,6 +61,15 @@ final class MenuBarController {
 
 
 	// MARK: - Actions
+
+	@objc func showMenu(_ sender: NSButton, event: NSEvent) {
+		let menu = NSMenu()
+		menu.delegate = self
+		menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "q")
+
+		sender.isHighlighted = true
+		statusItem.popUpMenu(menu)
+	}
 
 	@objc func togglePopover(_ sender: Any?) {
 		if popover.isShown {
@@ -75,5 +96,12 @@ final class MenuBarController {
 		if NSApp.isActive {
 			NSApp.deactivate()
 		}
+	}
+}
+
+
+extension MenuBarController: NSMenuDelegate {
+	func menuDidClose(_ menu: NSMenu) {
+		statusItem.button?.isHighlighted = false
 	}
 }
