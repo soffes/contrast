@@ -30,6 +30,7 @@ class PopoverViewController: NSViewController {
 	private let stackView: NSStackView = {
 		let view = NSStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
+		view.spacing = 0
 		return view
 	}()
 

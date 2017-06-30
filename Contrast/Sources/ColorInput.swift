@@ -28,7 +28,7 @@ final class ColorInput: NSControl {
 	private let stackView: NSStackView = {
 		let view = NSStackView()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.spacing = 4
+		view.spacing = 0
 		return view
 	}()
 
