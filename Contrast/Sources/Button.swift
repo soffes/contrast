@@ -49,7 +49,7 @@ private final class ButtonCell: NSButtonCell {
 	var isActive = false
 
 	override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {
-		let bounds = controlView.bounds
+		let bounds = controlView.bounds.insetBy(dx: 4, dy: 4)
 
 		theme.buttonFillColor(isActive: isActive).setFill()
 		NSBezierPath(roundedRect: bounds, xRadius: 4, yRadius: 4).fill()
@@ -58,10 +58,10 @@ private final class ButtonCell: NSButtonCell {
 		NSBezierPath(roundedRect: bounds.insetBy(dx: 0.5, dy: 0.5), xRadius: 4, yRadius: 4).stroke()
 	}
 
-	override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {
+	override func drawInterior(withFrame frame: NSRect, in view: NSView) {
 		guard let image = image else { return }
 
-		let bounds = controlView.bounds
+		let bounds = view.bounds
 
 		// Glow
 		if isActive {
@@ -76,6 +76,15 @@ private final class ButtonCell: NSButtonCell {
 
 		let imageColor = theme.buttonImageColor(isActive: isActive, isHighlighted: isHighlighted)
 		image.tinting(with: imageColor).draw(in: rect)
+
+		// Custom focus ring
+		if showsFirstResponder {
+			theme.focusRingColor.setStroke()
+
+			let path = NSBezierPath(roundedRect: view.bounds.insetBy(dx: 2, dy: 2), xRadius: 7, yRadius: 7)
+			path.lineWidth = 4
+			path.stroke()
+		}
 	}
 }
 
@@ -105,6 +114,7 @@ final class Button: NSButton {
 
 		title = ""
 		image = #imageLiteral(resourceName: "EyeDropper")
+		focusRingType = .none
 	}
 	
 	required init?(coder: NSCoder) {
@@ -115,7 +125,7 @@ final class Button: NSButton {
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
-		return CGSize(width: 32, height: 22)
+		return CGSize(width: 32 + 8, height: 22 + 8)
 	}
 
 
