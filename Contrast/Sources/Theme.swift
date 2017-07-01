@@ -25,7 +25,7 @@ struct Theme {
 
 extension Theme {
 	var focusRingColor: NSColor {
-		return NSColor(white: 0, alpha: 0.2)
+		return NSColor(white: isDark ? 1 : 0, alpha: 0.2)
 	}
 }
 
