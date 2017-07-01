@@ -32,19 +32,19 @@ extension Theme {
 
 extension Theme {
 	private static var defaultDarkBackground: NSColor {
-		return NSColor(hex: "2e")!
+		return NSColor(hex: "2e2e2e")!
 	}
 
 	private static var defaultDarkForeground: NSColor {
-		return NSColor(hex: "bf")!
+		return NSColor(hex: "ffffff")!
 	}
 
 	private static var defaultLightBackground: NSColor {
-		return NSColor(hex: "f9")!
+		return NSColor(hex: "f9f9f9")!
 	}
 
 	private static var defaultLightForeground: NSColor {
-		return NSColor(hex: "54")!
+		return NSColor(hex: "545454")!
 	}
 
 	static var `default`: Theme {
