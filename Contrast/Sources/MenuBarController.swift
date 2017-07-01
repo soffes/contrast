@@ -31,6 +31,7 @@ final class MenuBarController: NSObject {
 
 		// Create popover
 		popover = NSPopover()
+		popover.animates = false
 		popover.contentViewController = PopoverViewController()
 
 		super.init()
