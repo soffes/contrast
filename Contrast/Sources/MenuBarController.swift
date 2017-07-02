@@ -14,7 +14,7 @@ final class MenuBarController: NSObject {
 
 	fileprivate let statusItem: NSStatusItem
 
-	private let popover: NSPopover
+	fileprivate let popover: NSPopover
 
 	static var shared: MenuBarController? {
 		return (NSApp.delegate as? AppDelegate)?.menuBarController
@@ -57,7 +57,7 @@ final class MenuBarController: NSObject {
 		}
 
 		// Register for notifications
-		NotificationCenter.default.addObserver(self, selector: #selector(dismissPopover), name: .NSApplicationWillResignActive, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(didResignActive), name: .NSApplicationWillResignActive, object: nil)
 	}
 
 
@@ -66,6 +66,8 @@ final class MenuBarController: NSObject {
 	@objc func showMenu(_ sender: NSButton, event: NSEvent) {
 		let menu = NSMenu()
 		menu.delegate = self
+		menu.addItem(withTitle: "Preferences…", action: #selector(AppDelegate.showPreferences), keyEquivalent: ",")
+		menu.addItem(.separator())
 		menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "q")
 
 		sender.isHighlighted = true
@@ -98,11 +100,19 @@ final class MenuBarController: NSObject {
 			NSApp.deactivate()
 		}
 	}
+
+	@objc private func didResignActive(_ notification: NSNotification?) {
+		if UserDefaults.standard.bool(forKey: "ContrastAlwaysOnTop") == true {
+			return
+		}
+
+		dismissPopover(notification)
+	}
 }
 
 
 extension MenuBarController: NSMenuDelegate {
 	func menuDidClose(_ menu: NSMenu) {
-		statusItem.button?.isHighlighted = false
+		statusItem.button?.isHighlighted = popover.isShown
 	}
 }

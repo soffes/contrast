@@ -26,6 +26,8 @@
 		218487971F055B81009EE112 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487961F055B81009EE112 /* Button.swift */; };
 		218487991F055D10009EE112 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487981F055D10009EE112 /* Theme.swift */; };
 		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
+		2190AEA81F08686200912B37 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2190AEA61F08686200912B37 /* Preferences.storyboard */; };
+		2190AEAA1F086B1800912B37 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEA91F086B1800912B37 /* PreferencesWindow.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		218487961F055B81009EE112 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		218487981F055D10009EE112 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		2190AEA71F08686200912B37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Preferences.storyboard; sourceTree = "<group>"; };
+		2190AEA91F086B1800912B37 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 				218487551F0549E8009EE112 /* Eye Dropper */,
 				218487501F0547AD009EE112 /* Colors */,
 				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
+				2190AEA91F086B1800912B37 /* PreferencesWindow.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			children = (
 				2184873D1F05473F009EE112 /* Assets.xcassets */,
 				2184873E1F05473F009EE112 /* Main.storyboard */,
+				2190AEA61F08686200912B37 /* Preferences.storyboard */,
 				21E685431F05E0ED00471E6C /* Fonts */,
 				218487421F05473F009EE112 /* Info.plist */,
 				218487691F054C8F009EE112 /* Tests-Info.plist */,
@@ -297,6 +303,7 @@
 				2184874C1F05473F009EE112 /* Assets.xcassets in Resources */,
 				21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */,
 				2184874D1F05473F009EE112 /* Main.storyboard in Resources */,
+				2190AEA81F08686200912B37 /* Preferences.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +349,7 @@
 				218487971F055B81009EE112 /* Button.swift in Sources */,
 				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
 				218487441F05473F009EE112 /* EyeDropper.swift in Sources */,
+				2190AEAA1F086B1800912B37 /* PreferencesWindow.swift in Sources */,
 				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
 				218487461F05473F009EE112 /* GridView.swift in Sources */,
 				218487991F055D10009EE112 /* Theme.swift in Sources */,
@@ -375,6 +383,14 @@
 				2184873F1F05473F009EE112 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2190AEA61F08686200912B37 /* Preferences.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2190AEA71F08686200912B37 /* Base */,
+			);
+			name = Preferences.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
