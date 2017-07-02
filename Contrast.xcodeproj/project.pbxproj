@@ -28,6 +28,7 @@
 		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
 		2190AEA81F08686200912B37 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2190AEA61F08686200912B37 /* Preferences.storyboard */; };
 		2190AEAA1F086B1800912B37 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEA91F086B1800912B37 /* PreferencesWindow.swift */; };
+		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		2190AEA71F08686200912B37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Preferences.storyboard; sourceTree = "<group>"; };
 		2190AEA91F086B1800912B37 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
+		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,11 +134,13 @@
 			isa = PBXGroup;
 			children = (
 				218487561F0549F0009EE112 /* Application */,
-				218487571F0549F4009EE112 /* Popover */,
-				218487551F0549E8009EE112 /* Eye Dropper */,
-				218487501F0547AD009EE112 /* Colors */,
-				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
-				2190AEA91F086B1800912B37 /* PreferencesWindow.swift */,
+				218487571F0549F4009EE112 /* Controllers */,
+				2190AEAE1F08769900912B37 /* Window Controllers */,
+				2190AEB11F0876D300912B37 /* View Controllers */,
+				218487501F0547AD009EE112 /* Models */,
+				2190AEAD1F08768000912B37 /* Views */,
+				2190AEAF1F0876A100912B37 /* Windows */,
+				2190AEB01F0876AF00912B37 /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -154,25 +158,13 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		218487501F0547AD009EE112 /* Colors */ = {
+		218487501F0547AD009EE112 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				218487981F055D10009EE112 /* Theme.swift */,
 				2184873A1F05473F009EE112 /* Score.swift */,
-				218487531F054926009EE112 /* NSColor+Hex.swift */,
-				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
 			);
-			name = Colors;
-			sourceTree = "<group>";
-		};
-		218487551F0549E8009EE112 /* Eye Dropper */ = {
-			isa = PBXGroup;
-			children = (
-				218487341F05473F009EE112 /* EyeDropper.swift */,
-				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
-				218487361F05473F009EE112 /* GridView.swift */,
-				218487391F05473F009EE112 /* NSScreen+Screenshot.swift */,
-			);
-			name = "Eye Dropper";
+			name = Models;
 			sourceTree = "<group>";
 		};
 		218487561F0549F0009EE112 /* Application */ = {
@@ -183,18 +175,12 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
-		218487571F0549F4009EE112 /* Popover */ = {
+		218487571F0549F4009EE112 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				218487371F05473F009EE112 /* MenuBarController.swift */,
-				2184873B1F05473F009EE112 /* PopoverViewController.swift */,
-				218487921F055B21009EE112 /* ColorInput.swift */,
-				218487941F055B42009EE112 /* TextField.swift */,
-				2184879A1F055D49009EE112 /* Label.swift */,
-				218487961F055B81009EE112 /* Button.swift */,
-				218487981F055D10009EE112 /* Theme.swift */,
 			);
-			name = Popover;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		2184876C1F054CA2009EE112 /* Tests */ = {
@@ -203,6 +189,55 @@
 				2184876D1F054CA2009EE112 /* ColorTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		2190AEAD1F08768000912B37 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2190AEAB1F08763800912B37 /* EyeDropperView.swift */,
+				218487921F055B21009EE112 /* ColorInput.swift */,
+				218487941F055B42009EE112 /* TextField.swift */,
+				2184879A1F055D49009EE112 /* Label.swift */,
+				218487961F055B81009EE112 /* Button.swift */,
+				218487361F05473F009EE112 /* GridView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2190AEAE1F08769900912B37 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				218487341F05473F009EE112 /* EyeDropper.swift */,
+			);
+			name = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		2190AEAF1F0876A100912B37 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
+				2190AEA91F086B1800912B37 /* PreferencesWindow.swift */,
+			);
+			name = Windows;
+			sourceTree = "<group>";
+		};
+		2190AEB01F0876AF00912B37 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				218487391F05473F009EE112 /* NSScreen+Screenshot.swift */,
+				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
+				218487531F054926009EE112 /* NSColor+Hex.swift */,
+				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		2190AEB11F0876D300912B37 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2184873B1F05473F009EE112 /* PopoverViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		21E685431F05E0ED00471E6C /* Fonts */ = {
@@ -347,6 +382,7 @@
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
 				2184874B1F05473F009EE112 /* PopoverViewController.swift in Sources */,
 				218487971F055B81009EE112 /* Button.swift in Sources */,
+				2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */,
 				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
 				218487441F05473F009EE112 /* EyeDropper.swift in Sources */,
 				2190AEAA1F086B1800912B37 /* PreferencesWindow.swift in Sources */,
