@@ -58,17 +58,41 @@ task :build do
   system 'rm -rf build'
 
   # Tag
+  latest_tag = `git describe --tags --abbrev=0`.chomp
   tag_name = "v#{short_version}-#{version}"
   system %(git tag #{tag_name})
 
   # Done!
   puts "\n\nSuccess! Created #{zip}. Created git tag '#{tag_name}'.\n\n"
+
+  recent_changes(latest_tag)
 end
 
 task :default => :build
 
+desc 'Print changes since latest tag'
+task :log do
+  recent_changes
+end
 
 desc 'Clean up builds'
 task :clean do
   system 'rm -rf build *.zip'
+end
+
+private
+
+def recent_changes(latest_tag = `git describe --tags --abbrev=0`.chomp)
+  # Find latest tag
+  scope = if latest_tag
+    puts "Changes since the latest tag:\n\n"
+    "#{latest_tag}..HEAD"
+  else
+    puts "No tags yet. All changes since the project started:\n\n"
+    ''
+  end
+
+  # Print changes since last tag
+  log = `git log #{scope} --pretty=format:'%s' --abbrev-commit`.chomp
+  puts log.gsub(/^([\w])/, '• \1') + "\n\n"
 end
