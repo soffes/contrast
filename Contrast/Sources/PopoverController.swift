@@ -83,4 +83,8 @@ extension PopoverController: NSPopoverDelegate {
 	func popoverDidClose(_ notification: Notification) {
 		delegate?.popoverControllerDidDismiss(popover: popover)
 	}
+
+	func popoverShouldDetach(_ popover: NSPopover) -> Bool {
+		return true
+	}
 }
