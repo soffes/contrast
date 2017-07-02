@@ -32,14 +32,6 @@ fileprivate extension Theme {
 
 		return NSColor(white: 0, alpha: 0.2)
 	}
-
-	func buttonImageColor(isActive: Bool, isHighlighted: Bool) -> NSColor {
-		if isActive {
-			return .white
-		}
-
-		return NSColor(white: isDark ? 1 : 0, alpha: isHighlighted ? 1 : 0.7)
-	}
 }
 
 

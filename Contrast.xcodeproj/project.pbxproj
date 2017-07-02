@@ -16,7 +16,7 @@
 		218487481F05473F009EE112 /* NSColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487381F05473F009EE112 /* NSColor+Contrast.swift */; };
 		218487491F05473F009EE112 /* NSScreen+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487391F05473F009EE112 /* NSScreen+Screenshot.swift */; };
 		2184874A1F05473F009EE112 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873A1F05473F009EE112 /* Score.swift */; };
-		2184874B1F05473F009EE112 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873B1F05473F009EE112 /* PopoverViewController.swift */; };
+		2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873B1F05473F009EE112 /* ColorsViewController.swift */; };
 		2184874C1F05473F009EE112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2184873D1F05473F009EE112 /* Assets.xcassets */; };
 		2184874D1F05473F009EE112 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2184873E1F05473F009EE112 /* Main.storyboard */; };
 		218487541F054926009EE112 /* NSColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487531F054926009EE112 /* NSColor+Hex.swift */; };
@@ -28,6 +28,7 @@
 		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
+		21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +66,7 @@
 		218487381F05473F009EE112 /* NSColor+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Contrast.swift"; sourceTree = "<group>"; };
 		218487391F05473F009EE112 /* NSScreen+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSScreen+Screenshot.swift"; sourceTree = "<group>"; };
 		2184873A1F05473F009EE112 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
-		2184873B1F05473F009EE112 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		2184873B1F05473F009EE112 /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		2184873D1F05473F009EE112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2184873F1F05473F009EE112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		218487421F05473F009EE112 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
+		21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 				218487941F055B42009EE112 /* TextField.swift */,
 				2184879A1F055D49009EE112 /* Label.swift */,
 				218487961F055B81009EE112 /* Button.swift */,
+				21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */,
 				218487361F05473F009EE112 /* GridView.swift */,
 			);
 			name = Views;
@@ -232,7 +235,7 @@
 		2190AEB11F0876D300912B37 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2184873B1F05473F009EE112 /* PopoverViewController.swift */,
+				2184873B1F05473F009EE112 /* ColorsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -292,7 +295,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Nothing Magical, Inc.";
 				TargetAttributes = {
 					218487051F04642C009EE112 = {
@@ -376,7 +379,8 @@
 				2184874A1F05473F009EE112 /* Score.swift in Sources */,
 				218487951F055B42009EE112 /* TextField.swift in Sources */,
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
-				2184874B1F05473F009EE112 /* PopoverViewController.swift in Sources */,
+				2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */,
+				21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */,
 				218487971F055B81009EE112 /* Button.swift in Sources */,
 				2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */,
 				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
@@ -430,7 +434,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -438,7 +444,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -480,7 +490,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -488,7 +500,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

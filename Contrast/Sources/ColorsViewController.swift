@@ -1,5 +1,5 @@
 //
-//  PopoverViewController.swift
+//  ColorsViewController.swift
 //  Contrast
 //
 //  Created by Sam Soffes on 6/28/17.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PopoverViewController: NSViewController {
+class ColorsViewController: NSViewController {
 
 	// MARK: - Types
 
@@ -42,6 +42,9 @@ class PopoverViewController: NSViewController {
 	}()
 
 	fileprivate let foregroundInput = ColorInput()
+
+	private let swapButton = PlainButton()
+
 	fileprivate let backgroundInput = ColorInput()
 
 	private let contrastRatioLabel: Label = {
@@ -94,7 +97,9 @@ class PopoverViewController: NSViewController {
 		stackView.addArrangedSubview(scoreLabel)
 		stackView.setCustomSpacing(4, after: scoreLabel)
 		stackView.addArrangedSubview(foregroundInput)
-		stackView.setCustomSpacing(12, after: foregroundInput)
+		stackView.setCustomSpacing(4, after: foregroundInput)
+		stackView.addArrangedSubview(swapButton)
+		stackView.setCustomSpacing(4, after: swapButton)
 		stackView.addArrangedSubview(backgroundInput)
 		stackView.setCustomSpacing(4, after: backgroundInput)
 		stackView.addArrangedSubview(contrastRatioLabel)
@@ -108,6 +113,9 @@ class PopoverViewController: NSViewController {
 			textField.target = self
 			textField.action = #selector(editColor)
 		}
+
+		swapButton.target = self
+		swapButton.action = #selector(swapColors)
 
 		NSLayoutConstraint.activate([
 			view.heightAnchor.constraint(equalToConstant: 54),
@@ -160,6 +168,8 @@ class PopoverViewController: NSViewController {
 		backgroundInput.theme = theme
 		backgroundInput.color = theme.backgroundColor
 
+		swapButton.theme = theme
+
 		foregroundInput.theme = theme
 		foregroundInput.color = theme.foregroundColor
 
@@ -185,10 +195,14 @@ class PopoverViewController: NSViewController {
 			theme.backgroundColor = color
 		}
 	}
+
+	@objc private func swapColors(_ sender: Any?) {
+		theme.swap()
+	}
 }
 
 
-extension PopoverViewController: EyeDropperDelegate {
+extension ColorsViewController: EyeDropperDelegate {
 	func eyeDropperDidSelectColor(_ color: NSColor, continuePicking: Bool) {
 		guard let position = position else { return }
 

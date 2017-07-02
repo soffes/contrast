@@ -20,12 +20,28 @@ struct Theme {
 		self.foregroundColor = foregroundColor
 		self.backgroundColor = backgroundColor
 	}
+
+	mutating func swap() {
+		let foreground = foregroundColor
+		let background = backgroundColor
+
+		foregroundColor = background
+		backgroundColor = foreground
+	}
 }
 
 
 extension Theme {
 	var focusRingColor: NSColor {
 		return NSColor(white: isDark ? 1 : 0, alpha: 0.2)
+	}
+	
+	func buttonImageColor(isActive: Bool, isHighlighted: Bool) -> NSColor {
+		if isActive {
+			return .white
+		}
+
+		return NSColor(white: isDark ? 1 : 0, alpha: isHighlighted ? 1 : 0.7)
 	}
 }
 

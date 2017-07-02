@@ -30,7 +30,7 @@ final class PopoverController: NSObject {
 		// Create popover
 		popover = NSPopover()
 		popover.animates = false
-		popover.contentViewController = PopoverViewController()
+		popover.contentViewController = ColorsViewController()
 
 		super.init()
 
