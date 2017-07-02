@@ -3,6 +3,11 @@ TEAM_ID = 'UP9C8XM22A'
 
 desc 'Create a beta build'
 task :build do
+  # Ensure clean git state
+  unless system 'git diff-index --quiet HEAD --'
+    abort 'Failed. You have uncommitted changes.'
+  end
+
   # Start with a clean state
   build_dir = 'build'
   system %(rm -rf #{build_dir})
@@ -43,6 +48,7 @@ task :build do
 
   # Get version
   version = `/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "#{app}/Contents/Info.plist"`.chomp
+  short_version = `/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "#{app}/Contents/Info.plist"`.chomp
 
   # Compress
   zip = "#{APP_NAME.gsub(/\w/, '')}-#{version}.zip"
@@ -51,8 +57,12 @@ task :build do
   # Clean up
   system 'rm -rf build'
 
+  # Tag
+  tag_name = "v#{short_version}-#{version}"
+  system %(git tag #{tag_name})
+
   # Done!
-  puts "\n\nSuccess! Created #{zip}\n\n"
+  puts "\n\nSuccess! Created #{zip}. Created git tag '#{tag_name}'.\n\n"
 end
 
 task :default => :build
