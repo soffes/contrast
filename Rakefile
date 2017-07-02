@@ -11,12 +11,12 @@ task :build do
 
   # Start with a clean state
   build_dir = 'build'
-  system %(rm -rf #{build_dir})
+  sh %(rm -rf #{build_dir})
 
   # Build
-  system %(mkdir -p #{build_dir})
+  sh %(mkdir -p #{build_dir})
   archive_path = "#{build_dir}/#{APP_NAME}.xcarchive"
-  system %(xcodebuild archive -scheme "#{SCHEME_NAME}" -archivePath "#{archive_path}")
+  sh %(xcodebuild archive -scheme "#{SCHEME_NAME}" -archivePath "#{archive_path}")
 
   # Create export options
   export_options = "#{build_dir}/export-options.plist"
@@ -36,7 +36,7 @@ task :build do
   end
 
   # Export archive
-  system %(xcodebuild -exportArchive -archivePath "#{archive_path}"" -exportOptionsPlist #{export_options} -exportPath #{build_dir})
+  sh %(xcodebuild -exportArchive -archivePath "#{archive_path}" -exportOptionsPlist #{export_options} -exportPath #{build_dir})
 
   # Check code signing
   app = "#{build_dir}/#{APP_NAME}.app"
@@ -52,16 +52,16 @@ task :build do
   short_version = `/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "#{app}/Contents/Info.plist"`.chomp
 
   # Compress
-  zip = "#{APP_NAME.gsub(/\w/, '')}-#{version}.zip"
-  system %Q{ditto -c -k --sequesterRsrc --keepParent "#{app}" "#{zip}"}
+  zip = "#{APP_NAME.gsub(/\s/, '')}-#{version}.zip"
+  sh %Q{ditto -c -k --sequesterRsrc --keepParent "#{app}" "#{zip}"}
 
   # Clean up
-  system 'rm -rf build'
+  sh 'rm -rf build'
 
   # Tag
   latest_tag = `git describe --tags --abbrev=0`.chomp
   tag_name = "v#{short_version}-#{version}"
-  system %(git tag #{tag_name})
+  sh %(git tag #{tag_name})
 
   # Done!
   puts "\n\nSuccess! Created #{zip}. Created git tag '#{tag_name}'.\n\n"
