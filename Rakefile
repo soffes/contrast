@@ -86,7 +86,7 @@ private
 def recent_changes(latest_tag = `git describe --tags --abbrev=0`.chomp)
   # Find latest tag
   scope = if latest_tag
-    puts "Changes since the latest tag:\n\n"
+    puts "Changes since #{latest_tag}:\n\n"
     "#{latest_tag}..HEAD"
   else
     puts "No tags yet. All changes since the project started:\n\n"
