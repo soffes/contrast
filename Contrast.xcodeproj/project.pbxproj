@@ -29,6 +29,7 @@
 		2190AEA81F08686200912B37 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2190AEA61F08686200912B37 /* Preferences.storyboard */; };
 		2190AEAA1F086B1800912B37 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEA91F086B1800912B37 /* PreferencesWindow.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
+		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		2190AEA71F08686200912B37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Preferences.storyboard; sourceTree = "<group>"; };
 		2190AEA91F086B1800912B37 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
+		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				218487371F05473F009EE112 /* MenuBarController.swift */,
+				2190AEB21F09226200912B37 /* PopoverController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				218487991F055D10009EE112 /* Theme.swift in Sources */,
 				218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */,
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
+				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

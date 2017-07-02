@@ -14,10 +14,14 @@ final class MenuBarController: NSObject {
 
 	fileprivate let statusItem: NSStatusItem
 
-	fileprivate let popover: NSPopover
+	private let popoverController = PopoverController()
 
 	static var shared: MenuBarController? {
 		return (NSApp.delegate as? AppDelegate)?.menuBarController
+	}
+
+	var isShowingPopover: Bool {
+		return popoverController.popover.isShown
 	}
 
 
@@ -29,17 +33,14 @@ final class MenuBarController: NSObject {
 		statusItem = statusBar.statusItem(withLength: 28)
 		statusItem.image = #imageLiteral(resourceName: "MenuBarIcon")
 
-		// Create popover
-		popover = NSPopover()
-		popover.animates = false
-		popover.contentViewController = PopoverViewController()
-
 		super.init()
+
+		popoverController.delegate = self
 
 		// Show popover event
 		NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
 			if event.window == self?.statusItem.button?.window {
-				self?.togglePopover(self?.statusItem.button)
+				self?.popoverController.togglePopover(self?.statusItem.button)
 				return nil
 			}
 
@@ -55,15 +56,16 @@ final class MenuBarController: NSObject {
 
 			return event
 		}
-
-		// Register for notifications
-		NotificationCenter.default.addObserver(self, selector: #selector(didResignActive), name: .NSApplicationWillResignActive, object: nil)
 	}
 
 
 	// MARK: - Actions
 
-	@objc func showMenu(_ sender: NSButton, event: NSEvent) {
+	func showPopover(_ sender: Any?) {
+		popoverController.showPopover(sender)
+	}
+
+	func showMenu(_ sender: NSButton, event: NSEvent) {
 		let menu = NSMenu()
 		menu.delegate = self
 		menu.addItem(withTitle: "Preferences…", action: #selector(AppDelegate.showPreferences), keyEquivalent: ",")
@@ -73,46 +75,26 @@ final class MenuBarController: NSObject {
 		sender.isHighlighted = true
 		statusItem.popUpMenu(menu)
 	}
+}
 
-	@objc func togglePopover(_ sender: Any?) {
-		if popover.isShown {
-			dismissPopover(sender)
-		} else {
-			showPopover(sender)
-		}
+
+extension MenuBarController: PopoverControllerDelegate {
+	func popoverControllerWillShow(popover: NSPopover) -> NSView? {
+		return statusItem.button
 	}
 
-	@objc func showPopover(_ sender: Any?) {
-		guard let button = statusItem.button else { return }
-
-		button.isHighlighted = true
-
-		NSApp.activate(ignoringOtherApps: true)
-		popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+	func popoverControllerDidShow(popover: NSPopover) {
+		statusItem.button?.isHighlighted = true
 	}
 
-	@objc func dismissPopover(_ sender: Any?) {
+	func popoverControllerDidDismiss(popover: NSPopover) {
 		statusItem.button?.isHighlighted = false
-
-		popover.close()
-
-		if NSApp.isActive {
-			NSApp.deactivate()
-		}
-	}
-
-	@objc private func didResignActive(_ notification: NSNotification?) {
-		if UserDefaults.standard.bool(forKey: "ContrastAlwaysOnTop") == true {
-			return
-		}
-
-		dismissPopover(notification)
 	}
 }
 
 
 extension MenuBarController: NSMenuDelegate {
 	func menuDidClose(_ menu: NSMenu) {
-		statusItem.button?.isHighlighted = popover.isShown
+		statusItem.button?.isHighlighted = isShowingPopover
 	}
 }
