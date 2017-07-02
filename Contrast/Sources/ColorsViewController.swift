@@ -155,28 +155,7 @@ class ColorsViewController: NSViewController {
 	}
 
 
-	// MARK: - Private
-
-	private func themeDidChange() {
-		let background = theme.backgroundColor.cgColor
-		view.layer?.backgroundColor = background
-		arrowView.layer?.backgroundColor = background
-
-		scoreLabel.textColor = theme.foregroundColor
-		contrastRatioLabel.textColor = theme.foregroundColor
-
-		backgroundInput.theme = theme
-		backgroundInput.color = theme.backgroundColor
-
-		swapButton.theme = theme
-
-		foregroundInput.theme = theme
-		foregroundInput.color = theme.foregroundColor
-
-		let contrastRatio = NSColor.contrastRatio(theme.foregroundColor, theme.backgroundColor)
-		contrastRatioLabel.stringValue = String(format: "%0.2f", contrastRatio)
-		scoreLabel.stringValue = Score(contrastRatio: contrastRatio).description
-	}
+	// MARK: - Actions
 
 	@objc private func pickColor(_ sender: Button) {
 		position = foregroundInput.button == sender ? .foreground : .background
@@ -198,6 +177,30 @@ class ColorsViewController: NSViewController {
 
 	@objc private func swapColors(_ sender: Any?) {
 		theme.swap()
+	}
+
+
+	// MARK: - Private
+
+	private func themeDidChange() {
+		let background = theme.backgroundColor.cgColor
+		view.layer?.backgroundColor = background
+		arrowView.layer?.backgroundColor = background
+
+		scoreLabel.textColor = theme.foregroundColor
+		contrastRatioLabel.textColor = theme.foregroundColor
+
+		backgroundInput.theme = theme
+		backgroundInput.color = theme.backgroundColor
+
+		swapButton.theme = theme
+
+		foregroundInput.theme = theme
+		foregroundInput.color = theme.foregroundColor
+
+		let contrastRatio = NSColor.contrastRatio(theme.foregroundColor, theme.backgroundColor)
+		contrastRatioLabel.stringValue = String(format: "%0.2f", contrastRatio)
+		scoreLabel.stringValue = Score(contrastRatio: contrastRatio).description
 	}
 }
 
