@@ -68,9 +68,7 @@ final class MenuBarController: NSObject {
 	func showMenu(_ sender: NSButton, event: NSEvent) {
 		let menu = NSMenu()
 		menu.delegate = self
-		menu.addItem(withTitle: "Preferences…", action: #selector(AppDelegate.showPreferences), keyEquivalent: ",")
-		menu.addItem(.separator())
-		menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "q")
+		menu.addItem(withTitle: "Quit Contrast", action: #selector(NSApplication.terminate), keyEquivalent: "q")
 
 		sender.isHighlighted = true
 		statusItem.popUpMenu(menu)
@@ -88,6 +86,10 @@ extension MenuBarController: PopoverControllerDelegate {
 	}
 
 	func popoverControllerDidDismiss(popover: NSPopover) {
+		statusItem.button?.isHighlighted = false
+	}
+
+	func popoverControllerDidDetach(popover: NSPopover) {
 		statusItem.button?.isHighlighted = false
 	}
 }

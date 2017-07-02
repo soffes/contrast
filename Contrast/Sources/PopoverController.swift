@@ -12,6 +12,7 @@ protocol PopoverControllerDelegate: class {
 	func popoverControllerWillShow(popover: NSPopover) -> NSView?
 	func popoverControllerDidShow(popover: NSPopover)
 	func popoverControllerDidDismiss(popover: NSPopover)
+	func popoverControllerDidDetach(popover: NSPopover)
 }
 
 final class PopoverController: NSObject {
@@ -44,6 +45,11 @@ final class PopoverController: NSObject {
 
 	func togglePopover(_ sender: Any?) {
 		if popover.isShown {
+			if popover.isDetached {
+				dismissPopover(sender)
+				showPopover(sender)
+				return
+			}
 			dismissPopover(sender)
 		} else {
 			showPopover(sender)
@@ -66,7 +72,8 @@ final class PopoverController: NSObject {
 	}
 
 	@objc private func didResignActive(_ notification: NSNotification?) {
-		if UserDefaults.standard.bool(forKey: "ContrastAlwaysOnTop") == true {
+		// Don't close when it's detached
+		if popover.isDetached {
 			return
 		}
 
@@ -86,5 +93,9 @@ extension PopoverController: NSPopoverDelegate {
 
 	func popoverShouldDetach(_ popover: NSPopover) -> Bool {
 		return true
+	}
+
+	func popoverDidDetach(_ popover: NSPopover) {
+		delegate?.popoverControllerDidDetach(popover: popover)
 	}
 }
