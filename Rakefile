@@ -1,5 +1,6 @@
-APP_NAME = 'Contrast'
 TEAM_ID = 'UP9C8XM22A'
+APP_NAME = 'Contrast'
+SCHEME_NAME = APP_NAME
 
 desc 'Create a beta build'
 task :build do
@@ -15,7 +16,7 @@ task :build do
   # Build
   system %(mkdir -p #{build_dir})
   archive_path = "#{build_dir}/#{APP_NAME}.xcarchive"
-  system %(xcodebuild archive -scheme "#{APP_NAME}" -archivePath "#{archive_path}")
+  system %(xcodebuild archive -scheme "#{SCHEME_NAME}" -archivePath "#{archive_path}")
 
   # Create export options
   export_options = "#{build_dir}/export-options.plist"
