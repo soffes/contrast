@@ -32,4 +32,23 @@ final class ColorTests: XCTestCase {
 		XCTAssertEqual(false, color1.isDark)
 		XCTAssertEqual(true, color2.isDark)
 	}
+
+	func testToHex() {
+		let red = NSColor(red: 1, green: 0, blue: 0, alpha: 1)
+		XCTAssertEqual("ff0000", red.hex()!)
+
+		let green = NSColor(red: 0, green: 1, blue: 0, alpha: 1)
+		XCTAssertEqual("00ff00", green.hex()!)
+
+		let blue = NSColor(red: 0, green: 0, blue: 1, alpha: 1)
+		XCTAssertEqual("0000ff", blue.hex()!)
+
+		let purple = NSColor(red: 110 / 255, green: 61 / 255, blue: 195 / 255, alpha: 1)
+		XCTAssertEqual("6e3dc3", purple.hex()!)
+	}
+
+	func testFromHex() {
+		let purple = NSColor(hex: "6e3dc3")!
+		XCTAssertEqual(purple, NSColor(red: 110 / 255, green: 61 / 255, blue: 195 / 255, alpha: 1))
+	}
 }

@@ -54,7 +54,7 @@ extension NSColor {
 		let blue = hexValue(hex.substring(with: hex.index(hex.startIndex, offsetBy: 4)..<hex.index(hex.startIndex, offsetBy: 6)))
 		let alpha = hexValue(hex.substring(with: hex.index(hex.startIndex, offsetBy: 6)..<hex.index(hex.startIndex, offsetBy: 8)))
 
-		self.init(deviceRed: red, green: green, blue: blue, alpha: alpha)
+		self.init(red: red, green: green, blue: blue, alpha: alpha)
 	}
 
 	public func hex(includingAlpha: Bool = false) -> String? {
