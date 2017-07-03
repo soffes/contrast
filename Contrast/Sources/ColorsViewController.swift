@@ -135,7 +135,7 @@ class ColorsViewController: NSViewController {
 		NSLayoutConstraint.activate([
 			view.heightAnchor.constraint(equalToConstant: 54),
 
-			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: isInPopover ? 0 : 12),
+			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			stackView.topAnchor.constraint(equalTo: view.topAnchor),
 			stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
