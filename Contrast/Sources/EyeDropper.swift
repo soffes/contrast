@@ -76,6 +76,6 @@ final class EyeDropper: NSWindowController {
 			return nil
 		}
 
-		return color
+		return color.convertingToPreferredColorSpace
 	}
 }
