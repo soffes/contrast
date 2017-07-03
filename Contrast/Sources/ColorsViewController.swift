@@ -8,6 +8,10 @@
 
 import Cocoa
 
+protocol ColorsViewControllerDelegate: class {
+	func colorsViewController(_ viewController: ColorsViewController, didChangeTheme theme: Theme)
+}
+
 class ColorsViewController: NSViewController {
 
 	// MARK: - Types
@@ -26,6 +30,8 @@ class ColorsViewController: NSViewController {
 
 
 	// MARK: - Properties
+
+	weak var delegate: ColorsViewControllerDelegate?
 
 	private let stackView: NSStackView = {
 		let view = NSStackView()
@@ -216,6 +222,8 @@ class ColorsViewController: NSViewController {
 		let contrastRatio = NSColor.contrastRatio(theme.foregroundColor, theme.backgroundColor)
 		contrastRatioLabel.stringValue = String(format: "%0.2f", contrastRatio)
 		scoreLabel.stringValue = Score(contrastRatio: contrastRatio).description
+
+		delegate?.colorsViewController(self, didChangeTheme: theme)
 	}
 }
 

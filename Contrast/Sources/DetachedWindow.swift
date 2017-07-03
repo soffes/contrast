@@ -14,7 +14,7 @@ private final class DetachedWindowView: NSView {
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.keyEquivalent = "w"
 		view.keyEquivalentModifierMask = .command
-		view.alphaValue = 0
+		view.imageView.alphaValue = 0
 		return view
 	}()
 
@@ -31,19 +31,19 @@ private final class DetachedWindowView: NSView {
 	override func mouseEntered(with event: NSEvent) {
 		NSAnimationContext.runAnimationGroup({ context in
 			context.duration = 0.2
-			closeButton.animator().alphaValue = 1
+			closeButton.imageView.animator().alphaValue = 1
 		}, completionHandler: nil)
 	}
 
 	override func mouseExited(with event: NSEvent) {
 		NSAnimationContext.runAnimationGroup({ context in
 			context.duration = 0.2
-			closeButton.animator().alphaValue = 0
+			closeButton.imageView.animator().alphaValue = 0
 		}, completionHandler: nil)
 	}
 
 	override func updateTrackingAreas() {
-		trackingArea = NSTrackingArea(rect: bounds, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
+		trackingArea = NSTrackingArea(rect: closeButton.frame, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
 		super.updateTrackingAreas()
 	}
 
@@ -59,18 +59,27 @@ private final class DetachedWindowView: NSView {
 }
 
 
+extension DetachedWindowView: ColorsViewControllerDelegate {
+	func colorsViewController(_ viewController: ColorsViewController, didChangeTheme theme: Theme) {
+		closeButton.theme = theme
+	}
+}
+
+
 /// Used when popover is detacted
 final class DetachedWindow: NSWindow {
 
 	// MARK: - Properties
 
 	private let customContentView = DetachedWindowView()
+	private var customContentViewController: NSViewController?
+	
 
 	// MARK: - Initializers
 
 	convenience init(contentViewController: NSViewController) {
 		let view = contentViewController.view
-		self.init(contentRect: view.bounds, styleMask: [], backing: .retained, defer: false)
+		self.init(contentRect: view.bounds, styleMask: [], backing: .nonretained, defer: false)
 
 		guard let contentView = contentView else { return }
 
@@ -85,6 +94,13 @@ final class DetachedWindow: NSWindow {
 		])
 
 		customContentView.addCloseButton()
+		contentViewController.viewDidAppear()
+		customContentViewController = contentViewController
+
+		if let viewController = contentViewController as? ColorsViewController {
+			viewController.delegate = customContentView
+			customContentView.closeButton.theme = viewController.theme
+		}
 	}
 
 	override init(contentRect: NSRect, styleMask: NSWindowStyleMask, backing: NSBackingStoreType, defer: Bool) {

@@ -35,18 +35,6 @@ private final class CloseButtonCell: NSButtonCell {
 
 		theme.closeButtonBorder.setStroke()
 		NSBezierPath(ovalIn: buttonRect.insetBy(dx: 0.5, dy: 0.5)).stroke()
-	}
-
-	override func drawInterior(withFrame frame: NSRect, in view: NSView) {
-		if let image = image {
-			let imageColor = theme.closeButtonImageColor(isHighlighted: isHighlighted)
-
-			var rect = buttonRect
-			rect.size = image.size
-			rect.origin.x += (buttonRect.width - rect.width) / 2
-			rect.origin.y += (buttonRect.height - rect.height) / 2
-			image.tinting(with: imageColor).draw(in: rect)
-		}
 
 		// Custom focus ring
 		if showsFirstResponder {
@@ -57,6 +45,8 @@ private final class CloseButtonCell: NSButtonCell {
 			path.stroke()
 		}
 	}
+
+	override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {}
 }
 
 final class CloseButton: NSButton {
@@ -66,10 +56,18 @@ final class CloseButton: NSButton {
 	var theme: Theme = .default {
 		didSet {
 			buttonCell?.theme = theme
+			updateImage()
 			setNeedsDisplay()
-
 		}
 	}
+
+	let imageView: NSImageView = {
+		let view = NSImageView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.wantsLayer = true
+		view.layer?.backgroundColor = NSColor.clear.cgColor
+		return view
+	}()
 
 
 	// MARK: - Initializers
@@ -78,8 +76,14 @@ final class CloseButton: NSButton {
 		super.init(frame: frame)
 
 		title = ""
-		image = #imageLiteral(resourceName: "Close")
 		focusRingType = .none
+
+		addSubview(imageView)
+
+		NSLayoutConstraint.activate([
+			imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+			imageView.topAnchor.constraint(equalTo: topAnchor, constant: 7)
+		])
 	}
 
 	required init?(coder: NSCoder) {
@@ -100,10 +104,21 @@ final class CloseButton: NSButton {
 		return CloseButtonCell.self
 	}
 
+	override var isHighlighted: Bool {
+		didSet {
+			updateImage()
+		}
+	}
+
 
 	// MARK: - Private
 
 	private var buttonCell: CloseButtonCell? {
 		return cell as? CloseButtonCell
+	}
+
+	private func updateImage() {
+		let imageColor = theme.closeButtonImageColor(isHighlighted: isHighlighted)
+		imageView.image = #imageLiteral(resourceName: "Close").tinting(with: imageColor)
 	}
 }

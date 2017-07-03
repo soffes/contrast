@@ -23,11 +23,7 @@ final class PopoverController: NSObject {
 
 	weak var delegate: PopoverControllerDelegate?
 
-	fileprivate var detachedWindow: NSWindow? {
-		willSet {
-			detachedWindow?.orderOut(self)
-		}
-	}
+	fileprivate var detachedWindow: NSWindow?
 
 
 	// MARK: - Initializers
@@ -50,7 +46,8 @@ final class PopoverController: NSObject {
 	// MARK: - Actions
 
 	func togglePopover(_ sender: Any?) {
-		if detachedWindow != nil {
+		if let window = detachedWindow {
+			window.close()
 			detachedWindow = nil
 		}
 
@@ -69,6 +66,7 @@ final class PopoverController: NSObject {
 	func showPopover(_ sender: Any?) {
 		guard let view = delegate?.popoverControllerWillShow(popover: popover) else { return }
 
+		detachedWindow?.close()
 		detachedWindow = nil
 
 		NSApp.activate(ignoringOtherApps: true)
@@ -115,7 +113,17 @@ extension PopoverController: NSPopoverDelegate {
 		guard let contentViewController = popover.contentViewController as? ColorsViewController else { return nil }
 
 		let viewController = ColorsViewController(theme: contentViewController.theme, isInPopover: false)
-		detachedWindow = DetachedWindow(contentViewController: viewController)
-		return detachedWindow
+		let window = DetachedWindow(contentViewController: viewController)
+		window.isReleasedWhenClosed = false
+		window.delegate = self
+		detachedWindow = window
+		return window
+	}
+}
+
+
+extension PopoverController: NSWindowDelegate {
+	func windowWillClose(_ notification: Notification) {
+		detachedWindow = nil
 	}
 }
