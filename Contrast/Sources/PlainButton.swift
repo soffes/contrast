@@ -11,7 +11,6 @@ import AppKit
 private final class PlainButtonCell: NSButtonCell {
 
 	var theme: Theme = .default
-	var isActive = false
 
 	override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {}
 
@@ -24,7 +23,7 @@ private final class PlainButtonCell: NSButtonCell {
 		rect.origin.x += (bounds.width - rect.width) / 2
 		rect.origin.y += (bounds.height - rect.height) / 2
 
-		let imageColor = theme.buttonImageColor(isActive: isActive, isHighlighted: isHighlighted)
+		let imageColor = theme.buttonImageColor(isHighlighted: isHighlighted)
 		image.tinting(with: imageColor).draw(in: rect)
 
 		// Custom focus ring

@@ -55,7 +55,9 @@ class ColorsViewController: NSViewController {
 		return view
 	}()
 
-	fileprivate var theme = Theme.`default` {
+	private let isInPopover: Bool
+
+	fileprivate(set) var theme: Theme {
 		didSet {
 			themeDidChange()
 		}
@@ -79,6 +81,19 @@ class ColorsViewController: NSViewController {
 		willSet {
 			windowController?.window?.orderOut(self)
 		}
+	}
+
+
+	// MARK: - Initializers
+
+	init(theme: Theme = .`default`, isInPopover: Bool = true) {
+		self.theme = theme
+		self.isInPopover = isInPopover
+		super.init(nibName: nil, bundle: nil)!
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 
 
@@ -120,7 +135,7 @@ class ColorsViewController: NSViewController {
 		NSLayoutConstraint.activate([
 			view.heightAnchor.constraint(equalToConstant: 54),
 
-			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: isInPopover ? 0 : 12),
 			stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			stackView.topAnchor.constraint(equalTo: view.topAnchor),
 			stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -135,7 +150,7 @@ class ColorsViewController: NSViewController {
 	override func viewDidAppear() {
 		super.viewDidAppear()
 
-		guard let container = view.superview, arrowView.superview == nil else { return }
+		guard isInPopover, let container = view.superview, arrowView.superview == nil else { return }
 
 		container.addSubview(arrowView)
 		arrowView.layer?.backgroundColor = theme.backgroundColor.cgColor

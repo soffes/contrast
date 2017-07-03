@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21616E671F058A220095EFAC /* NSImage+Tint.swift */; };
+		21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECA1F09E579006FA782 /* CloseButton.swift */; };
+		21758ECD1F09EE13006FA782 /* DetachedWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECC1F09EE13006FA782 /* DetachedWindow.swift */; };
 		218487431F05473F009EE112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487331F05473F009EE112 /* AppDelegate.swift */; };
 		218487441F05473F009EE112 /* EyeDropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487341F05473F009EE112 /* EyeDropper.swift */; };
 		218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487351F05473F009EE112 /* EyeDropperWindow.swift */; };
@@ -55,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		21616E671F058A220095EFAC /* NSImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
+		21758ECA1F09E579006FA782 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		21758ECC1F09EE13006FA782 /* DetachedWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetachedWindow.swift; sourceTree = "<group>"; };
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218487331F05473F009EE112 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		218487341F05473F009EE112 /* EyeDropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropper.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				218487961F055B81009EE112 /* Button.swift */,
 				21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */,
 				218487361F05473F009EE112 /* GridView.swift */,
+				21758ECA1F09E579006FA782 /* CloseButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
+				21758ECC1F09EE13006FA782 /* DetachedWindow.swift */,
 			);
 			name = Windows;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				2184874A1F05473F009EE112 /* Score.swift in Sources */,
 				218487951F055B42009EE112 /* TextField.swift in Sources */,
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
+				21758ECD1F09EE13006FA782 /* DetachedWindow.swift in Sources */,
 				2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */,
 				21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */,
 				218487971F055B81009EE112 /* Button.swift in Sources */,
@@ -378,6 +385,7 @@
 				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
 				218487441F05473F009EE112 /* EyeDropper.swift in Sources */,
 				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
+				21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */,
 				218487461F05473F009EE112 /* GridView.swift in Sources */,
 				218487991F055D10009EE112 /* Theme.swift in Sources */,
 				218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */,
