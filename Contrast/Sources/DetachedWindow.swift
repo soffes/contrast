@@ -48,5 +48,6 @@ final class DetachedWindow: NSWindow {
 		standardWindowButton(.closeButton)?.isHidden = true
 		standardWindowButton(.miniaturizeButton)?.isHidden = true
 		standardWindowButton(.zoomButton)?.isHidden = true
+		level = Int(CGWindowLevelForKey(.mainMenuWindow))
 	}
 }
