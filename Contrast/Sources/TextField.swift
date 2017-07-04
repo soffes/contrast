@@ -88,6 +88,7 @@ final class TextField: NSTextField {
 		isBezeled = false
 		backgroundColor = .clear
 		focusRingType = .none
+		isContinuous = true
 
 		font = NSFont(name: "Native-Regular", size: 13)
 	}

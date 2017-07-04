@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211E2B391F0B46D400757881 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E2B381F0B46D400757881 /* HexColor.swift */; };
 		21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21616E671F058A220095EFAC /* NSImage+Tint.swift */; };
 		21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECA1F09E579006FA782 /* CloseButton.swift */; };
 		21758ECD1F09EE13006FA782 /* DetachedWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECC1F09EE13006FA782 /* DetachedWindow.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		211E2B381F0B46D400757881 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		21616E671F058A220095EFAC /* NSImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
 		21758ECA1F09E579006FA782 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		21758ECC1F09EE13006FA782 /* DetachedWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetachedWindow.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				218487981F055D10009EE112 /* Theme.swift */,
+				211E2B381F0B46D400757881 /* HexColor.swift */,
 				2184873A1F05473F009EE112 /* Score.swift */,
 			);
 			name = Models;
@@ -389,6 +392,7 @@
 				218487461F05473F009EE112 /* GridView.swift in Sources */,
 				218487991F055D10009EE112 /* Theme.swift in Sources */,
 				218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */,
+				211E2B391F0B46D400757881 /* HexColor.swift in Sources */,
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
 				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
 			);

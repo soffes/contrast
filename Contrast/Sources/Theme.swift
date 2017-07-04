@@ -9,24 +9,53 @@
 import AppKit
 
 struct Theme {
-	var foregroundColor: NSColor
-	var backgroundColor: NSColor
+	var foreground: HexColor
+
+	var foregroundColor: NSColor {
+		get {
+			return foreground.color
+		}
+
+		set {
+			foreground = HexColor(color: newValue) ?? type(of: self).defaultForeground
+		}
+	}
+
+	var foregroundHex: String {
+		return foreground.hex
+	}
+
+	var background: HexColor
+
+	var backgroundColor: NSColor {
+		get {
+			return background.color
+		}
+
+		set {
+			background = HexColor(color: newValue) ?? type(of: self).defaultBackground
+		}
+	}
+
+	var backgroundHex: String {
+		return background.hex
+	}
 
 	var isDark: Bool {
 		return backgroundColor.isDark
 	}
 
-	init(foregroundColor: NSColor, backgroundColor: NSColor) {
-		self.foregroundColor = foregroundColor
-		self.backgroundColor = backgroundColor
+	init(foreground: HexColor, background: HexColor) {
+		self.foreground = foreground
+		self.background = background
 	}
 
 	mutating func swap() {
-		let foreground = foregroundColor
-		let background = backgroundColor
+		let foreground = self.foreground
+		let background = self.background
 
-		foregroundColor = background
-		backgroundColor = foreground
+		self.foreground = background
+		self.background = foreground
 	}
 }
 
@@ -47,27 +76,19 @@ extension Theme {
 
 
 extension Theme {
-	private static var defaultDarkBackground: NSColor {
-		return NSColor(hex: "2e2e2e")!
+	private static var isSystemDark: Bool {
+		return UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark"
 	}
 
-	private static var defaultDarkForeground: NSColor {
-		return NSColor(hex: "ffffff")!
+	fileprivate static var defaultBackground: HexColor {
+		return HexColor(hex: isSystemDark ? "2e2e2e" : "f9f9f9")!
 	}
 
-	private static var defaultLightBackground: NSColor {
-		return NSColor(hex: "f9f9f9")!
-	}
-
-	private static var defaultLightForeground: NSColor {
-		return NSColor(hex: "545454")!
+	fileprivate static var defaultForeground: HexColor {
+		return HexColor(hex: isSystemDark ? "ffffff" : "545454")!
 	}
 
 	static var `default`: Theme {
-		if UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark" { // 🤷🏻‍♂️
-			return Theme(foregroundColor: defaultDarkForeground, backgroundColor: defaultDarkBackground)
-		}
-
-		return Theme(foregroundColor: defaultLightForeground, backgroundColor: defaultLightBackground)
+		return Theme(foreground: defaultForeground, background: defaultBackground)
 	}
 }

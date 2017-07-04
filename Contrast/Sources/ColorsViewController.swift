@@ -131,8 +131,7 @@ class ColorsViewController: NSViewController {
 		}
 
 		for textField in [foregroundInput.textField, backgroundInput.textField] {
-			textField.target = self
-			textField.action = #selector(editColor)
+			textField.delegate = self
 		}
 
 		swapButton.target = self
@@ -186,16 +185,6 @@ class ColorsViewController: NSViewController {
 		windowController = eyeDropper
 	}
 
-	@objc private func editColor(_ sender: TextField) {
-		guard let color = NSColor(hex: sender.stringValue) else { return }
-
-		if sender == foregroundInput.textField {
-			theme.foregroundColor = color
-		} else  {
-			theme.backgroundColor = color
-		}
-	}
-
 	@objc private func swapColors(_ sender: Any?) {
 		theme.swap()
 	}
@@ -212,12 +201,12 @@ class ColorsViewController: NSViewController {
 		contrastRatioLabel.textColor = theme.foregroundColor
 
 		backgroundInput.theme = theme
-		backgroundInput.color = theme.backgroundColor
+		backgroundInput.hexColor = theme.background
 
 		swapButton.theme = theme
 
 		foregroundInput.theme = theme
-		foregroundInput.color = theme.foregroundColor
+		foregroundInput.hexColor = theme.foreground
 
 		let contrastRatio = NSColor.contrastRatio(theme.foregroundColor, theme.backgroundColor)
 		contrastRatioLabel.stringValue = String(format: "%0.2f", contrastRatio)
@@ -254,5 +243,22 @@ extension ColorsViewController: EyeDropperDelegate {
 	func eyeDropperDidCancel() {
 		windowController = nil
 		position = nil
+	}
+}
+
+
+extension ColorsViewController: NSTextFieldDelegate {
+	override func controlTextDidChange(_ notification: Notification) {
+		guard let textField = notification.object as? NSTextField,
+			let color = NSColor(hex: textField.stringValue)
+		else { return }
+
+		let hexColor = HexColor(color: color, hex: textField.stringValue)
+
+		if textField == foregroundInput.textField {
+			theme.foreground = hexColor
+		} else  {
+			theme.background = hexColor
+		}
 	}
 }
