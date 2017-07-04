@@ -197,8 +197,8 @@ class ColorsViewController: NSViewController {
 		view.layer?.backgroundColor = background
 		arrowView.layer?.backgroundColor = background
 
-		scoreLabel.textColor = theme.foregroundColor
-		contrastRatioLabel.textColor = theme.foregroundColor
+		scoreLabel.theme = theme
+		contrastRatioLabel.theme = theme
 
 		backgroundInput.theme = theme
 		backgroundInput.hexColor = theme.background
@@ -209,8 +209,8 @@ class ColorsViewController: NSViewController {
 		foregroundInput.hexColor = theme.foreground
 
 		let contrastRatio = NSColor.contrastRatio(theme.foregroundColor, theme.backgroundColor)
-		contrastRatioLabel.stringValue = String(format: "%0.2f", contrastRatio)
-		scoreLabel.stringValue = Score(contrastRatio: contrastRatio).description
+		contrastRatioLabel.set(text: String(format: "%0.2f", contrastRatio))
+		scoreLabel.set(text: Score(contrastRatio: contrastRatio).description)
 
 		delegate?.colorsViewController(self, didChangeTheme: theme)
 	}

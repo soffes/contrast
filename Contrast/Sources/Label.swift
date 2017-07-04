@@ -21,10 +21,6 @@ private final class LabelCell: NSTextFieldCell {
 
 	// MARK: - NSCell
 
-	override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {
-		super.drawInterior(withFrame: drawingRect(forBounds: cellFrame), in: controlView)
-	}
-
 	override func drawingRect(forBounds theRect: NSRect) -> NSRect {
 		var rect = super.drawingRect(forBounds: theRect)
 		rect.origin.x += contentInsets.left
@@ -32,6 +28,10 @@ private final class LabelCell: NSTextFieldCell {
 		rect.size.width -= contentInsets.right
 		rect.size.height -= contentInsets.bottom
 		return rect
+	}
+
+	override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {
+		super.drawInterior(withFrame: drawingRect(forBounds: cellFrame), in: controlView)
 	}
 }
 
@@ -54,22 +54,28 @@ final class Label: NSTextField {
 		return cell as? LabelCell
 	}
 
+	var theme: Theme = .`default` {
+		didSet {
+			set(text: stringValue, foregroundColor: theme.foregroundColor, backgroundColor: theme.backgroundColor)
+		}
+	}
+	
 
 	// MARK: - Initializers
 
 	override init(frame frameRect: NSRect) {
 		super.init(frame: frameRect)
 
+		isEditable = false
+		drawsBackground = true
+		backgroundColor = .clear
+		usesSingleLineMode = true
+		lineBreakMode = .byTruncatingTail
+		isBezeled = false
+
 		guard let cell = labelCell else { return }
 
-		cell.isEditable = false
-		cell.drawsBackground = true
-		cell.backgroundColor = .clear
-		cell.usesSingleLineMode = true
-		cell.lineBreakMode = .byTruncatingTail
 		cell.isScrollable = false
-		cell.isEnabled = false
-		cell.isBezeled = false
 	}
 
 	required init?(coder: NSCoder) {
@@ -91,5 +97,16 @@ final class Label: NSTextField {
 
 	override class func cellClass() -> AnyClass? {
 		return LabelCell.self
+	}
+
+
+	// MARK: - Setting Text
+
+	func set(text: String, foregroundColor: NSColor? = nil, backgroundColor: NSColor? = nil) {
+		attributedStringValue = NSAttributedString(string: text, attributes: [
+			NSForegroundColorAttributeName: foregroundColor ?? theme.foregroundColor,
+			NSBackgroundColorAttributeName: backgroundColor ?? theme.backgroundColor,
+			NSFontAttributeName: font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize())
+		])
 	}
 }
