@@ -108,6 +108,7 @@ class ColorsViewController: NSViewController {
 	override func loadView() {
 		view = NSView()
 		view.wantsLayer = true
+		view.layer?.isOpaque = true
 	}
 
 	override func viewDidLoad() {
