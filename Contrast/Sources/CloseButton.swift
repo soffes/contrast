@@ -13,10 +13,6 @@ fileprivate extension Theme {
 		return NSColor(white: isDark ? 1 : 0, alpha: 0.3)
 	}
 
-	var closeButtonBorder: NSColor {
-		return NSColor(white: isDark ? 1 : 0, alpha: 0.2)
-	}
-
 	func closeButtonImageColor(isHighlighted: Bool) -> NSColor {
 		return NSColor(white: 0, alpha: isHighlighted ? 0.8 : 0.5)
 	}
@@ -27,14 +23,11 @@ private final class CloseButtonCell: NSButtonCell {
 
 	var theme: Theme = .default
 
-	private let buttonRect = CGRect(x: 7, y: 4, width: 12, height: 12)
+	let buttonRect = CGRect(x: 8, y: 5, width: 12, height: 12)
 
 	override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {
 		theme.closeButtonFill.setFill()
 		NSBezierPath(ovalIn: buttonRect).fill()
-
-		theme.closeButtonBorder.setStroke()
-		NSBezierPath(ovalIn: buttonRect.insetBy(dx: 0.5, dy: 0.5)).stroke()
 
 		// Custom focus ring
 		if showsFirstResponder {
@@ -47,6 +40,12 @@ private final class CloseButtonCell: NSButtonCell {
 	}
 
 	override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {}
+
+	override func highlight(_ flag: Bool, withFrame cellFrame: NSRect, in controlView: NSView) {
+		super.highlight(flag, withFrame: cellFrame, in: controlView)
+
+		(controlView as? NSButton)?.isHighlighted = flag
+	}
 }
 
 final class CloseButton: NSButton {
@@ -63,7 +62,6 @@ final class CloseButton: NSButton {
 
 	let imageView: NSImageView = {
 		let view = NSImageView()
-		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
 		view.layer?.backgroundColor = NSColor.clear.cgColor
 		return view
@@ -78,12 +76,8 @@ final class CloseButton: NSButton {
 		title = ""
 		focusRingType = .none
 
+		imageView.frame = buttonCell!.buttonRect
 		addSubview(imageView)
-
-		NSLayoutConstraint.activate([
-			imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-			imageView.topAnchor.constraint(equalTo: topAnchor, constant: 7)
-		])
 	}
 
 	required init?(coder: NSCoder) {
@@ -103,6 +97,9 @@ final class CloseButton: NSButton {
 	override class func cellClass() -> AnyClass? {
 		return CloseButtonCell.self
 	}
+
+
+	// MARK: - NSButton
 
 	override var isHighlighted: Bool {
 		didSet {
