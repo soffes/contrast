@@ -32,7 +32,7 @@ final class EyeDropperView: NSView {
 	private let gridView: GridView
 
 	private var trackingArea: NSTrackingArea?
-	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved, .cursorUpdate, .mouseEnteredAndExited, .activeInActiveApp]
+	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved]
 
 	init() {
 		gridView = GridView(rows: Int(captureSize.height), columns: Int(captureSize.width), dimension: magnification / 2)
@@ -75,6 +75,8 @@ final class EyeDropperView: NSView {
 	}
 
 	override func updateTrackingAreas() {
+		self.trackingArea.flatMap(removeTrackingArea)
+
 		let trackingArea = NSTrackingArea(rect: bounds, options: trackingAreaOptions, owner: self, userInfo: nil)
 		addTrackingArea(trackingArea)
 		self.trackingArea = trackingArea
@@ -82,7 +84,6 @@ final class EyeDropperView: NSView {
 
 	override func mouseMoved(with event: NSEvent) {
 		let position = event.locationInWindow
-
 		positionReticle(at: position)
 	}
 
