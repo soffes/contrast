@@ -8,7 +8,8 @@
 
 import AppKit
 
-final class LabelCell: NSTextFieldCell {
+private final class LabelCell: NSTextFieldCell {
+
 	// MARK: - Properties
 
 	var contentInsets = NSEdgeInsetsZero {
@@ -20,8 +21,11 @@ final class LabelCell: NSTextFieldCell {
 
 	// MARK: - NSCell
 
-	override
-	func drawingRect(forBounds theRect: NSRect) -> NSRect {
+	override func drawInterior(withFrame cellFrame: NSRect, in controlView: NSView) {
+		super.drawInterior(withFrame: drawingRect(forBounds: cellFrame), in: controlView)
+	}
+
+	override func drawingRect(forBounds theRect: NSRect) -> NSRect {
 		var rect = super.drawingRect(forBounds: theRect)
 		rect.origin.x += contentInsets.left
 		rect.origin.y += contentInsets.top
@@ -59,7 +63,8 @@ final class Label: NSTextField {
 		guard let cell = labelCell else { return }
 
 		cell.isEditable = false
-		cell.drawsBackground = false
+		cell.drawsBackground = true
+		cell.backgroundColor = .clear
 		cell.usesSingleLineMode = true
 		cell.lineBreakMode = .byTruncatingTail
 		cell.isScrollable = false
