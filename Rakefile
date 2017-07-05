@@ -2,13 +2,8 @@ TEAM_ID = 'UP9C8XM22A'
 APP_NAME = 'Contrast'
 SCHEME_NAME = APP_NAME
 
-desc 'Create a beta build'
+desc 'Build'
 task :build do
-  # Ensure clean git state
-  unless system 'git diff-index --quiet HEAD --'
-    abort 'Failed. You have uncommitted changes.'
-  end
-
   # Start with a clean state
   build_dir = 'build'
   sh %(rm -rf #{build_dir})
@@ -58,14 +53,24 @@ task :build do
   # Clean up
   sh 'rm -rf build'
 
+  $tag_name = "v#{short_version}-#{version}"
+end
+
+desc 'Create a beta build'
+task :beta do
+  # Ensure clean git state
+  unless system 'git diff-index --quiet HEAD --'
+    abort 'Failed. You have uncommitted changes.'
+  end
+
+  Rake::Task['build'].invoke()
+
   # Tag
   latest_tag = `git describe --tags --abbrev=0`.chomp
-  tag_name = "v#{short_version}-#{version}"
-  sh %(git tag #{tag_name})
+  sh %(git tag #{$tag_name})
 
   # Done!
-  puts "\n\nSuccess! Created #{zip}. Created git tag '#{tag_name}'.\n\n"
-
+  puts "\n\nSuccess! Created #{zip}. Created git tag '#{$tag_name}'.\n\n"
   recent_changes(latest_tag)
 end
 
