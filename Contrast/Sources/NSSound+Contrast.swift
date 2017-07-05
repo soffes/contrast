@@ -16,4 +16,8 @@ extension NSSound {
 	static var contrastPickColor: NSSound {
 		return NSSound(named: "click_tiny")!
 	}
+
+	static var contrastCopyColor: NSSound {
+		return NSSound(named: "click_snap")!
+	}
 }

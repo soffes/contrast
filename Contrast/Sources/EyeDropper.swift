@@ -19,6 +19,12 @@ final class EyeDropper: NSWindowController {
 
 	weak var delegate: EyeDropperDelegate?
 
+	private let pasteboard: NSPasteboard = {
+		let pasteboard = NSPasteboard.general()
+		pasteboard.declareTypes([NSPasteboardTypeString], owner: nil)
+		return pasteboard
+	}()
+
 	static let magnification: CGFloat = 20
 	static let captureSize = CGSize(width: 17, height: 17)
 
@@ -38,12 +44,18 @@ final class EyeDropper: NSWindowController {
 	// MARK: - NSResponder
 
 	override func mouseDown(with event: NSEvent) {
+		guard let window = window as? EyeDropperWindow, let color = window.screenshot?.color else { return }
+
 		let shouldContinue = event.modifierFlags.contains(.shift)
 
-		if let window = window as? EyeDropperWindow, let color = window.screenshot?.color {
+		if event.modifierFlags.contains(.option), let hex = color.hex() {
+			pasteboard.setString(hex, forType: NSPasteboardTypeString)
+			NSSound.contrastCopyColor.play()
+		} else {
 			NSSound.contrastPickColor.play()
-			delegate?.eyeDropperDidSelectColor(color, continuePicking: shouldContinue)
 		}
+
+		delegate?.eyeDropperDidSelectColor(color, continuePicking: shouldContinue)
 	}
 
 	// MARK: - Actions
