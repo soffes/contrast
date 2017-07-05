@@ -45,6 +45,9 @@ final class EyeDropperView: NSView {
 	override func mouseMoved(with event: NSEvent) {
 		let position = event.locationInWindow
 		positionLoupe(at: position)
+
+		// To workaround macOS making the cursor huge and unhiding it when you wiggle it violently
+		NSCursor.hide()
 	}
 
 
