@@ -47,7 +47,7 @@ task :build do
   short_version = `/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "#{app}/Contents/Info.plist"`.chomp
 
   # Compress
-  version_s = if ($has_clean_state = system 'git diff-index --quiet HEAD --')
+  version_s = if (system 'git diff-index --quiet HEAD --')
     version
   else
     "#{version.to_i + 1}-wip"
@@ -67,7 +67,7 @@ end
 desc 'Create a beta build'
 task :beta do
   # Ensure clean git state
-  unless $has_clean_state
+  unless system 'git diff-index --quiet HEAD --'
     abort 'Failed. You have uncommitted changes.'
   end
 
