@@ -9,60 +9,30 @@
 import AppKit
 
 final class EyeDropperView: NSView {
-	let loupeView: NSView = {
-		let view = NSView(frame: CGRect(x: 0, y: 0, width: 170, height: 170))
-		view.isHidden = true
 
-		let layer = CAShapeLayer()
-		layer.lineWidth = 4
-		layer.path = CGPath(ellipseIn: view.bounds.insetBy(dx: layer.lineWidth / 2, dy: layer.lineWidth / 2), transform: nil)
-		layer.strokeColor = NSColor(white: 0.125, alpha: 1).cgColor
-		layer.fillColor = nil
+	// MARK: - Properties
 
-		view.wantsLayer = true
-		view.layer = layer
-
-		return view
-	}()
-
-	let imageView = NSImageView()
-
-	private let magnification: CGFloat = 20
-	private let captureSize = CGSize(width: 17, height: 17)
-	private let gridView: GridView
+	let loupeView = LoupeView()
 
 	private var trackingArea: NSTrackingArea?
 	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved]
 
-	init() {
-		gridView = GridView(rows: Int(captureSize.height), columns: Int(captureSize.width), dimension: magnification / 2)
 
+	// MARK: - Initializers
+
+	init() {
 		super.init(frame: .zero)
 
+		loupeView.isHidden = true
 		addSubview(loupeView)
-
-		let maskPath = CGPath(ellipseIn: loupeView.bounds.insetBy(dx: 4, dy: 4), transform: nil)
-		var mask = CAShapeLayer()
-		mask.path = maskPath
-
-		imageView.imageAlignment = .alignCenter
-		imageView.imageScaling = .scaleNone
-		imageView.frame = loupeView.bounds
-		imageView.wantsLayer = true
-		imageView.layer?.mask = mask
-		loupeView.addSubview(imageView)
-
-		mask = CAShapeLayer()
-		mask.path = maskPath
-
-		gridView.wantsLayer = true
-		gridView.layer?.mask = mask
-		loupeView.addSubview(gridView)
 	}
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+
+
+	// MARK: - NSResponder
 
 	override func updateTrackingAreas() {
 		self.trackingArea.flatMap(removeTrackingArea)
@@ -77,6 +47,9 @@ final class EyeDropperView: NSView {
 		positionLoupe(at: position)
 	}
 
+
+	// MARK: - Positioning
+
 	func positionLoupe(at position: CGPoint) {
 		let position = convert(position, from: nil)
 
@@ -87,14 +60,19 @@ final class EyeDropperView: NSView {
 		loupeView.frame = rect
 
 		// Update image
-		imageView.image = screenshot(at: position)
+		loupeView.imageView.image = screenshot(at: position)
 	}
+
+
+	// MARK: - Private
 
 	private func screenshot(at position: CGPoint) -> NSImage? {
 		// TODO: This won't work on multiple screens
 		guard let screen = NSScreen.main(), let window = window else { return nil }
 
 		// Take screenshot
+		let captureSize = EyeDropper.captureSize
+		let magnification = EyeDropper.magnification
 		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: screen.frame.height - position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height)
 		let windowID = UInt32(window.windowNumber)
 

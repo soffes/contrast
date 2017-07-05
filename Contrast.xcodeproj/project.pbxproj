@@ -30,6 +30,7 @@
 		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
+		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
 		21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
+		21D0DA791F0D7E6400632FF5 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
 		21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				2190AEAB1F08763800912B37 /* EyeDropperView.swift */,
+				21D0DA791F0D7E6400632FF5 /* LoupeView.swift */,
 				218487921F055B21009EE112 /* ColorInput.swift */,
 				218487941F055B42009EE112 /* TextField.swift */,
 				2184879A1F055D49009EE112 /* Label.swift */,
@@ -384,6 +387,7 @@
 				218487951F055B42009EE112 /* TextField.swift in Sources */,
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
 				21758ECD1F09EE13006FA782 /* DetachedWindow.swift in Sources */,
+				21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */,
 				2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */,
 				21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */,
 				218487971F055B81009EE112 /* Button.swift in Sources */,

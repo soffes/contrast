@@ -19,6 +19,9 @@ final class EyeDropper: NSWindowController {
 
 	weak var delegate: EyeDropperDelegate?
 
+	static let magnification: CGFloat = 20
+	static let captureSize = CGSize(width: 17, height: 17)
+
 
 	// MARK: - Initializer
 
