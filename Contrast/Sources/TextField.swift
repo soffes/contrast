@@ -90,7 +90,7 @@ final class TextField: NSTextField {
 		focusRingType = .none
 		isContinuous = true
 
-		font = NSFont(name: "Native-Regular", size: 13)
+		font = .contrastMonoSpace()
 	}
 
 	required init?(coder: NSCoder) {

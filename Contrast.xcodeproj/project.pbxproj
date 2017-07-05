@@ -32,6 +32,7 @@
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
 		21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */; };
+		21D0DA7E1F0D88E700632FF5 /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7D1F0D88E700632FF5 /* NSFont.swift */; };
 		21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21D0DA791F0D7E6400632FF5 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
 		21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
+		21D0DA7D1F0D88E700632FF5 /* NSFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 			children = (
 				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
 				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
+				21D0DA7D1F0D88E700632FF5 /* NSFont.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
 				21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */,
 				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
+				21D0DA7E1F0D88E700632FF5 /* NSFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

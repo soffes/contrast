@@ -39,7 +39,7 @@ final class LoupeView: NSView {
 	private let hexLabel: Label = {
 		let view = Label()
 		view.translatesAutoresizingMaskIntoConstraints = false
-		view.font = NSFont(name: "Menlo", size: 13)
+		view.font = .contrastMonoSpace()
 		view.textColor = .white
 		view.contentInsets = EdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
 		view.wantsLayer = true
