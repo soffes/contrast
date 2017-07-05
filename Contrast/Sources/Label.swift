@@ -103,10 +103,14 @@ final class Label: NSTextField {
 	// MARK: - Setting Text
 
 	func set(text: String, foregroundColor: NSColor? = nil, backgroundColor: NSColor? = nil) {
+		let paragraph = NSMutableParagraphStyle()
+		paragraph.alignment = alignment
+		
 		attributedStringValue = NSAttributedString(string: text, attributes: [
 			NSForegroundColorAttributeName: foregroundColor ?? theme.foregroundColor,
 			NSBackgroundColorAttributeName: backgroundColor ?? theme.backgroundColor,
-			NSFontAttributeName: font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize())
+			NSFontAttributeName: font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize()),
+			NSParagraphStyleAttributeName: paragraph
 		])
 	}
 }
