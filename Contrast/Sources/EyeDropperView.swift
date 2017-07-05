@@ -60,7 +60,8 @@ final class EyeDropperView: NSView {
 		loupeView.frame = rect
 
 		// Update image
-		loupeView.imageView.image = screenshot(at: position)
+		let image = screenshot(at: position)
+		loupeView.screenshot = image.flatMap(Screenshot.init)
 	}
 
 

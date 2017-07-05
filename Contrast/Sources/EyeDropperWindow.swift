@@ -14,8 +14,8 @@ final class EyeDropperWindow: NSWindow {
 
 	private let view = EyeDropperView()
 
-	var image: NSImage? {
-		return view.loupeView.imageView.image
+	var screenshot: Screenshot? {
+		return view.loupeView.screenshot
 	}
 
 

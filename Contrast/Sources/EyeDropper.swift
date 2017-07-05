@@ -40,7 +40,7 @@ final class EyeDropper: NSWindowController {
 	override func mouseDown(with event: NSEvent) {
 		let shouldContinue = event.modifierFlags.contains(.shift)
 
-		if let color = currentColor() {
+		if let window = window as? EyeDropperWindow, let color = window.screenshot?.color {
 			delegate?.eyeDropperDidSelectColor(color, continuePicking: shouldContinue)
 		}
 	}
@@ -64,21 +64,5 @@ final class EyeDropper: NSWindowController {
 
 		NSApp.activate(ignoringOtherApps: true)
 		window.makeKeyAndOrderFront(self)
-	}
-
-
-	// MARK: - Private
-
-	private func currentColor() -> NSColor? {
-		guard let window = window as? EyeDropperWindow,
-			let image = window.image,
-			let data = image.tiffRepresentation,
-			let rasterized = NSBitmapImageRep(data: data),
-			let color = rasterized.colorAt(x: rasterized.pixelsWide / 2, y: rasterized.pixelsHigh / 2)
-		else {
-			return nil
-		}
-
-		return color.convertingToPreferredColorSpace
 	}
 }

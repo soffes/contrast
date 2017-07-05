@@ -12,7 +12,14 @@ final class LoupeView: NSView {
 
 	// MARK: - Properties
 
-	let gridView: NSView = {
+	var screenshot: Screenshot? {
+		didSet {
+			imageView.image = screenshot?.image
+			hexLabel.stringValue = screenshot?.color.hex() ?? ""
+		}
+	}
+
+	private let gridView: NSView = {
 		let size = EyeDropper.captureSize
 		let view = GridView(rows: Int(size.height), columns: Int(size.width), dimension: EyeDropper.magnification / 2)
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -20,12 +27,24 @@ final class LoupeView: NSView {
 		return view
 	}()
 
-	let imageView: NSImageView = {
+	private let imageView: NSImageView = {
 		let view = NSImageView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.imageAlignment = .alignCenter
 		view.imageScaling = .scaleNone
 		view.wantsLayer = true
+		return view
+	}()
+
+	private let hexLabel: Label = {
+		let view = Label()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.font = NSFont(name: "Menlo", size: 13)
+		view.textColor = .white
+		view.contentInsets = EdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+		view.wantsLayer = true
+		view.layer?.cornerRadius = 4
+		view.layer?.backgroundColor = NSColor(white: 0, alpha: 0.9).cgColor
 		return view
 	}()
 
@@ -56,6 +75,8 @@ final class LoupeView: NSView {
 		gridView.layer?.mask = makeMask()
 		addSubview(gridView)
 
+		addSubview(hexLabel)
+
 		NSLayoutConstraint.activate([
 			imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
 			imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -65,7 +86,10 @@ final class LoupeView: NSView {
 			gridView.leadingAnchor.constraint(equalTo: leadingAnchor),
 			gridView.trailingAnchor.constraint(equalTo: trailingAnchor),
 			gridView.topAnchor.constraint(equalTo: topAnchor),
-			gridView.bottomAnchor.constraint(equalTo: bottomAnchor)
+			gridView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+			hexLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+			hexLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: EyeDropper.magnification)
 		])
 	}
 	

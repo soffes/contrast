@@ -31,6 +31,7 @@
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
+		21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */; };
 		21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21D0DA791F0D7E6400632FF5 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
+		21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +172,7 @@
 				218487981F055D10009EE112 /* Theme.swift */,
 				211E2B381F0B46D400757881 /* HexColor.swift */,
 				2184873A1F05473F009EE112 /* Score.swift */,
+				21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */,
 				211E2B391F0B46D400757881 /* HexColor.swift in Sources */,
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
+				21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */,
 				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
