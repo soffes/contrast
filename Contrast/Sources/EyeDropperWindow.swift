@@ -8,10 +8,16 @@
 
 import AppKit
 
+protocol EyeDropperWindowDelegate: class {
+	func eyeDropperWindow(_ window: EyeDropperWindow, didPressReturn event: NSEvent)
+}
+
 final class EyeDropperWindow: NSWindow {
 
 	// MARK: - Properties
 
+	weak var customDelegate: EyeDropperWindowDelegate?
+	
 	private let view = EyeDropperView()
 
 	var screenshot: Screenshot? {
@@ -33,6 +39,19 @@ final class EyeDropperWindow: NSWindow {
 
 		view.updateTrackingAreas()
 		contentView = view
+	}
+
+
+	// MARK: - NSResponder
+
+	override func performKeyEquivalent(with event: NSEvent) -> Bool {
+		// Return
+		if event.keyCode == 36 {
+			customDelegate?.eyeDropperWindow(self, didPressReturn: event)
+			return true
+		}
+
+		return super.performKeyEquivalent(with: event)
 	}
 
 

@@ -33,7 +33,9 @@ final class EyeDropper: NSWindowController {
 
 	init(delegate: EyeDropperDelegate) {
 		self.delegate = delegate
-		super.init(window: EyeDropperWindow())
+		let window = EyeDropperWindow()
+		super.init(window: window)
+		window.customDelegate = self
 	}
 	
 	required init?(coder: NSCoder) {
@@ -44,19 +46,9 @@ final class EyeDropper: NSWindowController {
 	// MARK: - NSResponder
 
 	override func mouseDown(with event: NSEvent) {
-		guard let window = window as? EyeDropperWindow, let color = window.screenshot?.color else { return }
-
-		let shouldContinue = event.modifierFlags.contains(.shift)
-
-		if event.modifierFlags.contains(.option), let hex = color.hex() {
-			pasteboard.setString(hex, forType: NSPasteboardTypeString)
-			NSSound.contrastCopyColor.play()
-		} else {
-			NSSound.contrastPickColor.play()
-		}
-
-		delegate?.eyeDropperDidSelectColor(color, continuePicking: shouldContinue)
+		pickColor(with: event)
 	}
+
 
 	// MARK: - Actions
 
@@ -77,5 +69,30 @@ final class EyeDropper: NSWindowController {
 
 		NSApp.activate(ignoringOtherApps: true)
 		window.makeKeyAndOrderFront(self)
+	}
+
+
+	// MARK: - Private
+
+	fileprivate func pickColor(with event: NSEvent) {
+		guard let window = window as? EyeDropperWindow, let color = window.screenshot?.color else { return }
+
+		let shouldContinue = event.modifierFlags.contains(.shift)
+
+		if event.modifierFlags.contains(.option), let hex = color.hex() {
+			pasteboard.setString(hex, forType: NSPasteboardTypeString)
+			NSSound.contrastCopyColor.play()
+		} else {
+			NSSound.contrastPickColor.play()
+		}
+
+		delegate?.eyeDropperDidSelectColor(color, continuePicking: shouldContinue)
+	}
+}
+
+
+extension EyeDropper: EyeDropperWindowDelegate {
+	func eyeDropperWindow(_ window: EyeDropperWindow, didPressReturn event: NSEvent) {
+		pickColor(with: event)
 	}
 }
