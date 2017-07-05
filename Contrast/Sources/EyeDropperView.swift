@@ -9,7 +9,7 @@
 import AppKit
 
 final class EyeDropperView: NSView {
-	let reticleView: NSView = {
+	let loupeView: NSView = {
 		let view = NSView(frame: CGRect(x: 0, y: 0, width: 170, height: 170))
 		view.isHidden = true
 
@@ -38,40 +38,30 @@ final class EyeDropperView: NSView {
 		gridView = GridView(rows: Int(captureSize.height), columns: Int(captureSize.width), dimension: magnification / 2)
 
 		super.init(frame: .zero)
-	}
 
-	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+		addSubview(loupeView)
 
-	func setupTracking() {
-		if self.trackingArea != nil {
-			return
-		}
-
-		let trackingArea = NSTrackingArea(rect: bounds, options: trackingAreaOptions, owner: self, userInfo: nil)
-		addTrackingArea(trackingArea)
-		self.trackingArea = trackingArea
-
-		addSubview(reticleView)
-
-		let maskPath = CGPath(ellipseIn: reticleView.bounds.insetBy(dx: 4, dy: 4), transform: nil)
+		let maskPath = CGPath(ellipseIn: loupeView.bounds.insetBy(dx: 4, dy: 4), transform: nil)
 		var mask = CAShapeLayer()
 		mask.path = maskPath
 
 		imageView.imageAlignment = .alignCenter
 		imageView.imageScaling = .scaleNone
-		imageView.frame = reticleView.bounds
+		imageView.frame = loupeView.bounds
 		imageView.wantsLayer = true
 		imageView.layer?.mask = mask
-		reticleView.addSubview(imageView)
+		loupeView.addSubview(imageView)
 
 		mask = CAShapeLayer()
 		mask.path = maskPath
 
 		gridView.wantsLayer = true
 		gridView.layer?.mask = mask
-		reticleView.addSubview(gridView)
+		loupeView.addSubview(gridView)
+	}
+
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 
 	override func updateTrackingAreas() {
@@ -84,38 +74,41 @@ final class EyeDropperView: NSView {
 
 	override func mouseMoved(with event: NSEvent) {
 		let position = event.locationInWindow
-		positionReticle(at: position)
+		positionLoupe(at: position)
 	}
 
-	func positionReticle(at position: CGPoint) {
-		// TODO: This won't work on multiple screens
-		guard let screen = NSScreen.main(), let window = window else { return }
-
+	func positionLoupe(at position: CGPoint) {
 		let position = convert(position, from: nil)
 
-		var rect = reticleView.bounds
+		// Position loupe
+		var rect = loupeView.bounds
 		rect.origin.x = position.x - rect.width / 2
 		rect.origin.y = position.y - rect.height / 2
+		loupeView.frame = rect
 
-		reticleView.frame = rect
+		// Update image
+		imageView.image = screenshot(at: position)
+	}
 
+	private func screenshot(at position: CGPoint) -> NSImage? {
+		// TODO: This won't work on multiple screens
+		guard let screen = NSScreen.main(), let window = window else { return nil }
+
+		// Take screenshot
 		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: screen.frame.height - position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height)
 		let windowID = UInt32(window.windowNumber)
 
-		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID, []) else { return }
+		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID, []) else { return nil }
 
-		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification))
-		scaled.lockFocus()
-
-		if let gc = NSGraphicsContext.current() {
+		// Scale screenshot
+		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4, width: captureSize.width * magnification, height: captureSize.height * magnification)
+		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification), flipped: false) { bounds in
+			guard let gc = NSGraphicsContext.current() else { return false }
 			gc.imageInterpolation = .none
-
-			let scaledRect = CGRect(x: 0, y: 0, width: captureSize.width * magnification, height: captureSize.height * magnification)
 			gc.cgContext.draw(cgImage, in: scaledRect)
+			return true
 		}
 
-		scaled.unlockFocus()
-		
-		imageView.image = scaled
+		return scaled
 	}
 }

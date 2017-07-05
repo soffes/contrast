@@ -31,7 +31,7 @@ final class EyeDropperWindow: NSWindow {
 		hasShadow = false
 		level = Int(CGWindowLevelForKey(.mainMenuWindow)) + 2
 
-		view.setupTracking()
+		view.updateTrackingAreas()
 		contentView = view
 	}
 
@@ -45,13 +45,13 @@ final class EyeDropperWindow: NSWindow {
 	override func resignKey() {
 		super.resignKey()
 		NSCursor.unhide()
-		view.reticleView.isHidden = true
+		view.loupeView.isHidden = true
 	}
 
 	override func becomeKey() {
 		super.becomeKey()
 		NSCursor.hide()
-		view.reticleView.isHidden = false
-		view.positionReticle(at: mouseLocationOutsideOfEventStream)
+		view.loupeView.isHidden = false
+		view.positionLoupe(at: mouseLocationOutsideOfEventStream)
 	}
 }
