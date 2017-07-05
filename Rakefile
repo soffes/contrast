@@ -47,19 +47,27 @@ task :build do
   short_version = `/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "#{app}/Contents/Info.plist"`.chomp
 
   # Compress
-  zip = "#{APP_NAME.gsub(/\s/, '')}-#{version}.zip"
+  version_s = if ($has_clean_state = system 'git diff-index --quiet HEAD --')
+    version
+  else
+    "#{version.to_i + 1}-wip"
+  end
+
+  zip = "#{APP_NAME.gsub(/\s/, '')}-#{version_s}.zip"
   sh %Q{ditto -c -k --sequesterRsrc --keepParent "#{app}" "#{zip}"}
 
   # Clean up
   sh 'rm -rf build'
 
   $tag_name = "v#{short_version}-#{version}"
+
+  puts "\n\n> Created #{zip}."
 end
 
 desc 'Create a beta build'
 task :beta do
   # Ensure clean git state
-  unless system 'git diff-index --quiet HEAD --'
+  unless $has_clean_state
     abort 'Failed. You have uncommitted changes.'
   end
 
@@ -70,7 +78,7 @@ task :beta do
   sh %(git tag #{$tag_name})
 
   # Done!
-  puts "\n\nSuccess! Created #{zip}. Created git tag '#{$tag_name}'.\n\n"
+  puts "\n\n> Created git tag '#{$tag_name}'.\n\n"
   recent_changes(latest_tag)
 end
 
