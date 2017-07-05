@@ -36,9 +36,13 @@ final class ColorInput: NSControl {
 		return view
 	}()
 
-	let button: Button = Button()
+	let button = Button()
 
-	let textField = TextField()
+	let textField: TextField = {
+		let view = TextField()
+		view.formatter = HexFormatter()
+		return view
+	}()
 
 
 	// MARK: - Initializers
