@@ -41,6 +41,7 @@ final class EyeDropper: NSWindowController {
 		let shouldContinue = event.modifierFlags.contains(.shift)
 
 		if let window = window as? EyeDropperWindow, let color = window.screenshot?.color {
+			NSSound.contrastPickColor.play()
 			delegate?.eyeDropperDidSelectColor(color, continuePicking: shouldContinue)
 		}
 	}

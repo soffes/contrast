@@ -49,7 +49,11 @@ class ColorsViewController: NSViewController {
 
 	fileprivate let foregroundInput = ColorInput()
 
-	private let swapButton = PlainButton()
+	private let swapButton: PlainButton = {
+		let view = PlainButton()
+		view.sound = .contrastSwap
+		return view
+	}()
 
 	fileprivate let backgroundInput = ColorInput()
 

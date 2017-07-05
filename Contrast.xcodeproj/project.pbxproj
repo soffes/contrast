@@ -32,7 +32,11 @@
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
 		21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */; };
-		21D0DA7E1F0D88E700632FF5 /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7D1F0D88E700632FF5 /* NSFont.swift */; };
+		21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */; };
+		21D0DA831F0D896F00632FF5 /* click_snap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 21D0DA801F0D896F00632FF5 /* click_snap.wav */; };
+		21D0DA841F0D896F00632FF5 /* click_tiny.wav in Resources */ = {isa = PBXBuildFile; fileRef = 21D0DA811F0D896F00632FF5 /* click_tiny.wav */; };
+		21D0DA851F0D896F00632FF5 /* slide_left.wav in Resources */ = {isa = PBXBuildFile; fileRef = 21D0DA821F0D896F00632FF5 /* slide_left.wav */; };
+		21D0DA871F0D8A2000632FF5 /* NSSound+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */; };
 		21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -90,7 +94,11 @@
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21D0DA791F0D7E6400632FF5 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
 		21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
-		21D0DA7D1F0D88E700632FF5 /* NSFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
+		21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFont+Contrast.swift"; sourceTree = "<group>"; };
+		21D0DA801F0D896F00632FF5 /* click_snap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_snap.wav; sourceTree = "<group>"; };
+		21D0DA811F0D896F00632FF5 /* click_tiny.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_tiny.wav; sourceTree = "<group>"; };
+		21D0DA821F0D896F00632FF5 /* slide_left.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slide_left.wav; sourceTree = "<group>"; };
+		21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSSound+Contrast.swift"; sourceTree = "<group>"; };
 		21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,9 +167,10 @@
 		2184873C1F05473F009EE112 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				21E685431F05E0ED00471E6C /* Fonts */,
+				21D0DA7F1F0D896F00632FF5 /* Sounds */,
 				2184873D1F05473F009EE112 /* Assets.xcassets */,
 				2184873E1F05473F009EE112 /* Main.storyboard */,
-				21E685431F05E0ED00471E6C /* Fonts */,
 				218487421F05473F009EE112 /* Info.plist */,
 				218487691F054C8F009EE112 /* Tests-Info.plist */,
 			);
@@ -242,7 +251,8 @@
 			children = (
 				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
 				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
-				21D0DA7D1F0D88E700632FF5 /* NSFont.swift */,
+				21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */,
+				21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -253,6 +263,16 @@
 				2184873B1F05473F009EE112 /* ColorsViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		21D0DA7F1F0D896F00632FF5 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				21D0DA801F0D896F00632FF5 /* click_snap.wav */,
+				21D0DA811F0D896F00632FF5 /* click_tiny.wav */,
+				21D0DA821F0D896F00632FF5 /* slide_left.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		21E685431F05E0ED00471E6C /* Fonts */ = {
@@ -351,8 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2184874C1F05473F009EE112 /* Assets.xcassets in Resources */,
+				21D0DA841F0D896F00632FF5 /* click_tiny.wav in Resources */,
+				21D0DA831F0D896F00632FF5 /* click_snap.wav in Resources */,
 				21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */,
 				2184874D1F05473F009EE112 /* Main.storyboard in Resources */,
+				21D0DA851F0D896F00632FF5 /* slide_left.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +416,7 @@
 				218487951F055B42009EE112 /* TextField.swift in Sources */,
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
 				21758ECD1F09EE13006FA782 /* DetachedWindow.swift in Sources */,
+				21D0DA871F0D8A2000632FF5 /* NSSound+Contrast.swift in Sources */,
 				21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */,
 				2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */,
 				21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */,
@@ -410,7 +434,7 @@
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
 				21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */,
 				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
-				21D0DA7E1F0D88E700632FF5 /* NSFont.swift in Sources */,
+				21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
