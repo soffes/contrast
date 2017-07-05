@@ -68,7 +68,8 @@ final class EyeDropper: NSWindowController {
 		view.frame = rect
 
 		NSApp.activate(ignoringOtherApps: true)
-		window.makeKeyAndOrderFront(self)
+		window.makeKey()
+		window.orderFrontRegardless()
 	}
 
 
