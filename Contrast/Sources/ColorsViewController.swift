@@ -49,11 +49,7 @@ class ColorsViewController: NSViewController {
 
 	fileprivate let foregroundInput = ColorInput()
 
-	private let swapButton: PlainButton = {
-		let view = PlainButton()
-		view.sound = .contrastSwap
-		return view
-	}()
+	private let swapButton = PlainButton()
 
 	fileprivate let backgroundInput = ColorInput()
 
@@ -183,6 +179,7 @@ class ColorsViewController: NSViewController {
 	// MARK: - Actions
 
 	@objc private func pickColor(_ sender: Button) {
+		NSSound.contrastPick.forcePlay()
 		position = foregroundInput.button == sender ? .foreground : .background
 
 		let eyeDropper = EyeDropper(delegate: self)
@@ -191,6 +188,7 @@ class ColorsViewController: NSViewController {
 	}
 
 	@objc private func swapColors(_ sender: Any?) {
+		NSSound.contrastSwap.forcePlay()
 		theme.swap()
 	}
 

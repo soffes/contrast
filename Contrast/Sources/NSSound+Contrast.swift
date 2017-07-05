@@ -13,11 +13,23 @@ extension NSSound {
 		return NSSound(named: "slide_left")!
 	}
 
-	static var contrastPickColor: NSSound {
+	static var contrastPick: NSSound {
 		return NSSound(named: "click_tiny")!
+	}
+
+	static var contrastPickColor: NSSound {
+		return NSSound(named: "click_type")!
 	}
 
 	static var contrastCopyColor: NSSound {
 		return NSSound(named: "click_snap")!
+	}
+
+	func forcePlay() {
+		if isPlaying {
+			stop()
+		}
+
+		play()
 	}
 }

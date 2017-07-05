@@ -37,6 +37,7 @@
 		21D0DA841F0D896F00632FF5 /* click_tiny.wav in Resources */ = {isa = PBXBuildFile; fileRef = 21D0DA811F0D896F00632FF5 /* click_tiny.wav */; };
 		21D0DA851F0D896F00632FF5 /* slide_left.wav in Resources */ = {isa = PBXBuildFile; fileRef = 21D0DA821F0D896F00632FF5 /* slide_left.wav */; };
 		21D0DA871F0D8A2000632FF5 /* NSSound+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */; };
+		21D0DA8B1F0D8E6900632FF5 /* click_type.wav in Resources */ = {isa = PBXBuildFile; fileRef = 21D0DA8A1F0D8E6900632FF5 /* click_type.wav */; };
 		21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */; };
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -99,6 +100,7 @@
 		21D0DA811F0D896F00632FF5 /* click_tiny.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_tiny.wav; sourceTree = "<group>"; };
 		21D0DA821F0D896F00632FF5 /* slide_left.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slide_left.wav; sourceTree = "<group>"; };
 		21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSSound+Contrast.swift"; sourceTree = "<group>"; };
+		21D0DA8A1F0D8E6900632FF5 /* click_type.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_type.wav; sourceTree = "<group>"; };
 		21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 		21E685441F05E0ED00471E6C /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,6 +270,7 @@
 		21D0DA7F1F0D896F00632FF5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				21D0DA8A1F0D8E6900632FF5 /* click_type.wav */,
 				21D0DA801F0D896F00632FF5 /* click_snap.wav */,
 				21D0DA811F0D896F00632FF5 /* click_tiny.wav */,
 				21D0DA821F0D896F00632FF5 /* slide_left.wav */,
@@ -371,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2184874C1F05473F009EE112 /* Assets.xcassets in Resources */,
+				21D0DA8B1F0D8E6900632FF5 /* click_type.wav in Resources */,
 				21D0DA841F0D896F00632FF5 /* click_tiny.wav in Resources */,
 				21D0DA831F0D896F00632FF5 /* click_snap.wav in Resources */,
 				21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */,
