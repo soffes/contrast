@@ -8,12 +8,12 @@
 
 import AppKit
 
-extension NSColor {
-	static var preferredColorSpace: NSColorSpace {
+public extension NSColor {
+	public static var preferredColorSpace: NSColorSpace {
 		return NSColor(calibratedRed: 1, green: 0, blue: 0, alpha: 1).colorSpace
 	}
 
-	var convertingToPreferredColorSpace: NSColor? {
+	public var convertingToPreferredColorSpace: NSColor? {
 		let preferredColorSpace = type(of: self).preferredColorSpace
 
 		if colorSpace == preferredColorSpace {
@@ -83,7 +83,7 @@ extension NSColor {
 	}
 
 	// From https://www.w3.org/TR/WCAG20/#relativeluminancedef
-	var relativeLuminance: CGFloat {
+	public var relativeLuminance: CGFloat {
 		guard let color = convertingToPreferredColorSpace else { return 0 }
 
 		var red: CGFloat = 0
@@ -99,7 +99,7 @@ extension NSColor {
 	}
 
 	// From http://24ways.org/2010/calculating-color-contrast
-	var yiq: CGFloat {
+	public var yiq: CGFloat {
 		guard let color = convertingToPreferredColorSpace else { return 0 }
 
 		var red: CGFloat = 0
@@ -110,12 +110,12 @@ extension NSColor {
 		return (red * 255 * 299 + green * 255 * 587 + blue * 255 * 114) / 1000
 	}
 
-	var isDark: Bool {
+	public var isDark: Bool {
 		return yiq < 128
 	}
 
 	// From https://www.w3.org/TR/WCAG20/#contrast-ratiodef
-	static func contrastRatio(_ color1: NSColor, _ color2: NSColor) -> CGFloat {
+	public static func contrastRatio(_ color1: NSColor, _ color2: NSColor) -> CGFloat {
 		let lum1 = color1.relativeLuminance
 		let lum2 = color2.relativeLuminance
 

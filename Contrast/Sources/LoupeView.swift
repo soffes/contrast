@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Color
 
 final class LoupeView: NSView {
 

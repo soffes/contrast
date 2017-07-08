@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Contrast
+import Color
 
 final class ColorTests: XCTestCase {
 	let color1 = NSColor(hex: "acf")!

@@ -17,12 +17,10 @@
 		218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487351F05473F009EE112 /* EyeDropperWindow.swift */; };
 		218487461F05473F009EE112 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487361F05473F009EE112 /* GridView.swift */; };
 		218487471F05473F009EE112 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487371F05473F009EE112 /* MenuBarController.swift */; };
-		218487481F05473F009EE112 /* NSColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487381F05473F009EE112 /* NSColor+Contrast.swift */; };
 		2184874A1F05473F009EE112 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873A1F05473F009EE112 /* Score.swift */; };
 		2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873B1F05473F009EE112 /* ColorsViewController.swift */; };
 		2184874C1F05473F009EE112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2184873D1F05473F009EE112 /* Assets.xcassets */; };
 		2184874D1F05473F009EE112 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2184873E1F05473F009EE112 /* Main.storyboard */; };
-		2184876E1F054CA2009EE112 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184876D1F054CA2009EE112 /* ColorTests.swift */; };
 		218487931F055B21009EE112 /* ColorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487921F055B21009EE112 /* ColorInput.swift */; };
 		218487951F055B42009EE112 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487941F055B42009EE112 /* TextField.swift */; };
 		218487971F055B81009EE112 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487961F055B81009EE112 /* Button.swift */; };
@@ -30,6 +28,14 @@
 		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
+		21968A8F1F1062AC00FB373F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968A8E1F1062AC00FB373F /* main.swift */; };
+		21968AA11F1062FF00FB373F /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21968A981F1062FF00FB373F /* Color.framework */; };
+		21968AAD1F1062FF00FB373F /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21968A981F1062FF00FB373F /* Color.framework */; };
+		21968AAE1F1062FF00FB373F /* Color.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21968A981F1062FF00FB373F /* Color.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21968ABC1F10633600FB373F /* NSColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968AB61F10633600FB373F /* NSColor+Contrast.swift */; };
+		21968ABD1F10633600FB373F /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = 21968AB81F10633600FB373F /* Color.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21968ABE1F10633600FB373F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21968AB91F10633600FB373F /* Info.plist */; };
+		21968AC01F10646400FB373F /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968ABB1F10633600FB373F /* ColorTests.swift */; };
 		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
 		21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */; };
 		21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */; };
@@ -43,12 +49,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		218487611F054C3E009EE112 /* PBXContainerItemProxy */ = {
+		21968AA21F1062FF00FB373F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218486FE1F04642C009EE112 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21968A971F1062FF00FB373F;
+			remoteInfo = Color;
+		};
+		21968AA41F1062FF00FB373F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 218486FE1F04642C009EE112 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 218487051F04642C009EE112;
 			remoteInfo = Contrast;
+		};
+		21968AAB1F1062FF00FB373F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 218486FE1F04642C009EE112 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21968A971F1062FF00FB373F;
+			remoteInfo = Color;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -59,9 +79,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				21968AAE1F1062FF00FB373F /* Color.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21968A8A1F1062AC00FB373F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -77,13 +107,11 @@
 		218487351F05473F009EE112 /* EyeDropperWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperWindow.swift; sourceTree = "<group>"; };
 		218487361F05473F009EE112 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		218487371F05473F009EE112 /* MenuBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
-		218487381F05473F009EE112 /* NSColor+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Contrast.swift"; sourceTree = "<group>"; };
 		2184873A1F05473F009EE112 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		2184873B1F05473F009EE112 /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		2184873D1F05473F009EE112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2184873F1F05473F009EE112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		218487421F05473F009EE112 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2184875C1F054C3D009EE112 /* ContrastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContrastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		218487691F054C8F009EE112 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		2184876D1F054CA2009EE112 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		218487921F055B21009EE112 /* ColorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorInput.swift; sourceTree = "<group>"; };
@@ -93,6 +121,14 @@
 		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
+		21968A8C1F1062AC00FB373F /* contrast */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = contrast; sourceTree = BUILT_PRODUCTS_DIR; };
+		21968A8E1F1062AC00FB373F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		21968A981F1062FF00FB373F /* Color.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Color.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21968AA01F1062FF00FB373F /* ColorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21968AB61F10633600FB373F /* NSColor+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Contrast.swift"; sourceTree = "<group>"; };
+		21968AB81F10633600FB373F /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		21968AB91F10633600FB373F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21968ABB1F10633600FB373F /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		21D0DA791F0D7E6400632FF5 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
 		21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFont+Contrast.swift"; sourceTree = "<group>"; };
@@ -110,13 +146,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21968AAD1F1062FF00FB373F /* Color.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		218487591F054C3D009EE112 /* Frameworks */ = {
+		21968A891F1062AC00FB373F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21968A941F1062FF00FB373F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21968A9D1F1062FF00FB373F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21968AA11F1062FF00FB373F /* Color.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				218487081F04642C009EE112 /* Contrast */,
+				21968A8D1F1062AC00FB373F /* ContrastCLI */,
+				21968A991F1062FF00FB373F /* Color */,
 				218487071F04642C009EE112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,7 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				218487061F04642C009EE112 /* Contrast.app */,
-				2184875C1F054C3D009EE112 /* ContrastTests.xctest */,
+				21968A8C1F1062AC00FB373F /* contrast */,
+				21968A981F1062FF00FB373F /* Color.framework */,
+				21968AA01F1062FF00FB373F /* ColorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
-				218487381F05473F009EE112 /* NSColor+Contrast.swift */,
 				21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */,
 				21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */,
 			);
@@ -265,6 +320,49 @@
 				2184873B1F05473F009EE112 /* ColorsViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		21968A8D1F1062AC00FB373F /* ContrastCLI */ = {
+			isa = PBXGroup;
+			children = (
+				21968A8E1F1062AC00FB373F /* main.swift */,
+			);
+			path = ContrastCLI;
+			sourceTree = "<group>";
+		};
+		21968A991F1062FF00FB373F /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				21968AB51F10633600FB373F /* Sources */,
+				21968AB71F10633600FB373F /* Support */,
+				21968ABA1F10633600FB373F /* Tests */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		21968AB51F10633600FB373F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				21968AB61F10633600FB373F /* NSColor+Contrast.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		21968AB71F10633600FB373F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				21968AB81F10633600FB373F /* Color.h */,
+				21968AB91F10633600FB373F /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		21968ABA1F10633600FB373F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				21968ABB1F10633600FB373F /* ColorTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		21D0DA7F1F0D896F00632FF5 /* Sounds */ = {
@@ -288,6 +386,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		21968A951F1062FF00FB373F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21968ABD1F10633600FB373F /* Color.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		218487051F04642C009EE112 /* Contrast */ = {
 			isa = PBXNativeTarget;
@@ -302,28 +411,65 @@
 			buildRules = (
 			);
 			dependencies = (
+				21968AAC1F1062FF00FB373F /* PBXTargetDependency */,
 			);
 			name = Contrast;
 			productName = Contrast;
 			productReference = 218487061F04642C009EE112 /* Contrast.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2184875B1F054C3D009EE112 /* ContrastTests */ = {
+		21968A8B1F1062AC00FB373F /* ContrastCLI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 218487631F054C3E009EE112 /* Build configuration list for PBXNativeTarget "ContrastTests" */;
+			buildConfigurationList = 21968A921F1062AC00FB373F /* Build configuration list for PBXNativeTarget "ContrastCLI" */;
 			buildPhases = (
-				218487581F054C3D009EE112 /* Sources */,
-				218487591F054C3D009EE112 /* Frameworks */,
-				2184875A1F054C3D009EE112 /* Resources */,
+				21968A881F1062AC00FB373F /* Sources */,
+				21968A891F1062AC00FB373F /* Frameworks */,
+				21968A8A1F1062AC00FB373F /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				218487621F054C3E009EE112 /* PBXTargetDependency */,
 			);
-			name = ContrastTests;
-			productName = ContrastTests;
-			productReference = 2184875C1F054C3D009EE112 /* ContrastTests.xctest */;
+			name = ContrastCLI;
+			productName = ContrastCLI;
+			productReference = 21968A8C1F1062AC00FB373F /* contrast */;
+			productType = "com.apple.product-type.tool";
+		};
+		21968A971F1062FF00FB373F /* Color */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21968AAF1F1062FF00FB373F /* Build configuration list for PBXNativeTarget "Color" */;
+			buildPhases = (
+				21968A931F1062FF00FB373F /* Sources */,
+				21968A941F1062FF00FB373F /* Frameworks */,
+				21968A951F1062FF00FB373F /* Headers */,
+				21968A961F1062FF00FB373F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Color;
+			productName = Color;
+			productReference = 21968A981F1062FF00FB373F /* Color.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21968A9F1F1062FF00FB373F /* ColorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21968AB21F1062FF00FB373F /* Build configuration list for PBXNativeTarget "ColorTests" */;
+			buildPhases = (
+				21968A9C1F1062FF00FB373F /* Sources */,
+				21968A9D1F1062FF00FB373F /* Frameworks */,
+				21968A9E1F1062FF00FB373F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21968AA31F1062FF00FB373F /* PBXTargetDependency */,
+				21968AA51F1062FF00FB373F /* PBXTargetDependency */,
+			);
+			name = ColorTests;
+			productName = ColorTests;
+			productReference = 21968AA01F1062FF00FB373F /* ColorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -341,11 +487,19 @@
 						DevelopmentTeam = UP9C8XM22A;
 						ProvisioningStyle = Automatic;
 					};
-					2184875B1F054C3D009EE112 = {
+					21968A8B1F1062AC00FB373F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = UP9C8XM22A;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 218487051F04642C009EE112;
+					};
+					21968A971F1062FF00FB373F = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					21968A9F1F1062FF00FB373F = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = UP9C8XM22A;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -363,7 +517,9 @@
 			projectRoot = "";
 			targets = (
 				218487051F04642C009EE112 /* Contrast */,
-				2184875B1F054C3D009EE112 /* ContrastTests */,
+				21968A8B1F1062AC00FB373F /* ContrastCLI */,
+				21968A971F1062FF00FB373F /* Color */,
+				21968A9F1F1062FF00FB373F /* ColorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,7 +539,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2184875A1F054C3D009EE112 /* Resources */ = {
+		21968A961F1062FF00FB373F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21968ABE1F10633600FB373F /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21968A9E1F1062FF00FB373F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -415,7 +579,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */,
-				218487481F05473F009EE112 /* NSColor+Contrast.swift in Sources */,
 				2184874A1F05473F009EE112 /* Score.swift in Sources */,
 				218487951F055B42009EE112 /* TextField.swift in Sources */,
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
@@ -442,21 +605,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		218487581F054C3D009EE112 /* Sources */ = {
+		21968A881F1062AC00FB373F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2184876E1F054CA2009EE112 /* ColorTests.swift in Sources */,
+				21968A8F1F1062AC00FB373F /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21968A931F1062FF00FB373F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21968ABC1F10633600FB373F /* NSColor+Contrast.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21968A9C1F1062FF00FB373F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21968AC01F10646400FB373F /* ColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		218487621F054C3E009EE112 /* PBXTargetDependency */ = {
+		21968AA31F1062FF00FB373F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21968A971F1062FF00FB373F /* Color */;
+			targetProxy = 21968AA21F1062FF00FB373F /* PBXContainerItemProxy */;
+		};
+		21968AA51F1062FF00FB373F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 218487051F04642C009EE112 /* Contrast */;
-			targetProxy = 218487611F054C3E009EE112 /* PBXContainerItemProxy */;
+			targetProxy = 21968AA41F1062FF00FB373F /* PBXContainerItemProxy */;
+		};
+		21968AAC1F1062FF00FB373F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21968A971F1062FF00FB373F /* Color */;
+			targetProxy = 21968AAB1F1062FF00FB373F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -579,6 +768,7 @@
 		218487161F04642C009EE112 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -595,6 +785,7 @@
 		218487171F04642C009EE112 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -608,33 +799,99 @@
 			};
 			name = Release;
 		};
-		218487641F054C3E009EE112 /* Debug */ = {
+		21968A901F1062AC00FB373F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
-				INFOPLIST_FILE = "Contrast/Support/Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.ContrastTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = contrast;
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contrast.app/Contents/MacOS/Contrast";
 			};
 			name = Debug;
 		};
-		218487651F054C3E009EE112 /* Release */ = {
+		21968A911F1062AC00FB373F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = UP9C8XM22A;
+				PRODUCT_NAME = contrast;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		21968AB01F1062FF00FB373F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Color/Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.Color;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		21968AB11F1062FF00FB373F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Color/Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.Color;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		21968AB31F1062FF00FB373F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
-				INFOPLIST_FILE = "Contrast/Support/Tests-Info.plist";
+				INFOPLIST_FILE = "Color/Support/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.ContrastTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.ColorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contrast.app/Contents/MacOS/Contrast";
+			};
+			name = Debug;
+		};
+		21968AB41F1062FF00FB373F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UP9C8XM22A;
+				INFOPLIST_FILE = "Color/Support/Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.ColorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -659,14 +916,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		218487631F054C3E009EE112 /* Build configuration list for PBXNativeTarget "ContrastTests" */ = {
+		21968A921F1062AC00FB373F /* Build configuration list for PBXNativeTarget "ContrastCLI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				218487641F054C3E009EE112 /* Debug */,
-				218487651F054C3E009EE112 /* Release */,
+				21968A901F1062AC00FB373F /* Debug */,
+				21968A911F1062AC00FB373F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+		};
+		21968AAF1F1062FF00FB373F /* Build configuration list for PBXNativeTarget "Color" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21968AB01F1062FF00FB373F /* Debug */,
+				21968AB11F1062FF00FB373F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		21968AB21F1062FF00FB373F /* Build configuration list for PBXNativeTarget "ColorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21968AB31F1062FF00FB373F /* Debug */,
+				21968AB41F1062FF00FB373F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
