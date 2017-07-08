@@ -6,7 +6,8 @@
 //  Copyright © 2017 Nothing Magical, Inc. All rights reserved.
 //
 
-import Cocoa
+import AppKit
+import Color
 
 protocol ColorsViewControllerDelegate: class {
 	func colorsViewController(_ viewController: ColorsViewController, didChangeTheme theme: Theme)

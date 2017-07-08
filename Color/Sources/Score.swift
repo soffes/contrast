@@ -9,7 +9,7 @@
 import CoreGraphics
 
 /// Derived from the Web Content Accessibility Guidelines (WCAG) 2.0 conformance levels
-enum Score: Int {
+public enum Score: Int {
 	/// Failing score
 	///
 	/// Does not meet a WCAG 2.0 standard
@@ -31,7 +31,7 @@ enum Score: Int {
 	case aaa
 
 
-	init(contrastRatio: CGFloat) {
+	public init(contrastRatio: CGFloat) {
 		if contrastRatio >= 7 {
 			self = .aaa
 			return
@@ -53,7 +53,7 @@ enum Score: Int {
 
 
 extension Score: CustomStringConvertible {
-	var description: String {
+	public var description: String {
 		switch self {
 		case .fail: return "Fail"
 		case .aaLarge: return "AA+"
