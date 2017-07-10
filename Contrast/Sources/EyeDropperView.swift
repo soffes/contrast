@@ -81,14 +81,14 @@ final class EyeDropperView: NSView {
 		loupeView.frame = rect
 
 		// Update image
-		let image = screenshot(at: position)
-		loupeView.screenshot = image.flatMap(Screenshot.init)
+		loupeView.screenshot = screenshot(at: position).flatMap(Screenshot.init)
 	}
 
 
 	// MARK: - Private
 
-	private func screenshot(at position: CGPoint) -> NSImage? {
+	/// First is the original, second is scaled up
+	private func screenshot(at position: CGPoint) -> (NSImage, NSImage)? {
 		// TODO: This won't work on multiple screens
 		guard let screen = NSScreen.main(), let window = window else { return nil }
 
@@ -99,6 +99,7 @@ final class EyeDropperView: NSView {
 		let windowID = UInt32(window.windowNumber)
 
 		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID, []) else { return nil }
+		let original = NSImage(cgImage: cgImage, size: captureSize)
 
 		// Scale screenshot
 		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4, width: captureSize.width * magnification, height: captureSize.height * magnification)
@@ -109,6 +110,6 @@ final class EyeDropperView: NSView {
 			return true
 		}
 
-		return scaled
+		return (original, scaled)
 	}
 }

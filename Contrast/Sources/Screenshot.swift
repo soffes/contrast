@@ -12,13 +12,13 @@ struct Screenshot {
 	var image: NSImage
 	var color: NSColor
 
-	init?(image: NSImage) {
-		guard let data = image.tiffRepresentation,
+	init?(originalImage: NSImage, scaledImage: NSImage) {
+		guard let data = originalImage.tiffRepresentation,
 			let rasterized = NSBitmapImageRep(data: data),
 			let color = rasterized.colorAt(x: rasterized.pixelsWide / 2, y: rasterized.pixelsHigh / 2)?.convertingToPreferredColorSpace
 		else { return nil }
 
-		self.image = image
+		self.image = scaledImage
 		self.color = color
 	}
 }
