@@ -10,7 +10,7 @@ import AppKit
 
 public extension NSColor {
 	public static var preferredColorSpace: NSColorSpace {
-		return NSColor(calibratedRed: 1, green: 0, blue: 0, alpha: 1).colorSpace
+		return .genericRGB
 	}
 
 	public var convertingToPreferredColorSpace: NSColor? {
