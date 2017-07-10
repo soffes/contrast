@@ -17,6 +17,8 @@ final class EyeDropperView: NSView {
 	private var trackingArea: NSTrackingArea?
 	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved]
 
+	private let cursor = NSCursor(image: NSImage(size: CGSize(width: 1, height: 1)), hotSpot: .zero)
+
 
 	// MARK: - Initializers
 
@@ -40,14 +42,30 @@ final class EyeDropperView: NSView {
 		let trackingArea = NSTrackingArea(rect: bounds, options: trackingAreaOptions, owner: self, userInfo: nil)
 		addTrackingArea(trackingArea)
 		self.trackingArea = trackingArea
+		window?.invalidateCursorRects(for: self)
 	}
 
 	override func mouseMoved(with event: NSEvent) {
 		let position = event.locationInWindow
 		positionLoupe(at: position)
+	}
 
-		// To workaround macOS making the cursor huge and unhiding it when you wiggle it violently
-		NSCursor.hide()
+
+	// MARK: - NSView
+
+	override func resetCursorRects() {
+		super.resetCursorRects()
+		addCursorRect(bounds, cursor: cursor)
+	}
+
+	override func viewDidMoveToWindow() {
+		super.viewDidMoveToWindow()
+
+		if window == nil {
+			cursor.pop()
+		} else {
+			cursor.push()
+		}
 	}
 
 

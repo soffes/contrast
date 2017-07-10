@@ -63,13 +63,11 @@ final class EyeDropperWindow: NSWindow {
 
 	override func resignKey() {
 		super.resignKey()
-		NSCursor.unhide()
 		view.loupeView.isHidden = true
 	}
 
 	override func becomeKey() {
 		super.becomeKey()
-		NSCursor.hide()
 		view.loupeView.isHidden = false
 		view.positionLoupe(at: mouseLocationOutsideOfEventStream)
 	}
