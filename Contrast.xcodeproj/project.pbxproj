@@ -830,6 +830,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = UP9C8XM22A;
 				PRODUCT_NAME = contrast;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -839,6 +840,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = UP9C8XM22A;
 				PRODUCT_NAME = contrast;
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
