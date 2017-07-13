@@ -94,6 +94,25 @@ extension Theme {
 }
 
 
+extension Theme {
+	var dictionaryRepresentation: [String: Any] {
+		return [
+			"foreground": foregroundHex,
+			"background": backgroundHex
+		]
+	}
+
+	init?(dictionaryRepresentation dictionary: [String: Any]) {
+		guard let foreground = (dictionary["foreground"] as? String).flatMap(HexColor.init),
+			let background = (dictionary["background"] as? String).flatMap(HexColor.init)
+		else { return nil }
+
+		self.foreground = foreground
+		self.background = background
+	}
+}
+
+
 extension Theme: Equatable {
 	static func == (lhs: Theme, rhs: Theme) -> Bool {
 		return lhs.foregroundColor == rhs.foregroundColor && lhs.backgroundColor == rhs.backgroundColor

@@ -93,8 +93,8 @@ class ColorsViewController: NSViewController {
 
 	// MARK: - Initializers
 
-	init(theme: Theme = .`default`, isInPopover: Bool = true) {
-		self.theme = theme
+	init(theme: Theme? = nil, isInPopover: Bool = true) {
+		self.theme = theme ?? ColorsController.shared.theme
 		self.isInPopover = isInPopover
 		super.init(nibName: nil, bundle: nil)!
 	}
