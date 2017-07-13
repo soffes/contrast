@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21017DE21F0C89DB00D94400 /* HexFormatter.swift */; };
 		2112382B1F17BD2400A837D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238281F17BD2400A837D4 /* main.swift */; };
+		211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; };
+		211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		211238341F17CF7E00A837D4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238331F17CF7E00A837D4 /* Secrets.swift */; };
+		211238361F17CF9B00A837D4 /* Mixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238351F17CF9B00A837D4 /* Mixpanel.swift */; };
 		211E2B391F0B46D400757881 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E2B381F0B46D400757881 /* HexColor.swift */; };
 		21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21616E671F058A220095EFAC /* NSImage+Tint.swift */; };
 		21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECA1F09E579006FA782 /* CloseButton.swift */; };
@@ -89,6 +93,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				21968AAE1F1062FF00FB373F /* Color.framework in Embed Frameworks */,
+				211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +125,9 @@
 		211238261F17BC8700A837D4 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
 		211238281F17BD2400A837D4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2112382A1F17BD2400A837D4 /* ContrastCLI.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastCLI.entitlements; sourceTree = "<group>"; };
+		2112382E1F17CF2E00A837D4 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = "<group>"; };
+		211238331F17CF7E00A837D4 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		211238351F17CF9B00A837D4 /* Mixpanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mixpanel.swift; sourceTree = "<group>"; };
 		211E2B381F0B46D400757881 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		21616E671F058A220095EFAC /* NSImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
 		21758ECA1F09E579006FA782 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */,
 				21968AAD1F1062FF00FB373F /* Color.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,12 +221,22 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		2112382D1F17CF2E00A837D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2112382E1F17CF2E00A837D4 /* Mixpanel.framework */,
+			);
+			name = Frameworks;
+			path = Carthage/Build/Mac;
+			sourceTree = "<group>";
+		};
 		218486FD1F04642C009EE112 = {
 			isa = PBXGroup;
 			children = (
 				218487081F04642C009EE112 /* Contrast */,
 				21968A8D1F1062AC00FB373F /* ContrastCLI */,
 				21968A991F1062FF00FB373F /* Color */,
+				2112382D1F17CF2E00A837D4 /* Frameworks */,
 				218487071F04642C009EE112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -286,6 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				218487331F05473F009EE112 /* AppDelegate.swift */,
+				211238331F17CF7E00A837D4 /* Secrets.swift */,
+				211238351F17CF9B00A837D4 /* Mixpanel.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -623,8 +644,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */,
+				211238341F17CF7E00A837D4 /* Secrets.swift in Sources */,
 				218487951F055B42009EE112 /* TextField.swift in Sources */,
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
+				211238361F17CF9B00A837D4 /* Mixpanel.swift in Sources */,
 				21758ECD1F09EE13006FA782 /* DetachedWindow.swift in Sources */,
 				21D0DA871F0D8A2000632FF5 /* NSSound+Contrast.swift in Sources */,
 				21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */,
@@ -762,6 +785,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -825,6 +849,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Contrast/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.contrast;
@@ -843,6 +871,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Contrast/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.contrast;

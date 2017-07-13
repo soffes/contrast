@@ -18,6 +18,7 @@ import AppKit
 
 extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
+		mixpanel.track(event: "Launch")
 		menuBarController.showPopover(self)
 	}
 }
