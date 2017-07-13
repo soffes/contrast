@@ -1,0 +1,13 @@
+disabled_rules:
+  - vertical_whitespace
+  - identifier_name
+  - function_body_length
+  - todo
+  - cyclomatic_complexity
+
+line_length: 300
+
+included:
+  - Contrast/Sources
+  - ContrastCLI/Sources
+  - Color/Sources

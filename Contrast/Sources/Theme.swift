@@ -64,7 +64,7 @@ extension Theme {
 	var focusRingColor: NSColor {
 		return NSColor(white: isDark ? 1 : 0, alpha: 0.2)
 	}
-	
+
 	func buttonImageColor(isActive: Bool = false, isHighlighted: Bool) -> NSColor {
 		if isActive {
 			return .white

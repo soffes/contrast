@@ -83,7 +83,7 @@ class ColorsViewController: NSViewController {
 			backgroundInput.button.isActive = position == .background
 		}
 	}
-	
+
 	fileprivate var windowController: EyeDropper? {
 		willSet {
 			windowController?.window?.orderOut(self)
@@ -98,7 +98,7 @@ class ColorsViewController: NSViewController {
 		self.isInPopover = isInPopover
 		super.init(nibName: nil, bundle: nil)!
 	}
-	
+
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
@@ -208,7 +208,7 @@ class ColorsViewController: NSViewController {
 		if ColorsController.shared.theme != theme {
 			ColorsController.shared.theme = theme
 		}
-		
+
 		let background = theme.backgroundColor.cgColor
 		view.layer?.backgroundColor = background
 		arrowView.layer?.backgroundColor = background
@@ -273,7 +273,7 @@ extension ColorsViewController: NSTextFieldDelegate {
 
 		if textField == foregroundInput.textField {
 			theme.foreground = hexColor
-		} else  {
+		} else {
 			theme.background = hexColor
 		}
 	}
@@ -286,7 +286,7 @@ extension ColorsViewController: TextFieldArrowDelegate {
 
 		if textField == foregroundInput.textField {
 			theme.foreground.lighten(by: increment)
-		} else  {
+		} else {
 			theme.background.lighten(by: increment)
 		}
 	}
@@ -296,7 +296,7 @@ extension ColorsViewController: TextFieldArrowDelegate {
 
 		if textField == foregroundInput.textField {
 			theme.foreground.darken(by: increment)
-		} else  {
+		} else {
 			theme.background.darken(by: increment)
 		}
 	}

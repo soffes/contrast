@@ -17,7 +17,7 @@ final class EyeDropperWindow: NSWindow {
 	// MARK: - Properties
 
 	weak var customDelegate: EyeDropperWindowDelegate?
-	
+
 	private let view = EyeDropperView()
 
 	var screenshot: Screenshot? {
@@ -31,7 +31,7 @@ final class EyeDropperWindow: NSWindow {
 		super.init(contentRect: NSScreen.main()?.frame ?? .zero, styleMask: .borderless, backing: .buffered, defer: false)
 
 		identifier = "com.nothingmagical.contrast.eyedropper"
-		
+
 		backgroundColor = .clear
 		isOpaque = false
 		hasShadow = false

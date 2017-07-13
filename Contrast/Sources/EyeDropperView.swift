@@ -103,7 +103,7 @@ final class EyeDropperView: NSView {
 
 		// Scale screenshot
 		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4, width: captureSize.width * magnification, height: captureSize.height * magnification)
-		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification), flipped: false) { bounds in
+		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification), flipped: false) { _ in
 			guard let gc = NSGraphicsContext.current() else { return false }
 			gc.imageInterpolation = .none
 			gc.cgContext.draw(cgImage, in: scaledRect)

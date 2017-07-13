@@ -78,7 +78,7 @@ public extension NSColor {
 		if includingAlpha {
 			output += String(format: "%02x", Int(ceil(color.alphaComponent * 255)))
 		}
-		
+
 		return output
 	}
 

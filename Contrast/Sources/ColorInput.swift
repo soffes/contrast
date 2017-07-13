@@ -17,7 +17,7 @@ final class ColorInput: NSControl {
 			if textField.stringValue.lowercased() == hexColor.hex.lowercased() {
 				return
 			}
-			
+
 			textField.stringValue = hexColor.hex
 		}
 	}
@@ -61,7 +61,7 @@ final class ColorInput: NSControl {
 			stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
 		])
 	}
-	
+
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

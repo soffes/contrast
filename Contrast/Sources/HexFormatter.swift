@@ -15,7 +15,7 @@ final class HexFormatter: Formatter {
 	private let maximumLength = 6
 	private let allowedCharacters = CharacterSet(charactersIn: "0123456789ABCDEFabcdef")
 
-	
+
 	// MARK: - Formatter
 
 	override func string(for obj: Any?) -> String? {
@@ -27,7 +27,7 @@ final class HexFormatter: Formatter {
 		return true
 	}
 
-	override func isPartialStringValid(_ partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString>, proposedSelectedRange proposedSelRangePtr: NSRangePointer?, originalString origString: String, originalSelectedRange origSelRange: NSRange, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
+	override func isPartialStringValid(_ partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString>, proposedSelectedRange: NSRangePointer?, originalString: String, originalSelectedRange: NSRange, errorDescription: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
 		var result = true
 		var partialString = partialStringPtr.pointee
 

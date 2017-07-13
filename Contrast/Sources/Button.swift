@@ -108,7 +108,7 @@ final class Button: NSButton {
 		image = #imageLiteral(resourceName: "EyeDropper")
 		focusRingType = .none
 	}
-	
+
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

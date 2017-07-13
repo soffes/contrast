@@ -59,7 +59,7 @@ final class Label: NSTextField {
 			set(text: stringValue, foregroundColor: theme.foregroundColor, backgroundColor: theme.backgroundColor)
 		}
 	}
-	
+
 
 	// MARK: - Initializers
 
@@ -105,7 +105,7 @@ final class Label: NSTextField {
 	func set(text: String, foregroundColor: NSColor? = nil, backgroundColor: NSColor? = nil) {
 		let paragraph = NSMutableParagraphStyle()
 		paragraph.alignment = alignment
-		
+
 		attributedStringValue = NSAttributedString(string: text, attributes: [
 			NSForegroundColorAttributeName: foregroundColor ?? theme.foregroundColor,
 			NSBackgroundColorAttributeName: backgroundColor ?? theme.backgroundColor,

@@ -93,7 +93,7 @@ final class LoupeView: NSView {
 			hexLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: EyeDropper.magnification)
 		])
 	}
-	
+
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

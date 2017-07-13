@@ -21,7 +21,7 @@ final class GridView: NSView {
 
 		super.init(frame: CGRect(x: 0, y: 0, width: CGFloat(columns) * dimension, height: CGFloat(rows) * dimension))
 	}
-	
+
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

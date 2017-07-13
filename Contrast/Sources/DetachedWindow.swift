@@ -73,7 +73,7 @@ final class DetachedWindow: NSWindow {
 
 	private let customContentView = DetachedWindowView()
 	private var customContentViewController: NSViewController?
-	
+
 
 	// MARK: - Initializers
 
@@ -105,7 +105,7 @@ final class DetachedWindow: NSWindow {
 
 	override init(contentRect: NSRect, styleMask: NSWindowStyleMask, backing: NSBackingStoreType, defer: Bool) {
 		let style: NSWindowStyleMask = [.titled, .closable, .fullSizeContentView]
-		
+
 		super.init(contentRect: contentRect, styleMask: style, backing: backing, defer: `defer`)
 
 		contentView = customContentView
