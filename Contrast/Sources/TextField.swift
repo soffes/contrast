@@ -68,9 +68,17 @@ private final class TextFieldCell: NSTextFieldCell {
 	}
 }
 
+
+protocol TextFieldArrowDelegate: class {
+	func textField(_ textField: TextField, didPressUpWithShift shift: Bool)
+	func textField(_ textField: TextField, didPressDownWithShift shift: Bool)
+}
+
 final class TextField: NSTextField {
 
 	// MARK: - Properties
+
+	weak var arrowDelegate: TextFieldArrowDelegate?
 
 	var theme: Theme = .default {
 		didSet {
@@ -101,40 +109,54 @@ final class TextField: NSTextField {
 	// MARK: - NSResponder
 
 	override func performKeyEquivalent(with event: NSEvent) -> Bool {
+		guard isFirstResponder, event.type == NSEventType.keyDown, let characters = event.charactersIgnoringModifiers else {
+			return super.performKeyEquivalent(with: event)
+		}
+
+		if let arrowDelegate = arrowDelegate {
+			switch characters {
+			case String(Character(UnicodeScalar(NSUpArrowFunctionKey)!)):
+				arrowDelegate.textField(self, didPressUpWithShift: event.modifierFlags.contains(.shift))
+				return true
+			case String(Character(UnicodeScalar(NSDownArrowFunctionKey)!)):
+				arrowDelegate.textField(self, didPressDownWithShift: event.modifierFlags.contains(.shift))
+				return true
+			default: break
+			}
+		}
+
 		let commandKey = NSEventModifierFlags.command.rawValue
 		let commandShiftKey = NSEventModifierFlags.command.rawValue | NSEventModifierFlags.shift.rawValue
 
-		if event.type == NSEventType.keyDown {
-			if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == commandKey {
-				switch event.charactersIgnoringModifiers! {
-				case "x":
-					if NSApp.sendAction(#selector(NSText.cut(_:)), to: nil, from: self) {
-						return true
-					}
-				case "c":
-					if NSApp.sendAction(#selector(NSText.copy(_:)), to: nil, from: self) {
-						return true
-					}
-				case "v":
-					if NSApp.sendAction(#selector(NSText.paste(_:)), to: nil, from: self) {
-						return true
-					}
-				case "z":
-					if NSApp.sendAction(Selector(("undo:")), to: nil, from:self) {
-						return true
-					}
-				case "a":
-					if NSApp.sendAction(#selector(NSResponder.selectAll(_:)), to: nil, from: self) {
-						return true
-					}
-				default:
-					break
+		if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == commandKey {
+			switch characters {
+			case "x":
+				if NSApp.sendAction(#selector(NSText.cut(_:)), to: nil, from: self) {
+					return true
 				}
-			} else if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == commandShiftKey {
-				if event.charactersIgnoringModifiers == "Z" {
-					if NSApp.sendAction(Selector(("redo:")), to: nil, from: self) {
-						return true
-					}
+			case "c":
+				if NSApp.sendAction(#selector(NSText.copy(_:)), to: nil, from: self) {
+					return true
+				}
+			case "v":
+				if NSApp.sendAction(#selector(NSText.paste(_:)), to: nil, from: self) {
+					return true
+				}
+			case "z":
+				if NSApp.sendAction(Selector(("undo:")), to: nil, from:self) {
+					return true
+				}
+			case "a":
+				if NSApp.sendAction(#selector(NSResponder.selectAll(_:)), to: nil, from: self) {
+					return true
+				}
+			default:
+				break
+			}
+		} else if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == commandShiftKey {
+			if event.charactersIgnoringModifiers == "Z" {
+				if NSApp.sendAction(Selector(("redo:")), to: nil, from: self) {
+					return true
 				}
 			}
 		}
@@ -170,5 +192,10 @@ final class TextField: NSTextField {
 		textFieldCell?.theme = theme
 		textColor = theme.textFieldTextColor
 		setNeedsDisplay()
+	}
+
+	private var isFirstResponder: Bool {
+		// Wow.
+		return (window?.firstResponder as? NSTextView)?.delegate as? NSTextField == self
 	}
 }

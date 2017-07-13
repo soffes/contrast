@@ -127,13 +127,12 @@ class ColorsViewController: NSViewController {
 		stackView.setCustomSpacing(4, after: backgroundInput)
 		stackView.addArrangedSubview(contrastRatioLabel)
 
-		for button in [foregroundInput.button, backgroundInput.button] {
-			button.target = self
-			button.action = #selector(pickColor)
-		}
+		for input in [foregroundInput, backgroundInput] {
+			input.button.target = self
+			input.button.action = #selector(pickColor)
 
-		for textField in [foregroundInput.textField, backgroundInput.textField] {
-			textField.delegate = self
+			input.textField.delegate = self
+			input.textField.arrowDelegate = self
 		}
 
 		swapButton.target = self
@@ -263,6 +262,29 @@ extension ColorsViewController: NSTextFieldDelegate {
 			theme.foreground = hexColor
 		} else  {
 			theme.background = hexColor
+		}
+	}
+}
+
+
+extension ColorsViewController: TextFieldArrowDelegate {
+	func textField(_ textField: TextField, didPressUpWithShift shift: Bool) {
+		let increment: CGFloat = shift ? 0.1 : 0.01
+
+		if textField == foregroundInput.textField {
+			theme.foreground.lighten(by: increment)
+		} else  {
+			theme.background.lighten(by: increment)
+		}
+	}
+
+	func textField(_ textField: TextField, didPressDownWithShift shift: Bool) {
+		let increment: CGFloat = shift ? 0.1 : 0.01
+
+		if textField == foregroundInput.textField {
+			theme.foreground.darken(by: increment)
+		} else  {
+			theme.background.darken(by: increment)
 		}
 	}
 }

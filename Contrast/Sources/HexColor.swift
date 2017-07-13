@@ -7,10 +7,19 @@
 //
 
 import AppKit
+import Color
 
 struct HexColor {
+
+	// MARK: - Properties
+
 	var color: NSColor
 	var hex: String
+
+	static let white = HexColor(color: .white, hex: "ffffff")
+
+
+	// MARK: - Initializers
 
 	init(color: NSColor, hex: String) {
 		self.color = color
@@ -31,5 +40,16 @@ struct HexColor {
 		self.hex = hex
 	}
 
-	static let white = HexColor(color: .white, hex: "ffffff")
+
+	// MARK: - Mutating
+
+	mutating func lighten(by increment: CGFloat = 0.01) {
+		color = color.lightening(by: increment)
+		hex = color.hex()!
+	}
+
+	mutating func darken(by increment: CGFloat = 0.01) {
+		color = color.darkening(by: increment)
+		hex = color.hex()!
+	}
 }

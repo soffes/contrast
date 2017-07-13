@@ -121,4 +121,32 @@ public extension NSColor {
 
 		return (max(lum1, lum2) + 0.05) / (min(lum1, lum2) + 0.05)
 	}
+
+	public func lightening(by increment: CGFloat = 0.01) -> NSColor {
+		guard let color = convertingToPreferredColorSpace else { return self }
+
+		var hue: CGFloat = 0
+		var saturation: CGFloat = 0
+		var brightness: CGFloat = 0
+		var alpha: CGFloat = 0
+		color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+
+		brightness += increment
+
+		return NSColor(calibratedHue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+	}
+
+	public func darkening(by increment: CGFloat = 0.01) -> NSColor {
+		guard let color = convertingToPreferredColorSpace else { return self }
+
+		var hue: CGFloat = 0
+		var saturation: CGFloat = 0
+		var brightness: CGFloat = 0
+		var alpha: CGFloat = 0
+		color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+
+		brightness -= increment
+
+		return NSColor(calibratedHue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+	}
 }
