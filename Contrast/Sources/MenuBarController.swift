@@ -68,10 +68,20 @@ final class MenuBarController: NSObject {
 	func showMenu(_ sender: NSButton, event: NSEvent) {
 		let menu = NSMenu()
 		menu.delegate = self
+
+		let item = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "?")
+		item.target = self
+		menu.addItem(item)
+
+		menu.addItem(.separator())
 		menu.addItem(withTitle: "Quit Contrast", action: #selector(NSApplication.terminate), keyEquivalent: "q")
 
 		sender.isHighlighted = true
 		statusItem.popUpMenu(menu)
+	}
+
+	@objc private func showHelp(_ sender: Any?) {
+		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/support")!)
 	}
 }
 
