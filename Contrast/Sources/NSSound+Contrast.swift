@@ -42,6 +42,8 @@ extension NSSound {
 			stop()
 		}
 
-		play()
+		if Preferences.shared.isSoundEnabled {
+			play()
+		}
 	}
 }

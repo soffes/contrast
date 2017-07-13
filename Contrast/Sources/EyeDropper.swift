@@ -82,9 +82,9 @@ final class EyeDropper: NSWindowController {
 
 		if event.modifierFlags.contains(.option), let hex = color.hex() {
 			pasteboard.setString(hex, forType: NSPasteboardTypeString)
-			NSSound.contrastCopyColor.play()
+			NSSound.contrastCopyColor.forcePlay()
 		} else {
-			NSSound.contrastPickColor.play()
+			NSSound.contrastPickColor.forcePlay()
 		}
 
 		delegate?.eyeDropperDidSelectColor(color, continuePicking: shouldContinue)
