@@ -20,9 +20,7 @@ final class ColorsController {
 		didSet {
 			NotificationCenter.default.post(name: .themeDidChange, object: theme)
 
-			if let data = try? JSONSerialization.data(withJSONObject: theme.dictionaryRepresentation, options: []) {
-				UserDefaults.standard.set(data, forKey: "Colors")
-			}
+			Preferences.shared.themeData = try? JSONSerialization.data(withJSONObject: theme.dictionaryRepresentation, options: [])
 		}
 	}
 
@@ -32,7 +30,7 @@ final class ColorsController {
 	// MARK: - Initializers
 
 	private init() {
-		if let data = UserDefaults.standard.data(forKey: "Colors"), let raw = try? JSONSerialization.jsonObject(with: data, options: []), let json = raw as? [String: Any], let theme = Theme(dictionaryRepresentation: json) {
+		if let data = Preferences.shared.themeData, let raw = try? JSONSerialization.jsonObject(with: data, options: []), let json = raw as? [String: Any], let theme = Theme(dictionaryRepresentation: json) {
 			self.theme = theme
 		} else {
 			theme = .default

@@ -14,6 +14,7 @@
 		211238341F17CF7E00A837D4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238331F17CF7E00A837D4 /* Secrets.swift */; };
 		211238361F17CF9B00A837D4 /* Mixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238351F17CF9B00A837D4 /* Mixpanel.swift */; };
 		2112383A1F17D82000A837D4 /* ColorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238391F17D82000A837D4 /* ColorsController.swift */; };
+		2112383C1F17DD2400A837D4 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112383B1F17DD2400A837D4 /* Preferences.swift */; };
 		211E2B391F0B46D400757881 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E2B381F0B46D400757881 /* HexColor.swift */; };
 		21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21616E671F058A220095EFAC /* NSImage+Tint.swift */; };
 		21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECA1F09E579006FA782 /* CloseButton.swift */; };
@@ -130,6 +131,7 @@
 		211238331F17CF7E00A837D4 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		211238351F17CF9B00A837D4 /* Mixpanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mixpanel.swift; sourceTree = "<group>"; };
 		211238391F17D82000A837D4 /* ColorsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsController.swift; sourceTree = "<group>"; };
+		2112383B1F17DD2400A837D4 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		211E2B381F0B46D400757881 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		21616E671F058A220095EFAC /* NSImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
 		21758ECA1F09E579006FA782 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				218487371F05473F009EE112 /* MenuBarController.swift */,
 				2190AEB21F09226200912B37 /* PopoverController.swift */,
 				211238391F17D82000A837D4 /* ColorsController.swift */,
+				2112383B1F17DD2400A837D4 /* Preferences.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				218487441F05473F009EE112 /* EyeDropper.swift in Sources */,
 				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
 				21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */,
+				2112383C1F17DD2400A837D4 /* Preferences.swift in Sources */,
 				218487461F05473F009EE112 /* GridView.swift in Sources */,
 				218487991F055D10009EE112 /* Theme.swift in Sources */,
 				2112383A1F17D82000A837D4 /* ColorsController.swift in Sources */,

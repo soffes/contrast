@@ -69,11 +69,19 @@ final class MenuBarController: NSObject {
 		let menu = NSMenu()
 		menu.delegate = self
 
-		let item = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "?")
+		let item = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "?")
 		item.target = self
+		item.state = Preferences.shared.isSoundEnabled ? NSOnState : NSOffState
 		menu.addItem(item)
 
 		menu.addItem(.separator())
+
+		let help = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "?")
+		help.target = self
+		menu.addItem(help)
+
+		menu.addItem(.separator())
+
 		menu.addItem(withTitle: "Quit Contrast", action: #selector(NSApplication.terminate), keyEquivalent: "q")
 
 		sender.isHighlighted = true
@@ -82,6 +90,10 @@ final class MenuBarController: NSObject {
 
 	@objc private func showHelp(_ sender: Any?) {
 		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/support")!)
+	}
+
+	@objc private func toggleSounds(_ sender: Any?) {
+		Preferences.shared.isSoundEnabled = !Preferences.shared.isSoundEnabled
 	}
 }
 
