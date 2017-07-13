@@ -92,3 +92,10 @@ extension Theme {
 		return Theme(foreground: defaultForeground, background: defaultBackground)
 	}
 }
+
+
+extension Theme: Equatable {
+	static func == (lhs: Theme, rhs: Theme) -> Bool {
+		return lhs.foregroundColor == rhs.foregroundColor && lhs.backgroundColor == rhs.backgroundColor
+	}
+}

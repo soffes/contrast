@@ -66,7 +66,7 @@ class ColorsViewController: NSViewController {
 
 	fileprivate(set) var theme: Theme {
 		didSet {
-			themeDidChange()
+			applyTheme()
 		}
 	}
 
@@ -150,7 +150,8 @@ class ColorsViewController: NSViewController {
 			contrastRatioLabel.widthAnchor.constraint(equalTo: scoreLabel.widthAnchor)
 		])
 
-		themeDidChange()
+		NotificationCenter.default.addObserver(self, selector: #selector(themeDidChange), name: .themeDidChange, object: nil)
+		applyTheme()
 	}
 
 	override func viewDidAppear() {
@@ -195,7 +196,19 @@ class ColorsViewController: NSViewController {
 
 	// MARK: - Private
 
-	private func themeDidChange() {
+	@objc private func themeDidChange(_ notification: Notification) {
+		if ColorsController.shared.theme == theme {
+			return
+		}
+
+		theme = ColorsController.shared.theme
+	}
+
+	private func applyTheme() {
+		if ColorsController.shared.theme != theme {
+			ColorsController.shared.theme = theme
+		}
+		
 		let background = theme.backgroundColor.cgColor
 		view.layer?.backgroundColor = background
 		arrowView.layer?.backgroundColor = background
