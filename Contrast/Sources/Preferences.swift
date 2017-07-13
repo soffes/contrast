@@ -53,5 +53,9 @@ final class Preferences {
 
 	init(userDefaults: UserDefaults = .standard) {
 		self.userDefaults = userDefaults
+
+		userDefaults.register(defaults: [
+			Key.soundsEnabled.rawValue: true
+		])
 	}
 }
