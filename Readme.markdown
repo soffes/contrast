@@ -8,5 +8,8 @@ Contrast for macOS.
 
 ## Building
 
-Contrast doesn’t have any dependencies. Simply open Xcode 8.3.3 or later and click
-▶️
+Contrast uses [Carthage](https://github.com/carthage/carthage) for dependencies. Simply run the following command:
+
+    $ rake bootstrap
+
+Now open Xcode 8.3.3 or later and click ▶️

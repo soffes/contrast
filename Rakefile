@@ -2,8 +2,18 @@ TEAM_ID = 'UP9C8XM22A'
 APP_NAME = 'Contrast'
 SCHEME_NAME = APP_NAME
 
+desc 'Gather dependencies'
+task :bootstrap do
+  sh 'carthage bootstrap --platform macOS'
+end
+
 desc 'Build'
 task :build do
+  # Bootstrap if neccessary
+  unless Dir.exists?('Carthage')
+    Rake::Task['bootstrap'].invoke()
+  end
+
   # Start with a clean state
   build_dir = 'build'
   sh %(rm -rf #{build_dir})
