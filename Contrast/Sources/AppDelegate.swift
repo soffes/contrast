@@ -21,4 +21,8 @@ extension AppDelegate: NSApplicationDelegate {
 		mixpanel.track(event: "Launch")
 		menuBarController.showPopover(self)
 	}
+
+	func applicationDidBecomeActive(_ notification: Notification) {
+		mixpanel.track(event: "Activiate")
+	}
 }
