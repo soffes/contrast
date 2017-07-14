@@ -44,11 +44,21 @@ struct HexColor {
 	// MARK: - Mutating
 
 	mutating func lighten(by increment: CGFloat = 0.01) {
+		if color.brightnessComponent == 1 {
+			NSBeep()
+			return
+		}
+
 		color = color.lightening(by: increment)
 		hex = color.hex()!
 	}
 
 	mutating func darken(by increment: CGFloat = 0.01) {
+		if color.brightnessComponent == 0 {
+			NSBeep()
+			return
+		}
+
 		color = color.darkening(by: increment)
 		hex = color.hex()!
 	}
