@@ -138,7 +138,10 @@ class ColorsViewController: NSViewController {
 
 		scoreLabel.toolTip = "WCAG 2.0 Score"
 		foregroundInput.button.toolTip = "Pick Foreground"
+		foregroundInput.textField.toolTip = "Foreground Color"
+		swapButton.toolTip = "Swap Colors"
 		backgroundInput.button.toolTip = "Pick Background"
+		backgroundInput.textField.toolTip = "Background Color"
 		contrastRatioLabel.toolTip = "Contrast Ratio"
 
 		swapButton.target = self
