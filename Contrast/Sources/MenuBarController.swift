@@ -40,6 +40,7 @@ final class MenuBarController: NSObject {
 		// Show popover event
 		NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
 			if event.window == self?.statusItem.button?.window {
+				// Support control click *glares at AppKit*
 				if event.modifierFlags.contains(.control), let button = self?.statusItem.button {
 					self?.showMenu(button, event: event)
 					return nil
