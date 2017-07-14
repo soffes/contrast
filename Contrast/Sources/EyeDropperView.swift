@@ -15,7 +15,7 @@ final class EyeDropperView: NSView {
 	let loupeView = LoupeView()
 
 	private var trackingArea: NSTrackingArea?
-	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved]
+	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved, .mouseEnteredAndExited]
 
 	private let cursor = NSCursor(image: NSImage(size: CGSize(width: 1, height: 1)), hotSpot: .zero)
 
@@ -49,7 +49,23 @@ final class EyeDropperView: NSView {
 		window?.invalidateCursorRects(for: self)
 	}
 
+	override func mouseEntered(with event: NSEvent) {
+		loupeView.isHidden = false
+		window?.makeKey()
+	}
+
+	override func mouseExited(with event: NSEvent) {
+		loupeView.isHidden = true
+	}
+
 	override func mouseMoved(with event: NSEvent) {
+		guard let window = event.window, window == self.window else {
+			loupeView.isHidden = true
+			return
+		}
+
+		loupeView.isHidden = false
+
 		let position = event.locationInWindow
 		positionLoupe(at: position)
 	}
@@ -65,10 +81,16 @@ final class EyeDropperView: NSView {
 	override func viewDidMoveToWindow() {
 		super.viewDidMoveToWindow()
 
-		if window == nil {
-			cursor.pop()
-		} else {
+		if let window = window {
 			cursor.push()
+
+			let position = window.mouseLocationOutsideOfEventStream
+			if window.frame.contains(position) {
+				loupeView.isHidden = false
+				positionLoupe(at: position)
+			}
+		} else {
+			cursor.pop()
 		}
 	}
 
@@ -95,7 +117,14 @@ final class EyeDropperView: NSView {
 	private func screenshot(at position: CGPoint) -> (NSImage, NSImage)? {
 		guard let window = window,
 			let screen = window.screen
-		else { return nil }
+		else {
+			loupeView.isHidden = true
+			return nil
+		}
+
+		var position = position
+		position.x += window.frame.origin.x
+		position.y += window.frame.origin.y
 
 		// Take screenshot
 		let captureSize = EyeDropperController.captureSize
