@@ -28,9 +28,12 @@ final class EyeDropperController {
 	static let magnification: CGFloat = 20
 	static let captureSize = CGSize(width: 17, height: 17)
 
-	private var windows = [NSWindow]() {
+	private var windows = [EyeDropperWindow]() {
 		willSet {
-			windows.forEach { $0.orderOut(self) }
+			windows.forEach { window in
+				window.customDelegate = nil
+				window.orderOut(self)
+			}
 		}
 	}
 
@@ -49,7 +52,7 @@ final class EyeDropperController {
 	// MARK: - Actions
 
 	@objc func cancel(_ sender: Any?) {
-		windows.forEach { $0.orderOut(sender) }
+		windows.removeAll()
 		delegate?.eyeDropperControllerDidCancel(self)
 	}
 

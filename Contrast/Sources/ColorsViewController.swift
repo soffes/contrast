@@ -84,7 +84,12 @@ class ColorsViewController: NSViewController {
 		}
 	}
 
-	fileprivate var eyeDropperController: EyeDropperController?
+	fileprivate var eyeDropperController: EyeDropperController? {
+		willSet {
+			eyeDropperController?.delegate = nil
+			eyeDropperController?.cancel(self)
+		}
+	}
 
 
 	// MARK: - Initializers
@@ -169,21 +174,20 @@ class ColorsViewController: NSViewController {
 	override func viewDidDisappear() {
 		super.viewDidDisappear()
 
-		eyeDropperController?.cancel(self)
+		eyeDropperController = nil
 	}
 
 
 	// MARK: - Actions
 
 	@objc private func pickColor(_ sender: Button) {
-		eyeDropperController?.cancel(self)
-
 		NSSound.contrastPick.forcePlay()
-		position = foregroundInput.button == sender ? .foreground : .background
 
 		let eyeDropper = EyeDropperController(delegate: self)
 		eyeDropper.magnify()
 		eyeDropperController = eyeDropper
+
+		position = foregroundInput.button == sender ? .foreground : .background
 	}
 
 	@objc private func swapColors(_ sender: Any?) {
@@ -233,12 +237,7 @@ class ColorsViewController: NSViewController {
 
 extension ColorsViewController: EyeDropperControllerDelegate {
 	func eyeDropperController(_ controller: EyeDropperController, didSelectColor color: NSColor, continuePicking: Bool) {
-		guard let position = position else {
-			eyeDropperController?.cancel(self)
-			return
-		}
-
-		eyeDropperController?.cancel(self)
+		guard let position = position else { return }
 
 		switch position {
 		case .foreground:
