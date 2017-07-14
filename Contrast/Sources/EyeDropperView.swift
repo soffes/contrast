@@ -116,21 +116,25 @@ final class EyeDropperView: NSView {
 	/// First is the original, second is scaled up
 	private func screenshot(at position: CGPoint) -> (NSImage, NSImage)? {
 		guard let window = window,
-			let screen = window.screen
+			let screen = window.screen,
+			let screenNumber = screen.deviceDescription["NSScreenNumber"] as? UInt32
 		else {
 			loupeView.isHidden = true
 			return nil
 		}
 
+		let screenBounds = CGDisplayBounds(screenNumber)
+		Swift.print("screenBounds: \(screenBounds)")
+
 		var position = position
-		position.x += window.frame.origin.x
-		position.y += window.frame.origin.y
+		position.x += screenBounds.origin.x
+		position.y = screenBounds.height - (abs(screenBounds.origin.y) + position.y) // 🤷🏻‍♂️ 
 
 		// Take screenshot
+		let windowID = UInt32(window.windowNumber)
 		let captureSize = EyeDropperController.captureSize
 		let magnification = EyeDropperController.magnification
-		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: screen.frame.height - position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height)
-		let windowID = UInt32(window.windowNumber)
+		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height)
 
 		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID, []) else { return nil }
 		let original = NSImage(cgImage: cgImage, size: captureSize)
