@@ -27,6 +27,10 @@ final class EyeDropperView: NSView {
 
 		loupeView.isHidden = true
 		addSubview(loupeView)
+
+		// Setting a background color prevents views under this view from messing the the cursor.
+		wantsLayer = true
+		layer?.backgroundColor = NSColor(white: 0, alpha: 0.001).cgColor
 	}
 
 	required init?(coder: NSCoder) {
