@@ -102,7 +102,7 @@ final class LoupeView: NSView {
 	// MARK: - Private
 
 	private func makeMask() -> CALayer {
-		let maskPath = CGPath(ellipseIn: bounds.insetBy(dx: 4, dy: 4), transform: nil)
+		let maskPath = CGPath(ellipseIn: bounds.insetBy(dx: 3, dy: 3), transform: nil)
 		let mask = CAShapeLayer()
 		mask.path = maskPath
 		return mask
