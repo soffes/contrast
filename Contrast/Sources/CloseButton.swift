@@ -88,7 +88,7 @@ final class CloseButton: NSButton {
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
-		return CGSize(width: 26, height: 20)
+		return CGSize(width: 26, height: 21)
 	}
 
 

@@ -44,6 +44,7 @@
 		21968AC51F10664D00FB373F /* contrast in Embed Command Line Tool */ = {isa = PBXBuildFile; fileRef = 21968A8C1F1062AC00FB373F /* contrast */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		21968AC71F10BA0E00FB373F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968AC61F10BA0E00FB373F /* Score.swift */; };
 		21968AC81F10BA5400FB373F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968AC61F10BA0E00FB373F /* Score.swift */; };
+		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
 		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
 		21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */; };
 		21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */; };
@@ -162,6 +163,7 @@
 		21968AB91F10633600FB373F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21968ABB1F10633600FB373F /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		21968AC61F10BA0E00FB373F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		21A922EF1F1975FB0072480C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		21D0DA791F0D7E6400632FF5 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
 		21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFont+Contrast.swift"; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				2184873B1F05473F009EE112 /* ColorsViewController.swift */,
+				21A922EF1F1975FB0072480C /* WelcomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				218487971F055B81009EE112 /* Button.swift in Sources */,
 				2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */,
 				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
+				21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */,
 				21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */,
 				218487441F05473F009EE112 /* EyeDropperController.swift in Sources */,
 				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
