@@ -123,12 +123,11 @@ final class EyeDropperView: NSView {
 			return nil
 		}
 
+		// Convert the coordinate. I don't fully understand why this works.
 		let screenBounds = CGDisplayBounds(screenNumber)
-		Swift.print("screenBounds: \(screenBounds)")
-
 		var position = position
 		position.x += screenBounds.origin.x
-		position.y = screenBounds.height - (abs(screenBounds.origin.y) + position.y) // 🤷🏻‍♂️ 
+		position.y = screenBounds.height - (-screenBounds.origin.y + position.y)
 
 		// Take screenshot
 		let windowID = UInt32(window.windowNumber)
