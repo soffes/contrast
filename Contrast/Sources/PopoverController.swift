@@ -64,7 +64,9 @@ final class PopoverController: NSObject {
 	}
 
 	func showPopover(_ sender: Any?) {
-		guard let view = delegate?.popoverControllerWillShow(popover: popover) else { return }
+		guard Preferences.shared.isTutorialCompleted,
+			let view = delegate?.popoverControllerWillShow(popover: popover)
+		else { return }
 
 		detachedWindow?.close()
 		detachedWindow = nil

@@ -75,18 +75,20 @@ final class MenuBarController: NSObject {
 		let menu = NSMenu()
 		menu.delegate = self
 
-		let item = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "?")
-		item.target = self
-		item.state = Preferences.shared.isSoundEnabled ? NSOnState : NSOffState
-		menu.addItem(item)
+		if Preferences.shared.isTutorialCompleted {
+			let item = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "?")
+			item.target = self
+			item.state = Preferences.shared.isSoundEnabled ? NSOnState : NSOffState
+			menu.addItem(item)
 
-		menu.addItem(.separator())
+			menu.addItem(.separator())
 
-		let help = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "?")
-		help.target = self
-		menu.addItem(help)
+			let help = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "?")
+			help.target = self
+			menu.addItem(help)
 
-		menu.addItem(.separator())
+			menu.addItem(.separator())
+		}
 
 		menu.addItem(withTitle: "Quit Contrast", action: #selector(NSApplication.terminate), keyEquivalent: "q")
 

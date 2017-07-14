@@ -14,20 +14,37 @@ import AppKit
 
 	let menuBarController = MenuBarController()
 
-	fileprivate let welcomeWindow = DetachedWindow(contentViewController: WelcomeViewController())
+	fileprivate var welcomeWindow: NSWindow?
 }
 
 
 extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		mixpanel.track(event: "Launch")
-		menuBarController.showPopover(self)
 
-		welcomeWindow.center()
-		welcomeWindow.makeKeyAndOrderFront(self)
+		if Preferences.shared.isTutorialCompleted {
+			menuBarController.showPopover(self)
+			return
+		}
+
+		let window = DetachedWindow(contentViewController: WelcomeViewController())
+		window.delegate = self
+		window.center()
+		window.makeKeyAndOrderFront(self)
+		welcomeWindow = window
 	}
 
 	func applicationDidBecomeActive(_ notification: Notification) {
 		mixpanel.track(event: "Activiate")
+	}
+}
+
+
+extension AppDelegate: NSWindowDelegate {
+	func windowWillClose(_ notification: Notification) {
+		welcomeWindow = nil
+
+		Preferences.shared.isTutorialCompleted = true
+		menuBarController.showPopover(self)
 	}
 }

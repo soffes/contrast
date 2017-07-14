@@ -15,6 +15,7 @@ final class Preferences {
 	private enum Key: String {
 		case themeData = "Colors"
 		case soundsEnabled = "SoundsEnabled"
+		case tutorialCompleted = "TutorialCompleted"
 	}
 
 
@@ -45,6 +46,16 @@ final class Preferences {
 
 		set {
 			userDefaults.set(newValue, forKey: Key.soundsEnabled.rawValue)
+		}
+	}
+
+	var isTutorialCompleted: Bool {
+		get {
+			return userDefaults.bool(forKey: Key.tutorialCompleted.rawValue)
+		}
+
+		set {
+			userDefaults.set(newValue, forKey: Key.tutorialCompleted.rawValue)
 		}
 	}
 
