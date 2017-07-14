@@ -40,6 +40,11 @@ final class MenuBarController: NSObject {
 		// Show popover event
 		NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
 			if event.window == self?.statusItem.button?.window {
+				if event.modifierFlags.contains(.control), let button = self?.statusItem.button {
+					self?.showMenu(button, event: event)
+					return nil
+				}
+
 				self?.popoverController.togglePopover(self?.statusItem.button)
 				return nil
 			}
