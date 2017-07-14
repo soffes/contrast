@@ -20,7 +20,7 @@
 		21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECA1F09E579006FA782 /* CloseButton.swift */; };
 		21758ECD1F09EE13006FA782 /* DetachedWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECC1F09EE13006FA782 /* DetachedWindow.swift */; };
 		218487431F05473F009EE112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487331F05473F009EE112 /* AppDelegate.swift */; };
-		218487441F05473F009EE112 /* EyeDropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487341F05473F009EE112 /* EyeDropper.swift */; };
+		218487441F05473F009EE112 /* EyeDropperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487341F05473F009EE112 /* EyeDropperController.swift */; };
 		218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487351F05473F009EE112 /* EyeDropperWindow.swift */; };
 		218487461F05473F009EE112 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487361F05473F009EE112 /* GridView.swift */; };
 		218487471F05473F009EE112 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487371F05473F009EE112 /* MenuBarController.swift */; };
@@ -138,7 +138,7 @@
 		21758ECC1F09EE13006FA782 /* DetachedWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetachedWindow.swift; sourceTree = "<group>"; };
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218487331F05473F009EE112 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		218487341F05473F009EE112 /* EyeDropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropper.swift; sourceTree = "<group>"; };
+		218487341F05473F009EE112 /* EyeDropperController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperController.swift; sourceTree = "<group>"; };
 		218487351F05473F009EE112 /* EyeDropperWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperWindow.swift; sourceTree = "<group>"; };
 		218487361F05473F009EE112 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		218487371F05473F009EE112 /* MenuBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
@@ -271,7 +271,6 @@
 			children = (
 				218487561F0549F0009EE112 /* Application */,
 				218487571F0549F4009EE112 /* Controllers */,
-				2190AEAE1F08769900912B37 /* Window Controllers */,
 				2190AEB11F0876D300912B37 /* View Controllers */,
 				218487501F0547AD009EE112 /* Models */,
 				2190AEAD1F08768000912B37 /* Views */,
@@ -322,6 +321,7 @@
 				2190AEB21F09226200912B37 /* PopoverController.swift */,
 				211238391F17D82000A837D4 /* ColorsController.swift */,
 				2112383B1F17DD2400A837D4 /* Preferences.swift */,
+				218487341F05473F009EE112 /* EyeDropperController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -348,14 +348,6 @@
 				21758ECA1F09E579006FA782 /* CloseButton.swift */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		2190AEAE1F08769900912B37 /* Window Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				218487341F05473F009EE112 /* EyeDropper.swift */,
-			);
-			name = "Window Controllers";
 			sourceTree = "<group>";
 		};
 		2190AEAF1F0876A100912B37 /* Windows */ = {
@@ -678,7 +670,7 @@
 				2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */,
 				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
 				21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */,
-				218487441F05473F009EE112 /* EyeDropper.swift in Sources */,
+				218487441F05473F009EE112 /* EyeDropperController.swift in Sources */,
 				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
 				21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */,
 				2112383C1F17DD2400A837D4 /* Preferences.swift in Sources */,

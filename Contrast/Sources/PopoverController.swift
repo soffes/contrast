@@ -114,7 +114,6 @@ extension PopoverController: NSPopoverDelegate {
 
 		let viewController = ColorsViewController(theme: contentViewController.theme, isInPopover: false)
 		let window = DetachedWindow(contentViewController: viewController)
-		window.isReleasedWhenClosed = false
 		window.delegate = self
 		detachedWindow = window
 		return window

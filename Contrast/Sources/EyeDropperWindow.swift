@@ -9,7 +9,8 @@
 import AppKit
 
 protocol EyeDropperWindowDelegate: class {
-	func eyeDropperWindow(_ window: EyeDropperWindow, didPressReturn event: NSEvent)
+	func eyeDropperWindow(_ window: EyeDropperWindow, didPickColor event: NSEvent)
+	func eyeDropperWindowDidCancel(_ window: EyeDropperWindow)
 }
 
 final class EyeDropperWindow: NSWindow {
@@ -27,8 +28,8 @@ final class EyeDropperWindow: NSWindow {
 
 	// MARK: - Initializers
 
-	init() {
-		super.init(contentRect: NSScreen.main()?.frame ?? .zero, styleMask: .borderless, backing: .buffered, defer: false)
+	init(frame: CGRect) {
+		super.init(contentRect: frame, styleMask: .borderless, backing: .buffered, defer: false)
 
 		identifier = "com.nothingmagical.contrast.eyedropper"
 
@@ -36,22 +37,31 @@ final class EyeDropperWindow: NSWindow {
 		isOpaque = false
 		hasShadow = false
 		level = Int(CGWindowLevelForKey(.mainMenuWindow)) + 2
+		isReleasedWhenClosed = false
 
-		view.updateTrackingAreas()
 		contentView = view
+		view.updateTrackingAreas()
 	}
 
 
 	// MARK: - NSResponder
 
+	override func mouseDown(with event: NSEvent) {
+		customDelegate?.eyeDropperWindow(self, didPickColor: event)
+	}
+
 	override func performKeyEquivalent(with event: NSEvent) -> Bool {
 		// Return
 		if event.keyCode == 36 {
-			customDelegate?.eyeDropperWindow(self, didPressReturn: event)
+			customDelegate?.eyeDropperWindow(self, didPickColor: event)
 			return true
 		}
 
 		return super.performKeyEquivalent(with: event)
+	}
+
+	override func cancelOperation(_ sender: Any?) {
+		customDelegate?.eyeDropperWindowDidCancel(self)
 	}
 
 

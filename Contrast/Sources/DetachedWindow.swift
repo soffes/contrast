@@ -80,6 +80,7 @@ final class DetachedWindow: NSWindow {
 	convenience init(contentViewController: NSViewController) {
 		let view = contentViewController.view
 		self.init(contentRect: view.bounds, styleMask: [], backing: .nonretained, defer: false)
+		isReleasedWhenClosed = false
 
 		guard let contentView = contentView else { return }
 

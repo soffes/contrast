@@ -84,11 +84,7 @@ class ColorsViewController: NSViewController {
 		}
 	}
 
-	fileprivate var windowController: EyeDropper? {
-		willSet {
-			windowController?.window?.orderOut(self)
-		}
-	}
+	fileprivate var eyeDropperController: EyeDropperController?
 
 
 	// MARK: - Initializers
@@ -173,19 +169,21 @@ class ColorsViewController: NSViewController {
 	override func viewDidDisappear() {
 		super.viewDidDisappear()
 
-		windowController?.cancel(self)
+		eyeDropperController?.cancel(self)
 	}
 
 
 	// MARK: - Actions
 
 	@objc private func pickColor(_ sender: Button) {
+		eyeDropperController?.cancel(self)
+
 		NSSound.contrastPick.forcePlay()
 		position = foregroundInput.button == sender ? .foreground : .background
 
-		let eyeDropper = EyeDropper(delegate: self)
+		let eyeDropper = EyeDropperController(delegate: self)
 		eyeDropper.magnify()
-		windowController = eyeDropper
+		eyeDropperController = eyeDropper
 	}
 
 	@objc private func swapColors(_ sender: Any?) {
@@ -233,9 +231,14 @@ class ColorsViewController: NSViewController {
 }
 
 
-extension ColorsViewController: EyeDropperDelegate {
-	func eyeDropperDidSelectColor(_ color: NSColor, continuePicking: Bool) {
-		guard let position = position else { return }
+extension ColorsViewController: EyeDropperControllerDelegate {
+	func eyeDropperController(_ controller: EyeDropperController, didSelectColor color: NSColor, continuePicking: Bool) {
+		guard let position = position else {
+			eyeDropperController?.cancel(self)
+			return
+		}
+
+		eyeDropperController?.cancel(self)
 
 		switch position {
 		case .foreground:
@@ -247,17 +250,17 @@ extension ColorsViewController: EyeDropperDelegate {
 		if continuePicking {
 			self.position = position.opposite
 
-			let eyeDropper = EyeDropper(delegate: self)
+			let eyeDropper = EyeDropperController(delegate: self)
 			eyeDropper.magnify()
-			windowController = eyeDropper
+			eyeDropperController = eyeDropper
 		} else {
-			windowController = nil
+			eyeDropperController = nil
 			self.position = nil
 		}
 	}
 
-	func eyeDropperDidCancel() {
-		windowController = nil
+	func eyeDropperControllerDidCancel(_ controller: EyeDropperController) {
+		eyeDropperController = nil
 		position = nil
 	}
 }

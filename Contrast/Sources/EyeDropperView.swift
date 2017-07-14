@@ -93,12 +93,13 @@ final class EyeDropperView: NSView {
 
 	/// First is the original, second is scaled up
 	private func screenshot(at position: CGPoint) -> (NSImage, NSImage)? {
-		// TODO: This won't work on multiple screens
-		guard let screen = NSScreen.main(), let window = window else { return nil }
+		guard let window = window,
+			let screen = window.screen
+		else { return nil }
 
 		// Take screenshot
-		let captureSize = EyeDropper.captureSize
-		let magnification = EyeDropper.magnification
+		let captureSize = EyeDropperController.captureSize
+		let magnification = EyeDropperController.magnification
 		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: screen.frame.height - position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height)
 		let windowID = UInt32(window.windowNumber)
 
