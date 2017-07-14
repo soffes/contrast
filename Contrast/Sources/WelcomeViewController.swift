@@ -47,11 +47,14 @@ final class WelcomeViewController: NSViewController {
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.orientation = .vertical
 		view.alignment = .leading
+		view.spacing = 12
 		view.alphaValue = 0
+
+		let textColor = NSColor(red: 17 / 255, green: 17 / 255, blue: 18 / 255, alpha: 1)
 
 		let title = Label()
 		title.stringValue = "285,000,000"
-		title.textColor = NSColor(red: 17 / 255, green: 17 / 255, blue: 18 / 255, alpha: 1)
+		title.textColor = textColor
 		title.font = .systemFont(ofSize: 24, weight: NSFontWeightHeavy)
 		view.addArrangedSubview(title)
 
@@ -60,7 +63,7 @@ final class WelcomeViewController: NSViewController {
 		paragraph.paragraphSpacing = 20
 
 		let bodyText = NSMutableAttributedString(string: "That’s the estimated number of visually impaired people in the world. 🤓\nThis tool will help you design better interfaces for them. 👍", attributes: [
-			NSForegroundColorAttributeName: NSColor(red: 17 / 255, green: 17 / 255, blue: 18 / 255, alpha: 1),
+			NSForegroundColorAttributeName: textColor,
 			NSFontAttributeName: NSFont.systemFont(ofSize: 14),
 			NSParagraphStyleAttributeName: paragraph
 		])
@@ -71,10 +74,30 @@ final class WelcomeViewController: NSViewController {
 		body.lineBreakMode = .byWordWrapping
 		body.setContentCompressionResistancePriority(250, for: .horizontal)
 		view.addArrangedSubview(body)
+		view.setCustomSpacing(30, after: body)
 
 		return view
 	}()
 
+	private let learnButton: NSButton = {
+		let view = WelcomeButton()
+		view.title = "Learn More"
+		return view
+	}()
+
+	private let startButton: NSButton = {
+		let view = WelcomeButton()
+		view.title = "Get Started"
+		return view
+	}()
+
+
+	// MARK: - NSResponder
+
+	override func cancelOperation(_ sender: Any?) {
+		start()
+	}
+	
 
 	// MARK: - NSViewController
 
@@ -88,11 +111,24 @@ final class WelcomeViewController: NSViewController {
 		view.wantsLayer = true
 		view.layer?.backgroundColor = NSColor.white.cgColor
 
-		view.addSubview(contentView)
 		view.addSubview(orangeView)
 		view.addSubview(blueView)
 		view.addSubview(pinkView)
 		view.addSubview(iconView)
+		view.addSubview(contentView)
+
+		let stackView = NSStackView()
+		stackView.spacing = 10
+
+		learnButton.target = self
+		learnButton.action = #selector(learnMore)
+		stackView.addArrangedSubview(learnButton)
+
+		startButton.target = self
+		startButton.action = #selector(start)
+		stackView.addArrangedSubview(startButton)
+
+		contentView.addArrangedSubview(stackView)
 
 		let iconCenterX = iconView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		iconCenterX.priority = NSLayoutPriorityDefaultLow
@@ -114,12 +150,29 @@ final class WelcomeViewController: NSViewController {
 			contentView.widthAnchor.constraint(equalToConstant: 290),
 			contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 122)
 		])
-
-		view.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(animateIn)))
 	}
 
+	override func viewDidAppear() {
+		super.viewDidAppear()
+
+		view.window?.makeFirstResponder(startButton)
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+			self?.animateIn()
+		}
+	}
+	
 
 	// MARK: - Private
+
+	@objc private func learnMore() {
+		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/guide")!)
+		start()
+	}
+
+	@objc private func start() {
+		view.window?.close()
+	}
 
 	@objc private func animateIn() {
 		NSLayoutConstraint.activate([

@@ -76,14 +76,18 @@ final class MenuBarController: NSObject {
 		menu.delegate = self
 
 		if Preferences.shared.isTutorialCompleted {
-			let item = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "?")
+			let item = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "")
 			item.target = self
 			item.state = Preferences.shared.isSoundEnabled ? NSOnState : NSOffState
 			menu.addItem(item)
 
 			menu.addItem(.separator())
 
-			let help = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "?")
+			let guide = NSMenuItem(title: "Accessibility Guide", action: #selector(showGuide), keyEquivalent: "")
+			guide.target = self
+			menu.addItem(guide)
+
+			let help = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "")
 			help.target = self
 			menu.addItem(help)
 
@@ -94,6 +98,10 @@ final class MenuBarController: NSObject {
 
 		sender.isHighlighted = true
 		statusItem.popUpMenu(menu)
+	}
+
+	@objc private func showGuide(_ sender: Any?) {
+		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/guide")!)
 	}
 
 	@objc private func showHelp(_ sender: Any?) {
