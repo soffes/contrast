@@ -37,6 +37,8 @@ final class EyeDropperController {
 		}
 	}
 
+	private var visible = false
+
 
 	// MARK: - Initializer
 
@@ -52,11 +54,14 @@ final class EyeDropperController {
 	// MARK: - Actions
 
 	@objc func cancel(_ sender: Any?) {
+		NotificationCenter.default.removeObserver(self, name: .NSApplicationDidChangeScreenParameters, object: nil)
+		visible = false
+
 		windows.removeAll()
 		delegate?.eyeDropperControllerDidCancel(self)
 	}
 
-	func magnify() {
+	@objc func magnify() {
 		guard let screens = NSScreen.screens() else { return }
 
 		NSApp.activate(ignoringOtherApps: true)
@@ -68,6 +73,12 @@ final class EyeDropperController {
 			window.orderFrontRegardless()
 			return window
 		}
+
+		if !visible {
+			NotificationCenter.default.addObserver(self, selector: #selector(magnify), name: .NSApplicationDidChangeScreenParameters, object: nil)
+		}
+
+		visible = true
 	}
 
 
