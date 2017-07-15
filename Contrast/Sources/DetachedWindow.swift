@@ -71,6 +71,16 @@ final class DetachedWindow: NSWindow {
 
 	// MARK: - Properties
 
+	var customCloseButton = false {
+		didSet {
+			standardWindowButton(.closeButton)?.isHidden = customCloseButton
+
+			if customCloseButton {
+				customContentView.addCloseButton()
+			}
+		}
+	}
+
 	private let customContentView = DetachedWindowView()
 	private var customContentViewController: NSViewController?
 
@@ -94,7 +104,6 @@ final class DetachedWindow: NSWindow {
 			view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 		])
 
-		customContentView.addCloseButton()
 		contentViewController.viewDidAppear()
 		customContentViewController = contentViewController
 
@@ -117,7 +126,6 @@ final class DetachedWindow: NSWindow {
 		isMovableByWindowBackground = true
 		titlebarAppearsTransparent = true
 		titleVisibility = .hidden
-		standardWindowButton(.closeButton)?.isHidden = true
 		standardWindowButton(.miniaturizeButton)?.isHidden = true
 		standardWindowButton(.zoomButton)?.isHidden = true
 		level = Int(CGWindowLevelForKey(.mainMenuWindow))

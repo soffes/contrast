@@ -10,17 +10,36 @@ import AppKit
 
 private final class WelcomeButtonCell: NSButtonCell {
 
+	var isPrimary = false
 	private let darkColor = NSColor(red: 17 / 255, green: 17 / 255, blue: 18 / 255, alpha: 1)
 	private let lightColor = NSColor(red: 226 / 255, green: 231 / 255, blue: 232 / 255, alpha: 1)
 
 	override func drawBezel(withFrame frame: NSRect, in view: NSView) {
-		let backgroundColor = showsFirstResponder ? darkColor : lightColor
+		var backgroundColor = isPrimary ? darkColor : lightColor
+
+		if !NSApp.isActive {
+			backgroundColor = backgroundColor.withAlphaComponent(0.7)
+		}
+
 		backgroundColor.setFill()
-		NSBezierPath(roundedRect: view.bounds, xRadius: 4, yRadius: 4).fill()
+
+		NSBezierPath(roundedRect: view.bounds.insetBy(dx: 4, dy: 4), xRadius: 4, yRadius: 4).fill()
+
+		if showsFirstResponder {
+			NSColor(red: 0, green: 182 / 255, blue: 253 / 255, alpha: 1).setStroke()
+
+			let path = NSBezierPath(roundedRect: view.bounds.insetBy(dx: 2, dy: 2), xRadius: 7, yRadius: 7)
+			path.lineWidth = 4
+			path.stroke()
+		}
 	}
 
 	override func drawInterior(withFrame frame: NSRect, in view: NSView) {
-		let foregroundColor = showsFirstResponder ? lightColor : darkColor
+		var foregroundColor = isPrimary ? lightColor : darkColor
+
+		if !NSApp.isActive {
+			foregroundColor = foregroundColor.withAlphaComponent(0.7)
+		}
 
 		let title = NSAttributedString(string: self.title, attributes: [
 			NSForegroundColorAttributeName: foregroundColor,
@@ -36,6 +55,13 @@ final class WelcomeButton: NSButton {
 
 	// MARK: - Properties
 
+	var isPrimary = false {
+		didSet {
+			(cell as? WelcomeButtonCell)?.isPrimary = isPrimary
+			setNeedsDisplay()
+		}
+	}
+
 	private let cursor = NSCursor.pointingHand()
 
 
@@ -45,7 +71,11 @@ final class WelcomeButton: NSButton {
 		super.init(frame: frame)
 
 		title = ""
+
 		focusRingType = .none
+
+		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: .NSApplicationDidBecomeActive, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: .NSApplicationDidResignActive, object: nil)
 	}
 
 	required init?(coder: NSCoder) {
@@ -69,7 +99,7 @@ final class WelcomeButton: NSButton {
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
-		return CGSize(width: 130, height: 48)
+		return CGSize(width: 130 + 8, height: 48 + 8)
 	}
 
 	override func resetCursorRects() {
@@ -82,5 +112,12 @@ final class WelcomeButton: NSButton {
 
 	override class func cellClass() -> AnyClass? {
 		return WelcomeButtonCell.self
+	}
+
+
+	// MARK: - Private
+
+	@objc private func activeDidChange() {
+		setNeedsDisplay()
 	}
 }

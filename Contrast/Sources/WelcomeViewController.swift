@@ -23,9 +23,9 @@ final class WelcomeViewController: NSViewController {
 	private let blueView: NSView = {
 		let view = NSView(frame: CGRect(x: 185, y: -130, width: 230, height: 230))
 		view.wantsLayer = true
-		view.layer?.backgroundColor = NSColor(displayP3Red: 0, green: 188 / 255, blue: 1, alpha: 1).cgColor
+		view.layer?.backgroundColor = NSColor(red: 89 / 255, green: 216 / 255, blue: 250 / 255, alpha: 1).cgColor
 		view.layer?.cornerRadius = view.frame.height / 2
-		return view 
+		return view
 	}()
 
 	private let pinkView: NSView = {
@@ -59,7 +59,7 @@ final class WelcomeViewController: NSViewController {
 		view.addArrangedSubview(title)
 
 		let paragraph = NSMutableParagraphStyle()
-		paragraph.lineHeightMultiple = 1.2
+		paragraph.lineHeightMultiple = 1.1
 		paragraph.paragraphSpacing = 20
 
 		let bodyText = NSMutableAttributedString(string: "That’s the estimated number of visually impaired people in the world. 🤓\nThis tool will help you design better interfaces for them. 👍", attributes: [
@@ -74,7 +74,7 @@ final class WelcomeViewController: NSViewController {
 		body.lineBreakMode = .byWordWrapping
 		body.setContentCompressionResistancePriority(250, for: .horizontal)
 		view.addArrangedSubview(body)
-		view.setCustomSpacing(30, after: body)
+		view.setCustomSpacing(20, after: body)
 
 		return view
 	}()
@@ -88,6 +88,7 @@ final class WelcomeViewController: NSViewController {
 	private let startButton: NSButton = {
 		let view = WelcomeButton()
 		view.title = "Get Started"
+		view.isPrimary = true
 		return view
 	}()
 
@@ -97,7 +98,7 @@ final class WelcomeViewController: NSViewController {
 	override func cancelOperation(_ sender: Any?) {
 		start()
 	}
-	
+
 
 	// MARK: - NSViewController
 
@@ -118,7 +119,8 @@ final class WelcomeViewController: NSViewController {
 		view.addSubview(contentView)
 
 		let stackView = NSStackView()
-		stackView.spacing = 10
+		stackView.spacing = 2
+//		stackView.alignment = .trailing
 
 		learnButton.target = self
 		learnButton.action = #selector(learnMore)
@@ -148,7 +150,8 @@ final class WelcomeViewController: NSViewController {
 
 			stackTop,
 			contentView.widthAnchor.constraint(equalToConstant: 290),
-			contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 122)
+			contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 122),
+			stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -4)
 		])
 	}
 
@@ -161,7 +164,7 @@ final class WelcomeViewController: NSViewController {
 			self?.animateIn()
 		}
 	}
-	
+
 
 	// MARK: - Private
 
