@@ -85,6 +85,13 @@ final class CloseButton: NSButton {
 	}
 
 
+	// MARK: - NSResponder
+
+	override var acceptsFirstResponder: Bool {
+		return false
+	}
+
+
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
