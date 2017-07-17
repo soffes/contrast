@@ -44,21 +44,44 @@ class ColorsViewController: NSViewController {
 	private let scoreLabel: Label = {
 		let view = Label()
 		view.font = .systemFont(ofSize: 16, weight: NSFontWeightHeavy)
-		view.contentInsets = EdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+		view.toolTip = "WCAG 2.0 Score"
 		return view
 	}()
 
-	fileprivate let foregroundInput = ColorInput()
+	fileprivate let foregroundInput: ColorInput = {
+		let view = ColorInput()
+		view.button.toolTip = "Pick Foreground"
+		view.textField.toolTip = "Foreground Color"
+		return view
+	}()
 
-	private let swapButton = PlainButton()
+	private let swapButton: PlainButton = {
+		let view = PlainButton()
+		view.image = #imageLiteral(resourceName: "Swap")
+		view.toolTip = "Swap Colors"
+		return view
+	}()
 
-	fileprivate let backgroundInput = ColorInput()
+	fileprivate let backgroundInput: ColorInput = {
+		let view = ColorInput()
+		view.button.toolTip = "Pick Background"
+		view.textField.toolTip = "Background Color"
+		return view
+	}()
 
 	private let contrastRatioLabel: Label = {
 		let view = Label()
 		view.font = .systemFont(ofSize: 12, weight: NSFontWeightBold)
-		view.alignment = .right
-		view.contentInsets = EdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
+		view.toolTip = "Contrast Ratio"
+		return view
+	}()
+
+	private let settingsButton: PlainButton = {
+		let view = PlainButton()
+		view.image = #imageLiteral(resourceName: "Cog")
+		view.toolTip = "Settings"
+		view.isSettings = true
+		view.sendAction(on: .leftMouseDown)
 		return view
 	}()
 
@@ -119,14 +142,16 @@ class ColorsViewController: NSViewController {
 		view.addSubview(stackView)
 
 		stackView.addArrangedSubview(scoreLabel)
-		stackView.setCustomSpacing(4, after: scoreLabel)
+		stackView.setCustomSpacing(12, after: scoreLabel)
 		stackView.addArrangedSubview(foregroundInput)
 		stackView.setCustomSpacing(4, after: foregroundInput)
 		stackView.addArrangedSubview(swapButton)
 		stackView.setCustomSpacing(4, after: swapButton)
 		stackView.addArrangedSubview(backgroundInput)
-		stackView.setCustomSpacing(4, after: backgroundInput)
+		stackView.setCustomSpacing(12, after: backgroundInput)
 		stackView.addArrangedSubview(contrastRatioLabel)
+		stackView.setCustomSpacing(8, after: contrastRatioLabel)
+		stackView.addArrangedSubview(settingsButton)
 
 		for input in [foregroundInput, backgroundInput] {
 			input.button.target = self
@@ -136,27 +161,25 @@ class ColorsViewController: NSViewController {
 			input.textField.arrowDelegate = self
 		}
 
-		scoreLabel.toolTip = "WCAG 2.0 Score"
-		foregroundInput.button.toolTip = "Pick Foreground"
-		foregroundInput.textField.toolTip = "Foreground Color"
-		swapButton.toolTip = "Swap Colors"
-		backgroundInput.button.toolTip = "Pick Background"
-		backgroundInput.textField.toolTip = "Background Color"
-		contrastRatioLabel.toolTip = "Contrast Ratio"
-
 		swapButton.target = self
 		swapButton.action = #selector(swapColors)
+
+		settingsButton.target = self
+		settingsButton.action = #selector(showMenu)
 
 		NSLayoutConstraint.activate([
 			view.heightAnchor.constraint(equalToConstant: 54),
 
-			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+			stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
 			stackView.topAnchor.constraint(equalTo: view.topAnchor),
 			stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
-			scoreLabel.widthAnchor.constraint(equalToConstant: 71),
-			contrastRatioLabel.widthAnchor.constraint(equalTo: scoreLabel.widthAnchor)
+			scoreLabel.widthAnchor.constraint(equalToConstant: 38),
+			contrastRatioLabel.widthAnchor.constraint(equalToConstant: 36),
+
+			swapButton.heightAnchor.constraint(equalTo: foregroundInput.button.heightAnchor),
+			settingsButton.heightAnchor.constraint(equalTo: swapButton.heightAnchor)
 		])
 
 		NotificationCenter.default.addObserver(self, selector: #selector(themeDidChange), name: .themeDidChange, object: nil)
@@ -214,6 +237,13 @@ class ColorsViewController: NSViewController {
 		theme = ColorsController.shared.theme
 	}
 
+	func showMenu(_ sender: NSButton) {
+		if let event = NSApplication.shared().currentEvent {
+			let menu = MenuController.shared.createMenu()
+			NSMenu.popUpContextMenu(menu, with: event, for: sender)
+		}
+	}
+
 	private func applyTheme() {
 		if ColorsController.shared.theme != theme {
 			ColorsController.shared.theme = theme
@@ -233,6 +263,8 @@ class ColorsViewController: NSViewController {
 
 		foregroundInput.theme = theme
 		foregroundInput.hexColor = theme.foreground
+
+		settingsButton.theme = theme
 
 		let contrastRatio = NSColor.contrastRatio(theme.foregroundColor, theme.backgroundColor)
 		contrastRatioLabel.set(text: String(format: "%0.2f", contrastRatio))

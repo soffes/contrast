@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21017DE21F0C89DB00D94400 /* HexFormatter.swift */; };
+		210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210FFF2E1F1C3B21004E9861 /* MenuController.swift */; };
 		2112382B1F17BD2400A837D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238281F17BD2400A837D4 /* main.swift */; };
 		211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; };
 		211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -126,6 +127,7 @@
 
 /* Begin PBXFileReference section */
 		21017DE21F0C89DB00D94400 /* HexFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
+		210FFF2E1F1C3B21004E9861 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		211238261F17BC8700A837D4 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
 		211238281F17BD2400A837D4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2112382A1F17BD2400A837D4 /* ContrastCLI.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastCLI.entitlements; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				211238391F17D82000A837D4 /* ColorsController.swift */,
 				2112383B1F17DD2400A837D4 /* Preferences.swift */,
 				218487341F05473F009EE112 /* EyeDropperController.swift */,
+				210FFF2E1F1C3B21004E9861 /* MenuController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
 				211238361F17CF9B00A837D4 /* Mixpanel.swift in Sources */,
 				21758ECD1F09EE13006FA782 /* DetachedWindow.swift in Sources */,
+				210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */,
 				21D0DA871F0D8A2000632FF5 /* NSSound+Contrast.swift in Sources */,
 				21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */,
 				2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */,

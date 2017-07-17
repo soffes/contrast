@@ -105,7 +105,7 @@ final class Button: NSButton {
 		super.init(frame: frame)
 
 		title = ""
-		image = #imageLiteral(resourceName: "EyeDropper")
+		image = #imageLiteral(resourceName: "Dropper")
 		focusRingType = .none
 	}
 

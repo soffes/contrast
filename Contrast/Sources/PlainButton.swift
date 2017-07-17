@@ -8,9 +8,20 @@
 
 import AppKit
 
+extension Theme {
+	fileprivate func settingsButtonImageColor(isActive: Bool = false, isHighlighted: Bool) -> NSColor {
+		if isActive {
+			return .white
+		}
+
+		return NSColor(white: isDark ? 1 : 0, alpha: isHighlighted ? 1 : 0.5)
+	}
+}
+
 private final class PlainButtonCell: NSButtonCell {
 
 	var theme: Theme = .default
+	var isSettings = false
 
 	override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {}
 
@@ -23,7 +34,7 @@ private final class PlainButtonCell: NSButtonCell {
 		rect.origin.x += (bounds.width - rect.width) / 2
 		rect.origin.y += (bounds.height - rect.height) / 2
 
-		let imageColor = theme.buttonImageColor(isHighlighted: isHighlighted)
+		let imageColor = isSettings ? theme.settingsButtonImageColor(isHighlighted: isHighlighted) : theme.buttonImageColor(isHighlighted: isHighlighted)
 		image.tinting(with: imageColor).draw(in: rect)
 
 		// Custom focus ring
@@ -49,6 +60,12 @@ final class PlainButton: NSButton {
 		}
 	}
 
+	var isSettings = false {
+		didSet {
+			buttonCell?.isSettings = isSettings
+		}
+	}
+	
 
 	// MARK: - Initializers
 
@@ -56,7 +73,6 @@ final class PlainButton: NSButton {
 		super.init(frame: frame)
 
 		title = ""
-		image = #imageLiteral(resourceName: "Swap")
 		focusRingType = .none
 	}
 
@@ -68,7 +84,10 @@ final class PlainButton: NSButton {
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
-		return CGSize(width: 12 + 8, height: 22 + 8)
+		var size = image?.size ?? .zero
+		size.width += 8
+		size.height += 8
+		return size
 	}
 
 

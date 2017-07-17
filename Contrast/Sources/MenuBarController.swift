@@ -40,23 +40,7 @@ final class MenuBarController: NSObject {
 		// Show popover event
 		NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
 			if event.window == self?.statusItem.button?.window {
-				// Support control click *glares at AppKit*
-				if event.modifierFlags.contains(.control), let button = self?.statusItem.button {
-					self?.showMenu(button, event: event)
-					return nil
-				}
-
 				self?.popoverController.togglePopover(self?.statusItem.button)
-				return nil
-			}
-
-			return event
-		}
-
-		// Show menu event
-		NSEvent.addLocalMonitorForEvents(matching: .rightMouseDown) { [weak self] event in
-			if event.window == self?.statusItem.button?.window, let button = self?.statusItem.button {
-				self?.showMenu(button, event: event)
 				return nil
 			}
 
@@ -69,47 +53,6 @@ final class MenuBarController: NSObject {
 
 	func showPopover(_ sender: Any?) {
 		popoverController.showPopover(sender)
-	}
-
-	func showMenu(_ sender: NSButton, event: NSEvent) {
-		let menu = NSMenu()
-		menu.delegate = self
-
-		if Preferences.shared.isTutorialCompleted {
-			let item = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "")
-			item.target = self
-			item.state = Preferences.shared.isSoundEnabled ? NSOnState : NSOffState
-			menu.addItem(item)
-
-			menu.addItem(.separator())
-
-			let guide = NSMenuItem(title: "Accessibility Guide", action: #selector(showGuide), keyEquivalent: "")
-			guide.target = self
-			menu.addItem(guide)
-
-			let help = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "")
-			help.target = self
-			menu.addItem(help)
-
-			menu.addItem(.separator())
-		}
-
-		menu.addItem(withTitle: "Quit Contrast", action: #selector(NSApplication.terminate), keyEquivalent: "q")
-
-		sender.isHighlighted = true
-		statusItem.popUpMenu(menu)
-	}
-
-	@objc private func showGuide(_ sender: Any?) {
-		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/guide")!)
-	}
-
-	@objc private func showHelp(_ sender: Any?) {
-		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/support")!)
-	}
-
-	@objc private func toggleSounds(_ sender: Any?) {
-		Preferences.shared.isSoundEnabled = !Preferences.shared.isSoundEnabled
 	}
 }
 
@@ -129,12 +72,5 @@ extension MenuBarController: PopoverControllerDelegate {
 
 	func popoverControllerDidDetach(popover: NSPopover) {
 		statusItem.button?.isHighlighted = false
-	}
-}
-
-
-extension MenuBarController: NSMenuDelegate {
-	func menuDidClose(_ menu: NSMenu) {
-		statusItem.button?.isHighlighted = isShowingPopover
 	}
 }
