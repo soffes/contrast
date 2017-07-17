@@ -65,7 +65,7 @@ final class PlainButton: NSButton {
 			buttonCell?.isSettings = isSettings
 		}
 	}
-	
+
 
 	// MARK: - Initializers
 

@@ -15,7 +15,11 @@ final class WelcomeViewController: NSViewController {
 	private let orangeView: NSView = {
 		let view = NSView(frame: CGRect(x: -210, y: 20, width: 254, height: 240))
 		view.wantsLayer = true
-		view.layer?.backgroundColor = NSColor(displayP3Red: 1, green: 167 / 255, blue: 0, alpha: 1).cgColor
+		if #available(OSX 10.12, *) {
+			view.layer?.backgroundColor = NSColor(displayP3Red: 1, green: 167 / 255, blue: 0, alpha: 1).cgColor
+		} else {
+			view.layer?.backgroundColor = NSColor(calibratedRed: 1, green: 167 / 255, blue: 0, alpha: 1).cgColor
+		}
 		view.rotate(byDegrees: -315)
 		return view
 	}()
@@ -31,14 +35,19 @@ final class WelcomeViewController: NSViewController {
 	private let pinkView: NSView = {
 		let view = NSView(frame: CGRect(x: 260, y: 232, width: 203, height: 191))
 		view.wantsLayer = true
-		view.layer?.backgroundColor = NSColor(displayP3Red: 1, green: 0, blue: 210 / 255, alpha: 1).cgColor
+		if #available(OSX 10.12, *) {
+			view.layer?.backgroundColor = NSColor(displayP3Red: 1, green: 0, blue: 210 / 255, alpha: 1).cgColor
+		} else {
+			view.layer?.backgroundColor = NSColor(calibratedRed: 1, green: 0, blue: 210 / 255, alpha: 1).cgColor
+		}
 		view.rotate(byDegrees: -315)
 		return view
 	}()
 
 	private let iconView: NSImageView = {
-		let view = NSImageView(image: #imageLiteral(resourceName: "LargeIcon"))
+		let view = NSImageView()
 		view.translatesAutoresizingMaskIntoConstraints = false
+		view.image = #imageLiteral(resourceName: "LargeIcon")
 		return view
 	}()
 
