@@ -8,10 +8,12 @@
 
 import AppKit
 
-final class MenuController {
+final class MenuController: NSObject {
 	static let shared = MenuController()
 
-	private init() {}
+	private override init() {
+		super.init()
+	}
 
 	func createMenu() -> NSMenu {
 		let menu = NSMenu()

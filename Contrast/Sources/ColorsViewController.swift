@@ -237,11 +237,11 @@ class ColorsViewController: NSViewController {
 		theme = ColorsController.shared.theme
 	}
 
-	func showMenu(_ sender: NSButton) {
-		if let event = NSApplication.shared().currentEvent {
-			let menu = MenuController.shared.createMenu()
-			NSMenu.popUpContextMenu(menu, with: event, for: sender)
-		}
+	@objc func showMenu(_ sender: Any?) {
+		guard let sender = sender as? NSView, let event = NSApplication.shared().currentEvent else { return }
+
+		let menu = MenuController.shared.createMenu()
+		NSMenu.popUpContextMenu(menu, with: event, for: sender)
 	}
 
 	private func applyTheme() {
