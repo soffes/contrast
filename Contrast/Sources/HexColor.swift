@@ -27,10 +27,8 @@ struct HexColor {
 	}
 
 	init?(color: NSColor) {
-		guard let hex = color.hex() else { return nil }
-
 		self.color = color
-		self.hex = hex
+		self.hex = color.hex
 	}
 
 	init?(hex: String) {
@@ -43,23 +41,23 @@ struct HexColor {
 
 	// MARK: - Mutating
 
-	mutating func lighten(by increment: CGFloat = 0.01) {
+	mutating func lighten(by ratio: CGFloat = 0.01) {
 		if color.brightnessComponent == 1 {
 			NSBeep()
 			return
 		}
 
-		color = color.lightening(by: increment)
-		hex = color.hex()!
+		color = color.lightening(by: ratio)
+		hex = color.hex
 	}
 
-	mutating func darken(by increment: CGFloat = 0.01) {
+	mutating func darken(by ratio: CGFloat = 0.01) {
 		if color.brightnessComponent == 0 {
 			NSBeep()
 			return
 		}
 
-		color = color.darkening(by: increment)
-		hex = color.hex()!
+		color = color.darkening(by: ratio)
+		hex = color.hex
 	}
 }

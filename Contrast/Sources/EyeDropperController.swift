@@ -91,8 +91,8 @@ final class EyeDropperController {
 
 		let shouldContinue = event.modifierFlags.contains(.shift)
 
-		if event.modifierFlags.contains(.option), let hex = color.hex() {
-			pasteboard.setString(hex, forType: NSPasteboardTypeString)
+		if event.modifierFlags.contains(.option) {
+			pasteboard.setString(color.hex, forType: NSPasteboardTypeString)
 			NSSound.contrastCopyColor.forcePlay()
 		} else {
 			NSSound.contrastPickColor.forcePlay()

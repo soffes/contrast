@@ -266,9 +266,9 @@ class ColorsViewController: NSViewController {
 
 		settingsButton.theme = theme
 
-		let contrastRatio = NSColor.contrastRatio(theme.foregroundColor, theme.backgroundColor)
+		let contrastRatio = theme.foregroundColor.contrastRatio(to: theme.backgroundColor)
 		contrastRatioLabel.set(text: String(format: "%0.2f", contrastRatio))
-		scoreLabel.set(text: Score(contrastRatio: contrastRatio).description)
+		scoreLabel.set(text: ConformanceLevel(contrastRatio: contrastRatio).description)
 
 		delegate?.colorsViewController(self, didChangeTheme: theme)
 	}

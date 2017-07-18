@@ -16,7 +16,7 @@ final class LoupeView: NSView {
 	var screenshot: Screenshot? {
 		didSet {
 			imageView.image = screenshot?.image
-			hexLabel.stringValue = screenshot?.color.hex() ?? ""
+			hexLabel.stringValue = screenshot?.color.hex ?? ""
 		}
 	}
 
