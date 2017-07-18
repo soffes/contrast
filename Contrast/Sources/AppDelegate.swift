@@ -23,8 +23,9 @@ extension AppDelegate: NSApplicationDelegate {
 		mixpanel.track(event: "Launch")
 
 		if Preferences.shared.isTutorialCompleted {
-			DispatchQueue.main.async { [weak self] in
-				self?.menuBarController.showPopover(self)
+			// For some reason it launches all stupid on 10.11
+			if #available(OSX 10.12, *) {
+				menuBarController.showPopover(self)
 			}
 			return
 		}
