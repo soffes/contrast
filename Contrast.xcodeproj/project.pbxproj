@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21017DE21F0C89DB00D94400 /* HexFormatter.swift */; };
 		210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210FFF2E1F1C3B21004E9861 /* MenuController.swift */; };
-		2112382B1F17BD2400A837D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238281F17BD2400A837D4 /* main.swift */; };
 		211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; };
 		211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		211238341F17CF7E00A837D4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238331F17CF7E00A837D4 /* Secrets.swift */; };
@@ -41,10 +40,7 @@
 		21968ABC1F10633600FB373F /* NSColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968AB61F10633600FB373F /* NSColor+Contrast.swift */; };
 		21968ABD1F10633600FB373F /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = 21968AB81F10633600FB373F /* Color.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21968AC01F10646400FB373F /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968ABB1F10633600FB373F /* ColorTests.swift */; };
-		21968AC11F1064F000FB373F /* NSColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968AB61F10633600FB373F /* NSColor+Contrast.swift */; };
-		21968AC51F10664D00FB373F /* contrast in Embed Command Line Tool */ = {isa = PBXBuildFile; fileRef = 21968A8C1F1062AC00FB373F /* contrast */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		21968AC71F10BA0E00FB373F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968AC61F10BA0E00FB373F /* Score.swift */; };
-		21968AC81F10BA5400FB373F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21968AC61F10BA0E00FB373F /* Score.swift */; };
 		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
 		21A922F21F198BAD0072480C /* WelcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922F11F198BAD0072480C /* WelcomeButton.swift */; };
 		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
@@ -81,13 +77,6 @@
 			remoteGlobalIDString = 21968A971F1062FF00FB373F;
 			remoteInfo = Color;
 		};
-		21968AC21F10663900FB373F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 218486FE1F04642C009EE112 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 21968A8B1F1062AC00FB373F;
-			remoteInfo = ContrastCLI;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,22 +92,12 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21968A8A1F1062AC00FB373F /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		21968AC41F10663C00FB373F /* Embed Command Line Tool */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 12;
 			files = (
-				21968AC51F10664D00FB373F /* contrast in Embed Command Line Tool */,
 			);
 			name = "Embed Command Line Tool";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,10 +106,10 @@
 
 /* Begin PBXFileReference section */
 		21017DE21F0C89DB00D94400 /* HexFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
+		210C718B1F1E578F00A1B983 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		210C71AF1F1E59D400A1B983 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		210FFF2E1F1C3B21004E9861 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		211238261F17BC8700A837D4 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
-		211238281F17BD2400A837D4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		2112382A1F17BD2400A837D4 /* ContrastCLI.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastCLI.entitlements; sourceTree = "<group>"; };
 		2112382E1F17CF2E00A837D4 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = "<group>"; };
 		211238331F17CF7E00A837D4 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		211238351F17CF9B00A837D4 /* Mixpanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mixpanel.swift; sourceTree = "<group>"; };
@@ -158,7 +137,6 @@
 		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
-		21968A8C1F1062AC00FB373F /* contrast */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = contrast; sourceTree = BUILT_PRODUCTS_DIR; };
 		21968A981F1062FF00FB373F /* Color.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Color.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21968AA01F1062FF00FB373F /* ColorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21968AB61F10633600FB373F /* NSColor+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Contrast.swift"; sourceTree = "<group>"; };
@@ -190,13 +168,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21968A891F1062AC00FB373F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		21968A941F1062FF00FB373F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,25 +186,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		211238271F17BD2400A837D4 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				211238281F17BD2400A837D4 /* main.swift */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		211238291F17BD2400A837D4 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				2112382A1F17BD2400A837D4 /* ContrastCLI.entitlements */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
 		2112382D1F17CF2E00A837D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				210C71AF1F1E59D400A1B983 /* CoreGraphics.framework */,
+				210C718B1F1E578F00A1B983 /* AppKit.framework */,
 				2112382E1F17CF2E00A837D4 /* Mixpanel.framework */,
 			);
 			name = Frameworks;
@@ -244,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				218487081F04642C009EE112 /* Contrast */,
-				21968A8D1F1062AC00FB373F /* ContrastCLI */,
 				21968A991F1062FF00FB373F /* Color */,
 				2112382D1F17CF2E00A837D4 /* Frameworks */,
 				218487071F04642C009EE112 /* Products */,
@@ -255,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				218487061F04642C009EE112 /* Contrast.app */,
-				21968A8C1F1062AC00FB373F /* contrast */,
 				21968A981F1062FF00FB373F /* Color.framework */,
 				21968AA01F1062FF00FB373F /* ColorTests.xctest */,
 			);
@@ -386,15 +341,6 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		21968A8D1F1062AC00FB373F /* ContrastCLI */ = {
-			isa = PBXGroup;
-			children = (
-				211238271F17BD2400A837D4 /* Sources */,
-				211238291F17BD2400A837D4 /* Support */,
-			);
-			path = ContrastCLI;
-			sourceTree = "<group>";
-		};
 		21968A991F1062FF00FB373F /* Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,30 +425,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				21968AC31F10663900FB373F /* PBXTargetDependency */,
 				21968AAC1F1062FF00FB373F /* PBXTargetDependency */,
 			);
 			name = Contrast;
 			productName = Contrast;
 			productReference = 218487061F04642C009EE112 /* Contrast.app */;
 			productType = "com.apple.product-type.application";
-		};
-		21968A8B1F1062AC00FB373F /* ContrastCLI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 21968A921F1062AC00FB373F /* Build configuration list for PBXNativeTarget "ContrastCLI" */;
-			buildPhases = (
-				21968A881F1062AC00FB373F /* Sources */,
-				21968A891F1062AC00FB373F /* Frameworks */,
-				21968A8A1F1062AC00FB373F /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ContrastCLI;
-			productName = ContrastCLI;
-			productReference = 21968A8C1F1062AC00FB373F /* contrast */;
-			productType = "com.apple.product-type.tool";
 		};
 		21968A971F1062FF00FB373F /* Color */ = {
 			isa = PBXNativeTarget;
@@ -561,11 +489,6 @@
 							};
 						};
 					};
-					21968A8B1F1062AC00FB373F = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = UP9C8XM22A;
-						ProvisioningStyle = Automatic;
-					};
 					21968A971F1062FF00FB373F = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
@@ -591,7 +514,6 @@
 			projectRoot = "";
 			targets = (
 				218487051F04642C009EE112 /* Contrast */,
-				21968A8B1F1062AC00FB373F /* ContrastCLI */,
 				21968A971F1062FF00FB373F /* Color */,
 				21968A9F1F1062FF00FB373F /* ColorTests */,
 			);
@@ -698,16 +620,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21968A881F1062AC00FB373F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				21968AC11F1064F000FB373F /* NSColor+Contrast.swift in Sources */,
-				21968AC81F10BA5400FB373F /* Score.swift in Sources */,
-				2112382B1F17BD2400A837D4 /* main.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		21968A931F1062FF00FB373F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -742,11 +654,6 @@
 			isa = PBXTargetDependency;
 			target = 21968A971F1062FF00FB373F /* Color */;
 			targetProxy = 21968AAB1F1062FF00FB373F /* PBXContainerItemProxy */;
-		};
-		21968AC31F10663900FB373F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 21968A8B1F1062AC00FB373F /* ContrastCLI */;
-			targetProxy = 21968AC21F10663900FB373F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -911,28 +818,6 @@
 			};
 			name = Release;
 		};
-		21968A901F1062AC00FB373F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ContrastCLI/Support/ContrastCLI.entitlements;
-				DEVELOPMENT_TEAM = UP9C8XM22A;
-				PRODUCT_NAME = contrast;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		21968A911F1062AC00FB373F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ContrastCLI/Support/ContrastCLI.entitlements;
-				DEVELOPMENT_TEAM = UP9C8XM22A;
-				PRODUCT_NAME = contrast;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		21968AB01F1062FF00FB373F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1028,15 +913,6 @@
 			buildConfigurations = (
 				218487161F04642C009EE112 /* Debug */,
 				218487171F04642C009EE112 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		21968A921F1062AC00FB373F /* Build configuration list for PBXNativeTarget "ContrastCLI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				21968A901F1062AC00FB373F /* Debug */,
-				21968A911F1062AC00FB373F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
