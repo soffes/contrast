@@ -57,6 +57,7 @@ final class WelcomeButton: NSButton {
 
 	var isPrimary = false {
 		didSet {
+			keyEquivalent = isPrimary ? "\r" : ""
 			(cell as? WelcomeButtonCell)?.isPrimary = isPrimary
 			setNeedsDisplay()
 		}
@@ -71,7 +72,6 @@ final class WelcomeButton: NSButton {
 		super.init(frame: frame)
 
 		title = ""
-
 		focusRingType = .none
 
 		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: .NSApplicationDidBecomeActive, object: nil)
@@ -80,19 +80,6 @@ final class WelcomeButton: NSButton {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-
-
-	// MARK: - NSResponder
-
-	override func performKeyEquivalent(with event: NSEvent) -> Bool {
-		// Return
-		if event.keyCode == 36 {
-			sendAction(action, to: target)
-			return true
-		}
-
-		return super.performKeyEquivalent(with: event)
 	}
 
 

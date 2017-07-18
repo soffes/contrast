@@ -29,6 +29,8 @@ extension AppDelegate: NSApplicationDelegate {
 
 		let window = DetachedWindow(contentViewController: WelcomeViewController())
 		window.delegate = self
+
+		NSApp.activate(ignoringOtherApps: true)
 		window.makeKeyAndOrderFront(self)
 		window.center()
 		welcomeWindow = window

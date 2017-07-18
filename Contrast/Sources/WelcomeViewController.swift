@@ -129,7 +129,6 @@ final class WelcomeViewController: NSViewController {
 
 		let stackView = NSStackView()
 		stackView.spacing = 2
-//		stackView.alignment = .trailing
 
 		learnButton.target = self
 		learnButton.action = #selector(learnMore)
@@ -178,8 +177,12 @@ final class WelcomeViewController: NSViewController {
 	// MARK: - Private
 
 	@objc private func learnMore() {
-		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/guide")!)
 		start()
+		NSApp.deactivate()
+
+		let url = URL(string: "https://usecontrast.com/guide")!
+		let application = try? NSWorkspace.shared().open(url, options: [], configuration: [:])
+		application?.activate(options: [])
 	}
 
 	@objc private func start() {
