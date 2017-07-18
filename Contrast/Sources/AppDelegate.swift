@@ -23,7 +23,9 @@ extension AppDelegate: NSApplicationDelegate {
 		mixpanel.track(event: "Launch")
 
 		if Preferences.shared.isTutorialCompleted {
-			menuBarController.showPopover(self)
+			DispatchQueue.main.async { [weak self] in
+				self?.menuBarController.showPopover(self)
+			}
 			return
 		}
 
