@@ -15,14 +15,21 @@ final class MenuController: NSObject {
 		super.init()
 	}
 
-	func createMenu() -> NSMenu {
+	func createMenu(isInPopover: Bool) -> NSMenu {
 		let menu = NSMenu()
 
 		if Preferences.shared.isTutorialCompleted {
-			let item = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "")
-			item.target = self
-			item.state = Preferences.shared.isSoundEnabled ? NSOnState : NSOffState
-			menu.addItem(item)
+			if !isInPopover {
+				let attach = NSMenuItem(title: "Attach to Menu Bar", action: #selector(PopoverController.showPopover), keyEquivalent: "")
+				attach.target = (NSApp.delegate as? AppDelegate)?.menuBarController.popoverController
+				menu.addItem(attach)
+				menu.addItem(.separator())
+			}
+
+			let sound = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "")
+			sound.target = self
+			sound.state = Preferences.shared.isSoundEnabled ? NSOnState : NSOffState
+			menu.addItem(sound)
 
 			menu.addItem(.separator())
 
@@ -41,6 +48,7 @@ final class MenuController: NSObject {
 
 		return menu
 	}
+
 
 	@objc private func showGuide(_ sender: Any?) {
 		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/guide")!)

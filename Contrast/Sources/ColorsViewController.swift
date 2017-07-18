@@ -240,7 +240,7 @@ class ColorsViewController: NSViewController {
 	@objc func showMenu(_ sender: Any?) {
 		guard let sender = sender as? NSView, let event = NSApplication.shared().currentEvent else { return }
 
-		let menu = MenuController.shared.createMenu()
+		let menu = MenuController.shared.createMenu(isInPopover: isInPopover)
 		NSMenu.popUpContextMenu(menu, with: event, for: sender)
 	}
 

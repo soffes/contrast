@@ -14,7 +14,7 @@ final class MenuBarController: NSObject {
 
 	fileprivate let statusItem: NSStatusItem
 
-	private let popoverController = PopoverController()
+	let popoverController = PopoverController()
 
 	static var shared: MenuBarController? {
 		return (NSApp.delegate as? AppDelegate)?.menuBarController
