@@ -34,6 +34,8 @@
 		218487971F055B81009EE112 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487961F055B81009EE112 /* Button.swift */; };
 		218487991F055D10009EE112 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487981F055D10009EE112 /* Theme.swift */; };
 		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
+		21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; };
+		21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
@@ -59,6 +61,7 @@
 			files = (
 				211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */,
 				210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */,
+				21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +108,7 @@
 		218487961F055B81009EE112 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		218487981F055D10009EE112 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21A922EF1F1975FB0072480C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */,
 				210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */,
 				211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */,
 			);
@@ -137,6 +142,7 @@
 		2112382D1F17CF2E00A837D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21887E9A1F222F4400A05579 /* HotKey.framework */,
 				210C71C21F1EA2B500A1B983 /* Color.framework */,
 				2112382E1F17CF2E00A837D4 /* Mixpanel.framework */,
 			);
