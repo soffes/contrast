@@ -36,6 +36,8 @@
 		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
 		21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; };
 		21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21887E9F1F2234D900A05579 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21887E9D1F2234D900A05579 /* Preferences.xib */; };
+		21887EA11F22B97F00A05579 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
@@ -109,6 +111,8 @@
 		218487981F055D10009EE112 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
+		21887E9E1F2234D900A05579 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
+		21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21A922EF1F1975FB0072480C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				2190AEAF1F0876A100912B37 /* Windows */,
 				2190AEB01F0876AF00912B37 /* Extensions */,
 				21017DE21F0C89DB00D94400 /* HexFormatter.swift */,
+				21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				2184873E1F05473F009EE112 /* Main.storyboard */,
 				218487421F05473F009EE112 /* Info.plist */,
 				211238261F17BC8700A837D4 /* Contrast.entitlements */,
+				21887E9D1F2234D900A05579 /* Preferences.xib */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				2184874C1F05473F009EE112 /* Assets.xcassets in Resources */,
 				21D0DA8B1F0D8E6900632FF5 /* click_type.wav in Resources */,
 				21D0DA841F0D896F00632FF5 /* click_tiny.wav in Resources */,
+				21887E9F1F2234D900A05579 /* Preferences.xib in Resources */,
 				21D0DA831F0D896F00632FF5 /* click_snap.wav in Resources */,
 				21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */,
 				2184874D1F05473F009EE112 /* Main.storyboard in Resources */,
@@ -446,6 +453,7 @@
 				21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */,
 				218487441F05473F009EE112 /* EyeDropperController.swift in Sources */,
 				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
+				21887EA11F22B97F00A05579 /* PreferencesWindowController.swift in Sources */,
 				21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */,
 				2112383C1F17DD2400A837D4 /* Preferences.swift in Sources */,
 				218487461F05473F009EE112 /* GridView.swift in Sources */,
@@ -469,6 +477,14 @@
 				2184873F1F05473F009EE112 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		21887E9D1F2234D900A05579 /* Preferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21887E9E1F2234D900A05579 /* Base */,
+			);
+			name = Preferences.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

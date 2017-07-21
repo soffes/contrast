@@ -9,11 +9,22 @@
 import AppKit
 
 final class MenuController: NSObject {
+
+	// MARK: - Properties
+
 	static let shared = MenuController()
+
+	private var preferencesWindowController: PreferencesWindowController?
+
+
+	// MARK: - Initializers
 
 	private override init() {
 		super.init()
 	}
+
+
+	// MARK: - Creating Menus
 
 	func createMenu(isInPopover: Bool) -> NSMenu {
 		let menu = NSMenu()
@@ -26,10 +37,9 @@ final class MenuController: NSObject {
 				menu.addItem(.separator())
 			}
 
-			let sound = NSMenuItem(title: "Sounds", action: #selector(toggleSounds), keyEquivalent: "")
-			sound.target = self
-			sound.state = Preferences.shared.isSoundEnabled ? NSOnState : NSOffState
-			menu.addItem(sound)
+			let preferences = NSMenuItem(title: "Preferences…", action: #selector(showPreferences), keyEquivalent: ",")
+			preferences.target = self
+			menu.addItem(preferences)
 
 			menu.addItem(.separator())
 
@@ -50,6 +60,8 @@ final class MenuController: NSObject {
 	}
 
 
+	// MARK: - Actions
+
 	@objc private func showGuide(_ sender: Any?) {
 		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/guide")!)
 	}
@@ -58,7 +70,10 @@ final class MenuController: NSObject {
 		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/support")!)
 	}
 
-	@objc private func toggleSounds(_ sender: Any?) {
-		Preferences.shared.isSoundEnabled = !Preferences.shared.isSoundEnabled
+	@objc private func showPreferences(_ sender: Any?) {
+		let windowController = preferencesWindowController ?? PreferencesWindowController()
+		preferencesWindowController = windowController
+		windowController.showWindow(self)
+		windowController.window?.center()
 	}
 }

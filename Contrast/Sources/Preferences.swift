@@ -16,6 +16,7 @@ final class Preferences {
 		case themeData = "Colors"
 		case soundsEnabled = "SoundsEnabled"
 		case tutorialCompleted = "TutorialCompleted"
+		case lowercaseHex = "LowercaseHex"
 	}
 
 
@@ -59,6 +60,16 @@ final class Preferences {
 		}
 	}
 
+	var usesLowercaseHex: Bool {
+		get {
+			return userDefaults.bool(forKey: Key.lowercaseHex.rawValue)
+		}
+
+		set {
+			userDefaults.set(newValue, forKey: Key.lowercaseHex.rawValue)
+		}
+	}
+
 
 	// MARK: - Initializers
 
@@ -66,7 +77,8 @@ final class Preferences {
 		self.userDefaults = userDefaults
 
 		userDefaults.register(defaults: [
-			Key.soundsEnabled.rawValue: true
+			Key.soundsEnabled.rawValue: true,
+			Key.lowercaseHex.rawValue: true
 		])
 	}
 }
