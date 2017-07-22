@@ -232,10 +232,10 @@
 				2190AEB11F0876D300912B37 /* View Controllers */,
 				218487501F0547AD009EE112 /* Models */,
 				2190AEAD1F08768000912B37 /* Views */,
+				21887FEC1F237AE200A05579 /* Window Controllers */,
 				2190AEAF1F0876A100912B37 /* Windows */,
+				21887FED1F237AF300A05579 /* Formatters */,
 				2190AEB01F0876AF00912B37 /* Extensions */,
-				21017DE21F0C89DB00D94400 /* HexFormatter.swift */,
-				21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -320,6 +320,22 @@
 				21887FDE1F22D07B00A05579 /* Demo.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		21887FEC1F237AE200A05579 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */,
+			);
+			name = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		21887FED1F237AF300A05579 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				21017DE21F0C89DB00D94400 /* HexFormatter.swift */,
+			);
+			name = Formatters;
 			sourceTree = "<group>";
 		};
 		2190AEAD1F08768000912B37 /* Views */ = {
