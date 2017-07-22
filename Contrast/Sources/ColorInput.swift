@@ -18,7 +18,7 @@ final class ColorInput: NSControl {
 				return
 			}
 
-			textField.stringValue = hexColor.hex
+			updateTextField()
 		}
 	}
 
@@ -64,5 +64,18 @@ final class ColorInput: NSControl {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+
+	// MARK: - Updating
+
+	func updateTextField() {
+		var hex = hexColor.hex
+
+		if !Preferences.shared.usesLowercaseHex {
+			hex = hex.uppercased()
+		}
+
+		textField.stringValue = hex
 	}
 }

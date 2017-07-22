@@ -38,6 +38,7 @@
 		21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21887E9F1F2234D900A05579 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21887E9D1F2234D900A05579 /* Preferences.xib */; };
 		21887EA11F22B97F00A05579 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */; };
+		21887EA31F22CDEE00A05579 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA21F22CDEE00A05579 /* PreferencesWindow.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
@@ -113,6 +114,7 @@
 		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
 		21887E9E1F2234D900A05579 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
 		21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		21887EA21F22CDEE00A05579 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21A922EF1F1975FB0072480C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
 				21073F3D1F317178008E8748 /* Window.swift */,
+				21887EA21F22CDEE00A05579 /* PreferencesWindow.swift */,
 			);
 			name = Windows;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */,
 				211E2B391F0B46D400757881 /* HexColor.swift in Sources */,
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
+				21887EA31F22CDEE00A05579 /* PreferencesWindow.swift in Sources */,
 				21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */,
 				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
 				21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */,

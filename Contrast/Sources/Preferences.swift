@@ -12,7 +12,7 @@ final class Preferences {
 
 	// MARK: - Types
 
-	private enum Key: String {
+	enum Key: String {
 		case themeData = "Colors"
 		case soundsEnabled = "SoundsEnabled"
 		case tutorialCompleted = "TutorialCompleted"

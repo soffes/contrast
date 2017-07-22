@@ -9,7 +9,7 @@
 import AppKit
 import HotKey
 
-@NSApplicationMain final class AppDelegate: NSObject {
+@NSApplicationMain final class AppDelegate: NSResponder {
 
 	// MARK: - Properties
 

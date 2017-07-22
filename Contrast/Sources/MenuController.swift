@@ -70,7 +70,7 @@ final class MenuController: NSObject {
 		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/support")!)
 	}
 
-	@objc private func showPreferences(_ sender: Any?) {
+	func showPreferences(_ sender: Any?) {
 		let windowController = preferencesWindowController ?? PreferencesWindowController()
 		preferencesWindowController = windowController
 		windowController.showWindow(self)
