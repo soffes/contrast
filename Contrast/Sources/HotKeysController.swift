@@ -16,6 +16,7 @@ final class HotKeysController {
 		didSet {
 			Preferences.shared.showKeyCombo = showHotKey?.keyCombo
 
+			showHotKey?.isPaused = isPaused
 			showHotKey?.keyDownHandler = { [weak self] in
 				self?.togglePopover(self)
 			}
@@ -26,6 +27,7 @@ final class HotKeysController {
 		didSet {
 			Preferences.shared.foregroundKeyCombo = foregroundHotKey?.keyCombo
 
+			foregroundHotKey?.isPaused = isPaused
 			foregroundHotKey?.keyDownHandler = { [weak self] in
 				self?.pickForegroundColor(self)
 			}
@@ -36,9 +38,18 @@ final class HotKeysController {
 		didSet {
 			Preferences.shared.backgroundKeyCombo = backgroundHotKey?.keyCombo
 
+			backgroundHotKey?.isPaused = isPaused
 			backgroundHotKey?.keyDownHandler = { [weak self] in
 				self?.pickBackgroundColor(self)
 			}
+		}
+	}
+
+	var isPaused = false {
+		didSet {
+			showHotKey?.isPaused = isPaused
+			foregroundHotKey?.isPaused = isPaused
+			backgroundHotKey?.isPaused = isPaused
 		}
 	}
 
@@ -61,10 +72,16 @@ final class HotKeysController {
 	}
 
 	private func pickForegroundColor(_ sender: Any?) {
-		// TODO: Implement
+		MenuBarController.shared?.popoverController.showPopover(sender)
+		if let viewController = MenuBarController.shared?.popoverController.popover.contentViewController as? ColorsViewController {
+			viewController.pickForeground()
+		}
 	}
 
 	private func pickBackgroundColor(_ sender: Any?) {
-		// TODO: Implement
+		MenuBarController.shared?.popoverController.showPopover(sender)
+		if let viewController = MenuBarController.shared?.popoverController.popover.contentViewController as? ColorsViewController {
+			viewController.pickBackground()
+		}
 	}
 }

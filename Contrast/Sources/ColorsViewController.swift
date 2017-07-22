@@ -220,6 +220,14 @@ class ColorsViewController: NSViewController {
 
 	// MARK: - Actions
 
+	func pickForeground() {
+		pickColor(foregroundInput.button)
+	}
+
+	func pickBackground() {
+		pickColor(backgroundInput.button)
+	}
+
 	@objc private func pickColor(_ sender: Button) {
 		NSSound.contrastPick.forcePlay()
 

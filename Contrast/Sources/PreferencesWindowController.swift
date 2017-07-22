@@ -53,7 +53,31 @@ final class PreferencesWindowController: NSWindowController {
 
 
 extension PreferencesWindowController: SRRecorderControlDelegate {
+	func shortcutRecorderShouldBeginRecording(_ aRecorder: SRRecorderControl!) -> Bool {
+		HotKeysController.shared.isPaused = true
+		return true
+	}
+
+	// TODO: Prevent duplicate shortcuts
+	func shortcutRecorder(_ recorder: SRRecorderControl!, canRecordShortcut aShortcut: [AnyHashable : Any]!) -> Bool {
+		guard let value = aShortcut as? [String: Any], let keyCombo = KeyCombo(shortcutRecorderDictionary: value) else { return true }
+
+		let controller = HotKeysController.shared
+
+		if recorder === showRecorder {
+			return controller.foregroundHotKey?.keyCombo != keyCombo && controller.backgroundHotKey?.keyCombo != keyCombo
+		} else if recorder === foregroundRecorder {
+			return controller.showHotKey?.keyCombo != keyCombo && controller.backgroundHotKey?.keyCombo != keyCombo
+		} else if recorder === backgroundRecorder {
+			return controller.foregroundHotKey?.keyCombo != keyCombo && controller.showHotKey?.keyCombo != keyCombo
+		}
+
+		return true
+	}
+
 	func shortcutRecorderDidEndRecording(_ recorder: SRRecorderControl!) {
+		HotKeysController.shared.isPaused = false
+
 		let value = recorder.objectValue as? [String: Any]
 
 		if recorder === showRecorder {
