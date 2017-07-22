@@ -46,6 +46,11 @@ extension AppDelegate: NSApplicationDelegate {
 	func applicationDidBecomeActive(_ notification: Notification) {
 		mixpanel.track(event: "Activiate")
 	}
+
+	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+		menuBarController.popoverController.showPopover(sender)
+		return true
+	}
 }
 
 
