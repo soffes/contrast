@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HotKey
 
 final class Preferences {
 
@@ -17,6 +18,9 @@ final class Preferences {
 		case soundsEnabled = "SoundsEnabled"
 		case tutorialCompleted = "TutorialCompleted"
 		case lowercaseHex = "LowercaseHex"
+		case showKeyCombo = "ShowKeyCombo"
+		case foregroundKeyCombo = "ForegroundKeyCombo"
+		case backgroundKeyCombo = "BackgroundKeyCombo"
 	}
 
 
@@ -70,6 +74,36 @@ final class Preferences {
 		}
 	}
 
+	var showKeyCombo: KeyCombo? {
+		get {
+			return getKeyCombo(forKey: .showKeyCombo)
+		}
+
+		set {
+			set(newValue, forKey: .showKeyCombo)
+		}
+	}
+
+	var foregroundKeyCombo: KeyCombo? {
+		get {
+			return getKeyCombo(forKey: .foregroundKeyCombo)
+		}
+
+		set {
+			set(newValue, forKey: .foregroundKeyCombo)
+		}
+	}
+
+	var backgroundKeyCombo: KeyCombo? {
+		get {
+			return getKeyCombo(forKey: .backgroundKeyCombo)
+		}
+
+		set {
+			set(newValue, forKey: .backgroundKeyCombo)
+		}
+	}
+
 
 	// MARK: - Initializers
 
@@ -80,5 +114,20 @@ final class Preferences {
 			Key.soundsEnabled.rawValue: true,
 			Key.lowercaseHex.rawValue: true
 		])
+	}
+
+
+	// MARK: - Private
+
+	private func set(_ keyCombo: KeyCombo?, forKey key: Key) {
+		if let keyCombo = keyCombo {
+			userDefaults.set(keyCombo.dictionary, forKey: key.rawValue)
+		} else {
+			userDefaults.removeObject(forKey: key.rawValue)
+		}
+	}
+
+	private func getKeyCombo(forKey key: Key) -> KeyCombo? {
+		return userDefaults.dictionary(forKey: key.rawValue).flatMap({ KeyCombo(dictionary: $0) })
 	}
 }

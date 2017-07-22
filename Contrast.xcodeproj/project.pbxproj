@@ -39,6 +39,10 @@
 		21887E9F1F2234D900A05579 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21887E9D1F2234D900A05579 /* Preferences.xib */; };
 		21887EA11F22B97F00A05579 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */; };
 		21887EA31F22CDEE00A05579 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA21F22CDEE00A05579 /* PreferencesWindow.swift */; };
+		21887FE11F22D09300A05579 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */; };
+		21887FE21F22D09600A05579 /* ShortcutRecorder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21887FE41F22D4E700A05579 /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887FE31F22D4E700A05579 /* HotKeysController.swift */; };
+		21887FE61F22DC8400A05579 /* KeyCombo+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
@@ -55,6 +59,37 @@
 		21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E685441F05E0ED00471E6C /* Native-Regular.ttf */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		21887FD91F22D07B00A05579 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 939837800DA42965007F53F3;
+			remoteInfo = ShortcutRecorder.framework;
+		};
+		21887FDB1F22D07B00A05579 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E273122E1349EC9000A84433;
+			remoteInfo = PTHotKey.framework;
+		};
+		21887FDD1F22D07B00A05579 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0D6B2468180304DE00CE1142;
+			remoteInfo = Demo;
+		};
+		21887FDF1F22D08A00A05579 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9398377F0DA42965007F53F3;
+			remoteInfo = ShortcutRecorder.framework;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		2184878E1F055827009EE112 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -65,6 +100,7 @@
 				211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */,
 				210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */,
 				21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */,
+				21887FE21F22D09600A05579 /* ShortcutRecorder.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +151,9 @@
 		21887E9E1F2234D900A05579 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
 		21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		21887EA21F22CDEE00A05579 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
+		21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ShortcutRecorder.xcodeproj; sourceTree = "<group>"; };
+		21887FE31F22D4E700A05579 /* HotKeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeysController.swift; sourceTree = "<group>"; };
+		21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Contrast.swift"; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21A922EF1F1975FB0072480C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +178,7 @@
 				21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */,
 				210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */,
 				211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */,
+				21887FE11F22D09300A05579 /* ShortcutRecorder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				218487081F04642C009EE112 /* Contrast */,
+				21887EA41F22D07A00A05579 /* Vendor */,
 				2112382D1F17CF2E00A837D4 /* Frameworks */,
 				218487071F04642C009EE112 /* Products */,
 			);
@@ -206,9 +247,9 @@
 				21D0DA7F1F0D896F00632FF5 /* Sounds */,
 				2184873D1F05473F009EE112 /* Assets.xcassets */,
 				2184873E1F05473F009EE112 /* Main.storyboard */,
+				21887E9D1F2234D900A05579 /* Preferences.xib */,
 				218487421F05473F009EE112 /* Info.plist */,
 				211238261F17BC8700A837D4 /* Contrast.entitlements */,
-				21887E9D1F2234D900A05579 /* Preferences.xib */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -242,6 +283,7 @@
 				2112383B1F17DD2400A837D4 /* Preferences.swift */,
 				218487341F05473F009EE112 /* EyeDropperController.swift */,
 				210FFF2E1F1C3B21004E9861 /* MenuController.swift */,
+				21887FE31F22D4E700A05579 /* HotKeysController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +294,32 @@
 				2184876D1F054CA2009EE112 /* ColorTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		21887EA41F22D07A00A05579 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				21887EA51F22D07A00A05579 /* ShortcutRecorder */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		21887EA51F22D07A00A05579 /* ShortcutRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */,
+			);
+			path = ShortcutRecorder;
+			sourceTree = "<group>";
+		};
+		21887F581F22D07A00A05579 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */,
+				21887FDC1F22D07B00A05579 /* PTHotKey.framework */,
+				21887FDE1F22D07B00A05579 /* Demo.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		2190AEAD1F08768000912B37 /* Views */ = {
@@ -287,6 +355,7 @@
 				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
 				21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */,
 				21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */,
+				21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -337,6 +406,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21887FE01F22D08A00A05579 /* PBXTargetDependency */,
 			);
 			name = Contrast;
 			productName = Contrast;
@@ -372,16 +442,68 @@
 			knownRegions = (
 				en,
 				Base,
+				ca,
+				cs,
+				de,
+				el,
+				"es-MX",
+				es,
+				fr,
+				it,
+				ja,
+				ko,
+				nb,
+				nl,
+				pl,
+				"pt-BR",
+				pt,
+				ro,
+				ru,
+				sk,
+				sv,
+				th,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 218486FD1F04642C009EE112;
 			productRefGroup = 218487071F04642C009EE112 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 21887F581F22D07A00A05579 /* Products */;
+					ProjectRef = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				218487051F04642C009EE112 /* Contrast */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ShortcutRecorder.framework;
+			remoteRef = 21887FD91F22D07B00A05579 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21887FDC1F22D07B00A05579 /* PTHotKey.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PTHotKey.framework;
+			remoteRef = 21887FDB1F22D07B00A05579 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21887FDE1F22D07B00A05579 /* Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Demo.app;
+			remoteRef = 21887FDD1F22D07B00A05579 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		218487041F04642C009EE112 /* Resources */ = {
@@ -452,6 +574,7 @@
 				2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */,
 				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
 				21A922F21F198BAD0072480C /* WelcomeButton.swift in Sources */,
+				21887FE41F22D4E700A05579 /* HotKeysController.swift in Sources */,
 				21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */,
 				21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */,
 				218487441F05473F009EE112 /* EyeDropperController.swift in Sources */,
@@ -466,6 +589,7 @@
 				211E2B391F0B46D400757881 /* HexColor.swift in Sources */,
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
 				21887EA31F22CDEE00A05579 /* PreferencesWindow.swift in Sources */,
+				21887FE61F22DC8400A05579 /* KeyCombo+Contrast.swift in Sources */,
 				21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */,
 				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
 				21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */,
@@ -473,6 +597,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21887FE01F22D08A00A05579 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ShortcutRecorder.framework;
+			targetProxy = 21887FDF1F22D08A00A05579 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2184873E1F05473F009EE112 /* Main.storyboard */ = {

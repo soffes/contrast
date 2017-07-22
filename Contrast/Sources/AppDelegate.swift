@@ -15,8 +15,6 @@ import HotKey
 
 	let menuBarController = MenuBarController()
 
-	fileprivate let hotKey = HotKey(key: .c, modifiers: [.command, .option, .control])
-
 	fileprivate var welcomeWindow: NSWindow?
 }
 
@@ -25,9 +23,8 @@ extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		mixpanel.track(event: "Launch")
 
-		hotKey.keyDownHandler = { [weak self] in
-			self?.menuBarController.showPopover(self)
-		}
+		// Initialize hot keys
+		_ = HotKeysController.shared
 
 		if Preferences.shared.isTutorialCompleted {
 			// For some reason it launches all stupid on 10.11, so defer it
