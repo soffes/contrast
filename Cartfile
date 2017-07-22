@@ -1,3 +1,4 @@
 github "soffes/Mixpanel"
 github "soffes/Color"
 github "soffes/HotKey" "master"
+github "soffes/ShortcutRecorder" "master"
