@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21017DE21F0C89DB00D94400 /* HexFormatter.swift */; };
 		21073F3E1F317178008E8748 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F3D1F317178008E8748 /* Window.swift */; };
+		21073F421F3172F9008E8748 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21073F411F3172F9008E8748 /* About.storyboard */; };
+		21073F441F317362008E8748 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F431F317362008E8748 /* AboutViewController.swift */; };
+		21073F461F3174CF008E8748 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F451F3174CF008E8748 /* AboutWindowController.swift */; };
 		210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; };
 		210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210FFF2E1F1C3B21004E9861 /* MenuController.swift */; };
@@ -38,7 +41,7 @@
 		21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21887E9F1F2234D900A05579 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21887E9D1F2234D900A05579 /* Preferences.xib */; };
 		21887EA11F22B97F00A05579 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */; };
-		21887EA31F22CDEE00A05579 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA21F22CDEE00A05579 /* PreferencesWindow.swift */; };
+		21887EA31F22CDEE00A05579 /* PlainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA21F22CDEE00A05579 /* PlainWindow.swift */; };
 		21887FE11F22D09300A05579 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */; };
 		21887FE21F22D09600A05579 /* ShortcutRecorder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21887FE41F22D4E700A05579 /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887FE31F22D4E700A05579 /* HotKeysController.swift */; };
@@ -120,6 +123,9 @@
 /* Begin PBXFileReference section */
 		21017DE21F0C89DB00D94400 /* HexFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
 		21073F3D1F317178008E8748 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		21073F411F3172F9008E8748 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		21073F431F317362008E8748 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		21073F451F3174CF008E8748 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		210C71C21F1EA2B500A1B983 /* Color.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Color.framework; sourceTree = "<group>"; };
 		210FFF2E1F1C3B21004E9861 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		211238261F17BC8700A837D4 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
@@ -150,7 +156,7 @@
 		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
 		21887E9E1F2234D900A05579 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
 		21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		21887EA21F22CDEE00A05579 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
+		21887EA21F22CDEE00A05579 /* PlainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainWindow.swift; sourceTree = "<group>"; };
 		21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ShortcutRecorder.xcodeproj; sourceTree = "<group>"; };
 		21887FE31F22D4E700A05579 /* HotKeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeysController.swift; sourceTree = "<group>"; };
 		21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Contrast.swift"; sourceTree = "<group>"; };
@@ -248,6 +254,7 @@
 				2184873D1F05473F009EE112 /* Assets.xcassets */,
 				2184873E1F05473F009EE112 /* Main.storyboard */,
 				21887E9D1F2234D900A05579 /* Preferences.xib */,
+				21073F411F3172F9008E8748 /* About.storyboard */,
 				218487421F05473F009EE112 /* Info.plist */,
 				211238261F17BC8700A837D4 /* Contrast.entitlements */,
 			);
@@ -326,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */,
+				21073F451F3174CF008E8748 /* AboutWindowController.swift */,
 			);
 			name = "Window Controllers";
 			sourceTree = "<group>";
@@ -360,7 +368,7 @@
 			children = (
 				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
 				21073F3D1F317178008E8748 /* Window.swift */,
-				21887EA21F22CDEE00A05579 /* PreferencesWindow.swift */,
+				21887EA21F22CDEE00A05579 /* PlainWindow.swift */,
 			);
 			name = Windows;
 			sourceTree = "<group>";
@@ -381,6 +389,7 @@
 			children = (
 				2184873B1F05473F009EE112 /* ColorsViewController.swift */,
 				21A922EF1F1975FB0072480C /* WelcomeViewController.swift */,
+				21073F431F317362008E8748 /* AboutViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -531,6 +540,7 @@
 				21D0DA841F0D896F00632FF5 /* click_tiny.wav in Resources */,
 				21887E9F1F2234D900A05579 /* Preferences.xib in Resources */,
 				21D0DA831F0D896F00632FF5 /* click_snap.wav in Resources */,
+				21073F421F3172F9008E8748 /* About.storyboard in Resources */,
 				21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */,
 				2184874D1F05473F009EE112 /* Main.storyboard in Resources */,
 				21D0DA851F0D896F00632FF5 /* slide_left.wav in Resources */,
@@ -578,6 +588,7 @@
 				21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */,
 				211238341F17CF7E00A837D4 /* Secrets.swift in Sources */,
 				218487951F055B42009EE112 /* TextField.swift in Sources */,
+				21073F441F317362008E8748 /* AboutViewController.swift in Sources */,
 				2184879B1F055D49009EE112 /* Label.swift in Sources */,
 				211238361F17CF9B00A837D4 /* Mixpanel.swift in Sources */,
 				210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */,
@@ -604,9 +615,10 @@
 				218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */,
 				211E2B391F0B46D400757881 /* HexColor.swift in Sources */,
 				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
-				21887EA31F22CDEE00A05579 /* PreferencesWindow.swift in Sources */,
+				21887EA31F22CDEE00A05579 /* PlainWindow.swift in Sources */,
 				21887FE61F22DC8400A05579 /* KeyCombo+Contrast.swift in Sources */,
 				21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */,
+				21073F461F3174CF008E8748 /* AboutWindowController.swift in Sources */,
 				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
 				21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */,
 			);

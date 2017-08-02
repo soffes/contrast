@@ -1,5 +1,5 @@
 //
-//  PreferencesWindow.swift
+//  PlainWindow.swift
 //  Contrast
 //
 //  Created by Sam Soffes on 7/21/17.
@@ -8,7 +8,7 @@
 
 import AppKit
 
-final class PreferencesWindow: NSWindow {
+final class PlainWindow: NSWindow {
 	override func performKeyEquivalent(with event: NSEvent) -> Bool {
 		if event.modifierFlags.contains(.command) && event.characters == "w" {
 			close()

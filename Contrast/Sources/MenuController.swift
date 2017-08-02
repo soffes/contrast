@@ -14,6 +14,7 @@ final class MenuController: NSObject {
 
 	static let shared = MenuController()
 
+	private var aboutWindowController: NSWindowController?
 	private var preferencesWindowController: PreferencesWindowController?
 
 
@@ -36,6 +37,12 @@ final class MenuController: NSObject {
 				menu.addItem(attach)
 				menu.addItem(.separator())
 			}
+
+			let about = NSMenuItem(title: "About Contrast", action: #selector(showAbout), keyEquivalent: "")
+			about.target = self
+			menu.addItem(about)
+
+			menu.addItem(.separator())
 
 			let preferences = NSMenuItem(title: "Preferences…", action: #selector(showPreferences), keyEquivalent: ",")
 			preferences.target = self
@@ -68,6 +75,13 @@ final class MenuController: NSObject {
 
 	@objc private func showHelp(_ sender: Any?) {
 		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/support")!)
+	}
+
+	func showAbout(_ sender: Any?) {
+		guard let windowController = aboutWindowController ?? NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as? NSWindowController else { return }
+		aboutWindowController = windowController
+		windowController.showWindow(self)
+		windowController.window?.center()
 	}
 
 	func showPreferences(_ sender: Any?) {
