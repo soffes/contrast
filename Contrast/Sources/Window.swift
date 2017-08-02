@@ -1,14 +1,14 @@
 //
-//  DetachedWindow.swift
+//  File.swift
 //  Contrast
 //
-//  Created by Sam Soffes on 7/2/17.
+//  Created by Sam Soffes on 8/1/17.
 //  Copyright © 2017 Nothing Magical, Inc. All rights reserved.
 //
 
 import AppKit
 
-private final class DetachedWindowView: NSView {
+private final class WindowView: NSView {
 	let closeButton: CloseButton = {
 		let view = CloseButton()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -54,20 +54,19 @@ private final class DetachedWindowView: NSView {
 		NSLayoutConstraint.activate([
 			closeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1),
 			closeButton.topAnchor.constraint(equalTo: topAnchor)
-		])
+			])
 	}
 }
 
 
-extension DetachedWindowView: ColorsViewControllerDelegate {
+extension WindowView: ColorsViewControllerDelegate {
 	func colorsViewController(_ viewController: ColorsViewController, didChangeTheme theme: Theme) {
 		closeButton.theme = theme
 	}
 }
 
 
-/// Used when popover is detacted
-final class DetachedWindow: NSWindow {
+final class Window: NSWindow {
 
 	// MARK: - Properties
 
@@ -81,7 +80,7 @@ final class DetachedWindow: NSWindow {
 		}
 	}
 
-	private let customContentView = DetachedWindowView()
+	private let customContentView = WindowView()
 	private var customContentViewController: NSViewController?
 
 
@@ -102,7 +101,7 @@ final class DetachedWindow: NSWindow {
 			view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			view.topAnchor.constraint(equalTo: contentView.topAnchor),
 			view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-		])
+			])
 
 		contentViewController.viewDidAppear()
 		customContentViewController = contentViewController

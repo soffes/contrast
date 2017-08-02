@@ -34,7 +34,7 @@ extension AppDelegate: NSApplicationDelegate {
 			return
 		}
 
-		let window = DetachedWindow(contentViewController: WelcomeViewController())
+		let window = Window(contentViewController: WelcomeViewController())
 		window.delegate = self
 
 		NSApp.activate(ignoringOtherApps: true)
