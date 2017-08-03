@@ -48,6 +48,12 @@
 		21887FE61F22DC8400A05579 /* KeyCombo+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
 		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
+		21A25E851F336D22000AD1F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7E1F336D22000AD1F1 /* AppDelegate.m */; };
+		21A25E861F336D22000AD1F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7F1F336D22000AD1F1 /* main.m */; };
+		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
+		21A25E881F336D22000AD1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E821F336D22000AD1F1 /* Main.storyboard */; };
+		21A25E891F336D22000AD1F1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E841F336D22000AD1F1 /* Info.plist */; };
+		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
 		21A922F21F198BAD0072480C /* WelcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922F11F198BAD0072480C /* WelcomeButton.swift */; };
 		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
@@ -63,33 +69,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		21887FD91F22D07B00A05579 /* PBXContainerItemProxy */ = {
+		21A25E8A1F336D96000AD1F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 939837800DA42965007F53F3;
-			remoteInfo = ShortcutRecorder.framework;
-		};
-		21887FDB1F22D07B00A05579 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E273122E1349EC9000A84433;
-			remoteInfo = PTHotKey.framework;
-		};
-		21887FDD1F22D07B00A05579 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0D6B2468180304DE00CE1142;
-			remoteInfo = Demo;
-		};
-		21887FDF1F22D08A00A05579 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
+			containerPortal = 218486FE1F04642C009EE112 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9398377F0DA42965007F53F3;
-			remoteInfo = ShortcutRecorder.framework;
+			remoteGlobalIDString = 21A25E671F336CE5000AD1F1;
+			remoteInfo = ContrastHelper;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -108,14 +93,15 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21968AC41F10663C00FB373F /* Embed Command Line Tool */ = {
+		21A25E8C1F336D9A000AD1F1 /* Embed Helper */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 12;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
 			files = (
+				21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */,
 			);
-			name = "Embed Command Line Tool";
+			name = "Embed Helper";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -158,11 +144,18 @@
 		21887E9E1F2234D900A05579 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
 		21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		21887EA21F22CDEE00A05579 /* PlainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainWindow.swift; sourceTree = "<group>"; };
-		21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ShortcutRecorder.xcodeproj; sourceTree = "<group>"; };
 		21887FE31F22D4E700A05579 /* HotKeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeysController.swift; sourceTree = "<group>"; };
 		21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Contrast.swift"; sourceTree = "<group>"; };
 		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
 		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
+		21A25E681F336CE5000AD1F1 /* ContrastHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContrastHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21A25E7D1F336D22000AD1F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		21A25E7E1F336D22000AD1F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		21A25E7F1F336D22000AD1F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		21A25E811F336D22000AD1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21A25E831F336D22000AD1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		21A25E841F336D22000AD1F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21A25E901F337E41000AD1F1 /* ContrastHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastHelper.entitlements; sourceTree = "<group>"; };
 		21A922EF1F1975FB0072480C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		21A922F11F198BAD0072480C /* WelcomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeButton.swift; sourceTree = "<group>"; };
 		21D0DA791F0D7E6400632FF5 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
@@ -189,6 +182,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21A25E651F336CE5000AD1F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				218487081F04642C009EE112 /* Contrast */,
-				21887EA41F22D07A00A05579 /* Vendor */,
+				21A25E691F336CE5000AD1F1 /* ContrastHelper */,
 				2112382D1F17CF2E00A837D4 /* Frameworks */,
 				218487071F04642C009EE112 /* Products */,
 			);
@@ -218,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				218487061F04642C009EE112 /* Contrast.app */,
+				21A25E681F336CE5000AD1F1 /* ContrastHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -305,32 +306,6 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		21887EA41F22D07A00A05579 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				21887EA51F22D07A00A05579 /* ShortcutRecorder */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		21887EA51F22D07A00A05579 /* ShortcutRecorder */ = {
-			isa = PBXGroup;
-			children = (
-				21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */,
-			);
-			path = ShortcutRecorder;
-			sourceTree = "<group>";
-		};
-		21887F581F22D07A00A05579 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */,
-				21887FDC1F22D07B00A05579 /* PTHotKey.framework */,
-				21887FDE1F22D07B00A05579 /* Demo.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		21887FEC1F237AE200A05579 /* Window Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +371,36 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		21A25E691F336CE5000AD1F1 /* ContrastHelper */ = {
+			isa = PBXGroup;
+			children = (
+				21A25E7C1F336D22000AD1F1 /* Sources */,
+				21A25E801F336D22000AD1F1 /* Support */,
+			);
+			path = ContrastHelper;
+			sourceTree = "<group>";
+		};
+		21A25E7C1F336D22000AD1F1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				21A25E7D1F336D22000AD1F1 /* AppDelegate.h */,
+				21A25E7E1F336D22000AD1F1 /* AppDelegate.m */,
+				21A25E7F1F336D22000AD1F1 /* main.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		21A25E801F336D22000AD1F1 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				21A25E901F337E41000AD1F1 /* ContrastHelper.entitlements */,
+				21A25E811F336D22000AD1F1 /* Assets.xcassets */,
+				21A25E821F336D22000AD1F1 /* Main.storyboard */,
+				21A25E841F336D22000AD1F1 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		21D0DA7F1F0D896F00632FF5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,17 +432,34 @@
 				2112383D1F180BAA00A837D4 /* Swift Lint */,
 				218487041F04642C009EE112 /* Resources */,
 				2184878E1F055827009EE112 /* Embed Frameworks */,
-				21968AC41F10663C00FB373F /* Embed Command Line Tool */,
+				21A25E8C1F336D9A000AD1F1 /* Embed Helper */,
 				21E685461F05FB5E00471E6C /* Set Version */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				21887FE01F22D08A00A05579 /* PBXTargetDependency */,
+				21A25E8B1F336D96000AD1F1 /* PBXTargetDependency */,
 			);
 			name = Contrast;
 			productName = Contrast;
 			productReference = 218487061F04642C009EE112 /* Contrast.app */;
+			productType = "com.apple.product-type.application";
+		};
+		21A25E671F336CE5000AD1F1 /* ContrastHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21A25E7B1F336CE5000AD1F1 /* Build configuration list for PBXNativeTarget "ContrastHelper" */;
+			buildPhases = (
+				21A25E641F336CE5000AD1F1 /* Sources */,
+				21A25E651F336CE5000AD1F1 /* Frameworks */,
+				21A25E661F336CE5000AD1F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContrastHelper;
+			productName = ContrastHelper;
+			productReference = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -451,6 +473,16 @@
 				ORGANIZATIONNAME = "Nothing Magical, Inc.";
 				TargetAttributes = {
 					218487051F04642C009EE112 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = UP9C8XM22A;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					21A25E671F336CE5000AD1F1 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = UP9C8XM22A;
 						ProvisioningStyle = Automatic;
@@ -495,42 +527,13 @@
 			mainGroup = 218486FD1F04642C009EE112;
 			productRefGroup = 218487071F04642C009EE112 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 21887F581F22D07A00A05579 /* Products */;
-					ProjectRef = 21887F571F22D07A00A05579 /* ShortcutRecorder.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				218487051F04642C009EE112 /* Contrast */,
+				21A25E671F336CE5000AD1F1 /* ContrastHelper */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ShortcutRecorder.framework;
-			remoteRef = 21887FD91F22D07B00A05579 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21887FDC1F22D07B00A05579 /* PTHotKey.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PTHotKey.framework;
-			remoteRef = 21887FDB1F22D07B00A05579 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		21887FDE1F22D07B00A05579 /* Demo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Demo.app;
-			remoteRef = 21887FDD1F22D07B00A05579 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		218487041F04642C009EE112 /* Resources */ = {
@@ -546,6 +549,16 @@
 				21E685451F05E0ED00471E6C /* Native-Regular.ttf in Resources */,
 				2184874D1F05473F009EE112 /* Main.storyboard in Resources */,
 				21D0DA851F0D896F00632FF5 /* slide_left.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21A25E661F336CE5000AD1F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */,
+				21A25E881F336D22000AD1F1 /* Main.storyboard in Resources */,
+				21A25E891F336D22000AD1F1 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,13 +639,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21A25E641F336CE5000AD1F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21A25E861F336D22000AD1F1 /* main.m in Sources */,
+				21A25E851F336D22000AD1F1 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		21887FE01F22D08A00A05579 /* PBXTargetDependency */ = {
+		21A25E8B1F336D96000AD1F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = ShortcutRecorder.framework;
-			targetProxy = 21887FDF1F22D08A00A05579 /* PBXContainerItemProxy */;
+			target = 21A25E671F336CE5000AD1F1 /* ContrastHelper */;
+			targetProxy = 21A25E8A1F336D96000AD1F1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -651,6 +673,14 @@
 				21887E9E1F2234D900A05579 /* Base */,
 			);
 			name = Preferences.xib;
+			sourceTree = "<group>";
+		};
+		21A25E821F336D22000AD1F1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21A25E831F336D22000AD1F1 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -805,6 +835,42 @@
 			};
 			name = Release;
 		};
+		21A25E791F336CE5000AD1F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ContrastHelper/Support/ContrastHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UP9C8XM22A;
+				INFOPLIST_FILE = "$(SRCROOT)/ContrastHelper/Support/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.contrast.helper;
+				PRODUCT_NAME = ContrastHelper;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		21A25E7A1F336CE5000AD1F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ContrastHelper/Support/ContrastHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UP9C8XM22A;
+				INFOPLIST_FILE = "$(SRCROOT)/ContrastHelper/Support/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.contrast.helper;
+				PRODUCT_NAME = ContrastHelper;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -825,6 +891,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		21A25E7B1F336CE5000AD1F1 /* Build configuration list for PBXNativeTarget "ContrastHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21A25E791F336CE5000AD1F1 /* Debug */,
+				21A25E7A1F336CE5000AD1F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
