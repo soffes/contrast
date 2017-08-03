@@ -19,14 +19,14 @@
         <window title="Contrast Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="PlainWindow" customModule="Contrast" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="430" height="206"/>
+            <rect key="contentRect" x="196" y="240" width="430" height="226"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="430" height="206"/>
+                <rect key="frame" x="0.0" y="0.0" width="430" height="226"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView misplaced="YES" id="eZT-Y0-4rw" customClass="SRRecorderControl">
-                        <rect key="frame" x="227" y="128" width="163" height="25"/>
+                        <rect key="frame" x="227" y="148" width="163" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDeleteToClearShortcutAndEndRecording" value="YES"/>
@@ -36,7 +36,7 @@
                         </userDefinedRuntimeAttributes>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="qat-p0-pLu">
-                        <rect key="frame" x="79" y="165" width="142" height="17"/>
+                        <rect key="frame" x="79" y="185" width="142" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Global Show/Hide Key:" id="71r-AQ-hCd">
                             <font key="font" metaFont="system"/>
@@ -45,7 +45,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="oLI-hU-M6U">
-                        <rect key="frame" x="46" y="132" width="175" height="17"/>
+                        <rect key="frame" x="46" y="152" width="175" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Global Pick Foreground Key:" id="pz0-7I-C2J">
                             <font key="font" metaFont="system"/>
@@ -54,7 +54,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="5rk-JU-TA7">
-                        <rect key="frame" x="43" y="99" width="178" height="17"/>
+                        <rect key="frame" x="43" y="119" width="178" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Global Pick Background Key:" id="PTi-3X-0f0">
                             <font key="font" metaFont="system"/>
@@ -74,11 +74,11 @@
                         </connections>
                     </button>
                     <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Of3-pR-n0B">
-                        <rect key="frame" x="20" y="72" width="390" height="5"/>
+                        <rect key="frame" x="20" y="92" width="390" height="5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </box>
                     <customView misplaced="YES" id="t5e-47-eGa" customClass="SRRecorderControl">
-                        <rect key="frame" x="227" y="95" width="163" height="25"/>
+                        <rect key="frame" x="227" y="115" width="163" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEmptyModifierFlags" value="NO"/>
@@ -99,7 +99,7 @@
                         </connections>
                     </button>
                     <customView id="86w-aH-3YE" customClass="SRRecorderControl">
-                        <rect key="frame" x="227" y="161" width="163" height="25"/>
+                        <rect key="frame" x="227" y="181" width="163" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEmptyModifierFlags" value="NO"/>
@@ -108,9 +108,21 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDeleteToClearShortcutAndEndRecording" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </customView>
+                    <button misplaced="YES" id="Ia2-CC-UXc">
+                        <rect key="frame" x="225" y="58" width="115" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9HT-gj-hpE">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="changeLaunchAtLogin:" target="-2" id="ivC-qi-FZ0"/>
+                            <binding destination="ahI-Qj-FyQ" name="value" keyPath="values.LaunchAtLogin" id="Xzy-Oa-0gq"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="178" y="123"/>
+            <point key="canvasLocation" x="178" y="133"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="ahI-Qj-FyQ"/>
     </objects>

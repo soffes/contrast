@@ -21,6 +21,7 @@ final class Preferences {
 		case showKeyCombo = "ShowKeyCombo"
 		case foregroundKeyCombo = "ForegroundKeyCombo"
 		case backgroundKeyCombo = "BackgroundKeyCombo"
+		case launchAtLogin = "LaunchAtLogin"
 	}
 
 
@@ -101,6 +102,16 @@ final class Preferences {
 
 		set {
 			set(newValue, forKey: .backgroundKeyCombo)
+		}
+	}
+
+	var launchAtLogin: Bool {
+		get {
+			return userDefaults.bool(forKey: Key.launchAtLogin.rawValue)
+		}
+
+		set {
+			userDefaults.set(newValue, forKey: Key.launchAtLogin.rawValue)
 		}
 	}
 

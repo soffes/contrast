@@ -9,6 +9,7 @@
 import AppKit
 import ShortcutRecorder
 import HotKey
+import ServiceManagement
 
 final class PreferencesWindowController: NSWindowController {
 
@@ -48,6 +49,20 @@ final class PreferencesWindowController: NSWindowController {
 		showRecorder.objectValue = Preferences.shared.showKeyCombo?.shortcutRecorderDictionary
 		foregroundRecorder.objectValue = Preferences.shared.foregroundKeyCombo?.shortcutRecorderDictionary
 		backgroundRecorder.objectValue = Preferences.shared.backgroundKeyCombo?.shortcutRecorderDictionary
+	}
+
+
+	// MARK: - Actions
+
+	@IBAction func changeLaunchAtLogin(_ sender: Any?) {
+		let identifier = "com.nothingmagical.contrast.helper" as CFString
+		let launchAtLogin = Preferences.shared.launchAtLogin
+
+		if SMLoginItemSetEnabled(identifier, launchAtLogin) {
+			print("Launch at login: \(launchAtLogin)")
+		} else {
+			print("Failed to change login item")
+		}
 	}
 }
 
