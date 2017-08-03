@@ -35,7 +35,7 @@ extension AppDelegate: NSApplicationDelegate {
 		mixpanel.track(event: "Launch")
 
 		// Preferences keyboard shortcut
-		NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { [weak self] event in
+		NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { [weak self] event in
 			if event.modifierFlags.contains(.command) &&  event.characters == "," {
 				self?.showPreferences(self)
 				return nil
