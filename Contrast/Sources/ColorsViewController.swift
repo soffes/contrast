@@ -185,14 +185,6 @@ class ColorsViewController: NSViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(themeDidChange), name: .themeDidChange, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateTextFields), name: UserDefaults.didChangeNotification, object: nil)
 		applyTheme()
-
-		NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { event in
-			if event.modifierFlags.contains(.command) &&  event.characters == "," {
-				MenuController.shared.showPreferences(self)
-				return nil
-			}
-			return event
-		}
 	}
 
 	override func viewDidAppear() {

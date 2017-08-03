@@ -16,12 +16,32 @@ import HotKey
 	let menuBarController = MenuBarController()
 
 	fileprivate var welcomeWindow: NSWindow?
+	fileprivate var preferencesWindowController: NSWindowController?
+
+
+	// MARK: - Actions
+
+	func showPreferences(_ sender: Any?) {
+		let windowController = preferencesWindowController ?? PreferencesWindowController()
+		preferencesWindowController = windowController
+		windowController.showWindow(self)
+		windowController.window?.center()
+	}
 }
 
 
 extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		mixpanel.track(event: "Launch")
+
+		// Preferences keyboard shortcut
+		NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { [weak self] event in
+			if event.modifierFlags.contains(.command) &&  event.characters == "," {
+				self?.showPreferences(self)
+				return nil
+			}
+			return event
+		}
 
 		// Initialize hot keys
 		_ = HotKeysController.shared
@@ -38,7 +58,7 @@ extension AppDelegate: NSApplicationDelegate {
 			return
 		}
 
-		let window = Window(contentViewController: WelcomeViewController())
+		let window = CustomWindow(contentViewController: WelcomeViewController())
 		window.delegate = self
 
 		NSApp.activate(ignoringOtherApps: true)
@@ -52,7 +72,9 @@ extension AppDelegate: NSApplicationDelegate {
 	}
 
 	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-		menuBarController.popoverController.showPopover(sender)
+		if preferencesWindowController?.window?.isVisible == false {
+			menuBarController.popoverController.showPopover(sender)
+		}
 		return true
 	}
 }

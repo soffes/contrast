@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21017DE21F0C89DB00D94400 /* HexFormatter.swift */; };
-		21073F3E1F317178008E8748 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F3D1F317178008E8748 /* Window.swift */; };
+		21073F3E1F317178008E8748 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F3D1F317178008E8748 /* CustomWindow.swift */; };
 		21073F421F3172F9008E8748 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21073F411F3172F9008E8748 /* About.storyboard */; };
 		21073F441F317362008E8748 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F431F317362008E8748 /* AboutViewController.swift */; };
 		21073F461F3174CF008E8748 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F451F3174CF008E8748 /* AboutWindowController.swift */; };
@@ -52,7 +52,6 @@
 		21A25E861F336D22000AD1F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7F1F336D22000AD1F1 /* main.m */; };
 		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
 		21A25E881F336D22000AD1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E821F336D22000AD1F1 /* Main.storyboard */; };
-		21A25E891F336D22000AD1F1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E841F336D22000AD1F1 /* Info.plist */; };
 		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
 		21A922F21F198BAD0072480C /* WelcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922F11F198BAD0072480C /* WelcomeButton.swift */; };
@@ -108,7 +107,7 @@
 
 /* Begin PBXFileReference section */
 		21017DE21F0C89DB00D94400 /* HexFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
-		21073F3D1F317178008E8748 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		21073F3D1F317178008E8748 /* CustomWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
 		21073F411F3172F9008E8748 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		21073F431F317362008E8748 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21073F451F3174CF008E8748 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
@@ -344,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
-				21073F3D1F317178008E8748 /* Window.swift */,
+				21073F3D1F317178008E8748 /* CustomWindow.swift */,
 				21887EA21F22CDEE00A05579 /* PlainWindow.swift */,
 			);
 			name = Windows;
@@ -558,7 +557,6 @@
 			files = (
 				21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */,
 				21A25E881F336D22000AD1F1 /* Main.storyboard in Resources */,
-				21A25E891F336D22000AD1F1 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,7 +606,7 @@
 				211238361F17CF9B00A837D4 /* Mixpanel.swift in Sources */,
 				210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */,
 				21D0DA871F0D8A2000632FF5 /* NSSound+Contrast.swift in Sources */,
-				21073F3E1F317178008E8748 /* Window.swift in Sources */,
+				21073F3E1F317178008E8748 /* CustomWindow.swift in Sources */,
 				21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */,
 				2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */,
 				21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */,
@@ -899,6 +897,7 @@
 				21A25E7A1F336CE5000AD1F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

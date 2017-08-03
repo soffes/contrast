@@ -115,7 +115,7 @@ extension PopoverController: NSPopoverDelegate {
 		guard let contentViewController = popover.contentViewController as? ColorsViewController else { return nil }
 
 		let viewController = ColorsViewController(theme: contentViewController.theme, isInPopover: false)
-		let window = Window(contentViewController: viewController)
+		let window = CustomWindow(contentViewController: viewController)
 		window.customCloseButton = true
 		window.delegate = self
 		detachedWindow = window

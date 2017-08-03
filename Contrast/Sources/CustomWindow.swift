@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CustomWindow.swift
 //  Contrast
 //
 //  Created by Sam Soffes on 8/1/17.
@@ -8,7 +8,7 @@
 
 import AppKit
 
-private final class WindowView: NSView {
+private final class CustomWindowView: NSView {
 	let closeButton: CloseButton = {
 		let view = CloseButton()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -54,19 +54,19 @@ private final class WindowView: NSView {
 		NSLayoutConstraint.activate([
 			closeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1),
 			closeButton.topAnchor.constraint(equalTo: topAnchor)
-			])
+		])
 	}
 }
 
 
-extension WindowView: ColorsViewControllerDelegate {
+extension CustomWindowView: ColorsViewControllerDelegate {
 	func colorsViewController(_ viewController: ColorsViewController, didChangeTheme theme: Theme) {
 		closeButton.theme = theme
 	}
 }
 
 
-final class Window: NSWindow {
+final class CustomWindow: NSWindow {
 
 	// MARK: - Properties
 
@@ -80,7 +80,7 @@ final class Window: NSWindow {
 		}
 	}
 
-	private let customContentView = WindowView()
+	private let customContentView = CustomWindowView()
 	private var customContentViewController: NSViewController?
 
 

@@ -15,7 +15,6 @@ final class MenuController: NSObject {
 	static let shared = MenuController()
 
 	private var aboutWindowController: NSWindowController?
-	private var preferencesWindowController: PreferencesWindowController?
 
 
 	// MARK: - Initializers
@@ -44,8 +43,8 @@ final class MenuController: NSObject {
 
 			menu.addItem(.separator())
 
-			let preferences = NSMenuItem(title: "Preferences…", action: #selector(showPreferences), keyEquivalent: ",")
-			preferences.target = self
+			let preferences = NSMenuItem(title: "Preferences…", action: #selector(AppDelegate.showPreferences), keyEquivalent: ",")
+			preferences.target = NSApp.delegate
 			menu.addItem(preferences)
 
 			menu.addItem(.separator())
@@ -80,13 +79,6 @@ final class MenuController: NSObject {
 	func showAbout(_ sender: Any?) {
 		guard let windowController = aboutWindowController ?? NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as? NSWindowController else { return }
 		aboutWindowController = windowController
-		windowController.showWindow(self)
-		windowController.window?.center()
-	}
-
-	func showPreferences(_ sender: Any?) {
-		let windowController = preferencesWindowController ?? PreferencesWindowController()
-		preferencesWindowController = windowController
 		windowController.showWindow(self)
 		windowController.window?.center()
 	}
