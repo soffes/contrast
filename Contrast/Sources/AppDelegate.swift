@@ -27,11 +27,25 @@ import HotKey
 		windowController.showWindow(self)
 		windowController.window?.center()
 	}
+
+
+	// MARK: - Private
+
+	fileprivate func showTutorial() {
+		let window = CustomWindow(contentViewController: WelcomeViewController())
+		window.delegate = self
+
+		NSApp.activate(ignoringOtherApps: true)
+		window.makeKeyAndOrderFront(self)
+		window.center()
+		welcomeWindow = window
+	}
 }
 
 
 extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
+		// Start Mixpanel
 		mixpanel.track(event: "Launch")
 
 		// Preferences keyboard shortcut
@@ -46,6 +60,7 @@ extension AppDelegate: NSApplicationDelegate {
 		// Initialize hot keys
 		_ = HotKeysController.shared
 
+		// Check for tutorial completion
 		if Preferences.shared.isTutorialCompleted {
 			// For some reason it launches all stupid on 10.11, so defer it
 			if #available(OSX 10.12, *) {
@@ -58,13 +73,8 @@ extension AppDelegate: NSApplicationDelegate {
 			return
 		}
 
-		let window = CustomWindow(contentViewController: WelcomeViewController())
-		window.delegate = self
-
-		NSApp.activate(ignoringOtherApps: true)
-		window.makeKeyAndOrderFront(self)
-		window.center()
-		welcomeWindow = window
+		// Show tutorial
+		showTutorial()
 	}
 
 	func applicationDidBecomeActive(_ notification: Notification) {
@@ -82,6 +92,10 @@ extension AppDelegate: NSApplicationDelegate {
 
 extension AppDelegate: NSWindowDelegate {
 	func windowWillClose(_ notification: Notification) {
+		if (notification.object as? NSWindow) != welcomeWindow {
+			return
+		}
+
 		welcomeWindow = nil
 
 		Preferences.shared.isTutorialCompleted = true

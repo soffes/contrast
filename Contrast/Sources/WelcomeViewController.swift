@@ -168,7 +168,7 @@ final class WelcomeViewController: NSViewController {
 
 		view.window?.makeFirstResponder(startButton)
 
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
 			self?.animateIn()
 		}
 	}
