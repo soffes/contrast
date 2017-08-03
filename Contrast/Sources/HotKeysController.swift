@@ -65,6 +65,17 @@ final class HotKeysController {
 	}
 
 
+	// MARK: - Hot Key Information
+
+	func isAvailable(keyCombo: KeyCombo) -> Bool {
+		if showHotKey?.keyCombo == keyCombo || foregroundHotKey?.keyCombo == keyCombo || backgroundHotKey?.keyCombo == keyCombo {
+			return false
+		}
+
+		return true
+	}
+
+
 	// MARK: - Actions
 
 	private func togglePopover(_ sender: Any?) {

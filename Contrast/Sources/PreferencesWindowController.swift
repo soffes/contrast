@@ -46,9 +46,10 @@ final class PreferencesWindowController: NSWindowController {
 			recorder?.delegate = self
 		}
 
-		showRecorder.objectValue = Preferences.shared.showKeyCombo?.shortcutRecorderDictionary
-		foregroundRecorder.objectValue = Preferences.shared.foregroundKeyCombo?.shortcutRecorderDictionary
-		backgroundRecorder.objectValue = Preferences.shared.backgroundKeyCombo?.shortcutRecorderDictionary
+		let controller = HotKeysController.shared
+		showRecorder.objectValue = controller.showHotKey?.keyCombo.shortcutRecorderDictionary
+		foregroundRecorder.objectValue = controller.foregroundHotKey?.keyCombo.shortcutRecorderDictionary
+		backgroundRecorder.objectValue = controller.backgroundHotKey?.keyCombo.shortcutRecorderDictionary
 	}
 
 
@@ -73,26 +74,15 @@ extension PreferencesWindowController: SRRecorderControlDelegate {
 		return true
 	}
 
-	// TODO: Prevent duplicate shortcuts
 	func shortcutRecorder(_ recorder: SRRecorderControl!, canRecordShortcut aShortcut: [AnyHashable : Any]!) -> Bool {
-		guard let value = aShortcut as? [String: Any], let keyCombo = KeyCombo(shortcutRecorderDictionary: value) else { return true }
+		guard let value = aShortcut as? [String: Any],
+			let keyCombo = KeyCombo(shortcutRecorderDictionary: value)
+		else { return false }
 
-		let controller = HotKeysController.shared
-
-		if recorder === showRecorder {
-			return controller.foregroundHotKey?.keyCombo != keyCombo && controller.backgroundHotKey?.keyCombo != keyCombo
-		} else if recorder === foregroundRecorder {
-			return controller.showHotKey?.keyCombo != keyCombo && controller.backgroundHotKey?.keyCombo != keyCombo
-		} else if recorder === backgroundRecorder {
-			return controller.foregroundHotKey?.keyCombo != keyCombo && controller.showHotKey?.keyCombo != keyCombo
-		}
-
-		return true
+		return HotKeysController.shared.isAvailable(keyCombo: keyCombo)
 	}
 
 	func shortcutRecorderDidEndRecording(_ recorder: SRRecorderControl!) {
-		HotKeysController.shared.isPaused = false
-
 		let value = recorder.objectValue as? [String: Any]
 
 		if recorder === showRecorder {
@@ -102,6 +92,8 @@ extension PreferencesWindowController: SRRecorderControlDelegate {
 		} else if recorder === backgroundRecorder {
 			HotKeysController.shared.backgroundHotKey = hotKey(from: value)
 		}
+
+		HotKeysController.shared.isPaused = false
 	}
 
 	private func hotKey(from dictionary: [String: Any]?) -> HotKey? {
