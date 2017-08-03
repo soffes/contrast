@@ -12,6 +12,8 @@
 		21073F421F3172F9008E8748 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21073F411F3172F9008E8748 /* About.storyboard */; };
 		21073F441F317362008E8748 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F431F317362008E8748 /* AboutViewController.swift */; };
 		21073F461F3174CF008E8748 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F451F3174CF008E8748 /* AboutWindowController.swift */; };
+		21073F481F321979008E8748 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21073F471F321979008E8748 /* ShortcutRecorder.framework */; };
+		21073F491F321983008E8748 /* ShortcutRecorder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21073F471F321979008E8748 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; };
 		210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210FFF2E1F1C3B21004E9861 /* MenuController.swift */; };
@@ -42,8 +44,6 @@
 		21887E9F1F2234D900A05579 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21887E9D1F2234D900A05579 /* Preferences.xib */; };
 		21887EA11F22B97F00A05579 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */; };
 		21887EA31F22CDEE00A05579 /* PlainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA21F22CDEE00A05579 /* PlainWindow.swift */; };
-		21887FE11F22D09300A05579 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */; };
-		21887FE21F22D09600A05579 /* ShortcutRecorder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887FDA1F22D07B00A05579 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21887FE41F22D4E700A05579 /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887FE31F22D4E700A05579 /* HotKeysController.swift */; };
 		21887FE61F22DC8400A05579 /* KeyCombo+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */; };
 		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
@@ -103,7 +103,7 @@
 				211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */,
 				210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */,
 				21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */,
-				21887FE21F22D09600A05579 /* ShortcutRecorder.framework in Embed Frameworks */,
+				21073F491F321983008E8748 /* ShortcutRecorder.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +126,7 @@
 		21073F411F3172F9008E8748 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		21073F431F317362008E8748 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		21073F451F3174CF008E8748 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		21073F471F321979008E8748 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		210C71C21F1EA2B500A1B983 /* Color.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Color.framework; sourceTree = "<group>"; };
 		210FFF2E1F1C3B21004E9861 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		211238261F17BC8700A837D4 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
@@ -182,9 +183,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */,
+				21073F481F321979008E8748 /* ShortcutRecorder.framework in Frameworks */,
 				210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */,
 				211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */,
-				21887FE11F22D09300A05579 /* ShortcutRecorder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +195,7 @@
 		2112382D1F17CF2E00A837D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21073F471F321979008E8748 /* ShortcutRecorder.framework */,
 				21887E9A1F222F4400A05579 /* HotKey.framework */,
 				210C71C21F1EA2B500A1B983 /* Color.framework */,
 				2112382E1F17CF2E00A837D4 /* Mixpanel.framework */,
