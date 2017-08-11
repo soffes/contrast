@@ -79,6 +79,18 @@ extension PreferencesWindowController: SRRecorderControlDelegate {
 			let keyCombo = KeyCombo(shortcutRecorderDictionary: value)
 		else { return false }
 
+		if recorder === showRecorder && HotKeysController.shared.showHotKey?.keyCombo == keyCombo {
+			return true
+		}
+
+		if recorder === foregroundRecorder && HotKeysController.shared.foregroundHotKey?.keyCombo == keyCombo {
+			return true
+		}
+
+		if recorder === backgroundRecorder && HotKeysController.shared.backgroundHotKey?.keyCombo == keyCombo {
+			return true
+		}
+
 		return HotKeysController.shared.isAvailable(keyCombo: keyCombo)
 	}
 
