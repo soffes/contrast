@@ -101,7 +101,7 @@ final class CustomWindow: NSWindow {
 			view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 			view.topAnchor.constraint(equalTo: contentView.topAnchor),
 			view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-			])
+		])
 
 		contentViewController.viewDidAppear()
 		customContentViewController = contentViewController
