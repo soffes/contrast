@@ -128,6 +128,17 @@ class ColorsViewController: NSViewController {
 	}
 
 
+	// MARK: - NSResponder
+
+	override func cancelOperation(_ sender: Any?) {
+		if isInPopover {
+			(NSApp.delegate as? AppDelegate)?.menuBarController.popoverController.dismissPopover(sender)
+		} else {
+			view.window?.close()
+		}
+	}
+
+
 	// MARK: - NSViewController
 
 	override func loadView() {
