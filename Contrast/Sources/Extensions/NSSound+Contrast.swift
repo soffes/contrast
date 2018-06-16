@@ -1,11 +1,3 @@
-//
-//  NSSound+Contrast.swift
-//  Contrast
-//
-//  Created by Sam Soffes on 7/5/17.
-//  Copyright © 2017 Nothing Magical, Inc. All rights reserved.
-//
-
 import AppKit
 
 private let volume: Float = 0.2

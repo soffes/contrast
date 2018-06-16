@@ -1,11 +1,3 @@
-//
-//  CloseButton.swift
-//  Contrast
-//
-//  Created by Sam Soffes on 7/2/17.
-//  Copyright © 2017 Nothing Magical, Inc. All rights reserved.
-//
-
 import AppKit
 
 fileprivate extension Theme {

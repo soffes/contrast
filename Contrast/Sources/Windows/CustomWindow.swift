@@ -1,11 +1,3 @@
-//
-//  CustomWindow.swift
-//  Contrast
-//
-//  Created by Sam Soffes on 8/1/17.
-//  Copyright © 2017 Nothing Magical, Inc. All rights reserved.
-//
-
 import AppKit
 
 private final class CustomWindowView: NSView {

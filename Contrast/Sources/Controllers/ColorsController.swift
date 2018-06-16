@@ -1,11 +1,3 @@
-//
-//  ColorsController.swift
-//  Contrast
-//
-//  Created by Sam Soffes on 7/13/17.
-//  Copyright © 2017 Nothing Magical, Inc. All rights reserved.
-//
-
 import Foundation
 
 extension Notification.Name {

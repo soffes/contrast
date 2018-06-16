@@ -1,11 +1,3 @@
-//
-//  PlainButton.swift
-//  Contrast
-//
-//  Created by Sam Soffes on 7/2/17.
-//  Copyright © 2017 Nothing Magical, Inc. All rights reserved.
-//
-
 import AppKit
 
 extension Theme {

@@ -162,7 +162,6 @@
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
 		21A25E681F336CE5000AD1F1 /* ContrastHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContrastHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		21A25E7D1F336D22000AD1F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21A25E7E1F336D22000AD1F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		21A25E7F1F336D22000AD1F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21A25E811F336D22000AD1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -404,7 +403,6 @@
 		21A25E7C1F336D22000AD1F1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				21A25E7D1F336D22000AD1F1 /* AppDelegate.h */,
 				21A25E7E1F336D22000AD1F1 /* AppDelegate.m */,
 				21A25E7F1F336D22000AD1F1 /* main.m */,
 			);
