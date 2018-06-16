@@ -43,7 +43,7 @@ final class HexFormatter: Formatter {
 		return result
 	}
 
-	override func attributedString(for obj: Any, withDefaultAttributes attrs: [String : Any]? = nil) -> NSAttributedString? {
+	override func attributedString(for obj: Any, withDefaultAttributes attrs: [String: Any]? = nil) -> NSAttributedString? {
 		return nil
 	}
 }

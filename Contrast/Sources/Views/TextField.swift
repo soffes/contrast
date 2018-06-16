@@ -135,7 +135,7 @@ final class TextField: NSTextField {
 					return true
 				}
 			case "z":
-				if NSApp.sendAction(Selector(("undo:")), to: nil, from:self) {
+				if NSApp.sendAction(Selector(("undo:")), to: nil, from: self) {
 					return true
 				}
 			case "a":

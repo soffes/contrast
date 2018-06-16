@@ -66,7 +66,7 @@ extension PreferencesWindowController: SRRecorderControlDelegate {
 		return true
 	}
 
-	func shortcutRecorder(_ recorder: SRRecorderControl!, canRecordShortcut aShortcut: [AnyHashable : Any]!) -> Bool {
+	func shortcutRecorder(_ recorder: SRRecorderControl!, canRecordShortcut aShortcut: [AnyHashable: Any]!) -> Bool {
 		guard let value = aShortcut as? [String: Any],
 			let keyCombo = KeyCombo(shortcutRecorderDictionary: value)
 		else { return false }
