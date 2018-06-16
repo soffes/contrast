@@ -52,8 +52,8 @@ final class HotKeysController {
 
 	private init() {
 		showHotKey = Preferences.shared.showKeyCombo.flatMap({ HotKey(keyCombo: $0) })
-		foregroundHotKey = Preferences.shared.showKeyCombo.flatMap({ HotKey(keyCombo: $0) })
-		backgroundHotKey = Preferences.shared.showKeyCombo.flatMap({ HotKey(keyCombo: $0) })
+		foregroundHotKey = Preferences.shared.foregroundKeyCombo.flatMap({ HotKey(keyCombo: $0) })
+		backgroundHotKey = Preferences.shared.backgroundKeyCombo.flatMap({ HotKey(keyCombo: $0) })
 	}
 
 
