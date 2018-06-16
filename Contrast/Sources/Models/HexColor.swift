@@ -35,7 +35,7 @@ struct HexColor {
 
 	mutating func lighten(by ratio: CGFloat = 0.01) {
 		if color.brightnessComponent == 1 {
-			NSBeep()
+			NSSound.beep()
 			return
 		}
 
@@ -45,7 +45,7 @@ struct HexColor {
 
 	mutating func darken(by ratio: CGFloat = 0.01) {
 		if color.brightnessComponent == 0 {
-			NSBeep()
+			NSSound.beep()
 			return
 		}
 

@@ -13,7 +13,7 @@ import HotKey
 
 	// MARK: - Actions
 
-	func showPreferences(_ sender: Any?) {
+	@objc func showPreferences(_ sender: Any?) {
 		let windowController = preferencesWindowController ?? PreferencesWindowController()
 		preferencesWindowController = windowController
 		windowController.showWindow(self)
@@ -41,8 +41,8 @@ extension AppDelegate: NSApplicationDelegate {
 		mixpanel.track(event: "Launch")
 
 		// Preferences keyboard shortcut
-		NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { [weak self] event in
-			if event.modifierFlags.contains(.command) &&  event.characters == "," {
+		NSEvent.addLocalMonitorForEvents(matching: [NSEvent.EventTypeMask.keyDown]) { [weak self] event in
+			if event.modifierFlags.contains(NSEvent.ModifierFlags.command) &&  event.characters == "," {
 				self?.showPreferences(self)
 				return nil
 			}

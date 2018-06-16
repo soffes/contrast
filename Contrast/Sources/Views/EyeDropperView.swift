@@ -7,7 +7,7 @@ final class EyeDropperView: NSView {
 	let loupeView = LoupeView()
 
 	private var trackingArea: NSTrackingArea?
-	private let trackingAreaOptions: NSTrackingAreaOptions = [.activeAlways, .mouseMoved, .mouseEnteredAndExited]
+	private let trackingAreaOptions: NSTrackingArea.Options = [NSTrackingArea.Options.activeAlways, NSTrackingArea.Options.mouseMoved, NSTrackingArea.Options.mouseEnteredAndExited]
 
 	private let cursor = NSCursor(image: NSImage(size: CGSize(width: 1, height: 1)), hotSpot: .zero)
 
@@ -109,7 +109,7 @@ final class EyeDropperView: NSView {
 	private func screenshot(at position: CGPoint) -> (NSImage, NSImage)? {
 		guard let window = window,
 			let screen = window.screen,
-			let screenNumber = screen.deviceDescription["NSScreenNumber"] as? UInt32
+            let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey(rawValue: "NSScreenNumber")] as? UInt32
 		else {
 			loupeView.isHidden = true
 			return nil
@@ -133,7 +133,7 @@ final class EyeDropperView: NSView {
 		// Scale screenshot
 		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4, width: captureSize.width * magnification, height: captureSize.height * magnification)
 		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification), flipped: false) { _ in
-			guard let gc = NSGraphicsContext.current() else { return false }
+			guard let gc = NSGraphicsContext.current else { return false }
 			gc.imageInterpolation = .none
 			gc.cgContext.draw(cgImage, in: scaledRect)
 			return true

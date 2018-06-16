@@ -34,7 +34,7 @@ final class LoupeView: NSView {
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.font = .contrastMonoSpace()
 		view.textColor = .white
-		view.contentInsets = EdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+		view.contentInsets = NSEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
 		view.wantsLayer = true
 		view.layer?.cornerRadius = 4
 		view.layer?.backgroundColor = NSColor(white: 0, alpha: 0.9).cgColor

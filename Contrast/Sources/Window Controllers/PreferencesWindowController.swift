@@ -25,14 +25,14 @@ final class PreferencesWindowController: NSWindowController {
 
 	// MARK: - NSWindowController
 
-	override var windowNibName: String? {
-		return "Preferences"
+	override var windowNibName: NSNib.Name? {
+        return NSNib.Name(rawValue: "Preferences")
 	}
 
 	override func windowDidLoad() {
 		super.windowDidLoad()
 
-		window?.level = Int(CGWindowLevelForKey(.mainMenuWindow))
+		window?.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.mainMenuWindow)))
 
 		for recorder in [showRecorder, foregroundRecorder, backgroundRecorder] {
 			recorder?.delegate = self

@@ -17,7 +17,6 @@ final class AboutWindowController: NSWindowController {
 
 	override func windowDidLoad() {
 		super.windowDidLoad()
-
-		window?.level = Int(CGWindowLevelForKey(.mainMenuWindow))
+		window?.level = .mainMenu
 	}
 }

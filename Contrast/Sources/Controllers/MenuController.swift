@@ -61,15 +61,15 @@ final class MenuController: NSObject {
 	// MARK: - Actions
 
 	@objc private func showGuide(_ sender: Any?) {
-		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/guide")!)
+		NSWorkspace.shared.open(URL(string: "https://usecontrast.com/guide")!)
 	}
 
 	@objc private func showHelp(_ sender: Any?) {
-		NSWorkspace.shared().open(URL(string: "https://usecontrast.com/support")!)
+		NSWorkspace.shared.open(URL(string: "https://usecontrast.com/support")!)
 	}
 
-	func showAbout(_ sender: Any?) {
-		guard let windowController = aboutWindowController ?? NSStoryboard(name: "About", bundle: nil).instantiateInitialController() as? NSWindowController else { return }
+	@objc func showAbout(_ sender: Any?) {
+		guard let windowController = aboutWindowController ?? NSStoryboard(name: NSStoryboard.Name(rawValue: "About"), bundle: nil).instantiateInitialController() as? NSWindowController else { return }
 		aboutWindowController = windowController
 		windowController.showWindow(self)
 		windowController.window?.center()

@@ -31,7 +31,7 @@ final class PopoverController: NSObject {
 		popover.delegate = self
 
 		// Register for notifications
-		NotificationCenter.default.addObserver(self, selector: #selector(didResignActive), name: .NSApplicationWillResignActive, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(didResignActive), name: NSApplication.willResignActiveNotification, object: nil)
 	}
 
 
@@ -55,7 +55,7 @@ final class PopoverController: NSObject {
 		}
 	}
 
-	func showPopover(_ sender: Any?) {
+	@objc func showPopover(_ sender: Any?) {
 		guard Preferences.shared.isTutorialCompleted,
 			let view = delegate?.popoverControllerWillShow(popover: popover)
 		else { return }

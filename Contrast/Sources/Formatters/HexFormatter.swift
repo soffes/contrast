@@ -34,7 +34,7 @@ final class HexFormatter: Formatter {
 		if partialString.length > maximumLength {
 			partialString = partialString.substring(to: maximumLength) as NSString
 			partialStringPtr.pointee = partialString
-			NSBeep()
+			NSSound.beep()
 			return false
 		}
 
@@ -43,7 +43,7 @@ final class HexFormatter: Formatter {
 		return result
 	}
 
-	override func attributedString(for obj: Any, withDefaultAttributes attrs: [String: Any]? = nil) -> NSAttributedString? {
+	override func attributedString(for obj: Any, withDefaultAttributes attrs: [NSAttributedStringKey: Any]? = nil) -> NSAttributedString? {
 		return nil
 	}
 }

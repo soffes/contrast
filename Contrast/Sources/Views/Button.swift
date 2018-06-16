@@ -115,8 +115,12 @@ final class Button: NSButton {
 
 	// MARK: - NSControl
 
-	override class func cellClass() -> AnyClass? {
-		return ButtonCell.self
+	override class var cellClass: AnyClass? {
+        get {
+            return ButtonCell.self
+        }
+
+        set {}
 	}
 
 

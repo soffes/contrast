@@ -21,7 +21,7 @@ final class MenuBarController: NSObject {
 
 	override init() {
 		// Create menu bar item
-		let statusBar = NSStatusBar.system()
+		let statusBar = NSStatusBar.system
 		statusItem = statusBar.statusItem(withLength: 28)
 		statusItem.image = #imageLiteral(resourceName: "MenuBarIcon")
 
@@ -30,8 +30,8 @@ final class MenuBarController: NSObject {
 		popoverController.delegate = self
 
 		// Show popover event
-		NSEvent.addLocalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
-			if event.window == self?.statusItem.button?.window && !event.modifierFlags.contains(.command) {
+		NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.leftMouseDown) { [weak self] event in
+			if event.window == self?.statusItem.button?.window && !event.modifierFlags.contains(NSEvent.ModifierFlags.command) {
 				self?.popoverController.togglePopover(self?.statusItem.button)
 				return nil
 			}

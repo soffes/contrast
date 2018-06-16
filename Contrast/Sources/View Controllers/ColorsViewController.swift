@@ -35,7 +35,7 @@ class ColorsViewController: NSViewController {
 
 	private let scoreLabel: Label = {
 		let view = Label()
-		view.font = .systemFont(ofSize: 16, weight: NSFontWeightHeavy)
+		view.font = .systemFont(ofSize: 16, weight: NSFont.Weight.heavy)
 		view.toolTip = "WCAG 2.0 Score"
 		return view
 	}()
@@ -63,7 +63,7 @@ class ColorsViewController: NSViewController {
 
 	private let contrastRatioLabel: Label = {
 		let view = Label()
-		view.font = .systemFont(ofSize: 12, weight: NSFontWeightBold)
+		view.font = .systemFont(ofSize: 12, weight: NSFont.Weight.bold)
 		view.toolTip = "Contrast Ratio"
 		return view
 	}()
@@ -73,7 +73,7 @@ class ColorsViewController: NSViewController {
 		view.image = #imageLiteral(resourceName: "Cog")
 		view.toolTip = "Settings"
 		view.isSettings = true
-		view.sendAction(on: .leftMouseDown)
+		view.sendAction(on: NSEvent.EventTypeMask.leftMouseDown)
 		return view
 	}()
 
@@ -112,7 +112,7 @@ class ColorsViewController: NSViewController {
 	init(theme: Theme? = nil, isInPopover: Bool = true) {
 		self.theme = theme ?? ColorsController.shared.theme
 		self.isInPopover = isInPopover
-		super.init(nibName: nil, bundle: nil)!
+		super.init(nibName: nil, bundle: nil)
 	}
 
 	required init?(coder: NSCoder) {
@@ -250,7 +250,7 @@ class ColorsViewController: NSViewController {
 	}
 
 	@objc func showMenu(_ sender: Any?) {
-		guard let sender = sender as? NSView, let event = NSApplication.shared().currentEvent else { return }
+		guard let sender = sender as? NSView, let event = NSApplication.shared.currentEvent else { return }
 
 		let menu = MenuController.shared.createMenu(isInPopover: isInPopover)
 		NSMenu.popUpContextMenu(menu, with: event, for: sender)

@@ -32,7 +32,7 @@ final class Label: NSTextField {
 
 	// MARK: - Properties
 
-	var contentInsets: EdgeInsets {
+	var contentInsets: NSEdgeInsets {
 		set {
 			labelCell?.contentInsets = newValue
 		}
@@ -87,8 +87,12 @@ final class Label: NSTextField {
 
 	// MARK: - NSControl
 
-	override class func cellClass() -> AnyClass? {
-		return LabelCell.self
+	override class var cellClass: AnyClass? {
+        get {
+            return LabelCell.self
+        }
+
+        set {}
 	}
 
 
@@ -99,10 +103,10 @@ final class Label: NSTextField {
 		paragraph.alignment = alignment
 
 		attributedStringValue = NSAttributedString(string: text, attributes: [
-			NSForegroundColorAttributeName: foregroundColor ?? theme.foregroundColor,
-			NSBackgroundColorAttributeName: backgroundColor ?? theme.backgroundColor,
-			NSFontAttributeName: font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize()),
-			NSParagraphStyleAttributeName: paragraph
+			NSAttributedStringKey.foregroundColor: foregroundColor ?? theme.foregroundColor,
+			NSAttributedStringKey.backgroundColor: backgroundColor ?? theme.backgroundColor,
+			NSAttributedStringKey.font: font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize),
+			NSAttributedStringKey.paragraphStyle: paragraph
 		])
 	}
 }

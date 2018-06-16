@@ -34,8 +34,8 @@ private final class WelcomeButtonCell: NSButtonCell {
 		}
 
 		let title = NSAttributedString(string: self.title, attributes: [
-			NSForegroundColorAttributeName: foregroundColor,
-			NSFontAttributeName: NSFont.systemFont(ofSize: 14, weight: NSFontWeightMedium)
+			NSAttributedStringKey.foregroundColor: foregroundColor,
+			NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14, weight: NSFont.Weight.medium)
 		])
 
 		let size = title.size()
@@ -55,7 +55,7 @@ final class WelcomeButton: NSButton {
 		}
 	}
 
-	private let cursor = NSCursor.pointingHand()
+	private let cursor = NSCursor.pointingHand
 
 
 	// MARK: - Initializers
@@ -66,8 +66,8 @@ final class WelcomeButton: NSButton {
 		title = ""
 		focusRingType = .none
 
-		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: .NSApplicationDidBecomeActive, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: .NSApplicationDidResignActive, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: NSApplication.didBecomeActiveNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: NSApplication.didResignActiveNotification, object: nil)
 	}
 
 	required init?(coder: NSCoder) {
@@ -89,8 +89,12 @@ final class WelcomeButton: NSButton {
 
 	// MARK: - NSControl
 
-	override class func cellClass() -> AnyClass? {
-		return WelcomeButtonCell.self
+	override class var cellClass: AnyClass? {
+        get {
+            return WelcomeButtonCell.self
+        }
+
+        set {}
 	}
 
 

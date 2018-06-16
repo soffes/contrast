@@ -56,7 +56,7 @@ final class WelcomeViewController: NSViewController {
 		let title = Label()
 		title.stringValue = "285,000,000"
 		title.textColor = textColor
-		title.font = .systemFont(ofSize: 24, weight: NSFontWeightHeavy)
+		title.font = .systemFont(ofSize: 24, weight: NSFont.Weight.heavy)
 		view.addArrangedSubview(title)
 
 		let paragraph = NSMutableParagraphStyle()
@@ -64,16 +64,16 @@ final class WelcomeViewController: NSViewController {
 		paragraph.paragraphSpacing = 20
 
 		let bodyText = NSMutableAttributedString(string: "That’s the estimated number of visually impaired people in the world. 🤓\nThis tool will help you design better interfaces for them. 👍", attributes: [
-			NSForegroundColorAttributeName: textColor,
-			NSFontAttributeName: NSFont.systemFont(ofSize: 14),
-			NSParagraphStyleAttributeName: paragraph
+			NSAttributedStringKey.foregroundColor: textColor,
+			NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14),
+			NSAttributedStringKey.paragraphStyle: paragraph
 		])
 
 		let body = Label()
 		body.attributedStringValue = bodyText
 		body.usesSingleLineMode = false
 		body.lineBreakMode = .byWordWrapping
-		body.setContentCompressionResistancePriority(250, for: .horizontal)
+		body.setContentCompressionResistancePriority(NSLayoutConstraint.Priority(rawValue: 250), for: .horizontal)
 		view.addArrangedSubview(body)
 		view.setCustomSpacing(20, after: body)
 
@@ -133,13 +133,13 @@ final class WelcomeViewController: NSViewController {
 		contentView.addArrangedSubview(stackView)
 
 		let iconCenterX = iconView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-		iconCenterX.priority = NSLayoutPriorityDefaultLow
+		iconCenterX.priority = NSLayoutConstraint.Priority.defaultLow
 
 		let iconCenterY = iconView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-		iconCenterY.priority = NSLayoutPriorityDefaultLow
+		iconCenterY.priority = NSLayoutConstraint.Priority.defaultLow
 
 		let stackTop = contentView.topAnchor.constraint(equalTo: view.topAnchor, constant: 84)
-		stackTop.priority = NSLayoutPriorityDefaultLow
+		stackTop.priority = NSLayoutConstraint.Priority.defaultLow
 
 		NSLayoutConstraint.activate([
 			view.widthAnchor.constraint(equalToConstant: 440),
@@ -173,7 +173,7 @@ final class WelcomeViewController: NSViewController {
 		NSApp.deactivate()
 
 		let url = URL(string: "https://usecontrast.com/guide")!
-		let application = try? NSWorkspace.shared().open(url, options: [], configuration: [:])
+		let application = try? NSWorkspace.shared.open(url, options: [], configuration: [:])
 		application?.activate(options: [])
 	}
 

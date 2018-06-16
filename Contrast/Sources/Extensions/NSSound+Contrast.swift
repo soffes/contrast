@@ -25,7 +25,7 @@ extension NSSound {
 	}
 
 	convenience init?(named name: String, volume: Float) {
-		self.init(named: name)
+		self.init(named: NSSound.Name(rawValue: name))
 		self.volume = volume
 	}
 

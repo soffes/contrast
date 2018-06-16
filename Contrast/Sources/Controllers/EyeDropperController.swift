@@ -12,8 +12,8 @@ final class EyeDropperController {
 	weak var delegate: EyeDropperControllerDelegate?
 
 	private let pasteboard: NSPasteboard = {
-		let pasteboard = NSPasteboard.general()
-		pasteboard.declareTypes([NSPasteboardTypeString], owner: nil)
+		let pasteboard = NSPasteboard.general
+		pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
 		return pasteboard
 	}()
 
@@ -46,7 +46,7 @@ final class EyeDropperController {
 	// MARK: - Actions
 
 	@objc func cancel(_ sender: Any?) {
-		NotificationCenter.default.removeObserver(self, name: .NSApplicationDidChangeScreenParameters, object: nil)
+		NotificationCenter.default.removeObserver(self, name: NSApplication.didChangeScreenParametersNotification, object: nil)
 		visible = false
 
 		windows.removeAll()
@@ -54,11 +54,9 @@ final class EyeDropperController {
 	}
 
 	@objc func magnify() {
-		guard let screens = NSScreen.screens() else { return }
-
 		NSApp.activate(ignoringOtherApps: true)
 
-		windows = screens.map { screen in
+		windows = NSScreen.screens.map { screen in
 			let window = EyeDropperWindow(frame: screen.frame)
 			window.customDelegate = self
 			window.makeKey()
@@ -67,7 +65,7 @@ final class EyeDropperController {
 		}
 
 		if !visible {
-			NotificationCenter.default.addObserver(self, selector: #selector(magnify), name: .NSApplicationDidChangeScreenParameters, object: nil)
+			NotificationCenter.default.addObserver(self, selector: #selector(magnify), name: NSApplication.didChangeScreenParametersNotification, object: nil)
 		}
 
 		visible = true
@@ -81,10 +79,10 @@ final class EyeDropperController {
 			let color = window.screenshot?.color
 		else { return }
 
-		let shouldContinue = event.modifierFlags.contains(.shift)
+		let shouldContinue = event.modifierFlags.contains(NSEvent.ModifierFlags.shift)
 
-		if event.modifierFlags.contains(.option) {
-			pasteboard.setString(color.hex, forType: NSPasteboardTypeString)
+		if event.modifierFlags.contains(NSEvent.ModifierFlags.option) {
+			pasteboard.setString(color.hex, forType: NSPasteboard.PasteboardType.string)
 			NSSound.contrastCopyColor.forcePlay()
 		} else {
 			NSSound.contrastPickColor.forcePlay()

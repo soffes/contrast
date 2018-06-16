@@ -101,26 +101,26 @@ final class TextField: NSTextField {
 	// MARK: - NSResponder
 
 	override func performKeyEquivalent(with event: NSEvent) -> Bool {
-		guard isFirstResponder, event.type == NSEventType.keyDown, let characters = event.charactersIgnoringModifiers else {
+		guard isFirstResponder, event.type == NSEvent.EventType.keyDown, let characters = event.charactersIgnoringModifiers else {
 			return super.performKeyEquivalent(with: event)
 		}
 
 		if let arrowDelegate = arrowDelegate {
 			switch characters {
 			case String(Character(UnicodeScalar(NSUpArrowFunctionKey)!)):
-				arrowDelegate.textField(self, didPressUpWithShift: event.modifierFlags.contains(.shift))
+				arrowDelegate.textField(self, didPressUpWithShift: event.modifierFlags.contains(NSEvent.ModifierFlags.shift))
 				return true
 			case String(Character(UnicodeScalar(NSDownArrowFunctionKey)!)):
-				arrowDelegate.textField(self, didPressDownWithShift: event.modifierFlags.contains(.shift))
+				arrowDelegate.textField(self, didPressDownWithShift: event.modifierFlags.contains(NSEvent.ModifierFlags.shift))
 				return true
 			default: break
 			}
 		}
 
-		let commandKey = NSEventModifierFlags.command.rawValue
-		let commandShiftKey = NSEventModifierFlags.command.rawValue | NSEventModifierFlags.shift.rawValue
+		let commandKey = NSEvent.ModifierFlags.command.rawValue
+		let commandShiftKey = NSEvent.ModifierFlags.command.rawValue | NSEvent.ModifierFlags.shift.rawValue
 
-		if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == commandKey {
+		if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == commandKey {
 			switch characters {
 			case "x":
 				if NSApp.sendAction(#selector(NSText.cut(_:)), to: nil, from: self) {
@@ -145,7 +145,7 @@ final class TextField: NSTextField {
 			default:
 				break
 			}
-		} else if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == commandShiftKey {
+		} else if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == commandShiftKey {
 			if event.charactersIgnoringModifiers == "Z" {
 				if NSApp.sendAction(Selector(("redo:")), to: nil, from: self) {
 					return true
@@ -166,8 +166,12 @@ final class TextField: NSTextField {
 
 	// MARK: - NSControl
 
-	override class func cellClass() -> AnyClass? {
-		return TextFieldCell.self
+	override class var cellClass: AnyClass? {
+        get {
+            return TextFieldCell.self
+        }
+
+        set {}
 	}
 
 

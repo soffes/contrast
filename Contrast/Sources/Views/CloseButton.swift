@@ -93,8 +93,12 @@ final class CloseButton: NSButton {
 
 	// MARK: - NSControl
 
-	override class func cellClass() -> AnyClass? {
-		return CloseButtonCell.self
+	override class var cellClass: AnyClass? {
+        get {
+            return CloseButtonCell.self
+        }
+
+        set {}
 	}
 
 

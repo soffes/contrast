@@ -21,14 +21,14 @@ final class EyeDropperWindow: NSWindow {
 	// MARK: - Initializers
 
 	init(frame: CGRect) {
-		super.init(contentRect: frame, styleMask: .borderless, backing: .buffered, defer: false)
+		super.init(contentRect: frame, styleMask: NSWindow.StyleMask.borderless, backing: .buffered, defer: false)
 
-		identifier = "com.nothingmagical.contrast.eyedropper"
+		identifier = NSUserInterfaceItemIdentifier(rawValue: "com.nothingmagical.contrast.eyedropper")
 
 		backgroundColor = .clear
 		isOpaque = false
 		hasShadow = false
-		level = Int(CGWindowLevelForKey(.mainMenuWindow)) + 2
+		level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.mainMenuWindow)) + 2)
 		isReleasedWhenClosed = false
 
 		contentView = view

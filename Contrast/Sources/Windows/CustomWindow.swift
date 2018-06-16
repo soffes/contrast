@@ -5,7 +5,7 @@ private final class CustomWindowView: NSView {
 		let view = CloseButton()
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.keyEquivalent = "w"
-		view.keyEquivalentModifierMask = .command
+		view.keyEquivalentModifierMask = NSEvent.ModifierFlags.command
 		view.imageView.alphaValue = 0
 		return view
 	}()
@@ -35,7 +35,7 @@ private final class CustomWindowView: NSView {
 	}
 
 	override func updateTrackingAreas() {
-		trackingArea = NSTrackingArea(rect: closeButton.frame, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
+		trackingArea = NSTrackingArea(rect: closeButton.frame, options: [NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
 		super.updateTrackingAreas()
 	}
 
@@ -104,8 +104,8 @@ final class CustomWindow: NSWindow {
 		}
 	}
 
-	override init(contentRect: NSRect, styleMask: NSWindowStyleMask, backing: NSBackingStoreType, defer: Bool) {
-		let style: NSWindowStyleMask = [.titled, .closable, .fullSizeContentView]
+	override init(contentRect: NSRect, styleMask: NSWindow.StyleMask, backing: NSWindow.BackingStoreType, defer: Bool) {
+		let style: NSWindow.StyleMask = [NSWindow.StyleMask.titled, NSWindow.StyleMask.closable, NSWindow.StyleMask.fullSizeContentView]
 
 		super.init(contentRect: contentRect, styleMask: style, backing: backing, defer: `defer`)
 
@@ -119,6 +119,6 @@ final class CustomWindow: NSWindow {
 		titleVisibility = .hidden
 		standardWindowButton(.miniaturizeButton)?.isHidden = true
 		standardWindowButton(.zoomButton)?.isHidden = true
-		level = Int(CGWindowLevelForKey(.mainMenuWindow))
+		level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.mainMenuWindow)))
 	}
 }

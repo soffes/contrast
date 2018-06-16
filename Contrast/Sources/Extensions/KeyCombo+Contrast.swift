@@ -6,7 +6,7 @@ extension KeyCombo {
 	var shortcutRecorderDictionary: [String: Any] {
 		return [
 			SRShortcutKeyCode: Int(carbonKeyCode),
-			SRShortcutModifierFlagsKey: Int(NSEventModifierFlags(carbonFlags: carbonModifiers).rawValue)
+			SRShortcutModifierFlagsKey: Int(NSEvent.ModifierFlags(carbonFlags: carbonModifiers).rawValue)
 		]
 	}
 
@@ -15,7 +15,7 @@ extension KeyCombo {
 			let modifiers = dictionary[SRShortcutModifierFlagsKey] as? Int
 		else { return nil }
 
-		let carbonModifiers = NSEventModifierFlags(rawValue: UInt(modifiers)).carbonFlags
+		let carbonModifiers = NSEvent.ModifierFlags(rawValue: UInt(modifiers)).carbonFlags
 		self.init(carbonKeyCode: UInt32(keyCode), carbonModifiers: carbonModifiers)
 	}
 }
