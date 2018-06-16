@@ -7,22 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21017DE21F0C89DB00D94400 /* HexFormatter.swift */; };
-		21073F3E1F317178008E8748 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F3D1F317178008E8748 /* CustomWindow.swift */; };
-		21073F441F317362008E8748 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F431F317362008E8748 /* AboutViewController.swift */; };
-		21073F461F3174CF008E8748 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21073F451F3174CF008E8748 /* AboutWindowController.swift */; };
 		21073F481F321979008E8748 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21073F471F321979008E8748 /* ShortcutRecorder.framework */; };
 		21073F491F321983008E8748 /* ShortcutRecorder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21073F471F321979008E8748 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; };
 		210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210FFF2E1F1C3B21004E9861 /* MenuController.swift */; };
 		211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; };
 		211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		211238341F17CF7E00A837D4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238331F17CF7E00A837D4 /* Secrets.swift */; };
-		211238361F17CF9B00A837D4 /* Mixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238351F17CF9B00A837D4 /* Mixpanel.swift */; };
-		2112383A1F17D82000A837D4 /* ColorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211238391F17D82000A837D4 /* ColorsController.swift */; };
-		2112383C1F17DD2400A837D4 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112383B1F17DD2400A837D4 /* Preferences.swift */; };
-		211E2B391F0B46D400757881 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E2B381F0B46D400757881 /* HexColor.swift */; };
 		214AD806203BD545000207A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F3203BD545000207A6 /* Assets.xcassets */; };
 		214AD807203BD545000207A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F4203BD545000207A6 /* Main.storyboard */; };
 		214AD808203BD545000207A6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F6203BD545000207A6 /* Preferences.xib */; };
@@ -33,39 +23,49 @@
 		214AD80D203BD545000207A6 /* slide_left.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FE203BD545000207A6 /* slide_left.wav */; };
 		214AD80E203BD545000207A6 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FF203BD545000207A6 /* dsa_pub.pem */; };
 		214AD80F203BD545000207A6 /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 214AD801203BD545000207A6 /* Native-Regular.ttf */; };
-		21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21616E671F058A220095EFAC /* NSImage+Tint.swift */; };
-		21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21758ECA1F09E579006FA782 /* CloseButton.swift */; };
-		218487431F05473F009EE112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487331F05473F009EE112 /* AppDelegate.swift */; };
-		218487441F05473F009EE112 /* EyeDropperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487341F05473F009EE112 /* EyeDropperController.swift */; };
-		218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487351F05473F009EE112 /* EyeDropperWindow.swift */; };
-		218487461F05473F009EE112 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487361F05473F009EE112 /* GridView.swift */; };
-		218487471F05473F009EE112 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487371F05473F009EE112 /* MenuBarController.swift */; };
-		2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184873B1F05473F009EE112 /* ColorsViewController.swift */; };
-		218487931F055B21009EE112 /* ColorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487921F055B21009EE112 /* ColorInput.swift */; };
-		218487951F055B42009EE112 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487941F055B42009EE112 /* TextField.swift */; };
-		218487971F055B81009EE112 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487961F055B81009EE112 /* Button.swift */; };
-		218487991F055D10009EE112 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218487981F055D10009EE112 /* Theme.swift */; };
-		2184879B1F055D49009EE112 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184879A1F055D49009EE112 /* Label.swift */; };
+		2182D25820D582BD000B5CD8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22C20D582BD000B5CD8 /* WelcomeViewController.swift */; };
+		2182D25920D582BD000B5CD8 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22D20D582BD000B5CD8 /* ColorsViewController.swift */; };
+		2182D25A20D582BD000B5CD8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22E20D582BD000B5CD8 /* AboutViewController.swift */; };
+		2182D25B20D582BD000B5CD8 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23020D582BD000B5CD8 /* Screenshot.swift */; };
+		2182D25C20D582BD000B5CD8 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23120D582BD000B5CD8 /* HexColor.swift */; };
+		2182D25D20D582BD000B5CD8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23220D582BD000B5CD8 /* Theme.swift */; };
+		2182D25E20D582BD000B5CD8 /* Mixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23420D582BD000B5CD8 /* Mixpanel.swift */; };
+		2182D25F20D582BD000B5CD8 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23520D582BD000B5CD8 /* Secrets.swift */; };
+		2182D26020D582BD000B5CD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23620D582BD000B5CD8 /* AppDelegate.swift */; };
+		2182D26120D582BD000B5CD8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23820D582BD000B5CD8 /* Label.swift */; };
+		2182D26220D582BD000B5CD8 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23920D582BD000B5CD8 /* CloseButton.swift */; };
+		2182D26320D582BD000B5CD8 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23A20D582BD000B5CD8 /* PlainButton.swift */; };
+		2182D26420D582BD000B5CD8 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23B20D582BD000B5CD8 /* EyeDropperView.swift */; };
+		2182D26520D582BD000B5CD8 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23C20D582BD000B5CD8 /* LoupeView.swift */; };
+		2182D26620D582BD000B5CD8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23D20D582BD000B5CD8 /* TextField.swift */; };
+		2182D26720D582BD000B5CD8 /* ColorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23E20D582BD000B5CD8 /* ColorInput.swift */; };
+		2182D26820D582BD000B5CD8 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23F20D582BD000B5CD8 /* GridView.swift */; };
+		2182D26920D582BD000B5CD8 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24020D582BD000B5CD8 /* Button.swift */; };
+		2182D26A20D582BD000B5CD8 /* WelcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24120D582BD000B5CD8 /* WelcomeButton.swift */; };
+		2182D26B20D582BD000B5CD8 /* HexFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24320D582BD000B5CD8 /* HexFormatter.swift */; };
+		2182D26C20D582BD000B5CD8 /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */; };
+		2182D26D20D582BD000B5CD8 /* NSSound+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */; };
+		2182D26E20D582BD000B5CD8 /* NSFont+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */; };
+		2182D26F20D582BD000B5CD8 /* KeyCombo+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24820D582BD000B5CD8 /* KeyCombo+Contrast.swift */; };
+		2182D27020D582BD000B5CD8 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24A20D582BD000B5CD8 /* MenuBarController.swift */; };
+		2182D27120D582BD000B5CD8 /* ColorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24B20D582BD000B5CD8 /* ColorsController.swift */; };
+		2182D27220D582BD000B5CD8 /* EyeDropperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24C20D582BD000B5CD8 /* EyeDropperController.swift */; };
+		2182D27320D582BD000B5CD8 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24D20D582BD000B5CD8 /* Preferences.swift */; };
+		2182D27420D582BD000B5CD8 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24E20D582BD000B5CD8 /* PopoverController.swift */; };
+		2182D27520D582BD000B5CD8 /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24F20D582BD000B5CD8 /* HotKeysController.swift */; };
+		2182D27620D582BD000B5CD8 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25020D582BD000B5CD8 /* MenuController.swift */; };
+		2182D27720D582BD000B5CD8 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25220D582BD000B5CD8 /* AboutWindowController.swift */; };
+		2182D27820D582BD000B5CD8 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25320D582BD000B5CD8 /* PreferencesWindowController.swift */; };
+		2182D27920D582BD000B5CD8 /* PlainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25520D582BD000B5CD8 /* PlainWindow.swift */; };
+		2182D27A20D582BD000B5CD8 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25620D582BD000B5CD8 /* CustomWindow.swift */; };
+		2182D27B20D582BD000B5CD8 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25720D582BD000B5CD8 /* EyeDropperWindow.swift */; };
 		21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; };
 		21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21887EA11F22B97F00A05579 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */; };
-		21887EA31F22CDEE00A05579 /* PlainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887EA21F22CDEE00A05579 /* PlainWindow.swift */; };
-		21887FE41F22D4E700A05579 /* HotKeysController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887FE31F22D4E700A05579 /* HotKeysController.swift */; };
-		21887FE61F22DC8400A05579 /* KeyCombo+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */; };
-		2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEAB1F08763800912B37 /* EyeDropperView.swift */; };
-		2190AEB31F09226200912B37 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2190AEB21F09226200912B37 /* PopoverController.swift */; };
 		21A25E851F336D22000AD1F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7E1F336D22000AD1F1 /* AppDelegate.m */; };
 		21A25E861F336D22000AD1F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7F1F336D22000AD1F1 /* main.m */; };
 		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
 		21A25E881F336D22000AD1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E821F336D22000AD1F1 /* Main.storyboard */; };
 		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922EF1F1975FB0072480C /* WelcomeViewController.swift */; };
-		21A922F21F198BAD0072480C /* WelcomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A922F11F198BAD0072480C /* WelcomeButton.swift */; };
-		21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA791F0D7E6400632FF5 /* LoupeView.swift */; };
-		21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */; };
-		21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */; };
-		21D0DA871F0D8A2000632FF5 /* NSSound+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */; };
-		21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,19 +107,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		21017DE21F0C89DB00D94400 /* HexFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
-		21073F3D1F317178008E8748 /* CustomWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
-		21073F431F317362008E8748 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		21073F451F3174CF008E8748 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		21073F471F321979008E8748 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		210C71C21F1EA2B500A1B983 /* Color.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Color.framework; sourceTree = "<group>"; };
-		210FFF2E1F1C3B21004E9861 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		2112382E1F17CF2E00A837D4 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = "<group>"; };
-		211238331F17CF7E00A837D4 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		211238351F17CF9B00A837D4 /* Mixpanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mixpanel.swift; sourceTree = "<group>"; };
-		211238391F17D82000A837D4 /* ColorsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsController.swift; sourceTree = "<group>"; };
-		2112383B1F17DD2400A837D4 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		211E2B381F0B46D400757881 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		214AD7F3203BD545000207A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214AD7F5203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		214AD7F7203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
@@ -133,27 +123,44 @@
 		214AD803203BD545000207A6 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
 		214AD804203BD545000207A6 /* dsa_priv.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_priv.pem; sourceTree = "<group>"; };
 		214AD805203BD545000207A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21616E671F058A220095EFAC /* NSImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
-		21758ECA1F09E579006FA782 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		2182D22C20D582BD000B5CD8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		2182D22D20D582BD000B5CD8 /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
+		2182D22E20D582BD000B5CD8 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		2182D23020D582BD000B5CD8 /* Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
+		2182D23120D582BD000B5CD8 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
+		2182D23220D582BD000B5CD8 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2182D23420D582BD000B5CD8 /* Mixpanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mixpanel.swift; sourceTree = "<group>"; };
+		2182D23520D582BD000B5CD8 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		2182D23620D582BD000B5CD8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2182D23820D582BD000B5CD8 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		2182D23920D582BD000B5CD8 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		2182D23A20D582BD000B5CD8 /* PlainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
+		2182D23B20D582BD000B5CD8 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
+		2182D23C20D582BD000B5CD8 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
+		2182D23D20D582BD000B5CD8 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		2182D23E20D582BD000B5CD8 /* ColorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorInput.swift; sourceTree = "<group>"; };
+		2182D23F20D582BD000B5CD8 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		2182D24020D582BD000B5CD8 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		2182D24120D582BD000B5CD8 /* WelcomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeButton.swift; sourceTree = "<group>"; };
+		2182D24320D582BD000B5CD8 /* HexFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexFormatter.swift; sourceTree = "<group>"; };
+		2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
+		2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSSound+Contrast.swift"; sourceTree = "<group>"; };
+		2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFont+Contrast.swift"; sourceTree = "<group>"; };
+		2182D24820D582BD000B5CD8 /* KeyCombo+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Contrast.swift"; sourceTree = "<group>"; };
+		2182D24A20D582BD000B5CD8 /* MenuBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		2182D24B20D582BD000B5CD8 /* ColorsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsController.swift; sourceTree = "<group>"; };
+		2182D24C20D582BD000B5CD8 /* EyeDropperController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperController.swift; sourceTree = "<group>"; };
+		2182D24D20D582BD000B5CD8 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		2182D24E20D582BD000B5CD8 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
+		2182D24F20D582BD000B5CD8 /* HotKeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeysController.swift; sourceTree = "<group>"; };
+		2182D25020D582BD000B5CD8 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		2182D25220D582BD000B5CD8 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		2182D25320D582BD000B5CD8 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		2182D25520D582BD000B5CD8 /* PlainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainWindow.swift; sourceTree = "<group>"; };
+		2182D25620D582BD000B5CD8 /* CustomWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
+		2182D25720D582BD000B5CD8 /* EyeDropperWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperWindow.swift; sourceTree = "<group>"; };
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		218487331F05473F009EE112 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		218487341F05473F009EE112 /* EyeDropperController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperController.swift; sourceTree = "<group>"; };
-		218487351F05473F009EE112 /* EyeDropperWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperWindow.swift; sourceTree = "<group>"; };
-		218487361F05473F009EE112 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		218487371F05473F009EE112 /* MenuBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
-		2184873B1F05473F009EE112 /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
-		218487921F055B21009EE112 /* ColorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorInput.swift; sourceTree = "<group>"; };
-		218487941F055B42009EE112 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		218487961F055B81009EE112 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		218487981F055D10009EE112 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		2184879A1F055D49009EE112 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
-		21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		21887EA21F22CDEE00A05579 /* PlainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainWindow.swift; sourceTree = "<group>"; };
-		21887FE31F22D4E700A05579 /* HotKeysController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeysController.swift; sourceTree = "<group>"; };
-		21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Contrast.swift"; sourceTree = "<group>"; };
-		2190AEAB1F08763800912B37 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
-		2190AEB21F09226200912B37 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		21A25E681F336CE5000AD1F1 /* ContrastHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContrastHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A25E7D1F336D22000AD1F1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21A25E7E1F336D22000AD1F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -162,13 +169,6 @@
 		21A25E831F336D22000AD1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21A25E841F336D22000AD1F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A25E901F337E41000AD1F1 /* ContrastHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastHelper.entitlements; sourceTree = "<group>"; };
-		21A922EF1F1975FB0072480C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		21A922F11F198BAD0072480C /* WelcomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeButton.swift; sourceTree = "<group>"; };
-		21D0DA791F0D7E6400632FF5 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
-		21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
-		21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFont+Contrast.swift"; sourceTree = "<group>"; };
-		21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSSound+Contrast.swift"; sourceTree = "<group>"; };
-		21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +248,105 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		2182D22B20D582BD000B5CD8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2182D22C20D582BD000B5CD8 /* WelcomeViewController.swift */,
+				2182D22D20D582BD000B5CD8 /* ColorsViewController.swift */,
+				2182D22E20D582BD000B5CD8 /* AboutViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2182D22F20D582BD000B5CD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2182D23020D582BD000B5CD8 /* Screenshot.swift */,
+				2182D23120D582BD000B5CD8 /* HexColor.swift */,
+				2182D23220D582BD000B5CD8 /* Theme.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2182D23320D582BD000B5CD8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2182D23420D582BD000B5CD8 /* Mixpanel.swift */,
+				2182D23520D582BD000B5CD8 /* Secrets.swift */,
+				2182D23620D582BD000B5CD8 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2182D23720D582BD000B5CD8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2182D23820D582BD000B5CD8 /* Label.swift */,
+				2182D23920D582BD000B5CD8 /* CloseButton.swift */,
+				2182D23A20D582BD000B5CD8 /* PlainButton.swift */,
+				2182D23B20D582BD000B5CD8 /* EyeDropperView.swift */,
+				2182D23C20D582BD000B5CD8 /* LoupeView.swift */,
+				2182D23D20D582BD000B5CD8 /* TextField.swift */,
+				2182D23E20D582BD000B5CD8 /* ColorInput.swift */,
+				2182D23F20D582BD000B5CD8 /* GridView.swift */,
+				2182D24020D582BD000B5CD8 /* Button.swift */,
+				2182D24120D582BD000B5CD8 /* WelcomeButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2182D24220D582BD000B5CD8 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				2182D24320D582BD000B5CD8 /* HexFormatter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		2182D24420D582BD000B5CD8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */,
+				2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */,
+				2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */,
+				2182D24820D582BD000B5CD8 /* KeyCombo+Contrast.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2182D24920D582BD000B5CD8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2182D24A20D582BD000B5CD8 /* MenuBarController.swift */,
+				2182D24B20D582BD000B5CD8 /* ColorsController.swift */,
+				2182D24C20D582BD000B5CD8 /* EyeDropperController.swift */,
+				2182D24D20D582BD000B5CD8 /* Preferences.swift */,
+				2182D24E20D582BD000B5CD8 /* PopoverController.swift */,
+				2182D24F20D582BD000B5CD8 /* HotKeysController.swift */,
+				2182D25020D582BD000B5CD8 /* MenuController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2182D25120D582BD000B5CD8 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2182D25220D582BD000B5CD8 /* AboutWindowController.swift */,
+				2182D25320D582BD000B5CD8 /* PreferencesWindowController.swift */,
+			);
+			path = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		2182D25420D582BD000B5CD8 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				2182D25520D582BD000B5CD8 /* PlainWindow.swift */,
+				2182D25620D582BD000B5CD8 /* CustomWindow.swift */,
+				2182D25720D582BD000B5CD8 /* EyeDropperWindow.swift */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
 		218486FD1F04642C009EE112 = {
 			isa = PBXGroup;
 			children = (
@@ -280,116 +379,17 @@
 		218487321F05473F009EE112 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				218487561F0549F0009EE112 /* Application */,
-				218487571F0549F4009EE112 /* Controllers */,
-				2190AEB11F0876D300912B37 /* View Controllers */,
-				218487501F0547AD009EE112 /* Models */,
-				2190AEAD1F08768000912B37 /* Views */,
-				21887FEC1F237AE200A05579 /* Window Controllers */,
-				2190AEAF1F0876A100912B37 /* Windows */,
-				21887FED1F237AF300A05579 /* Formatters */,
-				2190AEB01F0876AF00912B37 /* Extensions */,
+				2182D23320D582BD000B5CD8 /* Application */,
+				2182D24920D582BD000B5CD8 /* Controllers */,
+				2182D24420D582BD000B5CD8 /* Extensions */,
+				2182D24220D582BD000B5CD8 /* Formatters */,
+				2182D22F20D582BD000B5CD8 /* Models */,
+				2182D22B20D582BD000B5CD8 /* View Controllers */,
+				2182D23720D582BD000B5CD8 /* Views */,
+				2182D25120D582BD000B5CD8 /* Window Controllers */,
+				2182D25420D582BD000B5CD8 /* Windows */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		218487501F0547AD009EE112 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				218487981F055D10009EE112 /* Theme.swift */,
-				211E2B381F0B46D400757881 /* HexColor.swift */,
-				21D0DA7B1F0D844C00632FF5 /* Screenshot.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		218487561F0549F0009EE112 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				218487331F05473F009EE112 /* AppDelegate.swift */,
-				211238331F17CF7E00A837D4 /* Secrets.swift */,
-				211238351F17CF9B00A837D4 /* Mixpanel.swift */,
-			);
-			name = Application;
-			sourceTree = "<group>";
-		};
-		218487571F0549F4009EE112 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				218487371F05473F009EE112 /* MenuBarController.swift */,
-				2190AEB21F09226200912B37 /* PopoverController.swift */,
-				211238391F17D82000A837D4 /* ColorsController.swift */,
-				2112383B1F17DD2400A837D4 /* Preferences.swift */,
-				218487341F05473F009EE112 /* EyeDropperController.swift */,
-				210FFF2E1F1C3B21004E9861 /* MenuController.swift */,
-				21887FE31F22D4E700A05579 /* HotKeysController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		21887FEC1F237AE200A05579 /* Window Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				21887EA01F22B97F00A05579 /* PreferencesWindowController.swift */,
-				21073F451F3174CF008E8748 /* AboutWindowController.swift */,
-			);
-			name = "Window Controllers";
-			sourceTree = "<group>";
-		};
-		21887FED1F237AF300A05579 /* Formatters */ = {
-			isa = PBXGroup;
-			children = (
-				21017DE21F0C89DB00D94400 /* HexFormatter.swift */,
-			);
-			name = Formatters;
-			sourceTree = "<group>";
-		};
-		2190AEAD1F08768000912B37 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2190AEAB1F08763800912B37 /* EyeDropperView.swift */,
-				21D0DA791F0D7E6400632FF5 /* LoupeView.swift */,
-				218487921F055B21009EE112 /* ColorInput.swift */,
-				218487941F055B42009EE112 /* TextField.swift */,
-				2184879A1F055D49009EE112 /* Label.swift */,
-				218487961F055B81009EE112 /* Button.swift */,
-				21DF064F1F0931BB00A5F9C0 /* PlainButton.swift */,
-				218487361F05473F009EE112 /* GridView.swift */,
-				21758ECA1F09E579006FA782 /* CloseButton.swift */,
-				21A922F11F198BAD0072480C /* WelcomeButton.swift */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		2190AEAF1F0876A100912B37 /* Windows */ = {
-			isa = PBXGroup;
-			children = (
-				218487351F05473F009EE112 /* EyeDropperWindow.swift */,
-				21073F3D1F317178008E8748 /* CustomWindow.swift */,
-				21887EA21F22CDEE00A05579 /* PlainWindow.swift */,
-			);
-			name = Windows;
-			sourceTree = "<group>";
-		};
-		2190AEB01F0876AF00912B37 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				21616E671F058A220095EFAC /* NSImage+Tint.swift */,
-				21D0DA7D1F0D88E700632FF5 /* NSFont+Contrast.swift */,
-				21D0DA861F0D8A2000632FF5 /* NSSound+Contrast.swift */,
-				21887FE51F22DC8400A05579 /* KeyCombo+Contrast.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		2190AEB11F0876D300912B37 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				2184873B1F05473F009EE112 /* ColorsViewController.swift */,
-				21A922EF1F1975FB0072480C /* WelcomeViewController.swift */,
-				21073F431F317362008E8748 /* AboutViewController.swift */,
-			);
-			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		21A25E691F336CE5000AD1F1 /* ContrastHelper */ = {
@@ -602,42 +602,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21616E681F058A220095EFAC /* NSImage+Tint.swift in Sources */,
-				211238341F17CF7E00A837D4 /* Secrets.swift in Sources */,
-				218487951F055B42009EE112 /* TextField.swift in Sources */,
-				21073F441F317362008E8748 /* AboutViewController.swift in Sources */,
-				2184879B1F055D49009EE112 /* Label.swift in Sources */,
-				211238361F17CF9B00A837D4 /* Mixpanel.swift in Sources */,
-				210FFF2F1F1C3B21004E9861 /* MenuController.swift in Sources */,
-				21D0DA871F0D8A2000632FF5 /* NSSound+Contrast.swift in Sources */,
-				21073F3E1F317178008E8748 /* CustomWindow.swift in Sources */,
-				21D0DA7A1F0D7E6400632FF5 /* LoupeView.swift in Sources */,
-				2184874B1F05473F009EE112 /* ColorsViewController.swift in Sources */,
-				21DF06501F0931BB00A5F9C0 /* PlainButton.swift in Sources */,
-				218487971F055B81009EE112 /* Button.swift in Sources */,
-				2190AEAC1F08763800912B37 /* EyeDropperView.swift in Sources */,
-				218487931F055B21009EE112 /* ColorInput.swift in Sources */,
-				21A922F21F198BAD0072480C /* WelcomeButton.swift in Sources */,
-				21887FE41F22D4E700A05579 /* HotKeysController.swift in Sources */,
-				21A922F01F1975FB0072480C /* WelcomeViewController.swift in Sources */,
-				21017DE31F0C89DB00D94400 /* HexFormatter.swift in Sources */,
-				218487441F05473F009EE112 /* EyeDropperController.swift in Sources */,
-				218487431F05473F009EE112 /* AppDelegate.swift in Sources */,
-				21887EA11F22B97F00A05579 /* PreferencesWindowController.swift in Sources */,
-				21758ECB1F09E579006FA782 /* CloseButton.swift in Sources */,
-				2112383C1F17DD2400A837D4 /* Preferences.swift in Sources */,
-				218487461F05473F009EE112 /* GridView.swift in Sources */,
-				218487991F055D10009EE112 /* Theme.swift in Sources */,
-				2112383A1F17D82000A837D4 /* ColorsController.swift in Sources */,
-				218487451F05473F009EE112 /* EyeDropperWindow.swift in Sources */,
-				211E2B391F0B46D400757881 /* HexColor.swift in Sources */,
-				218487471F05473F009EE112 /* MenuBarController.swift in Sources */,
-				21887EA31F22CDEE00A05579 /* PlainWindow.swift in Sources */,
-				21887FE61F22DC8400A05579 /* KeyCombo+Contrast.swift in Sources */,
-				21D0DA7C1F0D844C00632FF5 /* Screenshot.swift in Sources */,
-				21073F461F3174CF008E8748 /* AboutWindowController.swift in Sources */,
-				2190AEB31F09226200912B37 /* PopoverController.swift in Sources */,
-				21D0DA7E1F0D88E700632FF5 /* NSFont+Contrast.swift in Sources */,
+				2182D26320D582BD000B5CD8 /* PlainButton.swift in Sources */,
+				2182D26A20D582BD000B5CD8 /* WelcomeButton.swift in Sources */,
+				2182D25A20D582BD000B5CD8 /* AboutViewController.swift in Sources */,
+				2182D25F20D582BD000B5CD8 /* Secrets.swift in Sources */,
+				2182D27420D582BD000B5CD8 /* PopoverController.swift in Sources */,
+				2182D26D20D582BD000B5CD8 /* NSSound+Contrast.swift in Sources */,
+				2182D26620D582BD000B5CD8 /* TextField.swift in Sources */,
+				2182D25B20D582BD000B5CD8 /* Screenshot.swift in Sources */,
+				2182D26420D582BD000B5CD8 /* EyeDropperView.swift in Sources */,
+				2182D27620D582BD000B5CD8 /* MenuController.swift in Sources */,
+				2182D27220D582BD000B5CD8 /* EyeDropperController.swift in Sources */,
+				2182D26020D582BD000B5CD8 /* AppDelegate.swift in Sources */,
+				2182D27820D582BD000B5CD8 /* PreferencesWindowController.swift in Sources */,
+				2182D26920D582BD000B5CD8 /* Button.swift in Sources */,
+				2182D27720D582BD000B5CD8 /* AboutWindowController.swift in Sources */,
+				2182D26220D582BD000B5CD8 /* CloseButton.swift in Sources */,
+				2182D25E20D582BD000B5CD8 /* Mixpanel.swift in Sources */,
+				2182D26F20D582BD000B5CD8 /* KeyCombo+Contrast.swift in Sources */,
+				2182D27A20D582BD000B5CD8 /* CustomWindow.swift in Sources */,
+				2182D27520D582BD000B5CD8 /* HotKeysController.swift in Sources */,
+				2182D25C20D582BD000B5CD8 /* HexColor.swift in Sources */,
+				2182D27020D582BD000B5CD8 /* MenuBarController.swift in Sources */,
+				2182D26820D582BD000B5CD8 /* GridView.swift in Sources */,
+				2182D26720D582BD000B5CD8 /* ColorInput.swift in Sources */,
+				2182D26E20D582BD000B5CD8 /* NSFont+Contrast.swift in Sources */,
+				2182D26C20D582BD000B5CD8 /* NSImage+Tint.swift in Sources */,
+				2182D27120D582BD000B5CD8 /* ColorsController.swift in Sources */,
+				2182D26B20D582BD000B5CD8 /* HexFormatter.swift in Sources */,
+				2182D27320D582BD000B5CD8 /* Preferences.swift in Sources */,
+				2182D25D20D582BD000B5CD8 /* Theme.swift in Sources */,
+				2182D25920D582BD000B5CD8 /* ColorsViewController.swift in Sources */,
+				2182D27920D582BD000B5CD8 /* PlainWindow.swift in Sources */,
+				2182D27B20D582BD000B5CD8 /* EyeDropperWindow.swift in Sources */,
+				2182D26120D582BD000B5CD8 /* Label.swift in Sources */,
+				2182D26520D582BD000B5CD8 /* LoupeView.swift in Sources */,
+				2182D25820D582BD000B5CD8 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
