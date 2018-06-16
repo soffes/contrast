@@ -60,7 +60,9 @@ final class HotKeysController {
 	// MARK: - Hot Key Information
 
 	func isAvailable(keyCombo: KeyCombo) -> Bool {
-		if showHotKey?.keyCombo == keyCombo || foregroundHotKey?.keyCombo == keyCombo || backgroundHotKey?.keyCombo == keyCombo {
+		if showHotKey?.keyCombo == keyCombo || foregroundHotKey?.keyCombo == keyCombo ||
+            backgroundHotKey?.keyCombo == keyCombo
+        {
 			return false
 		}
 
@@ -75,15 +77,23 @@ final class HotKeysController {
 	}
 
 	private func pickForegroundColor(_ sender: Any?) {
-		MenuBarController.shared?.popoverController.showPopover(sender)
-		if let viewController = MenuBarController.shared?.popoverController.popover.contentViewController as? ColorsViewController {
+        guard let controller = MenuBarController.shared?.popoverController else {
+            return
+        }
+
+		controller.showPopover(sender)
+		if let viewController = controller.popover.contentViewController as? ColorsViewController {
 			viewController.pickForeground()
 		}
 	}
 
 	private func pickBackgroundColor(_ sender: Any?) {
-		MenuBarController.shared?.popoverController.showPopover(sender)
-		if let viewController = MenuBarController.shared?.popoverController.popover.contentViewController as? ColorsViewController {
+        guard let controller = MenuBarController.shared?.popoverController else {
+            return
+        }
+
+		controller.showPopover(sender)
+		if let viewController = controller.popover.contentViewController as? ColorsViewController {
 			viewController.pickBackground()
 		}
 	}

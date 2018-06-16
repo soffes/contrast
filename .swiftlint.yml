@@ -4,8 +4,10 @@ disabled_rules:
   - function_body_length
   - todo
   - cyclomatic_complexity
+  - opening_brace
+  - vertical_parameter_alignment
 
-line_length: 300
+line_length: 120
 
 included:
   - Contrast/Sources

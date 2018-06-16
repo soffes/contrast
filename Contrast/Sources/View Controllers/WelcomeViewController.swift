@@ -63,7 +63,10 @@ final class WelcomeViewController: NSViewController {
 		paragraph.lineHeightMultiple = 1.1
 		paragraph.paragraphSpacing = 20
 
-		let bodyText = NSMutableAttributedString(string: "That’s the estimated number of visually impaired people in the world. 🤓\nThis tool will help you design better interfaces for them. 👍", attributes: [
+		let bodyText = NSMutableAttributedString(string: """
+            That’s the estimated number of visually impaired people in the world. 🤓
+            This tool will help you design better interfaces for them. 👍
+        """, attributes: [
 			NSAttributedStringKey.foregroundColor: textColor,
 			NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14),
 			NSAttributedStringKey.paragraphStyle: paragraph

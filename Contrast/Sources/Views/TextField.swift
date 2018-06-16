@@ -51,8 +51,11 @@ private final class TextFieldCell: NSTextFieldCell {
 		super.edit(withFrame: adjust(rect), in: controlView, editor: editor, delegate: delegate, event: event)
 	}
 
-	override func select(withFrame rect: NSRect, in controlView: NSView, editor: NSText, delegate: Any?, start: Int, length: Int) {
-		super.select(withFrame: adjust(rect), in: controlView, editor: editor, delegate: delegate, start: start, length: length)
+	override func select(withFrame rect: NSRect, in controlView: NSView, editor: NSText, delegate: Any?, start: Int,
+                         length: Int)
+    {
+		super.select(withFrame: adjust(rect), in: controlView, editor: editor, delegate: delegate, start: start,
+                     length: length)
 	}
 
 	private func adjust(_ frame: CGRect) -> CGRect {
@@ -101,7 +104,7 @@ final class TextField: NSTextField {
 	// MARK: - NSResponder
 
 	override func performKeyEquivalent(with event: NSEvent) -> Bool {
-		guard isFirstResponder, event.type == NSEvent.EventType.keyDown, let characters = event.charactersIgnoringModifiers else {
+		guard isFirstResponder, event.type == .keyDown, let characters = event.charactersIgnoringModifiers else {
 			return super.performKeyEquivalent(with: event)
 		}
 
@@ -145,7 +148,9 @@ final class TextField: NSTextField {
 			default:
 				break
 			}
-		} else if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == commandShiftKey {
+		} else if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue)
+            == commandShiftKey
+        {
 			if event.charactersIgnoringModifiers == "Z" {
 				if NSApp.sendAction(Selector(("redo:")), to: nil, from: self) {
 					return true

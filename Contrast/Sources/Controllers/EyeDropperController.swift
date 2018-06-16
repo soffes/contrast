@@ -46,7 +46,8 @@ final class EyeDropperController {
 	// MARK: - Actions
 
 	@objc func cancel(_ sender: Any?) {
-		NotificationCenter.default.removeObserver(self, name: NSApplication.didChangeScreenParametersNotification, object: nil)
+		NotificationCenter.default.removeObserver(self, name: NSApplication.didChangeScreenParametersNotification,
+                                                  object: nil)
 		visible = false
 
 		windows.removeAll()
@@ -65,7 +66,9 @@ final class EyeDropperController {
 		}
 
 		if !visible {
-			NotificationCenter.default.addObserver(self, selector: #selector(magnify), name: NSApplication.didChangeScreenParametersNotification, object: nil)
+			NotificationCenter.default.addObserver(self, selector: #selector(magnify),
+                                                   name: NSApplication.didChangeScreenParametersNotification,
+                                                   object: nil)
 		}
 
 		visible = true

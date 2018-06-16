@@ -14,7 +14,8 @@ final class LoupeView: NSView {
 
 	private let gridView: NSView = {
 		let size = EyeDropperController.captureSize
-		let view = GridView(rows: Int(size.height), columns: Int(size.width), dimension: EyeDropperController.magnification / 2)
+		let view = GridView(rows: Int(size.height), columns: Int(size.width),
+                            dimension: EyeDropperController.magnification / 2)
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
 		return view

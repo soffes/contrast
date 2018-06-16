@@ -7,7 +7,7 @@ final class EyeDropperView: NSView {
 	let loupeView = LoupeView()
 
 	private var trackingArea: NSTrackingArea?
-	private let trackingAreaOptions: NSTrackingArea.Options = [NSTrackingArea.Options.activeAlways, NSTrackingArea.Options.mouseMoved, NSTrackingArea.Options.mouseEnteredAndExited]
+	private let trackingAreaOptions: NSTrackingArea.Options = [.activeAlways, .mouseMoved, .mouseEnteredAndExited]
 
 	private let cursor = NSCursor(image: NSImage(size: CGSize(width: 1, height: 1)), hotSpot: .zero)
 
@@ -125,14 +125,20 @@ final class EyeDropperView: NSView {
 		let windowID = UInt32(window.windowNumber)
 		let captureSize = EyeDropperController.captureSize
 		let magnification = EyeDropperController.magnification
-		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: position.y - (captureSize.height / 2), width: captureSize.width, height: captureSize.height)
+		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: position.y - (captureSize.height / 2),
+                                     width: captureSize.width, height: captureSize.height)
 
-		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID, []) else { return nil }
+		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID, []) else {
+            return nil
+        }
+
 		let original = NSImage(cgImage: cgImage, size: captureSize)
 
 		// Scale screenshot
-		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4, width: captureSize.width * magnification, height: captureSize.height * magnification)
-		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification, height: captureSize.height * magnification), flipped: false) { _ in
+		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4, width: captureSize.width * magnification,
+                                height: captureSize.height * magnification)
+		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification,
+                                          height: captureSize.height * magnification), flipped: false) { _ in
 			guard let gc = NSGraphicsContext.current else { return false }
 			gc.imageInterpolation = .none
 			gc.cgContext.draw(cgImage, in: scaledRect)

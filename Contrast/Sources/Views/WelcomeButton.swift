@@ -39,7 +39,8 @@ private final class WelcomeButtonCell: NSButtonCell {
 		])
 
 		let size = title.size()
-		title.draw(at: CGPoint(x: round((view.bounds.width - size.width) / 2), y: round((view.bounds.height - size.height) / 2) - 2))
+		title.draw(at: CGPoint(x: round((view.bounds.width - size.width) / 2),
+                               y: round((view.bounds.height - size.height) / 2) - 2))
 	}
 }
 
@@ -66,8 +67,10 @@ final class WelcomeButton: NSButton {
 		title = ""
 		focusRingType = .none
 
-		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: NSApplication.didBecomeActiveNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange), name: NSApplication.didResignActiveNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange),
+                                               name: NSApplication.didBecomeActiveNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange),
+                                               name: NSApplication.didResignActiveNotification, object: nil)
 	}
 
 	required init?(coder: NSCoder) {

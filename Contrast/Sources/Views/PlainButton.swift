@@ -26,7 +26,9 @@ private final class PlainButtonCell: NSButtonCell {
 		rect.origin.x += (bounds.width - rect.width) / 2
 		rect.origin.y += (bounds.height - rect.height) / 2
 
-		let imageColor = isSettings ? theme.settingsButtonImageColor(isHighlighted: isHighlighted) : theme.buttonImageColor(isHighlighted: isHighlighted)
+		let imageColor = isSettings ? theme.settingsButtonImageColor(isHighlighted: isHighlighted) :
+            theme.buttonImageColor(isHighlighted: isHighlighted)
+
 		image.tinting(with: imageColor).draw(in: rect)
 
 		// Custom focus ring

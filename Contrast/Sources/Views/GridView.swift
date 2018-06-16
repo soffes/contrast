@@ -49,7 +49,8 @@ final class GridView: NSView {
 
 		// Stroke center square
 		context.setStrokeColor(CGColor(colorSpace: colorSpace, components: [0, 0, 0, 1])!)
-		let center = CGRect(x: CGFloat(columns / 2) * dimension, y: CGFloat(rows / 2) * dimension, width: dimension, height: dimension)
+		let center = CGRect(x: CGFloat(columns / 2) * dimension, y: CGFloat(rows / 2) * dimension, width: dimension,
+                            height: dimension)
 		context.stroke(center)
 
 		context.setStrokeColor(CGColor(colorSpace: colorSpace, components: [1, 1, 1, 1])!)

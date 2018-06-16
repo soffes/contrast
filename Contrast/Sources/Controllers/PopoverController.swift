@@ -31,7 +31,8 @@ final class PopoverController: NSObject {
 		popover.delegate = self
 
 		// Register for notifications
-		NotificationCenter.default.addObserver(self, selector: #selector(didResignActive), name: NSApplication.willResignActiveNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(didResignActive),
+                                               name: NSApplication.willResignActiveNotification, object: nil)
 	}
 
 

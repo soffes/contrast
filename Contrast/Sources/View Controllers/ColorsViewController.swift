@@ -185,8 +185,10 @@ class ColorsViewController: NSViewController {
 			settingsButton.heightAnchor.constraint(equalTo: swapButton.heightAnchor)
 		])
 
-		NotificationCenter.default.addObserver(self, selector: #selector(themeDidChange), name: .themeDidChange, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(updateTextFields), name: UserDefaults.didChangeNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(themeDidChange), name: .themeDidChange,
+                                               object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateTextFields),
+                                               name: UserDefaults.didChangeNotification, object: nil)
 		applyTheme()
 	}
 

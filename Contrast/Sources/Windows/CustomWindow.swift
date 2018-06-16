@@ -35,7 +35,8 @@ private final class CustomWindowView: NSView {
 	}
 
 	override func updateTrackingAreas() {
-		trackingArea = NSTrackingArea(rect: closeButton.frame, options: [NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
+        let options: NSTrackingArea.Options = [.mouseEnteredAndExited, .activeAlways]
+		trackingArea = NSTrackingArea(rect: closeButton.frame, options: options, owner: self, userInfo: nil)
 		super.updateTrackingAreas()
 	}
 
@@ -105,7 +106,7 @@ final class CustomWindow: NSWindow {
 	}
 
 	override init(contentRect: NSRect, styleMask: NSWindow.StyleMask, backing: NSWindow.BackingStoreType, defer: Bool) {
-		let style: NSWindow.StyleMask = [NSWindow.StyleMask.titled, NSWindow.StyleMask.closable, NSWindow.StyleMask.fullSizeContentView]
+		let style: NSWindow.StyleMask = [.titled, .closable, .fullSizeContentView]
 
 		super.init(contentRect: contentRect, styleMask: style, backing: backing, defer: `defer`)
 

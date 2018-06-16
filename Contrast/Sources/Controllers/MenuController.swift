@@ -23,7 +23,8 @@ final class MenuController: NSObject {
 
 		if Preferences.shared.isTutorialCompleted {
 			if !isInPopover {
-				let attach = NSMenuItem(title: "Attach to Menu Bar", action: #selector(PopoverController.showPopover), keyEquivalent: "")
+				let attach = NSMenuItem(title: "Attach to Menu Bar", action: #selector(PopoverController.showPopover),
+                                        keyEquivalent: "")
 				attach.target = (NSApp.delegate as? AppDelegate)?.menuBarController.popoverController
 				menu.addItem(attach)
 				menu.addItem(.separator())
@@ -35,7 +36,8 @@ final class MenuController: NSObject {
 
 			menu.addItem(.separator())
 
-			let preferences = NSMenuItem(title: "Preferences…", action: #selector(AppDelegate.showPreferences), keyEquivalent: ",")
+			let preferences = NSMenuItem(title: "Preferences…", action: #selector(AppDelegate.showPreferences),
+                                         keyEquivalent: ",")
 			preferences.target = NSApp.delegate
 			menu.addItem(preferences)
 
@@ -69,8 +71,22 @@ final class MenuController: NSObject {
 	}
 
 	@objc func showAbout(_ sender: Any?) {
-		guard let windowController = aboutWindowController ?? NSStoryboard(name: NSStoryboard.Name(rawValue: "About"), bundle: nil).instantiateInitialController() as? NSWindowController else { return }
-		aboutWindowController = windowController
+        let windowController: NSWindowController
+
+        if let controller = aboutWindowController {
+            windowController = controller
+        } else {
+            let object = NSStoryboard(name: NSStoryboard.Name(rawValue: "About"), bundle: nil)
+                .instantiateInitialController()
+
+            guard let controller = object as? NSWindowController else {
+                return
+            }
+
+            windowController = controller
+            aboutWindowController = windowController
+        }
+
 		windowController.showWindow(self)
 		windowController.window?.center()
 	}
