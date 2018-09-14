@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="mvE-gZ-4UD">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="mvE-gZ-4UD">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,11 +10,14 @@
         <scene sceneID="j53-60-jVJ">
             <objects>
                 <windowController id="mvE-gZ-4UD" customClass="AboutWindowController" customModule="Contrast" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="About Contrast" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="h5b-Qc-fas" customClass="PlainWindow" customModule="Contrast" customModuleProvider="target">
+                    <window key="window" title="About Contrast" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="h5b-Qc-fas" customClass="PlainWindow" customModule="Contrast" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="mvE-gZ-4UD" id="jb6-wv-y54"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="tkT-bU-YUU" kind="relationship" relationship="window.shadowedContentViewController" id="LNI-fn-hNA"/>
@@ -41,31 +43,31 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="AppIcon" id="z0g-9N-kVj"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnu-xQ-8sb">
-                                <rect key="frame" x="60" y="124" width="125" height="34"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bnu-xQ-8sb">
+                                <rect key="frame" x="61" y="124" width="123" height="34"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Contrast" id="op0-AJ-IwC">
                                     <font key="font" metaFont="systemBold" size="28"/>
                                     <color key="textColor" red="0.29019609089999998" green="0.29019609089999998" blue="0.29019609089999998" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyV-F7-3g4">
-                                <rect key="frame" x="71" y="99" width="103" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jyV-F7-3g4">
+                                <rect key="frame" x="70" y="99" width="104" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Version 0.0 (0)" id="QMS-iN-BCc">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="251" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-zD-dMC">
-                                <rect key="frame" x="33" y="20" width="179" height="11"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Copyright © 2017 Nothing Magical Inc." usesSingleLineMode="YES" id="bND-f1-eAf">
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="251" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-zD-dMC">
+                                <rect key="frame" x="32" y="20" width="180" height="11"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Copyright © 2018 Nothing Magical Inc." usesSingleLineMode="YES" id="bND-f1-eAf">
                                     <font key="font" metaFont="miniSystem"/>
                                     <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qv-dg-ZYZ">
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Qv-dg-ZYZ">
                                 <rect key="frame" x="28" y="51" width="189" height="28"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="xqm-AW-7XQ">
                                     <font key="font" metaFont="smallSystem"/>
@@ -102,7 +104,7 @@ by Nothing Magical &amp; Studio MDS.</string>
                 </viewController>
                 <customObject id="Jwn-YK-ZSV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="539" y="-305"/>
+            <point key="canvasLocation" x="539" y="-305.5"/>
         </scene>
     </scenes>
     <resources>
