@@ -67,9 +67,9 @@ final class WelcomeViewController: NSViewController {
             That’s the estimated number of visually impaired people in the world. 🤓
             This tool will help you design better interfaces for them. 👍
         """, attributes: [
-			NSAttributedStringKey.foregroundColor: textColor,
-			NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14),
-			NSAttributedStringKey.paragraphStyle: paragraph
+			.foregroundColor: textColor,
+			.font: NSFont.systemFont(ofSize: 14),
+			.paragraphStyle: paragraph
 		])
 
 		let body = Label()

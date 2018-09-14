@@ -34,8 +34,8 @@ private final class WelcomeButtonCell: NSButtonCell {
 		}
 
 		let title = NSAttributedString(string: self.title, attributes: [
-			NSAttributedStringKey.foregroundColor: foregroundColor,
-			NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14, weight: NSFont.Weight.medium)
+			.foregroundColor: foregroundColor,
+			.font: NSFont.systemFont(ofSize: 14, weight: NSFont.Weight.medium)
 		])
 
 		let size = title.size()

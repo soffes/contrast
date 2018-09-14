@@ -325,7 +325,7 @@ extension ColorsViewController: EyeDropperControllerDelegate {
 
 
 extension ColorsViewController: NSTextFieldDelegate {
-	override func controlTextDidChange(_ notification: Notification) {
+	func controlTextDidChange(_ notification: Notification) {
 		guard let textField = notification.object as? NSTextField,
 			let color = NSColor(hex: textField.stringValue)
 		else { return }

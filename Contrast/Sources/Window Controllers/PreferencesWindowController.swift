@@ -26,7 +26,7 @@ final class PreferencesWindowController: NSWindowController {
 	// MARK: - NSWindowController
 
 	override var windowNibName: NSNib.Name? {
-        return NSNib.Name(rawValue: "Preferences")
+        return "Preferences"
 	}
 
 	override func windowDidLoad() {

@@ -76,7 +76,7 @@ final class MenuController: NSObject {
         if let controller = aboutWindowController {
             windowController = controller
         } else {
-            let object = NSStoryboard(name: NSStoryboard.Name(rawValue: "About"), bundle: nil)
+            let object = NSStoryboard(name: "About", bundle: nil)
                 .instantiateInitialController()
 
             guard let controller = object as? NSWindowController else {

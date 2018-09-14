@@ -103,10 +103,10 @@ final class Label: NSTextField {
 		paragraph.alignment = alignment
 
 		attributedStringValue = NSAttributedString(string: text, attributes: [
-			NSAttributedStringKey.foregroundColor: foregroundColor ?? theme.foregroundColor,
-			NSAttributedStringKey.backgroundColor: backgroundColor ?? theme.backgroundColor,
-			NSAttributedStringKey.font: font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize),
-			NSAttributedStringKey.paragraphStyle: paragraph
+			.foregroundColor: foregroundColor ?? theme.foregroundColor,
+			.backgroundColor: backgroundColor ?? theme.backgroundColor,
+			.font: font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize),
+			.paragraphStyle: paragraph
 		])
 	}
 }
