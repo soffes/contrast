@@ -32,7 +32,7 @@ final class MenuBarController: NSObject {
 		// Show popover event
 		NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.leftMouseDown) { [weak self] event in
 			if event.window == self?.statusItem.button?.window && !event.modifierFlags.contains(NSEvent.ModifierFlags.command) {
-				self?.popoverController.togglePopover(self?.statusItem.button)
+				self?.popoverController.togglePopover()
 				return nil
 			}
 
@@ -43,8 +43,8 @@ final class MenuBarController: NSObject {
 
 	// MARK: - Actions
 
-	func showPopover(_ sender: Any?) {
-		popoverController.showPopover(sender)
+	func showPopover() {
+		popoverController.showPopover()
 	}
 }
 

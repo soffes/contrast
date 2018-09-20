@@ -1,4 +1,4 @@
 github "soffes/Mixpanel"
 github "soffes/Color"
-github "soffes/HotKey" "pause"
+github "soffes/HotKey"
 github "soffes/ShortcutRecorder" "master"

@@ -1,5 +1,4 @@
 import AppKit
-import HotKey
 
 @NSApplicationMain final class AppDelegate: NSResponder {
 
@@ -54,14 +53,10 @@ extension AppDelegate: NSApplicationDelegate {
 
 		// Check for tutorial completion
 		if Preferences.shared.isTutorialCompleted {
-			// For some reason it launches all stupid on 10.11, so defer it
-			if #available(OSX 10.12, *) {
-				menuBarController.showPopover(self)
-			} else {
-				DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-					self?.menuBarController.showPopover(self)
-				}
-			}
+			// For some reason it launches all stupid, so defer it
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                self?.menuBarController.showPopover()
+            }
 			return
 		}
 
@@ -75,7 +70,7 @@ extension AppDelegate: NSApplicationDelegate {
 
 	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
 		if preferencesWindowController?.window?.isVisible == false {
-			menuBarController.popoverController.showPopover(sender)
+			menuBarController.popoverController.showPopover()
 		}
 		return true
 	}
@@ -91,6 +86,6 @@ extension AppDelegate: NSWindowDelegate {
 		welcomeWindow = nil
 
 		Preferences.shared.isTutorialCompleted = true
-		menuBarController.showPopover(self)
+		menuBarController.showPopover()
 	}
 }

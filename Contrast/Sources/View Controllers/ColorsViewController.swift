@@ -124,7 +124,7 @@ class ColorsViewController: NSViewController {
 
 	override func cancelOperation(_ sender: Any?) {
 		if isInPopover {
-			(NSApp.delegate as? AppDelegate)?.menuBarController.popoverController.dismissPopover(sender)
+			(NSApp.delegate as? AppDelegate)?.menuBarController.popoverController.dismissPopover()
 		} else {
 			view.window?.close()
 		}

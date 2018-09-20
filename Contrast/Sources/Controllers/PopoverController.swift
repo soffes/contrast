@@ -15,7 +15,7 @@ final class PopoverController: NSObject {
 
 	weak var delegate: PopoverControllerDelegate?
 
-	fileprivate var detachedWindow: NSWindow?
+    private var detachedWindow: NSWindow?
 
 
 	// MARK: - Initializers
@@ -31,44 +31,42 @@ final class PopoverController: NSObject {
 		popover.delegate = self
 
 		// Register for notifications
-		NotificationCenter.default.addObserver(self, selector: #selector(didResignActive),
+		NotificationCenter.default.addObserver(self, selector: #selector(applicationWillResignActive),
                                                name: NSApplication.willResignActiveNotification, object: nil)
 	}
 
 
 	// MARK: - Actions
 
-	func togglePopover(_ sender: Any?) {
-		if let window = detachedWindow {
-			window.close()
-			detachedWindow = nil
-		}
+	func togglePopover() {
+        detachedWindow?.close()
+        detachedWindow = nil
 
 		if popover.isShown {
 			if popover.isDetached {
-				dismissPopover(sender)
-				showPopover(sender)
+				dismissPopover()
+				showPopover()
 				return
 			}
-			dismissPopover(sender)
+			dismissPopover()
 		} else {
-			showPopover(sender)
+			showPopover()
 		}
 	}
 
-	@objc func showPopover(_ sender: Any?) {
+	@objc func showPopover() {
 		guard Preferences.shared.isTutorialCompleted,
 			let view = delegate?.popoverControllerWillShow(popover: popover)
 		else { return }
 
-		detachedWindow?.close()
+        detachedWindow?.close()
 		detachedWindow = nil
 
 		NSApp.activate(ignoringOtherApps: true)
 		popover.show(relativeTo: view.bounds, of: view, preferredEdge: .minY)
 	}
 
-	@objc func dismissPopover(_ sender: Any?) {
+	@objc func dismissPopover() {
 		popover.close()
 
 		if NSApp.isActive {
@@ -76,13 +74,13 @@ final class PopoverController: NSObject {
 		}
 	}
 
-	@objc private func didResignActive(_ notification: NSNotification?) {
+	@objc private func applicationWillResignActive(_ notification: Notification?) {
 		// Don't close when it's detached
 		if popover.isDetached {
 			return
 		}
 
-		dismissPopover(notification)
+		dismissPopover()
 	}
 }
 

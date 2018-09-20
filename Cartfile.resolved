@@ -1,4 +1,4 @@
-github "soffes/Color" "v0.1.0"
-github "soffes/HotKey" "a8b0447ef1b472bf50c0afeb2da7814cc1578c0c"
+github "soffes/Color" "v0.1.1"
+github "soffes/HotKey" "v0.1.1"
 github "soffes/Mixpanel" "v0.2.1"
 github "soffes/ShortcutRecorder" "04eb6daca4a12470a4be10ea7e68dd77340a8258"
