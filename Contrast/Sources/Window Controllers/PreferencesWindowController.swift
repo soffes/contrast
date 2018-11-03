@@ -1,5 +1,4 @@
 import AppKit
-import ShortcutRecorder
 import HotKey
 import ServiceManagement
 
@@ -7,9 +6,9 @@ final class PreferencesWindowController: NSWindowController {
 
 	// MARK: - Properties
 
-	@IBOutlet var showRecorder: SRRecorderControl!
-	@IBOutlet var foregroundRecorder: SRRecorderControl!
-	@IBOutlet var backgroundRecorder: SRRecorderControl!
+	@IBOutlet var showKeyComboInput: KeyComboInput!
+	@IBOutlet var foregroundKeyComboInput: KeyComboInput!
+	@IBOutlet var backgroundKeyComboInput: KeyComboInput!
 
 
 	// MARK: - NSResponder
@@ -34,14 +33,14 @@ final class PreferencesWindowController: NSWindowController {
 
 		window?.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.mainMenuWindow)))
 
-		for recorder in [showRecorder, foregroundRecorder, backgroundRecorder] {
-			recorder?.delegate = self
-		}
+        for keyComboInput in [showKeyComboInput, foregroundKeyComboInput, backgroundKeyComboInput] {
+            keyComboInput?.delegate = self
+        }
 
-		let controller = HotKeysController.shared
-		showRecorder.objectValue = controller.showHotKey?.keyCombo.shortcutRecorderDictionary
-		foregroundRecorder.objectValue = controller.foregroundHotKey?.keyCombo.shortcutRecorderDictionary
-		backgroundRecorder.objectValue = controller.backgroundHotKey?.keyCombo.shortcutRecorderDictionary
+        let controller = HotKeysController.shared
+        showKeyComboInput.keyCombo = controller.showHotKey?.keyCombo
+        foregroundKeyComboInput.keyCombo = controller.foregroundHotKey?.keyCombo
+        backgroundKeyComboInput.keyCombo = controller.backgroundHotKey?.keyCombo
 	}
 
 
@@ -60,51 +59,41 @@ final class PreferencesWindowController: NSWindowController {
 }
 
 
-extension PreferencesWindowController: SRRecorderControlDelegate {
-	func shortcutRecorderShouldBeginRecording(_ aRecorder: SRRecorderControl!) -> Bool {
-		HotKeysController.shared.isPaused = true
-		return true
-	}
+extension PreferencesWindowController: KeyComboInputDelegate {
+    func keyComboInputShouldBeginRecording(_ keyComboInput: KeyComboInput) -> Bool {
+        HotKeysController.shared.isPaused = true
+        return true
+    }
 
-	func shortcutRecorder(_ recorder: SRRecorderControl!, canRecordShortcut aShortcut: [AnyHashable: Any]!) -> Bool {
-		guard let value = aShortcut as? [String: Any],
-			let keyCombo = KeyCombo(shortcutRecorderDictionary: value)
-		else { return false }
+    func keyComboInput(_ keyComboInput: KeyComboInput, canRecordKeyCombo keyCombo: KeyCombo) -> Bool {
+        let controller = HotKeysController.shared
+        if keyComboInput === showKeyComboInput && controller.showHotKey?.keyCombo == keyCombo {
+            return true
+        }
 
-		if recorder === showRecorder && HotKeysController.shared.showHotKey?.keyCombo == keyCombo {
-			return true
-		}
+        if keyComboInput === foregroundKeyComboInput && controller.foregroundHotKey?.keyCombo == keyCombo {
+            return true
+        }
 
-		if recorder === foregroundRecorder && HotKeysController.shared.foregroundHotKey?.keyCombo == keyCombo {
-			return true
-		}
+        if keyComboInput === backgroundKeyComboInput && controller.backgroundHotKey?.keyCombo == keyCombo {
+            return true
+        }
 
-		if recorder === backgroundRecorder && HotKeysController.shared.backgroundHotKey?.keyCombo == keyCombo {
-			return true
-		}
+        return controller.isAvailable(keyCombo: keyCombo)
+    }
 
-		return HotKeysController.shared.isAvailable(keyCombo: keyCombo)
-	}
+    func keyComboInputDidEndRecording(_ keyComboInput: KeyComboInput) {
+        let controller = HotKeysController.shared
+        let hotKey = keyComboInput.keyCombo.flatMap { HotKey(keyCombo: $0) }
 
-	func shortcutRecorderDidEndRecording(_ recorder: SRRecorderControl!) {
-		let value = recorder.objectValue as? [String: Any]
+        if keyComboInput === showKeyComboInput {
+            controller.showHotKey = hotKey
+        } else if keyComboInput === foregroundKeyComboInput {
+            controller.foregroundHotKey = hotKey
+        } else if keyComboInput === backgroundKeyComboInput {
+            controller.backgroundHotKey = hotKey
+        }
 
-		if recorder === showRecorder {
-			HotKeysController.shared.showHotKey = hotKey(from: value)
-		} else if recorder === foregroundRecorder {
-			HotKeysController.shared.foregroundHotKey = hotKey(from: value)
-		} else if recorder === backgroundRecorder {
-			HotKeysController.shared.backgroundHotKey = hotKey(from: value)
-		}
-
-		HotKeysController.shared.isPaused = false
-	}
-
-	private func hotKey(from dictionary: [String: Any]?) -> HotKey? {
-		guard let dictionary = dictionary,
-			let keyCombo = KeyCombo(shortcutRecorderDictionary: dictionary)
-		else { return nil }
-
-		return HotKey(keyCombo: keyCombo)
-	}
+        controller.isPaused = false
+    }
 }

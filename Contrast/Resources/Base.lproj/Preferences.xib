@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="Contrast" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundRecorder" destination="t5e-47-eGa" id="YVF-ti-xfq"/>
-                <outlet property="foregroundRecorder" destination="eZT-Y0-4rw" id="HnO-qf-ybb"/>
-                <outlet property="showRecorder" destination="86w-aH-3YE" id="alv-dN-rDq"/>
+                <outlet property="backgroundKeyComboInput" destination="t5e-47-eGa" id="Mhb-Zl-2T9"/>
+                <outlet property="foregroundKeyComboInput" destination="eZT-Y0-4rw" id="BAh-Jm-jR8"/>
+                <outlet property="showKeyComboInput" destination="86w-aH-3YE" id="vH8-nF-mHB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="iUf-6b-nY0"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Contrast" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="PlainWindow" customModule="Contrast" customModuleProvider="target">
+        <window title="Contrast" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="PlainWindow" customModule="Contrast" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="430" height="226"/>
@@ -25,17 +25,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="430" height="226"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="eZT-Y0-4rw" customClass="SRRecorderControl">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="eZT-Y0-4rw" customClass="KeyComboInput" customModule="Contrast" customModuleProvider="target">
                         <rect key="frame" x="226" y="148" width="164" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="Jvu-QH-0yN"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDeleteToClearShortcutAndEndRecording" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEscapeToCancelRecording" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEmptyModifierFlags" value="NO"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="drawsASCIIEquivalentOfShortcut" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qat-p0-pLu">
                         <rect key="frame" x="79" y="185" width="141" height="17"/>
@@ -74,20 +68,14 @@
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Of3-pR-n0B">
                         <rect key="frame" x="20" y="92" width="390" height="5"/>
                     </box>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="t5e-47-eGa" customClass="SRRecorderControl">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="t5e-47-eGa" customClass="KeyComboInput" customModule="Contrast" customModuleProvider="target">
                         <rect key="frame" x="226" y="115" width="164" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="ZC9-3S-ZHg"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEmptyModifierFlags" value="NO"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="drawsASCIIEquivalentOfShortcut" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEscapeToCancelRecording" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDeleteToClearShortcutAndEndRecording" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </customView>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-sU-05t">
-                        <rect key="frame" x="225" y="18" width="136" height="18"/>
+                        <rect key="frame" x="225" y="18" width="135" height="18"/>
                         <buttonCell key="cell" type="check" title="Use lowercase hex" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="lae-6O-uKk">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -96,17 +84,11 @@
                             <binding destination="ahI-Qj-FyQ" name="value" keyPath="values.LowercaseHex" id="ICD-kW-6Fl"/>
                         </connections>
                     </button>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="86w-aH-3YE" customClass="SRRecorderControl">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="86w-aH-3YE" customClass="KeyComboInput" customModule="Contrast" customModuleProvider="target">
                         <rect key="frame" x="226" y="181" width="164" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="8a6-Mf-ivd"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEmptyModifierFlags" value="NO"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="drawsASCIIEquivalentOfShortcut" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEscapeToCancelRecording" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDeleteToClearShortcutAndEndRecording" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </customView>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="Ia2-CC-UXc">
                         <rect key="frame" x="225" y="58" width="115" height="18"/>

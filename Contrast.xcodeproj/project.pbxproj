@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21073F481F321979008E8748 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21073F471F321979008E8748 /* ShortcutRecorder.framework */; };
-		21073F491F321983008E8748 /* ShortcutRecorder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21073F471F321979008E8748 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; };
 		210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; };
@@ -46,7 +44,6 @@
 		2182D26C20D582BD000B5CD8 /* NSImage+Tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */; };
 		2182D26D20D582BD000B5CD8 /* NSSound+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */; };
 		2182D26E20D582BD000B5CD8 /* NSFont+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */; };
-		2182D26F20D582BD000B5CD8 /* KeyCombo+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24820D582BD000B5CD8 /* KeyCombo+Contrast.swift */; };
 		2182D27020D582BD000B5CD8 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24A20D582BD000B5CD8 /* MenuBarController.swift */; };
 		2182D27120D582BD000B5CD8 /* ColorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24B20D582BD000B5CD8 /* ColorsController.swift */; };
 		2182D27220D582BD000B5CD8 /* EyeDropperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D24C20D582BD000B5CD8 /* EyeDropperController.swift */; };
@@ -66,6 +63,7 @@
 		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
 		21A25E881F336D22000AD1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E821F336D22000AD1F1 /* Main.storyboard */; };
 		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		21CDF428218E504500DDF57B /* KeyComboInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CDF427218E504500DDF57B /* KeyComboInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +86,6 @@
 				211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */,
 				210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */,
 				21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */,
-				21073F491F321983008E8748 /* ShortcutRecorder.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,7 +104,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		21073F471F321979008E8748 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		210C71C21F1EA2B500A1B983 /* Color.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Color.framework; sourceTree = "<group>"; };
 		2112382E1F17CF2E00A837D4 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = "<group>"; };
 		214AD7F3203BD545000207A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,7 +142,6 @@
 		2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tint.swift"; sourceTree = "<group>"; };
 		2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSSound+Contrast.swift"; sourceTree = "<group>"; };
 		2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFont+Contrast.swift"; sourceTree = "<group>"; };
-		2182D24820D582BD000B5CD8 /* KeyCombo+Contrast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Contrast.swift"; sourceTree = "<group>"; };
 		2182D24A20D582BD000B5CD8 /* MenuBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		2182D24B20D582BD000B5CD8 /* ColorsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsController.swift; sourceTree = "<group>"; };
 		2182D24C20D582BD000B5CD8 /* EyeDropperController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperController.swift; sourceTree = "<group>"; };
@@ -168,6 +163,7 @@
 		21A25E831F336D22000AD1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21A25E841F336D22000AD1F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A25E901F337E41000AD1F1 /* ContrastHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastHelper.entitlements; sourceTree = "<group>"; };
+		21CDF427218E504500DDF57B /* KeyComboInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyComboInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */,
-				21073F481F321979008E8748 /* ShortcutRecorder.framework in Frameworks */,
 				210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */,
 				211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */,
 			);
@@ -195,7 +190,6 @@
 		2112382D1F17CF2E00A837D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				21073F471F321979008E8748 /* ShortcutRecorder.framework */,
 				21887E9A1F222F4400A05579 /* HotKey.framework */,
 				210C71C21F1EA2B500A1B983 /* Color.framework */,
 				2112382E1F17CF2E00A837D4 /* Mixpanel.framework */,
@@ -290,6 +284,7 @@
 				2182D23F20D582BD000B5CD8 /* GridView.swift */,
 				2182D24020D582BD000B5CD8 /* Button.swift */,
 				2182D24120D582BD000B5CD8 /* WelcomeButton.swift */,
+				21CDF427218E504500DDF57B /* KeyComboInput.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,7 +303,6 @@
 				2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */,
 				2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */,
 				2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */,
-				2182D24820D582BD000B5CD8 /* KeyCombo+Contrast.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -633,7 +627,6 @@
 				2182D27720D582BD000B5CD8 /* AboutWindowController.swift in Sources */,
 				2182D26220D582BD000B5CD8 /* CloseButton.swift in Sources */,
 				2182D25E20D582BD000B5CD8 /* Mixpanel.swift in Sources */,
-				2182D26F20D582BD000B5CD8 /* KeyCombo+Contrast.swift in Sources */,
 				2182D27A20D582BD000B5CD8 /* CustomWindow.swift in Sources */,
 				2182D27520D582BD000B5CD8 /* HotKeysController.swift in Sources */,
 				2182D25C20D582BD000B5CD8 /* HexColor.swift in Sources */,
@@ -643,6 +636,7 @@
 				2182D26E20D582BD000B5CD8 /* NSFont+Contrast.swift in Sources */,
 				2182D26C20D582BD000B5CD8 /* NSImage+Tint.swift in Sources */,
 				2182D27120D582BD000B5CD8 /* ColorsController.swift in Sources */,
+				21CDF428218E504500DDF57B /* KeyComboInput.swift in Sources */,
 				2182D26B20D582BD000B5CD8 /* HexFormatter.swift in Sources */,
 				2182D27320D582BD000B5CD8 /* Preferences.swift in Sources */,
 				2182D25D20D582BD000B5CD8 /* Theme.swift in Sources */,
