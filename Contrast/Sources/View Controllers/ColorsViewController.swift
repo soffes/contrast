@@ -9,7 +9,7 @@ class ColorsViewController: NSViewController {
 
 	// MARK: - Types
 
-	fileprivate enum Position {
+	private enum Position {
 		case foreground
 		case background
 
@@ -40,7 +40,7 @@ class ColorsViewController: NSViewController {
 		return view
 	}()
 
-	fileprivate let foregroundInput: ColorInput = {
+	private let foregroundInput: ColorInput = {
 		let view = ColorInput()
 		view.button.toolTip = "Pick Foreground"
 		view.textField.toolTip = "Foreground Color"
@@ -54,7 +54,7 @@ class ColorsViewController: NSViewController {
 		return view
 	}()
 
-	fileprivate let backgroundInput: ColorInput = {
+	private let backgroundInput: ColorInput = {
 		let view = ColorInput()
 		view.button.toolTip = "Pick Background"
 		view.textField.toolTip = "Background Color"
@@ -79,7 +79,7 @@ class ColorsViewController: NSViewController {
 
 	private let isInPopover: Bool
 
-	fileprivate(set) var theme: Theme {
+	private(set) var theme: Theme {
 		didSet {
 			applyTheme()
 		}
@@ -92,14 +92,14 @@ class ColorsViewController: NSViewController {
 		return view
 	}()
 
-	fileprivate var position: Position? {
+	private var position: Position? {
 		didSet {
 			foregroundInput.button.isActive = position == .foreground
 			backgroundInput.button.isActive = position == .background
 		}
 	}
 
-	fileprivate var eyeDropperController: EyeDropperController? {
+	private var eyeDropperController: EyeDropperController? {
 		willSet {
 			eyeDropperController?.delegate = nil
 			eyeDropperController?.cancel(self)

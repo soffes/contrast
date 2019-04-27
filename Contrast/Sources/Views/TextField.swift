@@ -1,6 +1,6 @@
 import AppKit
 
-fileprivate extension Theme {
+private extension Theme {
 	func textFieldBackground(isFirstResponder: Bool) -> NSColor {
 		if isFirstResponder {
 			return isDark ? NSColor(white: 0, alpha: 0.4) : NSColor.white

@@ -72,11 +72,11 @@ extension Theme {
 		return UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark"
 	}
 
-	fileprivate static var defaultBackground: HexColor {
+	private static var defaultBackground: HexColor {
 		return HexColor(hex: isSystemDark ? "2e2e2e" : "f9f9f9")!
 	}
 
-	fileprivate static var defaultForeground: HexColor {
+	private static var defaultForeground: HexColor {
 		return HexColor(hex: isSystemDark ? "ffffff" : "545454")!
 	}
 

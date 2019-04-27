@@ -77,7 +77,7 @@ final class EyeDropperController {
 
 	// MARK: - Private
 
-	fileprivate func pickColor(with event: NSEvent) {
+	private func pickColor(with event: NSEvent) {
 		guard let window = event.window as? EyeDropperWindow,
 			let color = window.screenshot?.color
 		else { return }

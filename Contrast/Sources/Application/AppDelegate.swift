@@ -6,8 +6,8 @@ import AppKit
 
 	let menuBarController = MenuBarController()
 
-	fileprivate var welcomeWindow: NSWindow?
-	fileprivate var preferencesWindowController: NSWindowController?
+	private var welcomeWindow: NSWindow?
+	private var preferencesWindowController: NSWindowController?
 
 
 	// MARK: - Actions
@@ -22,7 +22,7 @@ import AppKit
 
 	// MARK: - Private
 
-	fileprivate func showTutorial() {
+	private func showTutorial() {
 		let window = CustomWindow(contentViewController: WelcomeViewController())
 		window.delegate = self
 

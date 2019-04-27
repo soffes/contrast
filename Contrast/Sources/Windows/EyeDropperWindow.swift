@@ -21,7 +21,7 @@ final class EyeDropperWindow: NSWindow {
 	// MARK: - Initializers
 
 	init(frame: CGRect) {
-		super.init(contentRect: frame, styleMask: NSWindow.StyleMask.borderless, backing: .buffered, defer: false)
+		super.init(contentRect: frame, styleMask: .borderless, backing: .buffered, defer: false)
 
 		identifier = NSUserInterfaceItemIdentifier(rawValue: "com.nothingmagical.contrast.eyedropper")
 

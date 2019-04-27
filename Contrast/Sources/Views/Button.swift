@@ -1,6 +1,6 @@
 import AppKit
 
-fileprivate extension Theme {
+private extension Theme {
 	func buttonFillColor(isActive: Bool) -> NSColor {
 		if isActive {
 			return NSColor(white: 0, alpha: 0.7)

@@ -11,5 +11,4 @@ line_length: 120
 
 included:
   - Contrast/Sources
-  - ContrastCLI/Sources
-  - Color/Sources
+  - ContrastHelper/Sources

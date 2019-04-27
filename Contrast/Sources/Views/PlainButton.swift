@@ -1,7 +1,7 @@
 import AppKit
 
-extension Theme {
-	fileprivate func settingsButtonImageColor(isActive: Bool = false, isHighlighted: Bool) -> NSColor {
+private extension Theme {
+	func settingsButtonImageColor(isActive: Bool = false, isHighlighted: Bool) -> NSColor {
 		if isActive {
 			return .white
 		}

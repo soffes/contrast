@@ -1,6 +1,6 @@
 import AppKit
 
-fileprivate extension Theme {
+private extension Theme {
 	var closeButtonFill: NSColor {
 		return NSColor(white: isDark ? 1 : 0, alpha: 0.3)
 	}

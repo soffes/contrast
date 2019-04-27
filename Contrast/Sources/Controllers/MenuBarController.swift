@@ -4,7 +4,7 @@ final class MenuBarController: NSObject {
 
 	// MARK: - Properties
 
-	fileprivate let statusItem: NSStatusItem
+	private let statusItem: NSStatusItem
 
 	let popoverController = PopoverController()
 
