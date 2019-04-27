@@ -56,14 +56,14 @@
 		2182D27920D582BD000B5CD8 /* PlainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25520D582BD000B5CD8 /* PlainWindow.swift */; };
 		2182D27A20D582BD000B5CD8 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25620D582BD000B5CD8 /* CustomWindow.swift */; };
 		2182D27B20D582BD000B5CD8 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25720D582BD000B5CD8 /* EyeDropperWindow.swift */; };
-		21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; };
-		21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21A25E851F336D22000AD1F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7E1F336D22000AD1F1 /* AppDelegate.m */; };
 		21A25E861F336D22000AD1F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7F1F336D22000AD1F1 /* main.m */; };
 		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
 		21A25E881F336D22000AD1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E821F336D22000AD1F1 /* Main.storyboard */; };
 		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		21CDF428218E504500DDF57B /* KeyComboInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CDF427218E504500DDF57B /* KeyComboInput.swift */; };
+		21CDF42A218E659000DDF57B /* NSEvent+KeyComboInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CDF429218E659000DDF57B /* NSEvent+KeyComboInput.swift */; };
+		21CDF43F218E807100DDF57B /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CDF433218E804800DDF57B /* HotKey.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +73,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 21A25E671F336CE5000AD1F1;
 			remoteInfo = ContrastHelper;
+		};
+		21CDF432218E804800DDF57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21CDF42C218E804800DDF57B /* HotKey.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21887E361F2209DE00A05579;
+			remoteInfo = HotKey;
+		};
+		21CDF434218E804800DDF57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21CDF42C218E804800DDF57B /* HotKey.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21887E3F1F2209DE00A05579;
+			remoteInfo = HotKeyTests;
+		};
+		21CDF436218E804800DDF57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21CDF42C218E804800DDF57B /* HotKey.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21887E661F22154600A05579;
+			remoteInfo = Example;
+		};
+		21CDF43C218E806300DDF57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21CDF42C218E804800DDF57B /* HotKey.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21887E351F2209DE00A05579;
+			remoteInfo = HotKey;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -85,7 +113,6 @@
 			files = (
 				211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */,
 				210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */,
-				21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,7 +182,6 @@
 		2182D25620D582BD000B5CD8 /* CustomWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
 		2182D25720D582BD000B5CD8 /* EyeDropperWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperWindow.swift; sourceTree = "<group>"; };
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
 		21A25E681F336CE5000AD1F1 /* ContrastHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContrastHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A25E7E1F336D22000AD1F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		21A25E7F1F336D22000AD1F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -164,6 +190,8 @@
 		21A25E841F336D22000AD1F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A25E901F337E41000AD1F1 /* ContrastHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastHelper.entitlements; sourceTree = "<group>"; };
 		21CDF427218E504500DDF57B /* KeyComboInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyComboInput.swift; sourceTree = "<group>"; };
+		21CDF429218E659000DDF57B /* NSEvent+KeyComboInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+KeyComboInput.swift"; sourceTree = "<group>"; };
+		21CDF42C218E804800DDF57B /* HotKey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HotKey.xcodeproj; path = ../../soffes/HotKey/HotKey.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,9 +199,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */,
 				210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */,
 				211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */,
+				21CDF43F218E807100DDF57B /* HotKey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +218,6 @@
 		2112382D1F17CF2E00A837D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				21887E9A1F222F4400A05579 /* HotKey.framework */,
 				210C71C21F1EA2B500A1B983 /* Color.framework */,
 				2112382E1F17CF2E00A837D4 /* Mixpanel.framework */,
 			);
@@ -303,6 +330,7 @@
 				2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */,
 				2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */,
 				2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */,
+				21CDF429218E659000DDF57B /* NSEvent+KeyComboInput.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,6 +375,7 @@
 				21A25E691F336CE5000AD1F1 /* ContrastHelper */,
 				2112382D1F17CF2E00A837D4 /* Frameworks */,
 				218487071F04642C009EE112 /* Products */,
+				21CDF42C218E804800DDF57B /* HotKey.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -414,6 +443,16 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		21CDF42D218E804800DDF57B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21CDF433218E804800DDF57B /* HotKey.framework */,
+				21CDF435218E804800DDF57B /* HotKeyTests.xctest */,
+				21CDF437218E804800DDF57B /* Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -432,6 +471,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				21CDF43D218E806300DDF57B /* PBXTargetDependency */,
 				21A25E8B1F336D96000AD1F1 /* PBXTargetDependency */,
 			);
 			name = Contrast;
@@ -523,6 +563,12 @@
 			mainGroup = 218486FD1F04642C009EE112;
 			productRefGroup = 218487071F04642C009EE112 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 21CDF42D218E804800DDF57B /* Products */;
+					ProjectRef = 21CDF42C218E804800DDF57B /* HotKey.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				218487051F04642C009EE112 /* Contrast */,
@@ -530,6 +576,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		21CDF433218E804800DDF57B /* HotKey.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HotKey.framework;
+			remoteRef = 21CDF432218E804800DDF57B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21CDF435218E804800DDF57B /* HotKeyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HotKeyTests.xctest;
+			remoteRef = 21CDF434218E804800DDF57B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21CDF437218E804800DDF57B /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = 21CDF436218E804800DDF57B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		218487041F04642C009EE112 /* Resources */ = {
@@ -573,7 +643,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		2182D27C20D58F45000B5CD8 /* Set Version */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -622,6 +692,7 @@
 				2182D27620D582BD000B5CD8 /* MenuController.swift in Sources */,
 				2182D27220D582BD000B5CD8 /* EyeDropperController.swift in Sources */,
 				2182D26020D582BD000B5CD8 /* AppDelegate.swift in Sources */,
+				21CDF42A218E659000DDF57B /* NSEvent+KeyComboInput.swift in Sources */,
 				2182D27820D582BD000B5CD8 /* PreferencesWindowController.swift in Sources */,
 				2182D26920D582BD000B5CD8 /* Button.swift in Sources */,
 				2182D27720D582BD000B5CD8 /* AboutWindowController.swift in Sources */,
@@ -665,6 +736,11 @@
 			isa = PBXTargetDependency;
 			target = 21A25E671F336CE5000AD1F1 /* ContrastHelper */;
 			targetProxy = 21A25E8A1F336D96000AD1F1 /* PBXContainerItemProxy */;
+		};
+		21CDF43D218E806300DDF57B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HotKey;
+			targetProxy = 21CDF43C218E806300DDF57B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
