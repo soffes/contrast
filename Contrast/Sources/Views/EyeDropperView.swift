@@ -141,8 +141,7 @@ final class EyeDropperView: NSView {
         // TODO: Maybe instead of `/ 4` it should be `/ 2 / scale`. Need to verify.
 		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4,
                                 width: captureSize.width * magnification, height: captureSize.height * magnification)
-		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification,
-                                          height: captureSize.height * magnification), flipped: false) { _ in
+		let scaled = NSImage(size: scaledRect.size, flipped: false) { _ in
 			guard let gc = NSGraphicsContext.current else { return false }
 			gc.imageInterpolation = .none
 			gc.cgContext.draw(cgImage, in: scaledRect)
