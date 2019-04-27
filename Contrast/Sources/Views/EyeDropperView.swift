@@ -57,9 +57,7 @@ final class EyeDropperView: NSView {
 		}
 
 		loupeView.isHidden = false
-
-		let position = event.locationInWindow
-		positionLoupe(at: position)
+        positionLoupe(at: event.locationInWindow)
 	}
 
 
@@ -90,7 +88,10 @@ final class EyeDropperView: NSView {
 	// MARK: - Positioning
 
 	func positionLoupe(at position: CGPoint) {
-		let position = convert(position, from: nil)
+        let scale = window?.screen?.backingScaleFactor ?? 1
+		var position = convert(position, from: nil)
+        position.x = (position.x * scale).rounded(.awayFromZero) / scale
+        position.y = (position.y * scale).rounded(.awayFromZero) / scale
 
 		// Position loupe
 		var rect = loupeView.bounds
@@ -128,15 +129,18 @@ final class EyeDropperView: NSView {
 		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: position.y - (captureSize.height / 2),
                                      width: captureSize.width, height: captureSize.height)
 
-		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID, []) else {
+		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID,
+                                                    .shouldBeOpaque) else
+        {
             return nil
         }
 
 		let original = NSImage(cgImage: cgImage, size: captureSize)
 
 		// Scale screenshot
-		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4, width: captureSize.width * magnification,
-                                height: captureSize.height * magnification)
+        // TODO: Maybe instead of `/ 4` it should be `/ 2 / scale`. Need to verify.
+		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4,
+                                width: captureSize.width * magnification, height: captureSize.height * magnification)
 		let scaled = NSImage(size: CGSize(width: captureSize.width * magnification,
                                           height: captureSize.height * magnification), flipped: false) { _ in
 			guard let gc = NSGraphicsContext.current else { return false }
