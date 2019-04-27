@@ -97,6 +97,7 @@ final class WelcomeButton: NSButton {
             return WelcomeButtonCell.self
         }
 
+        // swiftlint:disable:next unused_setter_value
         set {}
 	}
 

@@ -92,6 +92,7 @@ final class Label: NSTextField {
             return LabelCell.self
         }
 
+        // swiftlint:disable:next unused_setter_value
         set {}
 	}
 

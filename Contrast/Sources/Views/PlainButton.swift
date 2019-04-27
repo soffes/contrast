@@ -92,6 +92,7 @@ final class PlainButton: NSButton {
             return PlainButtonCell.self
         }
 
+        // swiftlint:disable:next unused_setter_value
         set {}
 	}
 

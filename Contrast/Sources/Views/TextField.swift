@@ -176,6 +176,7 @@ final class TextField: NSTextField {
             return TextFieldCell.self
         }
 
+        // swiftlint:disable:next unused_setter_value
         set {}
 	}
 
