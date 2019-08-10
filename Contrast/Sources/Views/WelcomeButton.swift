@@ -3,11 +3,11 @@ import AppKit
 private final class WelcomeButtonCell: NSButtonCell {
 
 	var isPrimary = false
-	private let darkColor = NSColor(displayP3Red: 17 / 255, green: 17 / 255, blue: 18 / 255, alpha: 1)
-	private let lightColor = NSColor(displayP3Red: 226 / 255, green: 231 / 255, blue: 232 / 255, alpha: 1)
+    private let primaryColor = NSColor(named: "Welcome - Button Primary")!
+	private let secondaryColor = NSColor(named: "Welcome - Button Secondary")!
 
 	override func drawBezel(withFrame frame: NSRect, in view: NSView) {
-		var backgroundColor = isPrimary ? darkColor : lightColor
+		var backgroundColor = isPrimary ? primaryColor : secondaryColor
 
 		if !NSApp.isActive {
 			backgroundColor = backgroundColor.withAlphaComponent(0.7)
@@ -27,7 +27,7 @@ private final class WelcomeButtonCell: NSButtonCell {
 	}
 
 	override func drawInterior(withFrame frame: NSRect, in view: NSView) {
-		var foregroundColor = isPrimary ? lightColor : darkColor
+        var foregroundColor = isPrimary ? NSColor(named: "Welcome - Background")! : NSColor(named: "Welcome - Text")!
 
 		if !NSApp.isActive {
 			foregroundColor = foregroundColor.withAlphaComponent(0.7)

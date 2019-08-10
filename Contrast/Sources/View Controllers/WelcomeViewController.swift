@@ -56,8 +56,8 @@ final class WelcomeViewController: NSViewController {
 		paragraph.paragraphSpacing = 20
 
 		let bodyText = NSMutableAttributedString(string: """
-            That’s the estimated number of visually impaired people in the world. 🤓
-            This tool will help you design better interfaces for them. 👍
+        That’s the estimated number of visually impaired people in the world. 🤓
+        This tool will help you design better interfaces for them. 👍
         """, attributes: [
 			.foregroundColor: textColor,
 			.font: NSFont.systemFont(ofSize: 14),
@@ -106,7 +106,7 @@ final class WelcomeViewController: NSViewController {
 		super.viewDidLoad()
 
 		view.wantsLayer = true
-		view.layer?.backgroundColor = NSColor.white.cgColor
+		view.layer?.backgroundColor = NSColor(named: "Welcome - Background")!.cgColor
 
 		view.addSubview(orangeView)
 		view.addSubview(blueView)
