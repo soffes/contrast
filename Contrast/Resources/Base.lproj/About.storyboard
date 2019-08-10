@@ -47,7 +47,7 @@
                                 <rect key="frame" x="61" y="124" width="123" height="34"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Contrast" id="op0-AJ-IwC">
                                     <font key="font" metaFont="systemBold" size="28"/>
-                                    <color key="textColor" red="0.29019609089999998" green="0.29019609089999998" blue="0.29019609089999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -55,7 +55,7 @@
                                 <rect key="frame" x="70" y="99" width="104" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Version 0.0 (0)" id="QMS-iN-BCc">
                                     <font key="font" metaFont="systemBold"/>
-                                    <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -63,7 +63,7 @@
                                 <rect key="frame" x="33" y="20" width="179" height="11"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Copyright © 2019 Nothing Magical Inc." usesSingleLineMode="YES" id="bND-f1-eAf">
                                     <font key="font" metaFont="miniSystem"/>
-                                    <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -73,7 +73,7 @@
                                     <font key="font" metaFont="smallSystem"/>
                                     <string key="title">Designed &amp; developed
 by Nothing Magical &amp; Studio MDS.</string>
-                                    <color key="textColor" red="0.29019609089999998" green="0.29019609089999998" blue="0.29019609089999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>

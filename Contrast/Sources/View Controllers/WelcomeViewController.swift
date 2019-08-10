@@ -7,11 +7,7 @@ final class WelcomeViewController: NSViewController {
 	private let orangeView: NSView = {
 		let view = NSView(frame: CGRect(x: -210, y: 20, width: 254, height: 240))
 		view.wantsLayer = true
-		if #available(OSX 10.12, *) {
-			view.layer?.backgroundColor = NSColor(displayP3Red: 1, green: 167 / 255, blue: 0, alpha: 1).cgColor
-		} else {
-			view.layer?.backgroundColor = NSColor(calibratedRed: 1, green: 167 / 255, blue: 0, alpha: 1).cgColor
-		}
+        view.layer?.backgroundColor = NSColor(named: "Welcome - Orange")!.cgColor
 		view.rotate(byDegrees: -315)
 		return view
 	}()
@@ -19,7 +15,7 @@ final class WelcomeViewController: NSViewController {
 	private let blueView: NSView = {
 		let view = NSView(frame: CGRect(x: 185, y: -130, width: 230, height: 230))
 		view.wantsLayer = true
-		view.layer?.backgroundColor = NSColor(red: 89 / 255, green: 216 / 255, blue: 250 / 255, alpha: 1).cgColor
+		view.layer?.backgroundColor = NSColor(named: "Welcome - Blue")!.cgColor
 		view.layer?.cornerRadius = view.frame.height / 2
 		return view
 	}()
@@ -27,11 +23,7 @@ final class WelcomeViewController: NSViewController {
 	private let pinkView: NSView = {
 		let view = NSView(frame: CGRect(x: 260, y: 232, width: 203, height: 191))
 		view.wantsLayer = true
-		if #available(OSX 10.12, *) {
-			view.layer?.backgroundColor = NSColor(displayP3Red: 1, green: 0, blue: 210 / 255, alpha: 1).cgColor
-		} else {
-			view.layer?.backgroundColor = NSColor(calibratedRed: 1, green: 0, blue: 210 / 255, alpha: 1).cgColor
-		}
+        view.layer?.backgroundColor = NSColor(named: "Welcome - Pink")!.cgColor
 		view.rotate(byDegrees: -315)
 		return view
 	}()
@@ -51,12 +43,12 @@ final class WelcomeViewController: NSViewController {
 		view.spacing = 12
 		view.alphaValue = 0
 
-		let textColor = NSColor(red: 17 / 255, green: 17 / 255, blue: 18 / 255, alpha: 1)
+		let textColor = NSColor(named: "Welcome - Text")!
 
 		let title = Label()
 		title.stringValue = "285,000,000"
 		title.textColor = textColor
-		title.font = .systemFont(ofSize: 24, weight: NSFont.Weight.heavy)
+		title.font = .systemFont(ofSize: 24, weight: .heavy)
 		view.addArrangedSubview(title)
 
 		let paragraph = NSMutableParagraphStyle()

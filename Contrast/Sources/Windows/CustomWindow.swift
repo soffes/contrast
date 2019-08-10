@@ -81,7 +81,7 @@ final class CustomWindow: NSWindow {
 
 	convenience init(contentViewController: NSViewController) {
 		let view = contentViewController.view
-		self.init(contentRect: view.bounds, styleMask: [], backing: .nonretained, defer: false)
+		self.init(contentRect: view.bounds, styleMask: [], backing: .buffered, defer: false)
 		isReleasedWhenClosed = false
 
 		guard let contentView = contentView else { return }
