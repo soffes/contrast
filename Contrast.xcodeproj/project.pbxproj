@@ -66,6 +66,7 @@
 		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
 		21A25E881F336D22000AD1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E821F336D22000AD1F1 /* Main.storyboard */; };
 		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		21C355FA22FF21D50018FDD6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C355F922FF21D50018FDD6 /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		21A25E831F336D22000AD1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21A25E841F336D22000AD1F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A25E901F337E41000AD1F1 /* ContrastHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastHelper.entitlements; sourceTree = "<group>"; };
+		21C355F922FF21D50018FDD6 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 				2182D23F20D582BD000B5CD8 /* GridView.swift */,
 				2182D24020D582BD000B5CD8 /* Button.swift */,
 				2182D24120D582BD000B5CD8 /* WelcomeButton.swift */,
+				21C355F922FF21D50018FDD6 /* View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				2182D26620D582BD000B5CD8 /* TextField.swift in Sources */,
 				2182D25B20D582BD000B5CD8 /* Screenshot.swift in Sources */,
 				2182D26420D582BD000B5CD8 /* EyeDropperView.swift in Sources */,
+				21C355FA22FF21D50018FDD6 /* View.swift in Sources */,
 				2182D27620D582BD000B5CD8 /* MenuController.swift in Sources */,
 				2182D27220D582BD000B5CD8 /* EyeDropperController.swift in Sources */,
 				2182D26020D582BD000B5CD8 /* AppDelegate.swift in Sources */,
