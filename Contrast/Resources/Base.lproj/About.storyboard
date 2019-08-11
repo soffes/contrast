@@ -32,13 +32,13 @@
             <objects>
                 <viewController title="About" id="tkT-bU-YUU" customClass="AboutViewController" customModule="Contrast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="fUZ-qU-IKm">
-                        <rect key="frame" x="0.0" y="0.0" width="244" height="376"/>
+                        <rect key="frame" x="0.0" y="0.0" width="244" height="358"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Buo-CB-Xs2">
-                                <rect key="frame" x="27" y="166" width="190" height="190"/>
+                                <rect key="frame" x="54" y="190" width="136" height="136"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="8lW-hz-oDV"/>
+                                    <constraint firstAttribute="width" constant="136" id="8lW-hz-oDV"/>
                                     <constraint firstAttribute="width" secondItem="Buo-CB-Xs2" secondAttribute="height" multiplier="1:1" id="VmD-Nt-Biy"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="AppIcon" id="z0g-9N-kVj"/>
@@ -93,9 +93,9 @@ by Nothing Magical &amp; Studio MDS.</string>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XVt-zD-dMC" secondAttribute="trailing" constant="20" id="Yfb-By-z7d"/>
                             <constraint firstItem="6Qv-dg-ZYZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fUZ-qU-IKm" secondAttribute="leading" constant="20" id="bRu-iQ-w8c"/>
                             <constraint firstAttribute="centerX" secondItem="6Qv-dg-ZYZ" secondAttribute="centerX" constant="-0.5" id="p4X-Cn-oGf"/>
-                            <constraint firstItem="Bnu-xQ-8sb" firstAttribute="top" secondItem="Buo-CB-Xs2" secondAttribute="bottom" constant="8" id="pGu-2e-zdJ"/>
+                            <constraint firstItem="Bnu-xQ-8sb" firstAttribute="top" secondItem="Buo-CB-Xs2" secondAttribute="bottom" constant="32" id="pGu-2e-zdJ"/>
                             <constraint firstAttribute="centerX" secondItem="jyV-F7-3g4" secondAttribute="centerX" id="tbp-H5-4QR"/>
-                            <constraint firstItem="Buo-CB-Xs2" firstAttribute="top" secondItem="fUZ-qU-IKm" secondAttribute="top" constant="20" id="yiu-Qf-tZf"/>
+                            <constraint firstItem="Buo-CB-Xs2" firstAttribute="top" secondItem="fUZ-qU-IKm" secondAttribute="top" constant="32" id="yiu-Qf-tZf"/>
                         </constraints>
                     </view>
                     <connections>
