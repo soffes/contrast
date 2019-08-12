@@ -31,6 +31,13 @@ import AppKit
 		window.center()
 		welcomeWindow = window
 	}
+
+    @objc private func ping() {
+        print("Received ping. Sending pong…")
+        let pongName = Notification.Name("com.nothingmagical.contrast.notification.pong")
+        DistributedNotificationCenter.default().postNotificationName(pongName, object: nil, userInfo: nil,
+                                                                     options: [.deliverImmediately])
+    }
 }
 
 
@@ -39,9 +46,14 @@ extension AppDelegate: NSApplicationDelegate {
 		// Start Mixpanel
 		mixpanel.track(event: "Launch")
 
+        // Setup listener for pings from ContrastHelper
+        let pingName = Notification.Name("com.nothingmagical.contrast.notification.ping")
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(ping), name: pingName,
+                                                            object: nil)
+
 		// Preferences keyboard shortcut
-		NSEvent.addLocalMonitorForEvents(matching: [NSEvent.EventTypeMask.keyDown]) { [weak self] event in
-			if event.modifierFlags.contains(NSEvent.ModifierFlags.command) &&  event.characters == "," {
+		NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { [weak self] event in
+			if event.modifierFlags.contains(.command) &&  event.characters == "," {
 				self?.showPreferences(self)
 				return nil
 			}
