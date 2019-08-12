@@ -61,11 +61,11 @@
 		2182D27B20D582BD000B5CD8 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25720D582BD000B5CD8 /* EyeDropperWindow.swift */; };
 		21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; };
 		21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		21A25E851F336D22000AD1F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7E1F336D22000AD1F1 /* AppDelegate.m */; };
-		21A25E861F336D22000AD1F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A25E7F1F336D22000AD1F1 /* main.m */; };
 		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
 		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		21C355FA22FF21D50018FDD6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C355F922FF21D50018FDD6 /* View.swift */; };
+		21DCFBD52301B5F300422979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DCFBD42301B5F300422979 /* AppDelegate.swift */; };
+		21DCFBD72301B75300422979 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DCFBD62301B75300422979 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +110,6 @@
 		21073F471F321979008E8748 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		210C71C21F1EA2B500A1B983 /* Color.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Color.framework; sourceTree = "<group>"; };
 		2112382E1F17CF2E00A837D4 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = "<group>"; };
-		2147B20F230064BC00764C8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		214AD7F3203BD545000207A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214AD7F5203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		214AD7F7203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
@@ -163,12 +162,12 @@
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
 		21A25E681F336CE5000AD1F1 /* ContrastHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContrastHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		21A25E7E1F336D22000AD1F1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		21A25E7F1F336D22000AD1F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21A25E811F336D22000AD1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21A25E841F336D22000AD1F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A25E901F337E41000AD1F1 /* ContrastHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastHelper.entitlements; sourceTree = "<group>"; };
 		21C355F922FF21D50018FDD6 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		21DCFBD42301B5F300422979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		21DCFBD62301B75300422979 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,9 +404,8 @@
 		21A25E7C1F336D22000AD1F1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				2147B20F230064BC00764C8F /* AppDelegate.h */,
-				21A25E7E1F336D22000AD1F1 /* AppDelegate.m */,
-				21A25E7F1F336D22000AD1F1 /* main.m */,
+				21DCFBD42301B5F300422979 /* AppDelegate.swift */,
+				21DCFBD62301B75300422979 /* main.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -482,7 +480,7 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -492,10 +490,11 @@
 					21A25E671F336CE5000AD1F1 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = UP9C8XM22A;
+						LastSwiftMigration = 1030;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -667,8 +666,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21A25E861F336D22000AD1F1 /* main.m in Sources */,
-				21A25E851F336D22000AD1F1 /* AppDelegate.m in Sources */,
+				21DCFBD72301B75300422979 /* main.swift in Sources */,
+				21DCFBD52301B5F300422979 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +834,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -857,6 +857,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -873,11 +874,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ContrastHelper/Support/ContrastHelper.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ContrastHelper/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -885,6 +888,8 @@
 				PRODUCT_NAME = ContrastHelper;
 				PROVISIONING_PROFILE_SPECIFIER = "ContrastHelper Development";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -892,11 +897,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ContrastHelper/Support/ContrastHelper.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ContrastHelper/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -904,6 +911,7 @@
 				PRODUCT_NAME = ContrastHelper;
 				PROVISIONING_PROFILE_SPECIFIER = "ContrastHelper Developer ID";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
