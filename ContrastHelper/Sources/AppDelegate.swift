@@ -34,7 +34,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // Launch Contrast
         let options: NSWorkspace.LaunchOptions = [.withoutActivation, .andHide]
         do {
-            try NSWorkspace.shared.launchApplication(at: url, options: options, configuration: [:])
+            try NSWorkspace.shared.launchApplication(at: url, options: options, configuration: [
+                .arguments: ["quiet"]
+            ])
             NSLog("Launched Contrast. Bye.")
         } catch {
             NSLog("Failed to launch Contrast: \(error)")

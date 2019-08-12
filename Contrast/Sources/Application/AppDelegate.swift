@@ -9,6 +9,9 @@ import AppKit
 	private var welcomeWindow: NSWindow?
 	private var preferencesWindowController: NSWindowController?
 
+    private var isQuietLaunch: Bool {
+        return CommandLine.arguments.contains("quiet")
+    }
 
 	// MARK: - Actions
 
@@ -64,16 +67,20 @@ extension AppDelegate: NSApplicationDelegate {
 		_ = HotKeysController.shared
 
 		// Check for tutorial completion
-		if Preferences.shared.isTutorialCompleted {
+		if !Preferences.shared.isTutorialCompleted {
+            // Show tutorial
+            showTutorial()
+        } else {
+            // Don’t show the popover if it’s a quiet launch (i.e. launch at login)
+            if isQuietLaunch {
+                return
+            }
+
 			// For some reason it launches all stupid, so defer it
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
                 self?.menuBarController.showPopover()
             }
-			return
 		}
-
-		// Show tutorial
-		showTutorial()
 	}
 
 	func applicationDidBecomeActive(_ notification: Notification) {
