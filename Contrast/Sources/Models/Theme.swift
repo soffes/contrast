@@ -51,7 +51,6 @@ struct Theme {
 	}
 }
 
-
 extension Theme {
 	var focusRingColor: NSColor {
 		return NSColor(white: isDark ? 1 : 0, alpha: 0.2)
@@ -65,7 +64,6 @@ extension Theme {
 		return NSColor(white: isDark ? 1 : 0, alpha: isHighlighted ? 1 : 0.7)
 	}
 }
-
 
 extension Theme {
 	private static var isSystemDark: Bool {
@@ -85,7 +83,6 @@ extension Theme {
 	}
 }
 
-
 extension Theme {
 	var dictionaryRepresentation: [String: Any] {
 		return [
@@ -103,7 +100,6 @@ extension Theme {
 		self.background = background
 	}
 }
-
 
 extension Theme: Equatable {
 	static func == (lhs: Theme, rhs: Theme) -> Bool {

@@ -7,21 +7,21 @@ final class HotKeysController {
 	var showHotKey: HotKey? {
 		didSet {
 			Preferences.shared.showKeyCombo = showHotKey?.keyCombo
-            updateShowHotKey()
+			updateShowHotKey()
 		}
 	}
 
 	var foregroundHotKey: HotKey? {
 		didSet {
 			Preferences.shared.foregroundKeyCombo = foregroundHotKey?.keyCombo
-            updateForegroundHotKey()
+			updateForegroundHotKey()
 		}
 	}
 
 	var backgroundHotKey: HotKey? {
 		didSet {
 			Preferences.shared.backgroundKeyCombo = backgroundHotKey?.keyCombo
-            updateBackgroundHotKey()
+			updateBackgroundHotKey()
 		}
 	}
 
@@ -35,33 +35,30 @@ final class HotKeysController {
 
 	static let shared = HotKeysController()
 
-
 	// MARK: - Initializers
 
 	private init() {
 		showHotKey = Preferences.shared.showKeyCombo.flatMap({ HotKey(keyCombo: $0) })
-        updateShowHotKey()
+		updateShowHotKey()
 
 		foregroundHotKey = Preferences.shared.foregroundKeyCombo.flatMap({ HotKey(keyCombo: $0) })
-        updateForegroundHotKey()
+		updateForegroundHotKey()
 
 		backgroundHotKey = Preferences.shared.backgroundKeyCombo.flatMap({ HotKey(keyCombo: $0) })
-        updateBackgroundHotKey()
+		updateBackgroundHotKey()
 	}
-
 
 	// MARK: - Hot Key Information
 
 	func isAvailable(keyCombo: KeyCombo) -> Bool {
 		if showHotKey?.keyCombo == keyCombo || foregroundHotKey?.keyCombo == keyCombo ||
-            backgroundHotKey?.keyCombo == keyCombo
-        {
+			backgroundHotKey?.keyCombo == keyCombo
+		{
 			return false
 		}
 
 		return true
 	}
-
 
 	// MARK: - Actions
 
@@ -70,9 +67,9 @@ final class HotKeysController {
 	}
 
 	private func pickForegroundColor() {
-        guard let controller = MenuBarController.shared?.popoverController else {
-            return
-        }
+		guard let controller = MenuBarController.shared?.popoverController else {
+			return
+		}
 
 		controller.showPopover()
 		if let viewController = controller.popover.contentViewController as? ColorsViewController {
@@ -81,9 +78,9 @@ final class HotKeysController {
 	}
 
 	private func pickBackgroundColor() {
-        guard let controller = MenuBarController.shared?.popoverController else {
-            return
-        }
+		guard let controller = MenuBarController.shared?.popoverController else {
+			return
+		}
 
 		controller.showPopover()
 		if let viewController = controller.popover.contentViewController as? ColorsViewController {
@@ -91,26 +88,26 @@ final class HotKeysController {
 		}
 	}
 
-    // MARK: - Private
+	// MARK: - Private
 
-    private func updateShowHotKey() {
-        showHotKey?.isPaused = isPaused
-        showHotKey?.keyDownHandler = { [weak self] in
-            self?.togglePopover()
-        }
-    }
+	private func updateShowHotKey() {
+		showHotKey?.isPaused = isPaused
+		showHotKey?.keyDownHandler = { [weak self] in
+			self?.togglePopover()
+		}
+	}
 
-    private func updateForegroundHotKey() {
-        foregroundHotKey?.isPaused = isPaused
-        foregroundHotKey?.keyDownHandler = { [weak self] in
-            self?.pickForegroundColor()
-        }
-    }
+	private func updateForegroundHotKey() {
+		foregroundHotKey?.isPaused = isPaused
+		foregroundHotKey?.keyDownHandler = { [weak self] in
+			self?.pickForegroundColor()
+		}
+	}
 
-    private func updateBackgroundHotKey() {
-        backgroundHotKey?.isPaused = isPaused
-        backgroundHotKey?.keyDownHandler = { [weak self] in
-            self?.pickBackgroundColor()
-        }
-    }
+	private func updateBackgroundHotKey() {
+		backgroundHotKey?.isPaused = isPaused
+		backgroundHotKey?.keyDownHandler = { [weak self] in
+			self?.pickBackgroundColor()
+		}
+	}
 }

@@ -11,7 +11,6 @@ final class PreferencesWindowController: NSWindowController {
 	@IBOutlet var foregroundRecorder: SRRecorderControl!
 	@IBOutlet var backgroundRecorder: SRRecorderControl!
 
-
 	// MARK: - NSResponder
 
 	override var acceptsFirstResponder: Bool {
@@ -22,11 +21,10 @@ final class PreferencesWindowController: NSWindowController {
 		close()
 	}
 
-
 	// MARK: - NSWindowController
 
 	override var windowNibName: NSNib.Name? {
-        return "Preferences"
+		return "Preferences"
 	}
 
 	override func windowDidLoad() {
@@ -44,7 +42,6 @@ final class PreferencesWindowController: NSWindowController {
 		backgroundRecorder.objectValue = controller.backgroundHotKey?.keyCombo.shortcutRecorderDictionary
 	}
 
-
 	// MARK: - Actions
 
 	@IBAction func changeLaunchAtLogin(_ sender: Any?) {
@@ -59,7 +56,6 @@ final class PreferencesWindowController: NSWindowController {
 	}
 }
 
-
 extension PreferencesWindowController: SRRecorderControlDelegate {
 	func shortcutRecorderShouldBeginRecording(_ aRecorder: SRRecorderControl!) -> Bool {
 		HotKeysController.shared.isPaused = true
@@ -69,7 +65,7 @@ extension PreferencesWindowController: SRRecorderControlDelegate {
 	func shortcutRecorder(_ recorder: SRRecorderControl!, canRecordShortcut aShortcut: [AnyHashable: Any]!) -> Bool {
 		guard let value = aShortcut as? [String: Any],
 			let keyCombo = KeyCombo(shortcutRecorderDictionary: value)
-		else { return false }
+			else { return false }
 
 		if recorder === showRecorder && HotKeysController.shared.showHotKey?.keyCombo == keyCombo {
 			return true
@@ -103,8 +99,9 @@ extension PreferencesWindowController: SRRecorderControlDelegate {
 	private func hotKey(from dictionary: [String: Any]?) -> HotKey? {
 		guard let dictionary = dictionary,
 			let keyCombo = KeyCombo(shortcutRecorderDictionary: dictionary)
-		else { return nil }
+			else { return nil }
 
 		return HotKey(keyCombo: keyCombo)
 	}
 }
+

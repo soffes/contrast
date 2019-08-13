@@ -21,7 +21,6 @@ class ColorsViewController: NSViewController {
 		}
 	}
 
-
 	// MARK: - Properties
 
 	weak var delegate: ColorsViewControllerDelegate?
@@ -106,7 +105,6 @@ class ColorsViewController: NSViewController {
 		}
 	}
 
-
 	// MARK: - Initializers
 
 	init(theme: Theme? = nil, isInPopover: Bool = true) {
@@ -119,7 +117,6 @@ class ColorsViewController: NSViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-
 	// MARK: - NSResponder
 
 	override func cancelOperation(_ sender: Any?) {
@@ -129,7 +126,6 @@ class ColorsViewController: NSViewController {
 			view.window?.close()
 		}
 	}
-
 
 	// MARK: - NSViewController
 
@@ -186,9 +182,9 @@ class ColorsViewController: NSViewController {
 		])
 
 		NotificationCenter.default.addObserver(self, selector: #selector(themeDidChange), name: .themeDidChange,
-                                               object: nil)
+											   object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateTextFields),
-                                               name: UserDefaults.didChangeNotification, object: nil)
+											   name: UserDefaults.didChangeNotification, object: nil)
 		applyTheme()
 	}
 
@@ -214,7 +210,6 @@ class ColorsViewController: NSViewController {
 		eyeDropperController = nil
 	}
 
-
 	// MARK: - Actions
 
 	func pickForeground() {
@@ -239,7 +234,6 @@ class ColorsViewController: NSViewController {
 		NSSound.contrastSwap.forcePlay()
 		theme.swap()
 	}
-
 
 	// MARK: - Private
 
@@ -293,7 +287,6 @@ class ColorsViewController: NSViewController {
 	}
 }
 
-
 extension ColorsViewController: EyeDropperControllerDelegate {
 	func eyeDropperController(_ controller: EyeDropperController, didSelectColor color: NSColor, continuePicking: Bool) {
 		guard let position = position else { return }
@@ -323,12 +316,12 @@ extension ColorsViewController: EyeDropperControllerDelegate {
 	}
 }
 
-
 extension ColorsViewController: NSTextFieldDelegate {
 	func controlTextDidChange(_ notification: Notification) {
-		guard let textField = notification.object as? NSTextField,
-			let color = NSColor(hex: textField.stringValue)
-		else { return }
+		guard let textField = notification.object as? NSTextField, let color = NSColor(hex: textField.stringValue) else
+		{
+				return
+		}
 
 		let hexColor = HexColor(color: color, hex: textField.stringValue)
 
@@ -339,7 +332,6 @@ extension ColorsViewController: NSTextFieldDelegate {
 		}
 	}
 }
-
 
 extension ColorsViewController: TextFieldArrowDelegate {
 	func textField(_ textField: TextField, didPressUpWithShift shift: Bool) {

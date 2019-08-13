@@ -27,7 +27,7 @@ private final class PlainButtonCell: NSButtonCell {
 		rect.origin.y += (bounds.height - rect.height) / 2
 
 		let imageColor = isSettings ? theme.settingsButtonImageColor(isHighlighted: isHighlighted) :
-            theme.buttonImageColor(isHighlighted: isHighlighted)
+			theme.buttonImageColor(isHighlighted: isHighlighted)
 
 		image.tinting(with: imageColor).draw(in: rect)
 
@@ -60,7 +60,6 @@ final class PlainButton: NSButton {
 		}
 	}
 
-
 	// MARK: - Initializers
 
 	override init(frame: NSRect) {
@@ -74,7 +73,6 @@ final class PlainButton: NSButton {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
@@ -84,18 +82,16 @@ final class PlainButton: NSButton {
 		return size
 	}
 
-
 	// MARK: - NSControl
 
 	override class var cellClass: AnyClass? {
-        get {
-            return PlainButtonCell.self
-        }
+		get {
+			return PlainButtonCell.self
+		}
 
-        // swiftlint:disable:next unused_setter_value
-        set {}
+		// swiftlint:disable:next unused_setter_value
+		set {}
 	}
-
 
 	// MARK: - Private
 

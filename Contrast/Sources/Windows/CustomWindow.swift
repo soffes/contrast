@@ -35,7 +35,7 @@ private final class CustomWindowView: NSView {
 	}
 
 	override func updateTrackingAreas() {
-        let options: NSTrackingArea.Options = [.mouseEnteredAndExited, .activeAlways]
+		let options: NSTrackingArea.Options = [.mouseEnteredAndExited, .activeAlways]
 		trackingArea = NSTrackingArea(rect: closeButton.frame, options: options, owner: self, userInfo: nil)
 		super.updateTrackingAreas()
 	}
@@ -51,13 +51,11 @@ private final class CustomWindowView: NSView {
 	}
 }
 
-
 extension CustomWindowView: ColorsViewControllerDelegate {
 	func colorsViewController(_ viewController: ColorsViewController, didChangeTheme theme: Theme) {
 		closeButton.theme = theme
 	}
 }
-
 
 final class CustomWindow: NSWindow {
 
@@ -75,7 +73,6 @@ final class CustomWindow: NSWindow {
 
 	private let customContentView = CustomWindowView()
 	private var customContentViewController: NSViewController?
-
 
 	// MARK: - Initializers
 

@@ -17,7 +17,6 @@ final class EyeDropperWindow: NSWindow {
 		return view.loupeView.screenshot
 	}
 
-
 	// MARK: - Initializers
 
 	init(frame: CGRect) {
@@ -34,7 +33,6 @@ final class EyeDropperWindow: NSWindow {
 		contentView = view
 		view.updateTrackingAreas()
 	}
-
 
 	// MARK: - NSResponder
 
@@ -55,7 +53,6 @@ final class EyeDropperWindow: NSWindow {
 	override func cancelOperation(_ sender: Any?) {
 		customDelegate?.eyeDropperWindowDidCancel(self)
 	}
-
 
 	// MARK: - NSWindow
 

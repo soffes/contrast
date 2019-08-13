@@ -2,35 +2,36 @@ import AppKit
 
 class View: NSView {
 
-    // MARK: - Properties
+	// MARK: - Properties
 
-    var backgroundColor: NSColor? {
-        didSet {
-            updateLayer()
-        }
-    }
+	var backgroundColor: NSColor? {
+		didSet {
+			updateLayer()
+		}
+	}
 
-    // MARK: - Initializers
+	// MARK: - Initializers
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initialize()
-    }
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		initialize()
+	}
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initialize()
-    }
+	required init?(coder: NSCoder) {
+		super.init(coder: coder)
+		initialize()
+	}
 
-    // MARK: - NSView
+	// MARK: - NSView
 
-    override func updateLayer() {
-        layer?.backgroundColor = backgroundColor?.cgColor
-    }
+	override func updateLayer() {
+		layer?.backgroundColor = backgroundColor?.cgColor
+	}
 
-    // MARK: - Private
+	// MARK: - Private
 
-    private func initialize() {
-        wantsLayer = true
-    }
+	private func initialize() {
+		wantsLayer = true
+	}
 }
+

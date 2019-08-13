@@ -15,8 +15,7 @@ final class PopoverController: NSObject {
 
 	weak var delegate: PopoverControllerDelegate?
 
-    private var detachedWindow: NSWindow?
-
+	private var detachedWindow: NSWindow?
 
 	// MARK: - Initializers
 
@@ -32,15 +31,14 @@ final class PopoverController: NSObject {
 
 		// Register for notifications
 		NotificationCenter.default.addObserver(self, selector: #selector(applicationWillResignActive),
-                                               name: NSApplication.willResignActiveNotification, object: nil)
+											   name: NSApplication.willResignActiveNotification, object: nil)
 	}
-
 
 	// MARK: - Actions
 
 	func togglePopover() {
-        detachedWindow?.close()
-        detachedWindow = nil
+		detachedWindow?.close()
+		detachedWindow = nil
 
 		if popover.isShown {
 			if popover.isDetached {
@@ -57,9 +55,9 @@ final class PopoverController: NSObject {
 	@objc func showPopover() {
 		guard Preferences.shared.isTutorialCompleted,
 			let view = delegate?.popoverControllerWillShow(popover: popover)
-		else { return }
+			else { return }
 
-        detachedWindow?.close()
+		detachedWindow?.close()
 		detachedWindow = nil
 
 		NSApp.activate(ignoringOtherApps: true)
@@ -83,7 +81,6 @@ final class PopoverController: NSObject {
 		dismissPopover()
 	}
 }
-
 
 extension PopoverController: NSPopoverDelegate {
 	func popoverDidShow(_ notification: Notification) {
@@ -113,7 +110,6 @@ extension PopoverController: NSPopoverDelegate {
 		return window
 	}
 }
-
 
 extension PopoverController: NSWindowDelegate {
 	func windowWillClose(_ notification: Notification) {

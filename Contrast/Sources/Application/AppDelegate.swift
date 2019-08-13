@@ -22,7 +22,6 @@ import AppKit
 		windowController.window?.center()
 	}
 
-
 	// MARK: - Private
 
 	private func showTutorial() {
@@ -42,7 +41,6 @@ import AppKit
 																	 options: [.deliverImmediately])
 	}
 }
-
 
 extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -94,7 +92,6 @@ extension AppDelegate: NSApplicationDelegate {
 		return true
 	}
 }
-
 
 extension AppDelegate: NSWindowDelegate {
 	func windowWillClose(_ notification: Notification) {

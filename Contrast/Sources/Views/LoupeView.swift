@@ -15,7 +15,7 @@ final class LoupeView: NSView {
 	private let gridView: NSView = {
 		let size = EyeDropperController.captureSize
 		let view = GridView(rows: Int(size.height), columns: Int(size.width),
-                            dimension: EyeDropperController.magnification / 2)
+							dimension: EyeDropperController.magnification / 2)
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
 		return view
@@ -41,7 +41,6 @@ final class LoupeView: NSView {
 		view.layer?.backgroundColor = NSColor(white: 0, alpha: 0.9).cgColor
 		return view
 	}()
-
 
 	// MARK: - Initializers
 
@@ -90,7 +89,6 @@ final class LoupeView: NSView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
 
 	// MARK: - Private
 

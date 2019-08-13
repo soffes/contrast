@@ -16,7 +16,6 @@ final class Preferences {
 		case launchAtLogin = "LaunchAtLogin"
 	}
 
-
 	// MARK: - Properties
 
 	static let shared = Preferences()
@@ -107,7 +106,6 @@ final class Preferences {
 		}
 	}
 
-
 	// MARK: - Initializers
 
 	init(userDefaults: UserDefaults = .standard) {
@@ -118,7 +116,6 @@ final class Preferences {
 			Key.lowercaseHex.rawValue: true
 		])
 	}
-
 
 	// MARK: - Private
 

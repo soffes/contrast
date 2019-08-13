@@ -12,7 +12,6 @@ final class AboutWindowController: NSWindowController {
 		close()
 	}
 
-
 	// MARK: - NSWindowController
 
 	override func windowDidLoad() {

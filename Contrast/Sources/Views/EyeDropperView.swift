@@ -29,7 +29,6 @@ final class EyeDropperView: NSView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-
 	// MARK: - NSResponder
 
 	override func updateTrackingAreas() {
@@ -57,9 +56,8 @@ final class EyeDropperView: NSView {
 		}
 
 		loupeView.isHidden = false
-        positionLoupe(at: event.locationInWindow)
+		positionLoupe(at: event.locationInWindow)
 	}
-
 
 	// MARK: - NSView
 
@@ -84,14 +82,13 @@ final class EyeDropperView: NSView {
 		}
 	}
 
-
 	// MARK: - Positioning
 
 	func positionLoupe(at position: CGPoint) {
-        let scale = window?.screen?.backingScaleFactor ?? 1
+		let scale = window?.screen?.backingScaleFactor ?? 1
 		var position = convert(position, from: nil)
-        position.x = (position.x * scale).rounded(.awayFromZero) / scale
-        position.y = (position.y * scale).rounded(.awayFromZero) / scale
+		position.x = (position.x * scale).rounded(.awayFromZero) / scale
+		position.y = (position.y * scale).rounded(.awayFromZero) / scale
 
 		// Position loupe
 		var rect = loupeView.bounds
@@ -103,17 +100,16 @@ final class EyeDropperView: NSView {
 		loupeView.screenshot = screenshot(at: position).flatMap(Screenshot.init)
 	}
 
-
 	// MARK: - Private
 
 	/// First is the original, second is scaled up
 	private func screenshot(at position: CGPoint) -> (NSImage, NSImage)? {
 		guard let window = window,
 			let screen = window.screen,
-            let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey(rawValue: "NSScreenNumber")] as? UInt32
-		else {
-			loupeView.isHidden = true
-			return nil
+			let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey(rawValue: "NSScreenNumber")] as? UInt32
+			else {
+				loupeView.isHidden = true
+				return nil
 		}
 
 		// Convert the coordinate. I don't fully understand why this works.
@@ -127,20 +123,20 @@ final class EyeDropperView: NSView {
 		let captureSize = EyeDropperController.captureSize
 		let magnification = EyeDropperController.magnification
 		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: position.y - (captureSize.height / 2),
-                                     width: captureSize.width, height: captureSize.height)
+									 width: captureSize.width, height: captureSize.height)
 
 		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID,
-                                                    .shouldBeOpaque) else
-        {
-            return nil
-        }
+													.shouldBeOpaque) else
+		{
+			return nil
+		}
 
 		let original = NSImage(cgImage: cgImage, size: captureSize)
 
 		// Scale screenshot
-        // TODO: Maybe instead of `/ 4` it should be `/ 2 / scale`. Need to verify.
+		// TODO: Maybe instead of `/ 4` it should be `/ 2 / scale`. Need to verify.
 		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4,
-                                width: captureSize.width * magnification, height: captureSize.height * magnification)
+								width: captureSize.width * magnification, height: captureSize.height * magnification)
 		let scaled = NSImage(size: scaledRect.size, flipped: false) { _ in
 			guard let gc = NSGraphicsContext.current else { return false }
 			gc.imageInterpolation = .none

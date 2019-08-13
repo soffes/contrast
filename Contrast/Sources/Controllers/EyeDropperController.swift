@@ -47,7 +47,7 @@ final class EyeDropperController {
 
 	@objc func cancel(_ sender: Any?) {
 		NotificationCenter.default.removeObserver(self, name: NSApplication.didChangeScreenParametersNotification,
-                                                  object: nil)
+												  object: nil)
 		visible = false
 
 		windows.removeAll()
@@ -67,20 +67,19 @@ final class EyeDropperController {
 
 		if !visible {
 			NotificationCenter.default.addObserver(self, selector: #selector(magnify),
-                                                   name: NSApplication.didChangeScreenParametersNotification,
-                                                   object: nil)
+												   name: NSApplication.didChangeScreenParametersNotification,
+												   object: nil)
 		}
 
 		visible = true
 	}
-
 
 	// MARK: - Private
 
 	private func pickColor(with event: NSEvent) {
 		guard let window = event.window as? EyeDropperWindow,
 			let color = window.screenshot?.color
-		else { return }
+			else { return }
 
 		let shouldContinue = event.modifierFlags.contains(NSEvent.ModifierFlags.shift)
 
@@ -96,7 +95,6 @@ final class EyeDropperController {
 
 	var picking = false
 }
-
 
 extension EyeDropperController: EyeDropperWindowDelegate {
 	func eyeDropperWindow(_ window: EyeDropperWindow, didPickColor event: NSEvent) {

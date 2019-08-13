@@ -15,17 +15,17 @@ final class HexFormatter: Formatter {
 	}
 
 	override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String,
-                                 errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool
-    {
+								 errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool
+	{
 		obj?.pointee = string as AnyObject
 		return true
 	}
 
 	override func isPartialStringValid(_ partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString>,
-                                       proposedSelectedRange: NSRangePointer?, originalString: String,
-                                       originalSelectedRange: NSRange,
-                                       errorDescription: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool
-    {
+									   proposedSelectedRange: NSRangePointer?, originalString: String,
+									   originalSelectedRange: NSRange,
+									   errorDescription: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool
+	{
 		var result = true
 		var partialString = partialStringPtr.pointee
 
@@ -49,9 +49,9 @@ final class HexFormatter: Formatter {
 		return result
 	}
 
-    override func attributedString(for obj: Any, withDefaultAttributes attrs: [NSAttributedString.Key: Any]? = nil)
-        -> NSAttributedString?
-    {
+	override func attributedString(for obj: Any, withDefaultAttributes attrs: [NSAttributedString.Key: Any]? = nil)
+		-> NSAttributedString?
+	{
 		return nil
 	}
 }

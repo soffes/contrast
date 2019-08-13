@@ -10,7 +10,6 @@ private final class LabelCell: NSTextFieldCell {
 		}
 	}
 
-
 	// MARK: - NSCell
 
 	override func drawingRect(forBounds theRect: NSRect) -> NSRect {
@@ -26,7 +25,6 @@ private final class LabelCell: NSTextFieldCell {
 		super.drawInterior(withFrame: drawingRect(forBounds: cellFrame), in: controlView)
 	}
 }
-
 
 final class Label: NSTextField {
 
@@ -52,7 +50,6 @@ final class Label: NSTextField {
 		}
 	}
 
-
 	// MARK: - Initializers
 
 	override init(frame frameRect: NSRect) {
@@ -74,7 +71,6 @@ final class Label: NSTextField {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
@@ -84,18 +80,16 @@ final class Label: NSTextField {
 		return size
 	}
 
-
 	// MARK: - NSControl
 
 	override class var cellClass: AnyClass? {
-        get {
-            return LabelCell.self
-        }
+		get {
+			return LabelCell.self
+		}
 
-        // swiftlint:disable:next unused_setter_value
-        set {}
+		// swiftlint:disable:next unused_setter_value
+		set {}
 	}
-
 
 	// MARK: - Setting Text
 

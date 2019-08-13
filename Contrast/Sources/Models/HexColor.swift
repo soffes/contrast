@@ -10,7 +10,6 @@ struct HexColor {
 
 	static let white = HexColor(color: .white, hex: "ffffff")
 
-
 	// MARK: - Initializers
 
 	init(color: NSColor, hex: String) {
@@ -29,7 +28,6 @@ struct HexColor {
 		self.color = color
 		self.hex = hex
 	}
-
 
 	// MARK: - Mutating
 

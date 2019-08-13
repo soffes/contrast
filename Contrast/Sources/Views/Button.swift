@@ -26,7 +26,6 @@ private extension Theme {
 	}
 }
 
-
 private final class ButtonCell: NSButtonCell {
 
 	var theme: Theme = .default
@@ -105,25 +104,22 @@ final class Button: NSButton {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
 		return CGSize(width: 32 + 8, height: 22 + 8)
 	}
 
-
 	// MARK: - NSControl
 
 	override class var cellClass: AnyClass? {
-        get {
-            return ButtonCell.self
-        }
+		get {
+			return ButtonCell.self
+		}
 
-        // swiftlint:disable:next unused_setter_value
-        set {}
+		// swiftlint:disable:next unused_setter_value
+		set {}
 	}
-
 
 	// MARK: - Private
 
@@ -131,3 +127,4 @@ final class Button: NSButton {
 		return cell as? ButtonCell
 	}
 }
+

@@ -6,7 +6,7 @@ final class WelcomeViewController: NSViewController {
 
 	private let orangeView: NSView = {
 		let view = View(frame: CGRect(x: -210, y: 20, width: 254, height: 240))
-        view.backgroundColor = NSColor(named: "Welcome - Orange")
+		view.backgroundColor = NSColor(named: "Welcome - Orange")
 		view.rotate(byDegrees: -315)
 		return view
 	}()
@@ -20,7 +20,7 @@ final class WelcomeViewController: NSViewController {
 
 	private let pinkView: NSView = {
 		let view = View(frame: CGRect(x: 260, y: 232, width: 203, height: 191))
-        view.backgroundColor = NSColor(named: "Welcome - Pink")
+		view.backgroundColor = NSColor(named: "Welcome - Pink")
 		view.rotate(byDegrees: -315)
 		return view
 	}()
@@ -53,9 +53,9 @@ final class WelcomeViewController: NSViewController {
 		paragraph.paragraphSpacing = 20
 
 		let bodyText = NSMutableAttributedString(string: """
-        That’s the estimated number of visually impaired people in the world. 🤓
-        This tool will help you design better interfaces for them. 👍
-        """, attributes: [
+		That’s the estimated number of visually impaired people in the world. 🤓
+		This tool will help you design better interfaces for them. 👍
+		""", attributes: [
 			.foregroundColor: textColor,
 			.font: NSFont.systemFont(ofSize: 14),
 			.paragraphStyle: paragraph
@@ -85,20 +85,18 @@ final class WelcomeViewController: NSViewController {
 		return view
 	}()
 
-
 	// MARK: - NSResponder
 
 	override func cancelOperation(_ sender: Any?) {
 		start()
 	}
 
-
 	// MARK: - NSViewController
 
 	override func loadView() {
 		let view = View()
-        view.backgroundColor = NSColor(named: "Welcome - Background")
-        self.view = view
+		view.backgroundColor = NSColor(named: "Welcome - Background")
+		self.view = view
 	}
 
 	override func viewDidLoad() {
@@ -155,7 +153,6 @@ final class WelcomeViewController: NSViewController {
 			self?.animateIn()
 		}
 	}
-
 
 	// MARK: - Private
 

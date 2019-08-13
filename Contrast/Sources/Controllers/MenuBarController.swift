@@ -16,7 +16,6 @@ final class MenuBarController: NSObject {
 		return popoverController.popover.isShown
 	}
 
-
 	// MARK: - Initializers
 
 	override init() {
@@ -40,14 +39,12 @@ final class MenuBarController: NSObject {
 		}
 	}
 
-
 	// MARK: - Actions
 
 	func showPopover() {
 		popoverController.showPopover()
 	}
 }
-
 
 extension MenuBarController: PopoverControllerDelegate {
 	func popoverControllerWillShow(popover: NSPopover) -> NSView? {

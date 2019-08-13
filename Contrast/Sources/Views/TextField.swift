@@ -22,7 +22,6 @@ private extension Theme {
 	}
 }
 
-
 private final class TextFieldCell: NSTextFieldCell {
 	var theme: Theme = .default
 
@@ -52,17 +51,16 @@ private final class TextFieldCell: NSTextFieldCell {
 	}
 
 	override func select(withFrame rect: NSRect, in controlView: NSView, editor: NSText, delegate: Any?, start: Int,
-                         length: Int)
-    {
+						 length: Int)
+	{
 		super.select(withFrame: adjust(rect), in: controlView, editor: editor, delegate: delegate, start: start,
-                     length: length)
+					 length: length)
 	}
 
 	private func adjust(_ frame: CGRect) -> CGRect {
 		return frame.insetBy(dx: 10, dy: 5)
 	}
 }
-
 
 protocol TextFieldArrowDelegate: class {
 	func textField(_ textField: TextField, didPressUpWithShift shift: Bool)
@@ -81,7 +79,6 @@ final class TextField: NSTextField {
 		}
 	}
 
-
 	// MARK: - Initializers
 
 	override init(frame: NSRect) {
@@ -99,7 +96,6 @@ final class TextField: NSTextField {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
 
 	// MARK: - NSResponder
 
@@ -149,8 +145,8 @@ final class TextField: NSTextField {
 				break
 			}
 		} else if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue)
-            == commandShiftKey
-        {
+			== commandShiftKey
+		{
 			if event.charactersIgnoringModifiers == "Z" {
 				if NSApp.sendAction(Selector(("redo:")), to: nil, from: self) {
 					return true
@@ -161,32 +157,28 @@ final class TextField: NSTextField {
 		return super.performKeyEquivalent(with: event)
 	}
 
-
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
 		return CGSize(width: 62 + 8, height: 22 + 8)
 	}
 
-
 	// MARK: - NSControl
 
 	override class var cellClass: AnyClass? {
-        get {
-            return TextFieldCell.self
-        }
+		get {
+			return TextFieldCell.self
+		}
 
-        // swiftlint:disable:next unused_setter_value
-        set {}
+		// swiftlint:disable:next unused_setter_value
+		set {}
 	}
-
 
 	// MARK: - Private
 
 	private var textFieldCell: TextFieldCell? {
 		return cell as? TextFieldCell
 	}
-
 
 	// MARK: - Private
 
@@ -201,3 +193,4 @@ final class TextField: NSTextField {
 		return (window?.firstResponder as? NSTextView)?.delegate as? NSTextField == self
 	}
 }
+

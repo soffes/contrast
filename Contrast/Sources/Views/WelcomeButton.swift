@@ -3,7 +3,7 @@ import AppKit
 private final class WelcomeButtonCell: NSButtonCell {
 
 	var isPrimary = false
-    private let primaryColor = NSColor(named: "Welcome - Button Primary")!
+	private let primaryColor = NSColor(named: "Welcome - Button Primary")!
 	private let secondaryColor = NSColor(named: "Welcome - Button Secondary")!
 
 	override func drawBezel(withFrame frame: NSRect, in view: NSView) {
@@ -27,7 +27,7 @@ private final class WelcomeButtonCell: NSButtonCell {
 	}
 
 	override func drawInterior(withFrame frame: NSRect, in view: NSView) {
-        var foregroundColor = isPrimary ? NSColor(named: "Welcome - Background")! : NSColor(named: "Welcome - Text")!
+		var foregroundColor = isPrimary ? NSColor(named: "Welcome - Background")! : NSColor(named: "Welcome - Text")!
 
 		if !NSApp.isActive {
 			foregroundColor = foregroundColor.withAlphaComponent(0.7)
@@ -36,11 +36,11 @@ private final class WelcomeButtonCell: NSButtonCell {
 		let title = NSAttributedString(string: self.title, attributes: [
 			.foregroundColor: foregroundColor,
 			.font: NSFont.systemFont(ofSize: 14, weight: NSFont.Weight.medium)
-		])
+			])
 
 		let size = title.size()
 		title.draw(at: CGPoint(x: round((view.bounds.width - size.width) / 2),
-                               y: round((view.bounds.height - size.height) / 2) - 2))
+							   y: round((view.bounds.height - size.height) / 2) - 2))
 	}
 }
 
@@ -58,7 +58,6 @@ final class WelcomeButton: NSButton {
 
 	private let cursor = NSCursor.pointingHand
 
-
 	// MARK: - Initializers
 
 	override init(frame: NSRect) {
@@ -68,15 +67,14 @@ final class WelcomeButton: NSButton {
 		focusRingType = .none
 
 		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange),
-                                               name: NSApplication.didBecomeActiveNotification, object: nil)
+											   name: NSApplication.didBecomeActiveNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(activeDidChange),
-                                               name: NSApplication.didResignActiveNotification, object: nil)
+											   name: NSApplication.didResignActiveNotification, object: nil)
 	}
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
 
 	// MARK: - NSView
 
@@ -89,18 +87,16 @@ final class WelcomeButton: NSButton {
 		addCursorRect(bounds, cursor: cursor)
 	}
 
-
 	// MARK: - NSControl
 
 	override class var cellClass: AnyClass? {
-        get {
-            return WelcomeButtonCell.self
-        }
+		get {
+			return WelcomeButtonCell.self
+		}
 
-        // swiftlint:disable:next unused_setter_value
-        set {}
+		// swiftlint:disable:next unused_setter_value
+		set {}
 	}
-
 
 	// MARK: - Private
 
@@ -108,3 +104,4 @@ final class WelcomeButton: NSButton {
 		setNeedsDisplay()
 	}
 }
+

@@ -1,9 +1,14 @@
 import AppKit
 
 final class GridView: NSView {
+
+	// MARK: - Properties
+
 	let rows: Int
 	let columns: Int
 	let dimension: CGFloat
+
+	// MARK: - Initializers
 
 	/// It's recommended that the rows and columns are even
 	init(rows: Int, columns: Int, dimension: CGFloat) {
@@ -18,6 +23,7 @@ final class GridView: NSView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	// MARK: - NSView
 
 	override func draw(_ dirtyRect: NSRect) {
 		guard let context = NSGraphicsContext.current?.cgContext else { return }
@@ -50,7 +56,7 @@ final class GridView: NSView {
 		// Stroke center square
 		context.setStrokeColor(CGColor(colorSpace: colorSpace, components: [0, 0, 0, 1])!)
 		let center = CGRect(x: CGFloat(columns / 2) * dimension, y: CGFloat(rows / 2) * dimension, width: dimension,
-                            height: dimension)
+							height: dimension)
 		context.stroke(center)
 
 		context.setStrokeColor(CGColor(colorSpace: colorSpace, components: [1, 1, 1, 1])!)

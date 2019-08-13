@@ -10,7 +10,6 @@ private extension Theme {
 	}
 }
 
-
 private final class CloseButtonCell: NSButtonCell {
 
 	var theme: Theme = .default
@@ -59,7 +58,6 @@ final class CloseButton: NSButton {
 		return view
 	}()
 
-
 	// MARK: - Initializers
 
 	override init(frame: NSRect) {
@@ -76,13 +74,11 @@ final class CloseButton: NSButton {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-
 	// MARK: - NSResponder
 
 	override var acceptsFirstResponder: Bool {
 		return false
 	}
-
 
 	// MARK: - NSView
 
@@ -90,18 +86,16 @@ final class CloseButton: NSButton {
 		return CGSize(width: 26, height: 21)
 	}
 
-
 	// MARK: - NSControl
 
 	override class var cellClass: AnyClass? {
-        get {
-            return CloseButtonCell.self
-        }
+		get {
+			return CloseButtonCell.self
+		}
 
-        // swiftlint:disable:next unused_setter_value
-        set {}
+		// swiftlint:disable:next unused_setter_value
+		set {}
 	}
-
 
 	// MARK: - NSButton
 
@@ -110,7 +104,6 @@ final class CloseButton: NSButton {
 			updateImage()
 		}
 	}
-
 
 	// MARK: - Private
 
