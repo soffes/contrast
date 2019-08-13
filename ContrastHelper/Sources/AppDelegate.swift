@@ -17,32 +17,32 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
 		// Launch after 1 second if we don’t recieve a pong. We delay like this to avoid launching if Contrast is
 		// already running.
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-			self?.launchContrast()
-		}
+		launchContrast(after: 1)
 	}
 
 	// MARK: - Private
 
-	@objc private func launchContrast() {
-		// Get application path
-		var  pathComponents = (Bundle.main.bundlePath as NSString).pathComponents
-		pathComponents = Array(pathComponents[0..<(pathComponents.count - 4)])
-		let url = URL(fileURLWithPath: NSString.path(withComponents: pathComponents))
-		NSLog("Contrast path: \(url.path)")
+	@objc private func launchContrast(after timeInterval: TimeInterval) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) { [weak self] in
+			// Get application path
+			var  pathComponents = (Bundle.main.bundlePath as NSString).pathComponents
+			pathComponents = Array(pathComponents[0..<(pathComponents.count - 4)])
+			let url = URL(fileURLWithPath: NSString.path(withComponents: pathComponents))
+			NSLog("Contrast path: \(url.path)")
 
-		// Launch Contrast
-		let options: NSWorkspace.LaunchOptions = [.withoutActivation, .andHide]
-		do {
-			try NSWorkspace.shared.launchApplication(at: url, options: options, configuration: [
-				.arguments: ["quiet"]
-			])
-			NSLog("Launched Contrast. Bye.")
-		} catch {
-			NSLog("Failed to launch Contrast: \(error)")
+			// Launch Contrast
+			let options: NSWorkspace.LaunchOptions = [.withoutActivation, .andHide]
+			do {
+				try NSWorkspace.shared.launchApplication(at: url, options: options, configuration: [
+					.arguments: ["quiet"]
+				])
+				NSLog("Launched Contrast. Bye.")
+			} catch {
+				NSLog("Failed to launch Contrast: \(error)")
+			}
+
+			// Quit helper
+			NSApp.terminate(self)
 		}
-
-		// Quit helper
-		NSApp.terminate(self)
 	}
 }
