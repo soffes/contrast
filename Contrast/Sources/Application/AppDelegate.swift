@@ -9,6 +9,9 @@ import AppKit
 	private var welcomeWindow: NSWindow?
 	private var preferencesWindowController: NSWindowController?
 
+	private var isQuietLaunch: Bool {
+		return CommandLine.arguments.contains("quiet")
+	}
 
 	// MARK: - Actions
 
@@ -31,6 +34,13 @@ import AppKit
 		window.center()
 		welcomeWindow = window
 	}
+
+	@objc private func ping() {
+		print("Received ping. Sending pong…")
+		let pongName = Notification.Name("com.nothingmagical.contrast.notification.pong")
+		DistributedNotificationCenter.default().postNotificationName(pongName, object: nil, userInfo: nil,
+																	 options: [.deliverImmediately])
+	}
 }
 
 
@@ -39,9 +49,14 @@ extension AppDelegate: NSApplicationDelegate {
 		// Start Mixpanel
 		mixpanel.track(event: "Launch")
 
+		// Setup listener for pings from ContrastHelper
+		let pingName = Notification.Name("com.nothingmagical.contrast.notification.ping")
+		DistributedNotificationCenter.default().addObserver(self, selector: #selector(ping), name: pingName,
+															object: nil)
+
 		// Preferences keyboard shortcut
-		NSEvent.addLocalMonitorForEvents(matching: [NSEvent.EventTypeMask.keyDown]) { [weak self] event in
-			if event.modifierFlags.contains(NSEvent.ModifierFlags.command) &&  event.characters == "," {
+		NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { [weak self] event in
+			if event.modifierFlags.contains(.command) &&  event.characters == "," {
 				self?.showPreferences(self)
 				return nil
 			}
@@ -52,16 +67,20 @@ extension AppDelegate: NSApplicationDelegate {
 		_ = HotKeysController.shared
 
 		// Check for tutorial completion
-		if Preferences.shared.isTutorialCompleted {
-			// For some reason it launches all stupid, so defer it
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-                self?.menuBarController.showPopover()
-            }
-			return
-		}
+		if !Preferences.shared.isTutorialCompleted {
+			// Show tutorial
+			showTutorial()
+		} else {
+			// Don’t show the popover if it’s a quiet launch (i.e. launch at login)
+			if isQuietLaunch {
+				return
+			}
 
-		// Show tutorial
-		showTutorial()
+			// For some reason it launches all stupid, so defer it
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+				self?.menuBarController.showPopover()
+			}
+		}
 	}
 
 	func applicationDidBecomeActive(_ notification: Notification) {
