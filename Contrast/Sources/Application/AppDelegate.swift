@@ -9,9 +9,9 @@ import AppKit
 	private var welcomeWindow: NSWindow?
 	private var preferencesWindowController: NSWindowController?
 
-    private var isQuietLaunch: Bool {
-        return CommandLine.arguments.contains("quiet")
-    }
+	private var isQuietLaunch: Bool {
+		return CommandLine.arguments.contains("quiet")
+	}
 
 	// MARK: - Actions
 
@@ -35,12 +35,12 @@ import AppKit
 		welcomeWindow = window
 	}
 
-    @objc private func ping() {
-        print("Received ping. Sending pong…")
-        let pongName = Notification.Name("com.nothingmagical.contrast.notification.pong")
-        DistributedNotificationCenter.default().postNotificationName(pongName, object: nil, userInfo: nil,
-                                                                     options: [.deliverImmediately])
-    }
+	@objc private func ping() {
+		print("Received ping. Sending pong…")
+		let pongName = Notification.Name("com.nothingmagical.contrast.notification.pong")
+		DistributedNotificationCenter.default().postNotificationName(pongName, object: nil, userInfo: nil,
+																	 options: [.deliverImmediately])
+	}
 }
 
 
@@ -49,10 +49,10 @@ extension AppDelegate: NSApplicationDelegate {
 		// Start Mixpanel
 		mixpanel.track(event: "Launch")
 
-        // Setup listener for pings from ContrastHelper
-        let pingName = Notification.Name("com.nothingmagical.contrast.notification.ping")
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(ping), name: pingName,
-                                                            object: nil)
+		// Setup listener for pings from ContrastHelper
+		let pingName = Notification.Name("com.nothingmagical.contrast.notification.ping")
+		DistributedNotificationCenter.default().addObserver(self, selector: #selector(ping), name: pingName,
+															object: nil)
 
 		// Preferences keyboard shortcut
 		NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { [weak self] event in
@@ -68,18 +68,18 @@ extension AppDelegate: NSApplicationDelegate {
 
 		// Check for tutorial completion
 		if !Preferences.shared.isTutorialCompleted {
-            // Show tutorial
-            showTutorial()
-        } else {
-            // Don’t show the popover if it’s a quiet launch (i.e. launch at login)
-            if isQuietLaunch {
-                return
-            }
+			// Show tutorial
+			showTutorial()
+		} else {
+			// Don’t show the popover if it’s a quiet launch (i.e. launch at login)
+			if isQuietLaunch {
+				return
+			}
 
 			// For some reason it launches all stupid, so defer it
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-                self?.menuBarController.showPopover()
-            }
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+				self?.menuBarController.showPopover()
+			}
 		}
 	}
 

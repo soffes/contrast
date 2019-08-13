@@ -356,6 +356,7 @@
 				218487071F04642C009EE112 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		218487071F04642C009EE112 /* Products */ = {
 			isa = PBXGroup;
