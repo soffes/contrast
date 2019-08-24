@@ -34,4 +34,3 @@ class View: NSView {
 		wantsLayer = true
 	}
 }
-

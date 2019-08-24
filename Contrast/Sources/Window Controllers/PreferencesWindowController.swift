@@ -104,4 +104,3 @@ extension PreferencesWindowController: SRRecorderControlDelegate {
 		return HotKey(keyCombo: keyCombo)
 	}
 }
-

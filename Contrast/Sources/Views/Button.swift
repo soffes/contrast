@@ -127,4 +127,3 @@ final class Button: NSButton {
 		return cell as? ButtonCell
 	}
 }
-

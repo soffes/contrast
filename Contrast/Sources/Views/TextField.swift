@@ -193,4 +193,3 @@ final class TextField: NSTextField {
 		return (window?.firstResponder as? NSTextView)?.delegate as? NSTextField == self
 	}
 }
-
