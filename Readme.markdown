@@ -12,4 +12,4 @@ Contrast uses [Carthage](https://github.com/carthage/carthage) for dependencies.
 
     $ rake bootstrap
 
-Now open Xcode 10.2.1 or later and click ▶️
+Now open Xcode 10.3 or later and click ▶️
