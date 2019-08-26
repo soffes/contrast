@@ -1,0 +1,13 @@
+name: Build
+on: [push]
+jobs:
+  build:
+    name: Build
+    runs-on: macOS-10.14
+    timeout-minutes: 5
+    steps:
+      - name: 'Install Carthage'
+        run: brew install carthage
+      - uses: actions/checkout@v1
+      - name: 'Build'
+        run: rake build

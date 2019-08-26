@@ -2,6 +2,8 @@ TEAM_ID = 'UP9C8XM22A'
 APP_NAME = 'Contrast'
 SCHEME_NAME = APP_NAME
 
+build_dir = 'build'
+
 desc 'Gather dependencies'
 task :bootstrap do
   sh 'carthage bootstrap --platform macOS'
@@ -9,14 +11,15 @@ end
 
 desc 'Build'
 task :build do
-  # Bootstrap if neccessary
-  unless Dir.exists?('Carthage')
-    Rake::Task['bootstrap'].invoke()
-  end
+  bootstrap_if_needed
 
-  # Start with a clean state
-  build_dir = 'build'
-  sh %(rm -rf #{build_dir})
+  sh %(mkdir -p #{build_dir})
+  sh %(xcodebuild build -scheme "#{SCHEME_NAME}" -derivedDataPath "#{build_dir}")
+end
+
+desc 'Archive'
+task :archive => :build do
+  bootstrap_if_needed
 
   # Build
   sh %(mkdir -p #{build_dir})
@@ -119,4 +122,10 @@ def recent_changes(latest_tag = `git describe --tags --abbrev=0`.chomp)
   # Print changes since last tag
   log = `git log #{scope} --pretty=format:'%s' --abbrev-commit`.chomp
   puts log.gsub(/^([\w])/, '• \1') + "\n\n"
+end
+
+def bootstrap_if_needed
+  unless Dir.exists?('Carthage')
+    Rake::Task['bootstrap'].invoke()
+  end
 end
