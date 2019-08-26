@@ -14,7 +14,9 @@ task :build do
   bootstrap_if_needed
 
   sh %(mkdir -p #{build_dir})
-  sh %(xcodebuild build -scheme "#{SCHEME_NAME}" -derivedDataPath "#{build_dir}")
+
+  signing = ENV['NO_SIGNING'] ? 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO' : ''
+  sh %(xcodebuild build -scheme "#{SCHEME_NAME}" -derivedDataPath "#{build_dir}" #{signing})
 end
 
 desc 'Archive'
