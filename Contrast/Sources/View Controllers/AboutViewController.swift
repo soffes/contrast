@@ -4,7 +4,7 @@ class AboutViewController: NSViewController {
 
 	// MARK: - Properties
 
-	@IBOutlet var versionLabel: NSTextField!
+	@IBOutlet private var versionLabel: NSTextField!
 
 	// MARK: - NSViewController
 

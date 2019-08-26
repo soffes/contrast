@@ -8,9 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="Contrast" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundRecorder" destination="t5e-47-eGa" id="YVF-ti-xfq"/>
-                <outlet property="foregroundRecorder" destination="eZT-Y0-4rw" id="HnO-qf-ybb"/>
-                <outlet property="showRecorder" destination="86w-aH-3YE" id="alv-dN-rDq"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="iUf-6b-nY0"/>
             </connections>
         </customObject>
@@ -22,17 +19,17 @@
             <rect key="contentRect" x="196" y="240" width="446" height="324"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="434" height="229"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="434" height="220"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="1000" verticalStackHuggingPriority="1000" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IHp-hG-8lx">
-                        <rect key="frame" x="20" y="20" width="394" height="189"/>
+                        <rect key="frame" x="20" y="20" width="394" height="180"/>
                         <subviews>
                             <gridView verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="8" columnSpacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Azd-8I-Uwz">
-                                <rect key="frame" x="0.0" y="98" width="394" height="91"/>
+                                <rect key="frame" x="0.0" y="98" width="394" height="82"/>
                                 <constraints>
-                                    <constraint firstItem="eZT-Y0-4rw" firstAttribute="width" secondItem="86w-aH-3YE" secondAttribute="width" id="SFU-JE-K8i"/>
-                                    <constraint firstItem="t5e-47-eGa" firstAttribute="width" secondItem="86w-aH-3YE" secondAttribute="width" id="qJi-G1-cf3"/>
+                                    <constraint firstItem="nAm-BT-eas" firstAttribute="width" secondItem="Tss-VW-77x" secondAttribute="width" id="EP0-Bp-dcC"/>
+                                    <constraint firstItem="Hct-V9-hh3" firstAttribute="width" secondItem="Tss-VW-77x" secondAttribute="width" id="tfX-DF-75I"/>
                                 </constraints>
                                 <rows>
                                     <gridRow id="muF-Wf-VQo"/>
@@ -46,7 +43,7 @@
                                 <gridCells>
                                     <gridCell row="muF-Wf-VQo" column="5CO-FU-INQ" id="hhY-9x-4ML">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qat-p0-pLu">
-                                            <rect key="frame" x="59" y="66" width="141" height="25"/>
+                                            <rect key="frame" x="59" y="60" width="141" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Global Show/Hide Key:" id="71r-AQ-hCd">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -55,23 +52,24 @@
                                         </textField>
                                     </gridCell>
                                     <gridCell row="muF-Wf-VQo" column="rIj-fI-POr" id="Hv4-tu-Ncz">
-                                        <customView key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="86w-aH-3YE" customClass="SRRecorderControl">
-                                            <rect key="frame" x="210" y="66" width="164" height="25"/>
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tss-VW-77x" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
+                                            <rect key="frame" x="210" y="60" width="164" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="164" id="0kW-ph-nPY"/>
-                                                <constraint firstAttribute="height" constant="25" id="8a6-Mf-ivd"/>
+                                                <constraint firstAttribute="width" constant="164" id="hF4-M7-hWu"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEmptyModifierFlags" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="drawsASCIIEquivalentOfShortcut" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEscapeToCancelRecording" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDeleteToClearShortcutAndEndRecording" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </customView>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="2yZ-s1-IWs">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <outlet property="nextKeyView" destination="nAm-BT-eas" id="ioY-Ab-Ptb"/>
+                                            </connections>
+                                        </textField>
                                     </gridCell>
                                     <gridCell row="vL3-k1-lPp" column="5CO-FU-INQ" id="aw7-xb-M3s">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oLI-hU-M6U">
-                                            <rect key="frame" x="25" y="33" width="175" height="25"/>
+                                            <rect key="frame" x="25" y="30" width="175" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Global Pick Foreground Key:" id="pz0-7I-C2J">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -80,22 +78,18 @@
                                         </textField>
                                     </gridCell>
                                     <gridCell row="vL3-k1-lPp" column="rIj-fI-POr" id="8K5-vg-VxE">
-                                        <customView key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="eZT-Y0-4rw" customClass="SRRecorderControl">
-                                            <rect key="frame" x="210" y="33" width="164" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="Jvu-QH-0yN"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDeleteToClearShortcutAndEndRecording" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEscapeToCancelRecording" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEmptyModifierFlags" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="drawsASCIIEquivalentOfShortcut" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </customView>
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-BT-eas" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
+                                            <rect key="frame" x="210" y="30" width="164" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Fno-YI-YbD">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </gridCell>
                                     <gridCell row="LHx-3a-O7o" column="5CO-FU-INQ" id="CM8-zI-ULs">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5rk-JU-TA7">
-                                            <rect key="frame" x="22" y="0.0" width="178" height="25"/>
+                                            <rect key="frame" x="22" y="0.0" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Global Pick Background Key:" id="PTi-3X-0f0">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -104,18 +98,14 @@
                                         </textField>
                                     </gridCell>
                                     <gridCell row="LHx-3a-O7o" column="rIj-fI-POr" id="9bp-f7-rMR">
-                                        <customView key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-47-eGa" customClass="SRRecorderControl">
-                                            <rect key="frame" x="210" y="0.0" width="164" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="ZC9-3S-ZHg"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEmptyModifierFlags" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="drawsASCIIEquivalentOfShortcut" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsEscapeToCancelRecording" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDeleteToClearShortcutAndEndRecording" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </customView>
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hct-V9-hh3" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
+                                            <rect key="frame" x="210" y="0.0" width="164" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="A8f-rq-NFB">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </gridCell>
                                 </gridCells>
                             </gridView>
@@ -148,6 +138,7 @@
                                             <connections>
                                                 <action selector="changeLaunchAtLogin:" target="-2" id="ivC-qi-FZ0"/>
                                                 <binding destination="ahI-Qj-FyQ" name="value" keyPath="values.LaunchAtLogin" id="Xzy-Oa-0gq"/>
+                                                <outlet property="nextKeyView" destination="XqL-E2-KRe" id="dw1-9g-9PP"/>
                                             </connections>
                                         </button>
                                     </gridCell>
@@ -161,6 +152,7 @@
                                             </buttonCell>
                                             <connections>
                                                 <binding destination="ahI-Qj-FyQ" name="value" keyPath="values.SoundsEnabled" id="VBK-d7-Xlx"/>
+                                                <outlet property="nextKeyView" destination="uXs-oZ-9T5" id="bgd-2L-vh3"/>
                                             </connections>
                                         </button>
                                     </gridCell>
@@ -174,6 +166,7 @@
                                             </buttonCell>
                                             <connections>
                                                 <binding destination="ahI-Qj-FyQ" name="value" keyPath="values.LowercaseHex" id="u7r-V1-uXm"/>
+                                                <outlet property="nextKeyView" destination="Tss-VW-77x" id="cPn-d5-ptq"/>
                                             </connections>
                                         </button>
                                     </gridCell>
