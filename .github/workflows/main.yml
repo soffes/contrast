@@ -4,7 +4,7 @@ jobs:
   build:
     name: Build
     runs-on: macOS-10.14
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v1
       - name: 'Select Xcode 10.3'
