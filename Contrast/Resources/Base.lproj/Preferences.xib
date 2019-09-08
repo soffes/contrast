@@ -16,7 +16,7 @@
         <window title="Contrast" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="PlainWindow" customModule="Contrast" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="446" height="324"/>
+            <rect key="contentRect" x="196" y="240" width="446" height="232"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="434" height="220"/>
@@ -27,10 +27,6 @@
                         <subviews>
                             <gridView verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="8" columnSpacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Azd-8I-Uwz">
                                 <rect key="frame" x="0.0" y="98" width="394" height="82"/>
-                                <constraints>
-                                    <constraint firstItem="nAm-BT-eas" firstAttribute="width" secondItem="Tss-VW-77x" secondAttribute="width" id="EP0-Bp-dcC"/>
-                                    <constraint firstItem="Hct-V9-hh3" firstAttribute="width" secondItem="Tss-VW-77x" secondAttribute="width" id="tfX-DF-75I"/>
-                                </constraints>
                                 <rows>
                                     <gridRow id="muF-Wf-VQo"/>
                                     <gridRow id="vL3-k1-lPp"/>
@@ -52,20 +48,17 @@
                                         </textField>
                                     </gridCell>
                                     <gridCell row="muF-Wf-VQo" column="rIj-fI-POr" id="Hv4-tu-Ncz">
-                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tss-VW-77x" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
+                                        <searchField key="contentView" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTz-4P-ODh" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
                                             <rect key="frame" x="210" y="60" width="164" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="164" id="hF4-M7-hWu"/>
+                                                <constraint firstAttribute="width" constant="164" id="DGw-Rg-wR6"/>
                                             </constraints>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="2yZ-s1-IWs">
-                                                <font key="font" usesAppearanceFont="YES"/>
+                                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="tz6-Xr-Xdq">
+                                                <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <outlet property="nextKeyView" destination="nAm-BT-eas" id="ioY-Ab-Ptb"/>
-                                            </connections>
-                                        </textField>
+                                            </searchFieldCell>
+                                        </searchField>
                                     </gridCell>
                                     <gridCell row="vL3-k1-lPp" column="5CO-FU-INQ" id="aw7-xb-M3s">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oLI-hU-M6U">
@@ -78,14 +71,17 @@
                                         </textField>
                                     </gridCell>
                                     <gridCell row="vL3-k1-lPp" column="rIj-fI-POr" id="8K5-vg-VxE">
-                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-BT-eas" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
+                                        <searchField key="contentView" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruv-Zc-XCh" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
                                             <rect key="frame" x="210" y="30" width="164" height="22"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Fno-YI-YbD">
-                                                <font key="font" usesAppearanceFont="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="164" id="Dqd-nN-hpK"/>
+                                            </constraints>
+                                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="Sy2-oa-Aq3">
+                                                <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
+                                            </searchFieldCell>
+                                        </searchField>
                                     </gridCell>
                                     <gridCell row="LHx-3a-O7o" column="5CO-FU-INQ" id="CM8-zI-ULs">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5rk-JU-TA7">
@@ -98,14 +94,17 @@
                                         </textField>
                                     </gridCell>
                                     <gridCell row="LHx-3a-O7o" column="rIj-fI-POr" id="9bp-f7-rMR">
-                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hct-V9-hh3" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
+                                        <searchField key="contentView" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00k-Bi-pY7" customClass="ShortcutTextField" customModule="Contrast" customModuleProvider="target">
                                             <rect key="frame" x="210" y="0.0" width="164" height="22"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="A8f-rq-NFB">
-                                                <font key="font" usesAppearanceFont="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="164" id="ZAg-RG-hds"/>
+                                            </constraints>
+                                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="KIq-4a-Xo5">
+                                                <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
+                                            </searchFieldCell>
+                                        </searchField>
                                     </gridCell>
                                 </gridCells>
                             </gridView>
@@ -166,7 +165,6 @@
                                             </buttonCell>
                                             <connections>
                                                 <binding destination="ahI-Qj-FyQ" name="value" keyPath="values.LowercaseHex" id="u7r-V1-uXm"/>
-                                                <outlet property="nextKeyView" destination="Tss-VW-77x" id="cPn-d5-ptq"/>
                                             </connections>
                                         </button>
                                     </gridCell>
@@ -195,7 +193,10 @@
                     <constraint firstAttribute="trailing" secondItem="IHp-hG-8lx" secondAttribute="trailing" constant="20" id="Xvr-jx-xMV"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="182" y="153"/>
+            <connections>
+                <outlet property="initialFirstResponder" destination="Ia2-CC-UXc" id="F2Q-Cq-RcA"/>
+            </connections>
+            <point key="canvasLocation" x="182" y="107"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="ahI-Qj-FyQ"/>
     </objects>
