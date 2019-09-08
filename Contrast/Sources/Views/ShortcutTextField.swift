@@ -5,7 +5,7 @@ protocol ShortcutTextFieldDelegate: AnyObject {
 	func shortcutTextField(_ textField: ShortcutTextField, willChoose keyCombo: KeyCombo) -> Bool
 }
 
-final class ShortcutTextField: NSTextField {
+final class ShortcutTextField: NSSearchField {
 
 	// MARK: - Properties
 
@@ -48,6 +48,16 @@ final class ShortcutTextField: NSTextField {
 		willSet {
 			monitor.flatMap(NSEvent.removeMonitor)
 		}
+	}
+
+	// MARK: - NSObject
+
+	override func awakeFromNib() {
+		super.awakeFromNib()
+
+		// Remove search appearance
+		(cell as? NSSearchFieldCell)?.searchButtonCell = nil
+		placeholderString = ""
 	}
 
 	// MARK: - NSResponder
@@ -124,8 +134,10 @@ final class ShortcutTextField: NSTextField {
 			return false
 		}
 
-		// Don’t allow shortcuts already in use by the system
-		if KeyCombo.systemHotKeys().contains(keyCombo) {
+		let disallowed = KeyCombo.systemKeyCombos() + KeyCombo.keyCombosInMainMenu() + KeyCombo.standardKeyCombos()
+
+		// Don’t allow shortcuts already in use by the system or app
+		if disallowed.contains(keyCombo) {
 			NSSound.beep()
 			return false
 		}
