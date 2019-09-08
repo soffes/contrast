@@ -3,6 +3,9 @@ import Carbon
 import HotKey
 
 extension KeyCombo {
+	/// All system key combos
+	///
+	/// - returns: array of key combos
 	static func systemKeyCombos() -> [KeyCombo] {
 		var unmanagedGlobalHotkeys: Unmanaged<CFArray>?
 		guard CopySymbolicHotKeys(&unmanagedGlobalHotkeys) == noErr,
@@ -22,11 +25,16 @@ extension KeyCombo {
 			}
 
 			let keyCombo = KeyCombo(carbonKeyCode: keyCode, carbonModifiers: modifiers)
+
+			// Several of these aren’t valid key combos. Filter them out so consumers don’t have to think about this.
 			return keyCombo.isValid ? keyCombo : nil
 		}
 	}
 
-	static func keyCombosInMainMenu() -> [KeyCombo] {
+	/// All key combos in the application’s main window
+	///
+	/// - returns: array of key combos
+	static func mainMenuKeyCombos() -> [KeyCombo] {
 		guard let menu = NSApp.mainMenu else {
 			return []
 		}
@@ -34,6 +42,11 @@ extension KeyCombo {
 		return keyCombos(in: menu)
 	}
 
+	/// Recursively find key combos in a menu
+	///
+	/// - parameter menu: menu to search
+	///
+	/// - returns: array of key combos
 	static func keyCombos(in menu: NSMenu) -> [KeyCombo] {
 		var keyCombos = [KeyCombo]()
 
@@ -50,6 +63,9 @@ extension KeyCombo {
 		return keyCombos
 	}
 
+	/// Standard application key combos
+	///
+	/// - returns: array of key combos
 	static func standardKeyCombos() -> [KeyCombo] {
 		return [
 			// Application
