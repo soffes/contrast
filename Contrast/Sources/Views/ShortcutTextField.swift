@@ -1,9 +1,15 @@
 import AppKit
 import HotKey
 
+protocol ShortcutTextFieldDelegate: AnyObject {
+	func shortcutTextField(_ textField: ShortcutTextField, willChoose keyCombo: KeyCombo) -> Bool
+}
+
 final class ShortcutTextField: NSTextField {
 
 	// MARK: - Properties
+
+	weak var keyComboDelegate: ShortcutTextFieldDelegate?
 
 	var keyCombo: KeyCombo? {
 		didSet {
@@ -66,6 +72,12 @@ final class ShortcutTextField: NSTextField {
 
 					let keyCombo = KeyCombo(key: key, modifiers: event.modifierFlags)
 
+					// Delete clears the key combo
+					if keyCombo.key == .delete && keyCombo.modifiers.isEmpty {
+						self?.keyCombo = nil
+						return nil
+					}
+
 					if self?.isValid(keyCombo) == true {
 						self?.keyCombo = keyCombo
 					}
@@ -112,7 +124,17 @@ final class ShortcutTextField: NSTextField {
 			return false
 		}
 
-		// TODO: Blacklist stuff like quit, close, etc.
+		// Don’t allow shortcuts already in use by the system
+		if KeyCombo.systemHotKeys().contains(keyCombo) {
+			NSSound.beep()
+			return false
+		}
+
+		// Let the delegate reject key combo
+		if keyComboDelegate?.shortcutTextField(self, willChoose: keyCombo) == false {
+			NSSound.beep()
+			return false
+		}
 
 		return true
 	}

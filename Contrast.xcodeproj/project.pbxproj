@@ -11,6 +11,7 @@
 		210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; };
 		211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2143BBCE2325615000F7A4D7 /* KeyCombo+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143BBCD2325615000F7A4D7 /* KeyCombo+System.swift */; };
 		214AD806203BD545000207A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F3203BD545000207A6 /* Assets.xcassets */; };
 		214AD807203BD545000207A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F4203BD545000207A6 /* Main.storyboard */; };
 		214AD808203BD545000207A6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F6203BD545000207A6 /* Preferences.xib */; };
@@ -106,6 +107,7 @@
 /* Begin PBXFileReference section */
 		210C71C21F1EA2B500A1B983 /* Color.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Color.framework; sourceTree = "<group>"; };
 		2112382E1F17CF2E00A837D4 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = "<group>"; };
+		2143BBCD2325615000F7A4D7 /* KeyCombo+System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+System.swift"; sourceTree = "<group>"; };
 		214AD7F3203BD545000207A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214AD7F5203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		214AD7F7203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 		2182D24420D582BD000B5CD8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2143BBCD2325615000F7A4D7 /* KeyCombo+System.swift */,
 				2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */,
 				2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */,
 				2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */,
@@ -648,6 +651,7 @@
 				2182D26B20D582BD000B5CD8 /* HexFormatter.swift in Sources */,
 				2182D27320D582BD000B5CD8 /* Preferences.swift in Sources */,
 				2182D25D20D582BD000B5CD8 /* Theme.swift in Sources */,
+				2143BBCE2325615000F7A4D7 /* KeyCombo+System.swift in Sources */,
 				2182D25920D582BD000B5CD8 /* ColorsViewController.swift in Sources */,
 				2182D27920D582BD000B5CD8 /* PlainWindow.swift in Sources */,
 				2182D27B20D582BD000B5CD8 /* EyeDropperWindow.swift in Sources */,
