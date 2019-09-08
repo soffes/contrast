@@ -3,6 +3,7 @@ import HotKey
 
 protocol ShortcutTextFieldDelegate: AnyObject {
 	func shortcutTextField(_ textField: ShortcutTextField, willChoose keyCombo: KeyCombo) -> Bool
+	func shortcutTextField(_ textField: ShortcutTextField, didChoose keyCombo: KeyCombo?)
 }
 
 final class ShortcutTextField: NSSearchField {
@@ -13,34 +14,12 @@ final class ShortcutTextField: NSSearchField {
 
 	var keyCombo: KeyCombo? {
 		didSet {
-			guard let keyCombo = keyCombo, let key = keyCombo.key else {
+			guard let keyCombo = keyCombo else {
 				stringValue = ""
 				return
 			}
 
-			let modifiers = keyCombo.modifiers.intersection(.deviceIndependentFlagsMask)
-
-			var value = ""
-
-			if modifiers.contains(.command) {
-				value += "⌘"
-			}
-
-			if modifiers.contains(.option) {
-				value += "⌥"
-			}
-
-			if modifiers.contains(.shift) {
-				value += "⇧"
-			}
-
-			if modifiers.contains(.control) {
-				value += "⌃"
-			}
-
-			value += key.description
-
-			stringValue = value
+			stringValue = keyCombo.description
 		}
 	}
 
@@ -55,56 +34,79 @@ final class ShortcutTextField: NSSearchField {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 
+		let searchCell = cell as? NSSearchFieldCell
+
 		// Remove search appearance
-		(cell as? NSSearchFieldCell)?.searchButtonCell = nil
-		placeholderString = ""
+		searchCell?.searchButtonCell = nil
+		placeholderString = "Choose shortcut"
+
+		// Update clear button
+		searchCell?.cancelButtonCell?.target = self
+		searchCell?.cancelButtonCell?.action = #selector(clear)
 	}
 
 	// MARK: - NSResponder
 
 	@discardableResult
 	override func becomeFirstResponder() -> Bool {
-		let isFirstResponder = super.becomeFirstResponder()
-
-		if isFirstResponder {
-			monitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { [weak self] event in
-				if let key = Key(carbonKeyCode: UInt32(event.keyCode)) {
-					if key == .escape {
-						self?.window?.makeFirstResponder(nil)
-						return nil
-					}
-
-					// TODO: This doesn't work
-					if key == .tab {
-						self?.window?.makeFirstResponder(self?.nextKeyView)
-						return nil
-					}
-
-					let keyCombo = KeyCombo(key: key, modifiers: event.modifierFlags)
-
-					// Delete clears the key combo
-					if keyCombo.key == .delete && keyCombo.modifiers.isEmpty {
-						self?.keyCombo = nil
-						return nil
-					}
-
-					if self?.isValid(keyCombo) == true {
-						self?.keyCombo = keyCombo
-					}
-				}
-
-				return nil
-			}
+		guard super.becomeFirstResponder() else {
+			return false
 		}
 
-		return isFirstResponder
+		placeholderString = "Type shortcut"
+
+		monitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { [weak self] event in
+			guard let this = self, let key = Key(carbonKeyCode: UInt32(event.keyCode)) else {
+				return nil
+			}
+
+			// Escape loses focus
+			if key == .escape {
+				this.window?.makeFirstResponder(nil)
+				return nil
+			}
+
+			// TODO: This doesn't work
+			if key == .tab {
+				this.window?.makeFirstResponder(this.nextKeyView)
+				return nil
+			}
+
+			let keyCombo = KeyCombo(key: key, modifiers: event.modifierFlags)
+
+			// Delete clears the key combo
+			if keyCombo.key == .delete && keyCombo.modifiers.isEmpty {
+				this.keyCombo = nil
+				this.keyComboDelegate?.shortcutTextField(this, didChoose: keyCombo)
+				return nil
+			}
+
+			if this.isValid(keyCombo) {
+				this.keyCombo = keyCombo
+				this.keyComboDelegate?.shortcutTextField(this, didChoose: keyCombo)
+				this.window?.makeFirstResponder(nil)
+			}
+
+			return nil
+		}
+
+		return true
 	}
 
 	// MARK: - NSTextField
 
 	override func textDidEndEditing(_ notification: Notification) {
 		super.textDidEndEditing(notification)
+		placeholderString = "Choose shortcut"
 		monitor = nil
+	}
+
+	// MARK: - Actions
+
+	@objc
+	func clear() {
+		keyCombo = nil
+		keyComboDelegate?.shortcutTextField(self, didChoose: nil)
 	}
 
 	// MARK: - Private
@@ -134,7 +136,7 @@ final class ShortcutTextField: NSSearchField {
 			return false
 		}
 
-		let disallowed = KeyCombo.systemKeyCombos() + KeyCombo.keyCombosInMainMenu() + KeyCombo.standardKeyCombos()
+		let disallowed = KeyCombo.systemKeyCombos() + KeyCombo.mainMenuKeyCombos() + KeyCombo.standardKeyCombos()
 
 		// Don’t allow shortcuts already in use by the system or app
 		if disallowed.contains(keyCombo) {

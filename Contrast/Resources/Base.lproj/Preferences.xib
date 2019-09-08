@@ -8,6 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="Contrast" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundRecorder" destination="00k-Bi-pY7" id="4mp-PH-tZk"/>
+                <outlet property="foregroundRecorder" destination="Ruv-Zc-XCh" id="jqW-eK-j0c"/>
+                <outlet property="showRecorder" destination="uTz-4P-ODh" id="4Bf-Mw-vMN"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="iUf-6b-nY0"/>
             </connections>
         </customObject>
