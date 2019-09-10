@@ -36,6 +36,8 @@ final class ShortcutTextField: NSSearchField {
 
 		let searchCell = cell as? NSSearchFieldCell
 
+		alignment = .center
+
 		// Remove search appearance
 		searchCell?.searchButtonCell = nil
 		placeholderString = "Choose shortcut"
