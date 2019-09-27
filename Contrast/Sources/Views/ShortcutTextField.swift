@@ -79,7 +79,7 @@ final class ShortcutTextField: NSSearchField {
 			// Delete clears the key combo
 			if keyCombo.key == .delete && keyCombo.modifiers.isEmpty {
 				this.keyCombo = nil
-				this.keyComboDelegate?.shortcutTextField(this, didChoose:  nil)
+				this.keyComboDelegate?.shortcutTextField(this, didChoose: nil)
 				return nil
 			}
 
