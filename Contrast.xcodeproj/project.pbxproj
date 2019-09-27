@@ -3,14 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; };
-		210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 210C71C21F1EA2B500A1B983 /* Color.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; };
-		211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2112382E1F17CF2E00A837D4 /* Mixpanel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2143BBCE2325615000F7A4D7 /* KeyCombo+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143BBCD2325615000F7A4D7 /* KeyCombo+System.swift */; };
 		214AD806203BD545000207A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F3203BD545000207A6 /* Assets.xcassets */; };
 		214AD807203BD545000207A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F4203BD545000207A6 /* Main.storyboard */; };
@@ -23,6 +19,9 @@
 		214AD80E203BD545000207A6 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FF203BD545000207A6 /* dsa_pub.pem */; };
 		214AD80F203BD545000207A6 /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 214AD801203BD545000207A6 /* Native-Regular.ttf */; };
 		2156F0E82313946500262926 /* ShortcutTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156F0E72313946500262926 /* ShortcutTextField.swift */; };
+		21739E4B233E960200F3A8EF /* Color in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E4A233E960200F3A8EF /* Color */; };
+		21739E4E233E961100F3A8EF /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E4D233E961100F3A8EF /* HotKey */; };
+		21739E64233E985C00F3A8EF /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E63233E985C00F3A8EF /* Mixpanel */; };
 		2182D25820D582BD000B5CD8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22C20D582BD000B5CD8 /* WelcomeViewController.swift */; };
 		2182D25920D582BD000B5CD8 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22D20D582BD000B5CD8 /* ColorsViewController.swift */; };
 		2182D25A20D582BD000B5CD8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22E20D582BD000B5CD8 /* AboutViewController.swift */; };
@@ -58,8 +57,6 @@
 		2182D27920D582BD000B5CD8 /* PlainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25520D582BD000B5CD8 /* PlainWindow.swift */; };
 		2182D27A20D582BD000B5CD8 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25620D582BD000B5CD8 /* CustomWindow.swift */; };
 		2182D27B20D582BD000B5CD8 /* EyeDropperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25720D582BD000B5CD8 /* EyeDropperWindow.swift */; };
-		21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; };
-		21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21887E9A1F222F4400A05579 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
 		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		21C355FA22FF21D50018FDD6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C355F922FF21D50018FDD6 /* View.swift */; };
@@ -78,19 +75,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2184878E1F055827009EE112 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				211238321F17CF3E00A837D4 /* Mixpanel.framework in Embed Frameworks */,
-				210C71C41F1EA2BD00A1B983 /* Color.framework in Embed Frameworks */,
-				21887E9C1F222F7700A05579 /* HotKey.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		21A25E8C1F336D9A000AD1F1 /* Embed Helper */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,8 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		210C71C21F1EA2B500A1B983 /* Color.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Color.framework; sourceTree = "<group>"; };
-		2112382E1F17CF2E00A837D4 /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = "<group>"; };
 		2143BBCD2325615000F7A4D7 /* KeyCombo+System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+System.swift"; sourceTree = "<group>"; };
 		214AD7F3203BD545000207A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214AD7F5203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,7 +140,6 @@
 		2182D25620D582BD000B5CD8 /* CustomWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
 		2182D25720D582BD000B5CD8 /* EyeDropperWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperWindow.swift; sourceTree = "<group>"; };
 		218487061F04642C009EE112 /* Contrast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contrast.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		21887E9A1F222F4400A05579 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HotKey.framework; sourceTree = "<group>"; };
 		21A25E681F336CE5000AD1F1 /* ContrastHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContrastHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A25E811F336D22000AD1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21A25E841F336D22000AD1F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,9 +154,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21887E9B1F222F4400A05579 /* HotKey.framework in Frameworks */,
-				210C71C31F1EA2B500A1B983 /* Color.framework in Frameworks */,
-				211238301F17CF2E00A837D4 /* Mixpanel.framework in Frameworks */,
+				21739E64233E985C00F3A8EF /* Mixpanel in Frameworks */,
+				21739E4E233E961100F3A8EF /* HotKey in Frameworks */,
+				21739E4B233E960200F3A8EF /* Color in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,17 +170,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2112382D1F17CF2E00A837D4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				21887E9A1F222F4400A05579 /* HotKey.framework */,
-				210C71C21F1EA2B500A1B983 /* Color.framework */,
-				2112382E1F17CF2E00A837D4 /* Mixpanel.framework */,
-			);
-			name = Frameworks;
-			path = Carthage/Build/Mac;
-			sourceTree = "<group>";
-		};
 		214AD7F2203BD545000207A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,7 +319,6 @@
 			children = (
 				218487081F04642C009EE112 /* Contrast */,
 				21A25E691F336CE5000AD1F1 /* ContrastHelper */,
-				2112382D1F17CF2E00A837D4 /* Frameworks */,
 				218487071F04642C009EE112 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -429,7 +398,6 @@
 				218487031F04642C009EE112 /* Frameworks */,
 				2112383D1F180BAA00A837D4 /* Swift Lint */,
 				218487041F04642C009EE112 /* Resources */,
-				2184878E1F055827009EE112 /* Embed Frameworks */,
 				21A25E8C1F336D9A000AD1F1 /* Embed Helper */,
 				21E685461F05FB5E00471E6C /* Set Version */,
 			);
@@ -439,6 +407,11 @@
 				21A25E8B1F336D96000AD1F1 /* PBXTargetDependency */,
 			);
 			name = Contrast;
+			packageProductDependencies = (
+				21739E4A233E960200F3A8EF /* Color */,
+				21739E4D233E961100F3A8EF /* HotKey */,
+				21739E63233E985C00F3A8EF /* Mixpanel */,
+			);
 			productName = Contrast;
 			productReference = 218487061F04642C009EE112 /* Contrast.app */;
 			productType = "com.apple.product-type.application";
@@ -532,6 +505,11 @@
 				"zh-Hant",
 			);
 			mainGroup = 218486FD1F04642C009EE112;
+			packageReferences = (
+				21739E49233E960200F3A8EF /* XCRemoteSwiftPackageReference "Color" */,
+				21739E4C233E961100F3A8EF /* XCRemoteSwiftPackageReference "HotKey" */,
+				21739E62233E985C00F3A8EF /* XCRemoteSwiftPackageReference "Mixpanel" */,
+			);
 			productRefGroup = 218487071F04642C009EE112 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -817,7 +795,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
 			};
@@ -839,7 +818,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Contrast/Support/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.contrast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Contrast Development";
@@ -862,7 +844,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Contrast/Support/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.contrast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Contrast Developer ID";
@@ -881,7 +866,10 @@
 				DEVELOPMENT_TEAM = UP9C8XM22A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ContrastHelper/Support/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.contrast.helper;
 				PRODUCT_NAME = ContrastHelper;
@@ -904,7 +892,10 @@
 				DEVELOPMENT_TEAM = UP9C8XM22A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ContrastHelper/Support/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nothingmagical.contrast.helper;
 				PRODUCT_NAME = ContrastHelper;
@@ -945,6 +936,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		21739E49233E960200F3A8EF /* XCRemoteSwiftPackageReference "Color" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/Color";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+		21739E4C233E961100F3A8EF /* XCRemoteSwiftPackageReference "HotKey" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/HotKey";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+		21739E62233E985C00F3A8EF /* XCRemoteSwiftPackageReference "Mixpanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soffes/Mixpanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		21739E4A233E960200F3A8EF /* Color */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21739E49233E960200F3A8EF /* XCRemoteSwiftPackageReference "Color" */;
+			productName = Color;
+		};
+		21739E4D233E961100F3A8EF /* HotKey */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21739E4C233E961100F3A8EF /* XCRemoteSwiftPackageReference "HotKey" */;
+			productName = HotKey;
+		};
+		21739E63233E985C00F3A8EF /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21739E62233E985C00F3A8EF /* XCRemoteSwiftPackageReference "Mixpanel" */;
+			productName = Mixpanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 218486FE1F04642C009EE112 /* Project object */;
 }
