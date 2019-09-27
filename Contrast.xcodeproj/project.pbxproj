@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2143BBCE2325615000F7A4D7 /* KeyCombo+System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2143BBCD2325615000F7A4D7 /* KeyCombo+System.swift */; };
 		214AD806203BD545000207A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F3203BD545000207A6 /* Assets.xcassets */; };
 		214AD807203BD545000207A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F4203BD545000207A6 /* Main.storyboard */; };
 		214AD808203BD545000207A6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F6203BD545000207A6 /* Preferences.xib */; };
@@ -89,7 +88,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2143BBCD2325615000F7A4D7 /* KeyCombo+System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyCombo+System.swift"; sourceTree = "<group>"; };
 		214AD7F3203BD545000207A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214AD7F5203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		214AD7F7203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 		2182D24420D582BD000B5CD8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2143BBCD2325615000F7A4D7 /* KeyCombo+System.swift */,
 				2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */,
 				2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */,
 				2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */,
@@ -441,7 +438,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Nothing Magical, Inc.";
 				TargetAttributes = {
 					218487051F04642C009EE112 = {
@@ -629,7 +626,6 @@
 				2182D26B20D582BD000B5CD8 /* HexFormatter.swift in Sources */,
 				2182D27320D582BD000B5CD8 /* Preferences.swift in Sources */,
 				2182D25D20D582BD000B5CD8 /* Theme.swift in Sources */,
-				2143BBCE2325615000F7A4D7 /* KeyCombo+System.swift in Sources */,
 				2182D25920D582BD000B5CD8 /* ColorsViewController.swift in Sources */,
 				2182D27920D582BD000B5CD8 /* PlainWindow.swift in Sources */,
 				2182D27B20D582BD000B5CD8 /* EyeDropperWindow.swift in Sources */,
@@ -813,10 +809,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
 				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Contrast/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -834,15 +826,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Contrast/Support/Contrast.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
 				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Contrast/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -886,7 +874,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ContrastHelper/Support/ContrastHelper.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UP9C8XM22A;
