@@ -119,12 +119,30 @@ class ColorsViewController: NSViewController {
 
 	// MARK: - NSResponder
 
+	override var acceptsFirstResponder: Bool {
+		return true
+	}
+
 	override func cancelOperation(_ sender: Any?) {
 		if isInPopover {
 			(NSApp.delegate as? AppDelegate)?.menuBarController.popoverController.dismissPopover()
 		} else {
 			view.window?.close()
 		}
+	}
+
+    override func keyDown(with event: NSEvent) {
+		guard event.modifierFlags.contains(.command), event.characters == "v",
+			let string = NSPasteboard.general.readObjects(forClasses: [NSAttributedString.self])?.first
+				as? NSAttributedString,
+			let foreground = string.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? NSColor,
+			let background = string.attribute(.backgroundColor, at: 0, effectiveRange: nil) as? NSColor else
+		{
+			return
+		}
+
+		self.theme.foregroundColor = foreground
+		self.theme.backgroundColor = background
 	}
 
 	// MARK: - NSViewController
