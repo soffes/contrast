@@ -132,17 +132,19 @@ class ColorsViewController: NSViewController {
 	}
 
     override func keyDown(with event: NSEvent) {
-		guard event.modifierFlags.contains(.command), event.characters == "v",
-			let string = NSPasteboard.general.readObjects(forClasses: [NSAttributedString.self])?.first
-				as? NSAttributedString,
-			let foreground = string.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? NSColor,
-			let background = string.attribute(.backgroundColor, at: 0, effectiveRange: nil) as? NSColor else
-		{
+		guard event.modifierFlags.contains(.command), event.characters == "v" else {
 			return
 		}
 
-		self.theme.foregroundColor = foreground
-		self.theme.backgroundColor = background
+		let pboard = NSPasteboard.general
+		if let string = pboard.readObjects(forClasses: [NSAttributedString.self])?.first as? NSAttributedString,
+			let foreground = string.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? NSColor
+		{
+			self.theme.foregroundColor = foreground
+			let background = string.attribute(.backgroundColor, at: 0, effectiveRange: nil) as? NSColor ?? .white
+			self.theme.backgroundColor = background
+			return
+		}
 	}
 
 	// MARK: - NSViewController
