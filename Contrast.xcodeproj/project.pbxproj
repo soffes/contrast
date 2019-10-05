@@ -61,6 +61,7 @@
 		21C355FA22FF21D50018FDD6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C355F922FF21D50018FDD6 /* View.swift */; };
 		21DCFBD52301B5F300422979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DCFBD42301B5F300422979 /* AppDelegate.swift */; };
 		21DCFBD72301B75300422979 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DCFBD62301B75300422979 /* main.swift */; };
+		21F40ED023465B2900D9189E /* NSMenuItem+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F40ECF23465B2900D9189E /* NSMenuItem+Contrast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		21C355F922FF21D50018FDD6 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		21DCFBD42301B5F300422979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21DCFBD62301B75300422979 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		21F40ECF23465B2900D9189E /* NSMenuItem+Contrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+Contrast.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 				2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */,
 				2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */,
 				2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */,
+				21F40ECF23465B2900D9189E /* NSMenuItem+Contrast.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				2182D25C20D582BD000B5CD8 /* HexColor.swift in Sources */,
 				2182D27020D582BD000B5CD8 /* MenuBarController.swift in Sources */,
 				2182D26820D582BD000B5CD8 /* GridView.swift in Sources */,
+				21F40ED023465B2900D9189E /* NSMenuItem+Contrast.swift in Sources */,
 				2182D26720D582BD000B5CD8 /* ColorInput.swift in Sources */,
 				2182D26E20D582BD000B5CD8 /* NSFont+Contrast.swift in Sources */,
 				2182D26C20D582BD000B5CD8 /* NSImage+Tint.swift in Sources */,

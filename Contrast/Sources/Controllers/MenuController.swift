@@ -21,33 +21,28 @@ final class MenuController: NSObject {
 
 		if Preferences.shared.isTutorialCompleted {
 			if !isInPopover {
-				let attach = NSMenuItem(title: "Attach to Menu Bar", action: #selector(PopoverController.showPopover),
-										keyEquivalent: "")
-				attach.target = (NSApp.delegate as? AppDelegate)?.menuBarController.popoverController
-				menu.addItem(attach)
+				menu.addItem(NSMenuItem(title: "Attach to Menu Bar",
+										target: (NSApp.delegate as? AppDelegate)?.menuBarController.popoverController,
+										action: #selector(PopoverController.showPopover)))
 				menu.addItem(.separator())
 			}
 
-			let about = NSMenuItem(title: "About Contrast", action: #selector(showAbout), keyEquivalent: "")
-			about.target = self
-			menu.addItem(about)
+			menu.addItem(NSMenuItem(title: "About Contrast", target: self, action: #selector(showAbout)))
 
 			menu.addItem(.separator())
 
-			let preferences = NSMenuItem(title: "Preferences…", action: #selector(AppDelegate.showPreferences),
-										 keyEquivalent: ",")
-			preferences.target = NSApp.delegate
-			menu.addItem(preferences)
+			menu.addItem(NSMenuItem(title: "Preferences…", action: #selector(AppDelegate.showPreferences),
+									keyEquivalent: ","))
 
 			menu.addItem(.separator())
 
-			let guide = NSMenuItem(title: "Accessibility Guide", action: #selector(showGuide), keyEquivalent: "")
-			guide.target = self
-			menu.addItem(guide)
+			menu.addItem(NSMenuItem(title: "Copy URL", target: ColorsController.shared,
+									action: #selector(ColorsController.copyURL), keyEquivalent: "C"))
 
-			let help = NSMenuItem(title: "Contrast Help", action: #selector(showHelp), keyEquivalent: "")
-			help.target = self
-			menu.addItem(help)
+			menu.addItem(.separator())
+
+			menu.addItem(NSMenuItem(title: "Accessibility Guide", target: self, action: #selector(showGuide)))
+			menu.addItem(NSMenuItem(title: "Contrast Help", target: self, action: #selector(showHelp)))
 
 			menu.addItem(.separator())
 		}
@@ -67,7 +62,7 @@ final class MenuController: NSObject {
 		NSWorkspace.shared.open(URL(string: "https://usecontrast.com/support")!)
 	}
 
-	@objc func showAbout(_ sender: Any?) {
+	@objc private func showAbout(_ sender: Any?) {
 		let windowController: NSWindowController
 
 		if let controller = aboutWindowController {

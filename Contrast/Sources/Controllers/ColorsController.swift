@@ -1,4 +1,4 @@
-import Foundation
+import AppKit
 
 extension Notification.Name {
 	static let themeDidChange = Notification.Name(rawValue: "ColorsController.themeDidChange")
@@ -30,5 +30,15 @@ final class ColorsController {
 		} else {
 			theme = .default
 		}
+	}
+
+	// MARK: - Actions
+
+	@objc func copyURL(_ sender: Any?) {
+		let url = "https://usecontra.st/\(theme.foregroundHex)/\(theme.backgroundHex)"
+
+		let pasteboard = NSPasteboard.general
+		pasteboard.declareTypes([.URL], owner: nil)
+		pasteboard.setString(url, forType: .URL)
 	}
 }
