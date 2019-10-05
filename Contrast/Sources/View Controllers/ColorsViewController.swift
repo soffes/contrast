@@ -132,18 +132,26 @@ class ColorsViewController: NSViewController {
 	}
 
     override func keyDown(with event: NSEvent) {
-		guard event.modifierFlags.contains(.command), event.characters == "v" else {
+		guard event.modifierFlags.contains(.command) else {
 			return
 		}
 
-		let pboard = NSPasteboard.general
-		if let string = pboard.readObjects(forClasses: [NSAttributedString.self])?.first as? NSAttributedString,
-			let foreground = string.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? NSColor
-		{
-			self.theme.foregroundColor = foreground
-			let background = string.attribute(.backgroundColor, at: 0, effectiveRange: nil) as? NSColor ?? .white
-			self.theme.backgroundColor = background
-			return
+		// Paste rich text
+		if event.characters == "v" {
+			let pboard = NSPasteboard.general
+			if let string = pboard.readObjects(forClasses: [NSAttributedString.self])?.first as? NSAttributedString,
+				let foreground = string.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? NSColor
+			{
+				self.theme.foregroundColor = foreground
+				let background = string.attribute(.backgroundColor, at: 0, effectiveRange: nil) as? NSColor ?? .white
+				self.theme.backgroundColor = background
+				return
+			}
+		}
+
+		// Copy URL
+		else if event.modifierFlags.contains(.shift) && event.characters == "c" {
+			ColorsController.shared.copyURL(event)
 		}
 	}
 
