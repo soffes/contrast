@@ -8,9 +8,10 @@ final class EyeDropperView: NSView {
 
 	private var trackingArea: NSTrackingArea?
 	private let trackingAreaOptions: NSTrackingArea.Options = [.activeAlways, .mouseMoved, .mouseEnteredAndExited]
-
 	private let cursor = NSCursor(image: NSImage(size: CGSize(width: 1, height: 1)), hotSpot: .zero)
 
+	static let magnification: CGFloat = 20
+	static let captureSize = CGSize(width: 17, height: 17)
 
 	// MARK: - Initializers
 
@@ -120,8 +121,8 @@ final class EyeDropperView: NSView {
 
 		// Take screenshot
 		let windowID = UInt32(window.windowNumber)
-		let captureSize = EyeDropperController.captureSize
-		let magnification = EyeDropperController.magnification
+		let captureSize = type(of: self).captureSize
+		let magnification = type(of: self).magnification
 		let screenshotFrame = CGRect(x: position.x - (captureSize.width / 2), y: position.y - (captureSize.height / 2),
 									 width: captureSize.width, height: captureSize.height)
 

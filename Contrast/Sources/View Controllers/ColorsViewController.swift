@@ -252,7 +252,7 @@ class ColorsViewController: NSViewController {
 		NSSound.contrastPick.forcePlay()
 
 		let eyeDropper = EyeDropperController(delegate: self)
-		eyeDropper.magnify()
+		eyeDropper.startPicking()
 		eyeDropperController = eyeDropper
 
 		position = foregroundInput.button == sender ? .foreground : .background
@@ -330,7 +330,7 @@ extension ColorsViewController: EyeDropperControllerDelegate {
 			self.position = position.opposite
 
 			let eyeDropper = EyeDropperController(delegate: self)
-			eyeDropper.magnify()
+			eyeDropper.startPicking()
 			eyeDropperController = eyeDropper
 		} else {
 			eyeDropperController = nil

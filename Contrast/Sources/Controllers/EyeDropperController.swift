@@ -17,9 +17,6 @@ final class EyeDropperController {
 		return pasteboard
 	}()
 
-	static let magnification: CGFloat = 20
-	static let captureSize = CGSize(width: 17, height: 17)
-
 	private var windows = [EyeDropperWindow]() {
 		willSet {
 			windows.forEach { window in
@@ -54,7 +51,7 @@ final class EyeDropperController {
 		delegate?.eyeDropperControllerDidCancel(self)
 	}
 
-	@objc func magnify() {
+	@objc func startPicking() {
 		NSApp.activate(ignoringOtherApps: true)
 
 		windows = NSScreen.screens.map { screen in
@@ -66,7 +63,7 @@ final class EyeDropperController {
 		}
 
 		if !visible {
-			NotificationCenter.default.addObserver(self, selector: #selector(magnify),
+			NotificationCenter.default.addObserver(self, selector: #selector(startPicking),
 												   name: NSApplication.didChangeScreenParametersNotification,
 												   object: nil)
 		}
