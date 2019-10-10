@@ -105,6 +105,8 @@ class ColorsViewController: NSViewController {
 		}
 	}
 
+	private var sampler: NSObject?
+
 	// MARK: - Initializers
 
 	init(theme: Theme? = nil, isInPopover: Bool = true) {
@@ -251,11 +253,29 @@ class ColorsViewController: NSViewController {
 	@objc private func pickColor(_ sender: Button) {
 		NSSound.contrastPick.forcePlay()
 
-		let eyeDropper = EyeDropperController(delegate: self)
-		eyeDropper.startPicking()
-		eyeDropperController = eyeDropper
-
 		position = foregroundInput.button == sender ? .foreground : .background
+
+		if #available(macOS 10.15, *) {
+			let sampler = NSColorSampler()
+			sampler.show { [weak self] color in
+				guard let position = self?.position, let color = color else {
+					return
+				}
+
+				switch position {
+				case .foreground:
+					self?.theme.foregroundColor = color
+				case .background:
+					self?.theme.backgroundColor = color
+				}
+			}
+
+			self.sampler = sampler
+		} else {
+			let eyeDropper = EyeDropperController(delegate: self)
+			eyeDropper.startPicking()
+			eyeDropperController = eyeDropper
+		}
 	}
 
 	@objc private func swapColors(_ sender: Any?) {
