@@ -26,8 +26,8 @@ final class EyeDropperController {
 		}
 	}
 
-	private var visible = false
-
+	private var isVisible = false
+	private var colorSampler: Any?
 
 	// MARK: - Initializer
 
@@ -45,7 +45,7 @@ final class EyeDropperController {
 	@objc func cancel(_ sender: Any?) {
 		NotificationCenter.default.removeObserver(self, name: NSApplication.didChangeScreenParametersNotification,
 												  object: nil)
-		visible = false
+		isVisible = false
 
 		windows.removeAll()
 		delegate?.eyeDropperControllerDidCancel(self)
@@ -53,6 +53,22 @@ final class EyeDropperController {
 
 	@objc func startPicking() {
 		NSApp.activate(ignoringOtherApps: true)
+
+		// Fallback if no permission
+		if #available(macOS 10.15, *), !canRecordScreen() {
+			let sampler = NSColorSampler()
+			sampler.show { [weak self] color in
+				guard let this = self, let color = color else {
+					return
+				}
+
+				this.colorSampler = nil
+				NSSound.contrastPickColor.forcePlay()
+				this.delegate?.eyeDropperController(this, didSelectColor: color, continuePicking: false)
+			}
+			colorSampler = sampler
+			return
+ 		}
 
 		windows = NSScreen.screens.map { screen in
 			let window = EyeDropperWindow(frame: screen.frame)
@@ -62,13 +78,13 @@ final class EyeDropperController {
 			return window
 		}
 
-		if !visible {
+		if !isVisible {
 			NotificationCenter.default.addObserver(self, selector: #selector(startPicking),
 												   name: NSApplication.didChangeScreenParametersNotification,
 												   object: nil)
 		}
 
-		visible = true
+		isVisible = true
 	}
 
 	// MARK: - Private
@@ -90,15 +106,24 @@ final class EyeDropperController {
 		delegate?.eyeDropperController(self, didSelectColor: color, continuePicking: shouldContinue)
 	}
 
-	var picking = false
+	@available(macOS 10.15, *)
+	private func canRecordScreen() -> Bool {
+		guard let windows = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID)
+			as? [[String: AnyObject]] else
+		{
+			return false
+		}
+
+		return windows.allSatisfy { window in
+			let windowName = window[kCGWindowName as String] as? String
+			return windowName != nil
+		}
+	}
 }
 
 extension EyeDropperController: EyeDropperWindowDelegate {
 	func eyeDropperWindow(_ window: EyeDropperWindow, didPickColor event: NSEvent) {
-		if !picking {
-			pickColor(with: event)
-		}
-		picking = true
+		pickColor(with: event)
 	}
 
 	func eyeDropperWindowDidCancel(_ window: EyeDropperWindow) {
