@@ -60,11 +60,30 @@ extension Preferences {
 			}
 
 			set {
-				if let keyCombo = newValue {
-					UserDefaults.standard.set(keyCombo.dictionary, forKey: key.rawValue)
+				if let value = newValue {
+					UserDefaults.standard.set(value.dictionary, forKey: key.rawValue)
 				} else {
 					UserDefaults.standard.removeObject(forKey: key.rawValue)
 				}
+			}
+		}
+	}
+
+	@propertyWrapper
+	struct ColorProfileUserDefault {
+		let key: Key
+
+		init(_ key: Key) {
+			self.key = key
+		}
+
+		var wrappedValue: ColorProfile {
+			get {
+				return UserDefaults.standard.string(forKey: key.rawValue).flatMap(ColorProfile.init) ?? .unmanaged
+			}
+
+			set {
+				UserDefaults.standard.set(newValue.rawValue, forKey: key.rawValue)
 			}
 		}
 	}

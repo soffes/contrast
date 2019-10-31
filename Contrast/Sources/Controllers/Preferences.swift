@@ -14,6 +14,7 @@ final class Preferences {
 		case foregroundKeyCombo = "ForegroundKeyCombo"
 		case backgroundKeyCombo = "BackgroundKeyCombo"
 		case launchAtLogin = "LaunchAtLogin"
+        case colorProfile = "ColorProfile"
 	}
 
 	// MARK: - Properties
@@ -43,6 +44,9 @@ final class Preferences {
 
 	@UserDefault(.launchAtLogin, defaultValue: false)
 	var launchAtLogin: Bool
+
+    @ColorProfileUserDefault(.colorProfile)
+    var colorProfile: ColorProfile
 
 	// MARK: - Initializers
 

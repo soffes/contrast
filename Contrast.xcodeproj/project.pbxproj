@@ -20,6 +20,7 @@
 		2156F0E82313946500262926 /* ShortcutTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156F0E72313946500262926 /* ShortcutTextField.swift */; };
 		215710EE236AE9910041A6AB /* CGColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710ED236AE9910041A6AB /* CGColor+Contrast.swift */; };
 		215710F3236AF6690041A6AB /* Preferences+PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710F2236AF6690041A6AB /* Preferences+PropertyWrappers.swift */; };
+		215710F5236AF88B0041A6AB /* ColorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710F4236AF88B0041A6AB /* ColorProfile.swift */; };
 		21739E4B233E960200F3A8EF /* Color in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E4A233E960200F3A8EF /* Color */; };
 		21739E4E233E961100F3A8EF /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E4D233E961100F3A8EF /* HotKey */; };
 		21739E64233E985C00F3A8EF /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E63233E985C00F3A8EF /* Mixpanel */; };
@@ -107,6 +108,7 @@
 		2156F0E72313946500262926 /* ShortcutTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutTextField.swift; sourceTree = "<group>"; };
 		215710ED236AE9910041A6AB /* CGColor+Contrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+Contrast.swift"; sourceTree = "<group>"; };
 		215710F2236AF6690041A6AB /* Preferences+PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+PropertyWrappers.swift"; sourceTree = "<group>"; };
+		215710F4236AF88B0041A6AB /* ColorProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorProfile.swift; sourceTree = "<group>"; };
 		2182D22C20D582BD000B5CD8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2182D22D20D582BD000B5CD8 /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		2182D22E20D582BD000B5CD8 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				2182D23020D582BD000B5CD8 /* Screenshot.swift */,
 				2182D23120D582BD000B5CD8 /* HexColor.swift */,
 				2182D23220D582BD000B5CD8 /* Theme.swift */,
+				215710F4236AF88B0041A6AB /* ColorProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				2182D25F20D582BD000B5CD8 /* Secrets.swift in Sources */,
 				2182D27420D582BD000B5CD8 /* PopoverController.swift in Sources */,
 				2182D26D20D582BD000B5CD8 /* NSSound+Contrast.swift in Sources */,
+				215710F5236AF88B0041A6AB /* ColorProfile.swift in Sources */,
 				2182D26620D582BD000B5CD8 /* TextField.swift in Sources */,
 				2182D25B20D582BD000B5CD8 /* Screenshot.swift in Sources */,
 				215710EE236AE9910041A6AB /* CGColor+Contrast.swift in Sources */,
