@@ -20,114 +20,36 @@ final class Preferences {
 
 	static let shared = Preferences()
 
-	private let userDefaults: UserDefaults
+	@OptionalUserDefault(.themeData)
+	var themeData: Data?
 
-	var themeData: Data? {
-		get {
-			return userDefaults.data(forKey: Key.themeData.rawValue)
-		}
+	@UserDefault(.soundsEnabled, defaultValue: false)
+	var isSoundEnabled: Bool
 
-		set {
-			if let data = newValue {
-				userDefaults.set(data, forKey: Key.themeData.rawValue)
-			} else {
-				userDefaults.removeObject(forKey: Key.themeData.rawValue)
-			}
-		}
-	}
+	@UserDefault(.tutorialCompleted, defaultValue: false)
+	var isTutorialCompleted: Bool
 
-	var isSoundEnabled: Bool {
-		get {
-			return userDefaults.bool(forKey: Key.soundsEnabled.rawValue)
-		}
+	@UserDefault(.lowercaseHex, defaultValue: false)
+	var usesLowercaseHex: Bool
 
-		set {
-			userDefaults.set(newValue, forKey: Key.soundsEnabled.rawValue)
-		}
-	}
+	@KeyComboUserDefault(.showKeyCombo)
+	var showKeyCombo: KeyCombo?
 
-	var isTutorialCompleted: Bool {
-		get {
-			return userDefaults.bool(forKey: Key.tutorialCompleted.rawValue)
-		}
+	@KeyComboUserDefault(.foregroundKeyCombo)
+	var foregroundKeyCombo: KeyCombo?
 
-		set {
-			userDefaults.set(newValue, forKey: Key.tutorialCompleted.rawValue)
-		}
-	}
+	@KeyComboUserDefault(.backgroundKeyCombo)
+	var backgroundKeyCombo: KeyCombo?
 
-	var usesLowercaseHex: Bool {
-		get {
-			return userDefaults.bool(forKey: Key.lowercaseHex.rawValue)
-		}
-
-		set {
-			userDefaults.set(newValue, forKey: Key.lowercaseHex.rawValue)
-		}
-	}
-
-	var showKeyCombo: KeyCombo? {
-		get {
-			return getKeyCombo(forKey: .showKeyCombo)
-		}
-
-		set {
-			set(newValue, forKey: .showKeyCombo)
-		}
-	}
-
-	var foregroundKeyCombo: KeyCombo? {
-		get {
-			return getKeyCombo(forKey: .foregroundKeyCombo)
-		}
-
-		set {
-			set(newValue, forKey: .foregroundKeyCombo)
-		}
-	}
-
-	var backgroundKeyCombo: KeyCombo? {
-		get {
-			return getKeyCombo(forKey: .backgroundKeyCombo)
-		}
-
-		set {
-			set(newValue, forKey: .backgroundKeyCombo)
-		}
-	}
-
-	var launchAtLogin: Bool {
-		get {
-			return userDefaults.bool(forKey: Key.launchAtLogin.rawValue)
-		}
-
-		set {
-			userDefaults.set(newValue, forKey: Key.launchAtLogin.rawValue)
-		}
-	}
+	@UserDefault(.launchAtLogin, defaultValue: false)
+	var launchAtLogin: Bool
 
 	// MARK: - Initializers
 
-	init(userDefaults: UserDefaults = .standard) {
-		self.userDefaults = userDefaults
-
-		userDefaults.register(defaults: [
+	init() {
+		UserDefaults.standard.register(defaults: [
 			Key.soundsEnabled.rawValue: true,
 			Key.lowercaseHex.rawValue: true
 		])
-	}
-
-	// MARK: - Private
-
-	private func set(_ keyCombo: KeyCombo?, forKey key: Key) {
-		if let keyCombo = keyCombo {
-			userDefaults.set(keyCombo.dictionary, forKey: key.rawValue)
-		} else {
-			userDefaults.removeObject(forKey: key.rawValue)
-		}
-	}
-
-	private func getKeyCombo(forKey key: Key) -> KeyCombo? {
-		return userDefaults.dictionary(forKey: key.rawValue).flatMap({ KeyCombo(dictionary: $0) })
 	}
 }
