@@ -278,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				2182D24520D582BD000B5CD8 /* NSImage+Tint.swift */,
+				215710ED236AE9910041A6AB /* CGColor+Contrast.swift */,
 				2182D24620D582BD000B5CD8 /* NSSound+Contrast.swift */,
 				2182D24720D582BD000B5CD8 /* NSFont+Contrast.swift */,
 				21F40ECF23465B2900D9189E /* NSMenuItem+Contrast.swift */,
@@ -609,6 +610,7 @@
 				2182D26D20D582BD000B5CD8 /* NSSound+Contrast.swift in Sources */,
 				2182D26620D582BD000B5CD8 /* TextField.swift in Sources */,
 				2182D25B20D582BD000B5CD8 /* Screenshot.swift in Sources */,
+				215710EE236AE9910041A6AB /* CGColor+Contrast.swift in Sources */,
 				2182D26420D582BD000B5CD8 /* EyeDropperView.swift in Sources */,
 				21C355FA22FF21D50018FDD6 /* View.swift in Sources */,
 				2182D27620D582BD000B5CD8 /* MenuController.swift in Sources */,

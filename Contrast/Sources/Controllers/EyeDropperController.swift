@@ -55,20 +55,21 @@ final class EyeDropperController {
 		NSApp.activate(ignoringOtherApps: true)
 
 		// Fallback if no permission
-		if #available(macOS 10.15, *), !canRecordScreen() {
-			let sampler = NSColorSampler()
-			sampler.show { [weak self] color in
-				guard let this = self, let color = color else {
-					return
-				}
-
-				this.colorSampler = nil
-				NSSound.contrastPickColor.forcePlay()
-				this.delegate?.eyeDropperController(this, didSelectColor: color, continuePicking: false)
-			}
-			colorSampler = sampler
-			return
- 		}
+		// TODO: Re-enable
+//		if #available(macOS 10.15, *), !canRecordScreen() {
+//			let sampler = NSColorSampler()
+//			sampler.show { [weak self] color in
+//				guard let this = self, let color = color else {
+//					return
+//				}
+//
+//				this.colorSampler = nil
+//				NSSound.contrastPickColor.forcePlay()
+//				this.delegate?.eyeDropperController(this, didSelectColor: color, continuePicking: false)
+//			}
+//			colorSampler = sampler
+//			return
+// 		}
 
 		windows = NSScreen.screens.map { screen in
 			let window = EyeDropperWindow(frame: screen.frame)

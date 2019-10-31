@@ -104,7 +104,7 @@ final class EyeDropperView: NSView {
 	// MARK: - Private
 
 	/// First is the original, second is scaled up
-	private func screenshot(at position: CGPoint) -> (NSImage, NSImage)? {
+	private func screenshot(at position: CGPoint) -> (CGImage, NSImage)? {
 		guard let window = window,
 			let screen = window.screen,
 			let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey(rawValue: "NSScreenNumber")] as? UInt32
@@ -127,12 +127,10 @@ final class EyeDropperView: NSView {
 									 width: captureSize.width, height: captureSize.height)
 
 		guard let cgImage = CGWindowListCreateImage(screenshotFrame, .optionOnScreenBelowWindow, windowID,
-													.shouldBeOpaque) else
+													[.shouldBeOpaque, .bestResolution]) else
 		{
 			return nil
 		}
-
-		let original = NSImage(cgImage: cgImage, size: captureSize)
 
 		// Scale screenshot
 		// TODO: Maybe instead of `/ 4` it should be `/ 2 / scale`. Need to verify.
@@ -145,6 +143,6 @@ final class EyeDropperView: NSView {
 			return true
 		}
 
-		return (original, scaled)
+		return (cgImage, scaled)
 	}
 }
