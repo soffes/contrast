@@ -84,6 +84,7 @@ extension Preferences {
 
 			set {
 				UserDefaults.standard.set(newValue.rawValue, forKey: key.rawValue)
+				// TODO: Post notification and redo things
 			}
 		}
 	}

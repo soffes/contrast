@@ -10,6 +10,26 @@ final class PreferencesWindowController: NSWindowController {
 	@IBOutlet private var foregroundRecorder: ShortcutTextField!
 	@IBOutlet private var backgroundRecorder: ShortcutTextField!
 
+	/// Mapping of the options in the UI to the values. (There’s a separator after the first unmanaged item so it’s
+	/// repeated. This is gross.)
+	private let colorProfiles: [ColorProfile] = [.unmanaged, .unmanaged, .sRGB, .displayP3]
+	@objc var selectedColorProfileIndex: Int {
+		get {
+
+			let selected = Preferences.shared.colorProfile
+			return colorProfiles.firstIndex(of: selected) ?? 0
+		}
+
+		set {
+			guard newValue < colorProfiles.count else {
+				assertionFailure("Invalid color profile index")
+				return
+			}
+
+			Preferences.shared.colorProfile = colorProfiles[newValue]
+		}
+	}
+
 	// MARK: - NSResponder
 
 	override var acceptsFirstResponder: Bool {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,17 +19,17 @@
         <window title="Contrast" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="PlainWindow" customModule="Contrast" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="446" height="232"/>
+            <rect key="contentRect" x="196" y="240" width="434" height="337"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="434" height="220"/>
+                <rect key="frame" x="0.0" y="0.0" width="434" height="337"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="1000" verticalStackHuggingPriority="1000" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IHp-hG-8lx">
-                        <rect key="frame" x="20" y="20" width="394" height="180"/>
+                        <rect key="frame" x="20" y="20" width="394" height="297"/>
                         <subviews>
                             <gridView verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="8" columnSpacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Azd-8I-Uwz">
-                                <rect key="frame" x="0.0" y="98" width="394" height="82"/>
+                                <rect key="frame" x="0.0" y="215" width="394" height="82"/>
                                 <rows>
                                     <gridRow id="muF-Wf-VQo"/>
                                     <gridRow id="vL3-k1-lPp"/>
@@ -111,6 +111,75 @@
                                     </gridCell>
                                 </gridCells>
                             </gridView>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="UVk-lc-Gbw">
+                                <rect key="frame" x="0.0" y="189" width="394" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="jL6-zO-m9Z"/>
+                                </constraints>
+                            </box>
+                            <gridView verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" xPlacement="leading" yPlacement="center" rowAlignment="none" rowSpacing="8" columnSpacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0tY-id-JLD">
+                                <rect key="frame" x="0.0" y="98" width="394" height="85"/>
+                                <rows>
+                                    <gridRow id="3Hl-Sq-ga2"/>
+                                </rows>
+                                <columns>
+                                    <gridColumn xPlacement="trailing" width="198" id="Uio-vh-kue"/>
+                                    <gridColumn width="184" id="XX7-aY-khb"/>
+                                </columns>
+                                <gridCells>
+                                    <gridCell row="3Hl-Sq-ga2" column="Uio-vh-kue" id="m1i-bU-TiG">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jzM-gS-I2D">
+                                            <rect key="frame" x="117" y="0.0" width="83" height="85"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Color Profile:" id="Vi6-qn-IMG">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="3Hl-Sq-ga2" column="XX7-aY-khb" id="ZhK-i0-VFX">
+                                        <stackView key="contentView" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYe-WP-GhB">
+                                            <rect key="frame" x="210" y="0.0" width="184" height="85"/>
+                                            <subviews>
+                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x1f-gk-1lf">
+                                                    <rect key="frame" x="-2" y="61" width="112" height="25"/>
+                                                    <popUpButtonCell key="cell" type="push" title="Unmanaged" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="bed-GE-kkK" id="UTy-GK-6hf">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <menu key="menu" id="b2l-D5-BjF">
+                                                            <items>
+                                                                <menuItem title="Unmanaged" state="on" id="bed-GE-kkK"/>
+                                                                <menuItem isSeparatorItem="YES" id="hTw-ox-TaR"/>
+                                                                <menuItem title="sRGB" id="9nk-Ht-0vf"/>
+                                                                <menuItem title="Display P3" id="DvL-Ml-VMv"/>
+                                                            </items>
+                                                        </menu>
+                                                    </popUpButtonCell>
+                                                    <connections>
+                                                        <binding destination="-2" name="selectedIndex" keyPath="self.selectedColorProfileIndex" id="5z8-44-Cu0"/>
+                                                    </connections>
+                                                </popUpButton>
+                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZmF-nm-A9h">
+                                                    <rect key="frame" x="-2" y="0.0" width="188" height="56"/>
+                                                    <textFieldCell key="cell" selectable="YES" title="If you use a color profile in your design tool, choose the same one here for more accurate color picking in Contrast." id="Ebx-7u-p7g">
+                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                    </gridCell>
+                                </gridCells>
+                            </gridView>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Of3-pR-n0B">
                                 <rect key="frame" x="0.0" y="72" width="394" height="20"/>
                                 <constraints>
@@ -178,11 +247,15 @@
                             <constraint firstItem="Of3-pR-n0B" firstAttribute="width" secondItem="Azd-8I-Uwz" secondAttribute="width" id="gHp-l4-2Y0"/>
                         </constraints>
                         <visibilityPriorities>
-                            <real value="1000"/>
-                            <real value="1000"/>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
                             <integer value="1000"/>
                         </visibilityPriorities>
                         <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
@@ -199,7 +272,7 @@
             <connections>
                 <outlet property="initialFirstResponder" destination="Ia2-CC-UXc" id="F2Q-Cq-RcA"/>
             </connections>
-            <point key="canvasLocation" x="182" y="107"/>
+            <point key="canvasLocation" x="182" y="156.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="ahI-Qj-FyQ"/>
     </objects>
