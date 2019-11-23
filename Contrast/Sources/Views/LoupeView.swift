@@ -13,9 +13,9 @@ final class LoupeView: NSView {
 	}
 
 	private let gridView: NSView = {
-		let size = EyeDropperView.captureSize
+		let size = EyeDropperWindowView.captureSize
 		let view = GridView(rows: Int(size.height), columns: Int(size.width),
-							dimension: EyeDropperView.magnification / 2)
+							dimension: EyeDropperWindowView.magnification / 2)
 		view.translatesAutoresizingMaskIntoConstraints = false
 		view.wantsLayer = true
 		return view
@@ -45,8 +45,8 @@ final class LoupeView: NSView {
 	// MARK: - Initializers
 
 	convenience init() {
-		let size = EyeDropperView.captureSize
-		let magnification = EyeDropperView.magnification
+		let size = EyeDropperWindowView.captureSize
+		let magnification = EyeDropperWindowView.magnification
 		self.init(frame: CGRect(x: 0, y: 0, width: size.width * magnification / 2, height: size.height * magnification / 2))
 	}
 
@@ -82,7 +82,7 @@ final class LoupeView: NSView {
 			gridView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
 			hexLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-			hexLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: EyeDropperView.magnification)
+			hexLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: EyeDropperWindowView.magnification)
 		])
 	}
 

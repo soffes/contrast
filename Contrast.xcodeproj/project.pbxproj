@@ -36,7 +36,7 @@
 		2182D26120D582BD000B5CD8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23820D582BD000B5CD8 /* Label.swift */; };
 		2182D26220D582BD000B5CD8 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23920D582BD000B5CD8 /* CloseButton.swift */; };
 		2182D26320D582BD000B5CD8 /* PlainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23A20D582BD000B5CD8 /* PlainButton.swift */; };
-		2182D26420D582BD000B5CD8 /* EyeDropperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23B20D582BD000B5CD8 /* EyeDropperView.swift */; };
+		2182D26420D582BD000B5CD8 /* EyeDropperWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23B20D582BD000B5CD8 /* EyeDropperWindowView.swift */; };
 		2182D26520D582BD000B5CD8 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23C20D582BD000B5CD8 /* LoupeView.swift */; };
 		2182D26620D582BD000B5CD8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23D20D582BD000B5CD8 /* TextField.swift */; };
 		2182D26720D582BD000B5CD8 /* ColorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23E20D582BD000B5CD8 /* ColorInput.swift */; };
@@ -121,7 +121,7 @@
 		2182D23820D582BD000B5CD8 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		2182D23920D582BD000B5CD8 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		2182D23A20D582BD000B5CD8 /* PlainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainButton.swift; sourceTree = "<group>"; };
-		2182D23B20D582BD000B5CD8 /* EyeDropperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperView.swift; sourceTree = "<group>"; };
+		2182D23B20D582BD000B5CD8 /* EyeDropperWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeDropperWindowView.swift; sourceTree = "<group>"; };
 		2182D23C20D582BD000B5CD8 /* LoupeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoupeView.swift; sourceTree = "<group>"; };
 		2182D23D20D582BD000B5CD8 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		2182D23E20D582BD000B5CD8 /* ColorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorInput.swift; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 				2182D23820D582BD000B5CD8 /* Label.swift */,
 				2182D23920D582BD000B5CD8 /* CloseButton.swift */,
 				2182D23A20D582BD000B5CD8 /* PlainButton.swift */,
-				2182D23B20D582BD000B5CD8 /* EyeDropperView.swift */,
+				2182D23B20D582BD000B5CD8 /* EyeDropperWindowView.swift */,
 				2182D23C20D582BD000B5CD8 /* LoupeView.swift */,
 				2182D23D20D582BD000B5CD8 /* TextField.swift */,
 				2182D23E20D582BD000B5CD8 /* ColorInput.swift */,
@@ -615,7 +615,7 @@
 				2182D26620D582BD000B5CD8 /* TextField.swift in Sources */,
 				2182D25B20D582BD000B5CD8 /* Screenshot.swift in Sources */,
 				215710EE236AE9910041A6AB /* CGColor+Contrast.swift in Sources */,
-				2182D26420D582BD000B5CD8 /* EyeDropperView.swift in Sources */,
+				2182D26420D582BD000B5CD8 /* EyeDropperWindowView.swift in Sources */,
 				21C355FA22FF21D50018FDD6 /* View.swift in Sources */,
 				2182D27620D582BD000B5CD8 /* MenuController.swift in Sources */,
 				2182D27220D582BD000B5CD8 /* EyeDropperController.swift in Sources */,

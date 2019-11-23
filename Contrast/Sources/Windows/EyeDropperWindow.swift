@@ -11,7 +11,7 @@ final class EyeDropperWindow: NSWindow {
 
 	weak var customDelegate: EyeDropperWindowDelegate?
 
-	private let view = EyeDropperView()
+	private let view = EyeDropperWindowView()
 
 	var screenshot: Screenshot? {
 		view.loupeView.screenshot

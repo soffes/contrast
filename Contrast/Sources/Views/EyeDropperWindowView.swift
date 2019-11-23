@@ -1,6 +1,6 @@
 import AppKit
 
-final class EyeDropperView: NSView {
+final class EyeDropperWindowView: NSView {
 
 	// MARK: - Properties
 
