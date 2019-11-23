@@ -18,7 +18,7 @@ private extension Theme {
 	}
 
 	var textFieldTextColor: NSColor {
-		return isDark ? .white : .black
+		isDark ? .white : .black
 	}
 }
 
@@ -58,7 +58,7 @@ private final class TextFieldCell: NSTextFieldCell {
 	}
 
 	private func adjust(_ frame: CGRect) -> CGRect {
-		return frame.insetBy(dx: 10, dy: 5)
+		frame.insetBy(dx: 10, dy: 5)
 	}
 }
 
@@ -93,6 +93,7 @@ final class TextField: NSTextField {
 		font = .contrastMonoSpace()
 	}
 
+	@available(*, unavailable)
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
@@ -167,7 +168,7 @@ final class TextField: NSTextField {
 
 	override class var cellClass: AnyClass? {
 		get {
-			return TextFieldCell.self
+			TextFieldCell.self
 		}
 
 		// swiftlint:disable:next unused_setter_value
@@ -177,7 +178,7 @@ final class TextField: NSTextField {
 	// MARK: - Private
 
 	private var textFieldCell: TextFieldCell? {
-		return cell as? TextFieldCell
+		cell as? TextFieldCell
 	}
 
 	// MARK: - Private
@@ -190,6 +191,6 @@ final class TextField: NSTextField {
 
 	private var isFirstResponder: Bool {
 		// Wow.
-		return (window?.firstResponder as? NSTextView)?.delegate as? NSTextField == self
+		(window?.firstResponder as? NSTextView)?.delegate as? NSTextField == self
 	}
 }

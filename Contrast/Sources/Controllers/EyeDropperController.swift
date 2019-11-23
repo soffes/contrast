@@ -91,8 +91,10 @@ final class EyeDropperController {
 
 	private func pickColor(with event: NSEvent) {
 		guard let window = event.window as? EyeDropperWindow,
-			let color = window.screenshot?.color
-			else { return }
+			let color = window.screenshot?.color else
+		{
+			return
+		}
 
 		let shouldContinue = event.modifierFlags.contains(NSEvent.ModifierFlags.shift)
 

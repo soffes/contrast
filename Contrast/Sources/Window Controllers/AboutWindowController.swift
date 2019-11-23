@@ -5,7 +5,7 @@ final class AboutWindowController: NSWindowController {
 	// MARK: - NSResponder
 
 	override var acceptsFirstResponder: Bool {
-		return true
+		true
 	}
 
 	func cancel(_ sender: Any?) {

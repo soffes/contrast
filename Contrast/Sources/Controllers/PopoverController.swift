@@ -54,8 +54,10 @@ final class PopoverController: NSObject {
 
 	@objc func showPopover() {
 		guard Preferences.shared.isTutorialCompleted,
-			let view = delegate?.popoverControllerWillShow(popover: popover)
-			else { return }
+			let view = delegate?.popoverControllerWillShow(popover: popover) else
+		{
+			return
+		}
 
 		detachedWindow?.close()
 		detachedWindow = nil
@@ -92,7 +94,7 @@ extension PopoverController: NSPopoverDelegate {
 	}
 
 	func popoverShouldDetach(_ popover: NSPopover) -> Bool {
-		return true
+		true
 	}
 
 	func popoverDidDetach(_ popover: NSPopover) {
@@ -100,7 +102,9 @@ extension PopoverController: NSPopoverDelegate {
 	}
 
 	func detachableWindow(for popover: NSPopover) -> NSWindow? {
-		guard let contentViewController = popover.contentViewController as? ColorsViewController else { return nil }
+		guard let contentViewController = popover.contentViewController as? ColorsViewController else {
+			return nil
+		}
 
 		let viewController = ColorsViewController(theme: contentViewController.theme, isInPopover: false)
 		let window = CustomWindow(contentViewController: viewController)

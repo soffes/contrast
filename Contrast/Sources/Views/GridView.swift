@@ -26,7 +26,9 @@ final class GridView: NSView {
 	// MARK: - NSView
 
 	override func draw(_ dirtyRect: NSRect) {
-		guard let context = NSGraphicsContext.current?.cgContext else { return }
+		guard let context = NSGraphicsContext.current?.cgContext else {
+			return
+		}
 
 		let colorSpace = CGColorSpaceCreateDeviceRGB()
 		let color = CGColor(colorSpace: colorSpace, components: [0, 0, 0, 0.2])!

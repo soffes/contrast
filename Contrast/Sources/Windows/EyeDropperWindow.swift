@@ -14,7 +14,7 @@ final class EyeDropperWindow: NSWindow {
 	private let view = EyeDropperView()
 
 	var screenshot: Screenshot? {
-		return view.loupeView.screenshot
+		view.loupeView.screenshot
 	}
 
 	// MARK: - Initializers
@@ -57,7 +57,7 @@ final class EyeDropperWindow: NSWindow {
 	// MARK: - NSWindow
 
 	override var canBecomeKey: Bool {
-		return true
+		true
 	}
 
 	override func resignKey() {

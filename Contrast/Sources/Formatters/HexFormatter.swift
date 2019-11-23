@@ -11,7 +11,7 @@ final class HexFormatter: Formatter {
 	// MARK: - Formatter
 
 	override func string(for obj: Any?) -> String? {
-		return obj as? String
+		obj as? String
 	}
 
 	override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String,
@@ -52,6 +52,6 @@ final class HexFormatter: Formatter {
 	override func attributedString(for obj: Any, withDefaultAttributes attrs: [NSAttributedString.Key: Any]? = nil)
 		-> NSAttributedString?
 	{
-		return nil
+		nil
 	}
 }

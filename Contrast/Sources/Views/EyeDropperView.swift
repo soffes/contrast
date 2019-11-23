@@ -108,9 +108,10 @@ final class EyeDropperView: NSView {
 		guard let window = window,
 			let screen = window.screen,
 			let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey(rawValue: "NSScreenNumber")] as? UInt32
-			else {
-				loupeView.isHidden = true
-				return nil
+			else
+		{
+			loupeView.isHidden = true
+			return nil
 		}
 
 		// Convert the coordinate. I don't fully understand why this works.
@@ -137,7 +138,10 @@ final class EyeDropperView: NSView {
 		let scaledRect = CGRect(x: magnification / 4, y: magnification / 4,
 								width: captureSize.width * magnification, height: captureSize.height * magnification)
 		let scaled = NSImage(size: scaledRect.size, flipped: false) { _ in
-			guard let gc = NSGraphicsContext.current else { return false }
+			guard let gc = NSGraphicsContext.current else {
+				return false
+			}
+
 			gc.imageInterpolation = .none
 			gc.cgContext.draw(cgImage, in: scaledRect)
 			return true

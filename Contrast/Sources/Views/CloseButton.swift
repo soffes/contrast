@@ -2,11 +2,11 @@ import AppKit
 
 private extension Theme {
 	var closeButtonFill: NSColor {
-		return NSColor(white: isDark ? 1 : 0, alpha: 0.3)
+		NSColor(white: isDark ? 1 : 0, alpha: 0.3)
 	}
 
 	func closeButtonImageColor(isHighlighted: Bool) -> NSColor {
-		return NSColor(white: 0, alpha: isHighlighted ? 0.8 : 0.5)
+		NSColor(white: 0, alpha: isHighlighted ? 0.8 : 0.5)
 	}
 }
 
@@ -77,13 +77,13 @@ final class CloseButton: NSButton {
 	// MARK: - NSResponder
 
 	override var acceptsFirstResponder: Bool {
-		return false
+		false
 	}
 
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
-		return CGSize(width: 26, height: 21)
+		CGSize(width: 26, height: 21)
 	}
 
 	// MARK: - NSControl
@@ -108,7 +108,7 @@ final class CloseButton: NSButton {
 	// MARK: - Private
 
 	private var buttonCell: CloseButtonCell? {
-		return cell as? CloseButtonCell
+		cell as? CloseButtonCell
 	}
 
 	private func updateImage() {

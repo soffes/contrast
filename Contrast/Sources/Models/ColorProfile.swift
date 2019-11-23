@@ -19,6 +19,6 @@ enum ColorProfile: String {
 
 extension ColorProfile: CustomStringConvertible {
 	var description: String {
-		return rawValue
+		rawValue
 	}
 }

@@ -79,7 +79,7 @@ final class WelcomeButton: NSButton {
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
-		return CGSize(width: 130 + 8, height: 48 + 8)
+		CGSize(width: 130 + 8, height: 48 + 8)
 	}
 
 	override func resetCursorRects() {
@@ -91,7 +91,7 @@ final class WelcomeButton: NSButton {
 
 	override class var cellClass: AnyClass? {
 		get {
-			return WelcomeButtonCell.self
+			WelcomeButtonCell.self
 		}
 
 		// swiftlint:disable:next unused_setter_value

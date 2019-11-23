@@ -81,7 +81,9 @@ final class CustomWindow: NSWindow {
 		self.init(contentRect: view.bounds, styleMask: [], backing: .buffered, defer: false)
 		isReleasedWhenClosed = false
 
-		guard let contentView = contentView else { return }
+		guard let contentView = contentView else {
+			return
+		}
 
 		view.translatesAutoresizingMaskIntoConstraints = false
 		contentView.addSubview(view)

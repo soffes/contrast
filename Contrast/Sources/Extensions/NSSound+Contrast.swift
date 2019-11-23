@@ -9,19 +9,19 @@ private let copyColor = NSSound(named: "click_snap", volume: volume)!
 
 extension NSSound {
 	static var contrastSwap: NSSound {
-		return swap
+		swap
 	}
 
 	static var contrastPick: NSSound {
-		return pick
+		pick
 	}
 
 	static var contrastPickColor: NSSound {
-		return pickColor
+		pickColor
 	}
 
 	static var contrastCopyColor: NSSound {
-		return copyColor
+		copyColor
 	}
 
 	convenience init?(named name: String, volume: Float) {

@@ -5,7 +5,7 @@ struct Theme {
 
 	var foregroundColor: NSColor {
 		get {
-			return foreground.color
+			foreground.color
 		}
 
 		set {
@@ -14,14 +14,14 @@ struct Theme {
 	}
 
 	var foregroundHex: String {
-		return foreground.hex
+		foreground.hex
 	}
 
 	var background: HexColor
 
 	var backgroundColor: NSColor {
 		get {
-			return background.color
+			background.color
 		}
 
 		set {
@@ -30,11 +30,11 @@ struct Theme {
 	}
 
 	var backgroundHex: String {
-		return background.hex
+		background.hex
 	}
 
 	var isDark: Bool {
-		return backgroundColor.isDark
+		backgroundColor.isDark
 	}
 
 	init(foreground: HexColor, background: HexColor) {
@@ -53,7 +53,7 @@ struct Theme {
 
 extension Theme {
 	var focusRingColor: NSColor {
-		return NSColor(white: isDark ? 1 : 0, alpha: 0.2)
+		NSColor(white: isDark ? 1 : 0, alpha: 0.2)
 	}
 
 	func buttonImageColor(isActive: Bool = false, isHighlighted: Bool) -> NSColor {
@@ -67,25 +67,25 @@ extension Theme {
 
 extension Theme {
 	private static var isSystemDark: Bool {
-		return UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark"
+		UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark"
 	}
 
 	private static var defaultBackground: HexColor {
-		return HexColor(hex: isSystemDark ? "2e2e2e" : "f9f9f9")!
+		HexColor(hex: isSystemDark ? "2e2e2e" : "f9f9f9")!
 	}
 
 	private static var defaultForeground: HexColor {
-		return HexColor(hex: isSystemDark ? "ffffff" : "545454")!
+		HexColor(hex: isSystemDark ? "ffffff" : "545454")!
 	}
 
 	static var `default`: Theme {
-		return Theme(foreground: defaultForeground, background: defaultBackground)
+		Theme(foreground: defaultForeground, background: defaultBackground)
 	}
 }
 
 extension Theme {
 	var dictionaryRepresentation: [String: Any] {
-		return [
+		[
 			"foreground": foregroundHex,
 			"background": backgroundHex
 		]
@@ -93,8 +93,10 @@ extension Theme {
 
 	init?(dictionaryRepresentation dictionary: [String: Any]) {
 		guard let foreground = (dictionary["foreground"] as? String).flatMap(HexColor.init),
-			let background = (dictionary["background"] as? String).flatMap(HexColor.init)
-		else { return nil }
+			let background = (dictionary["background"] as? String).flatMap(HexColor.init) else
+		{
+			return nil
+		}
 
 		self.foreground = foreground
 		self.background = background

@@ -9,11 +9,11 @@ final class MenuBarController: NSObject {
 	let popoverController = PopoverController()
 
 	static var shared: MenuBarController? {
-		return (NSApp.delegate as? AppDelegate)?.menuBarController
+		(NSApp.delegate as? AppDelegate)?.menuBarController
 	}
 
 	var isShowingPopover: Bool {
-		return popoverController.popover.isShown
+		popoverController.popover.isShown
 	}
 
 	// MARK: - Initializers
@@ -48,7 +48,7 @@ final class MenuBarController: NSObject {
 
 extension MenuBarController: PopoverControllerDelegate {
 	func popoverControllerWillShow(popover: NSPopover) -> NSView? {
-		return statusItem.button
+		statusItem.button
 	}
 
 	func popoverControllerDidShow(popover: NSPopover) {

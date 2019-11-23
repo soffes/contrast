@@ -23,7 +23,9 @@ struct HexColor {
 	}
 
 	init?(hex: String) {
-		guard let color = NSColor(hex: hex) else { return nil }
+		guard let color = NSColor(hex: hex) else {
+			return nil
+		}
 
 		self.color = color
 		self.hex = hex

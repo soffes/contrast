@@ -219,7 +219,9 @@ class ColorsViewController: NSViewController {
 	override func viewDidAppear() {
 		super.viewDidAppear()
 
-		guard isInPopover, let container = view.superview, arrowView.superview == nil else { return }
+		guard isInPopover, let container = view.superview, arrowView.superview == nil else {
+			return
+		}
 
 		container.addSubview(arrowView)
 		arrowView.layer?.backgroundColor = theme.backgroundColor.cgColor
@@ -274,7 +276,9 @@ class ColorsViewController: NSViewController {
 	}
 
 	@objc func showMenu(_ sender: Any?) {
-		guard let sender = sender as? NSView, let event = NSApplication.shared.currentEvent else { return }
+		guard let sender = sender as? NSView, let event = NSApplication.shared.currentEvent else {
+			return
+		}
 
 		let menu = MenuController.shared.createMenu(isInPopover: isInPopover)
 		NSMenu.popUpContextMenu(menu, with: event, for: sender)
@@ -317,7 +321,9 @@ class ColorsViewController: NSViewController {
 
 extension ColorsViewController: EyeDropperControllerDelegate {
 	func eyeDropperController(_ controller: EyeDropperController, didSelectColor color: NSColor, continuePicking: Bool) {
-		guard let position = position else { return }
+		guard let position = position else {
+			return
+		}
 
 		switch position {
 		case .foreground:

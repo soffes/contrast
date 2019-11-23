@@ -14,7 +14,7 @@ extension Preferences {
 
 		var wrappedValue: T {
 			get {
-				return UserDefaults.standard.object(forKey: key.rawValue) as? T ?? defaultValue
+				UserDefaults.standard.object(forKey: key.rawValue) as? T ?? defaultValue
 			}
 
 			set {
@@ -33,7 +33,7 @@ extension Preferences {
 
 		var wrappedValue: T? {
 			get {
-				return UserDefaults.standard.object(forKey: key.rawValue) as? T
+				UserDefaults.standard.object(forKey: key.rawValue) as? T
 			}
 
 			set {
@@ -56,7 +56,7 @@ extension Preferences {
 
 		var wrappedValue: KeyCombo? {
 			get {
-				return UserDefaults.standard.dictionary(forKey: key.rawValue).flatMap({ KeyCombo(dictionary: $0) })
+				UserDefaults.standard.dictionary(forKey: key.rawValue).flatMap({ KeyCombo(dictionary: $0) })
 			}
 
 			set {
@@ -79,7 +79,7 @@ extension Preferences {
 
 		var wrappedValue: ColorProfile {
 			get {
-				return UserDefaults.standard.string(forKey: key.rawValue).flatMap(ColorProfile.init) ?? .unmanaged
+				UserDefaults.standard.string(forKey: key.rawValue).flatMap(ColorProfile.init) ?? .unmanaged
 			}
 
 			set {

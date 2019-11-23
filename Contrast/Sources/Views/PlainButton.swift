@@ -18,7 +18,9 @@ private final class PlainButtonCell: NSButtonCell {
 	override func drawBezel(withFrame frame: NSRect, in controlView: NSView) {}
 
 	override func drawInterior(withFrame frame: NSRect, in view: NSView) {
-		guard let image = image else { return }
+		guard let image = image else {
+			return
+		}
 
 		let bounds = view.bounds
 
@@ -86,7 +88,7 @@ final class PlainButton: NSButton {
 
 	override class var cellClass: AnyClass? {
 		get {
-			return PlainButtonCell.self
+			PlainButtonCell.self
 		}
 
 		// swiftlint:disable:next unused_setter_value
@@ -96,6 +98,6 @@ final class PlainButton: NSButton {
 	// MARK: - Private
 
 	private var buttonCell: PlainButtonCell? {
-		return cell as? PlainButtonCell
+		cell as? PlainButtonCell
 	}
 }

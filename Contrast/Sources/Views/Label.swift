@@ -36,12 +36,12 @@ final class Label: NSTextField {
 		}
 
 		get {
-			return labelCell?.contentInsets ?? NSEdgeInsetsZero
+			labelCell?.contentInsets ?? NSEdgeInsetsZero
 		}
 	}
 
 	private var labelCell: LabelCell? {
-		return cell as? LabelCell
+		cell as? LabelCell
 	}
 
 	var theme: Theme = .`default` {
@@ -62,7 +62,9 @@ final class Label: NSTextField {
 		lineBreakMode = .byTruncatingTail
 		isBezeled = false
 
-		guard let cell = labelCell else { return }
+		guard let cell = labelCell else {
+			return
+		}
 
 		cell.isScrollable = false
 	}
@@ -84,7 +86,7 @@ final class Label: NSTextField {
 
 	override class var cellClass: AnyClass? {
 		get {
-			return LabelCell.self
+			LabelCell.self
 		}
 
 		// swiftlint:disable:next unused_setter_value

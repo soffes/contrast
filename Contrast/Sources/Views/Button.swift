@@ -42,7 +42,9 @@ private final class ButtonCell: NSButtonCell {
 	}
 
 	override func drawInterior(withFrame frame: NSRect, in view: NSView) {
-		guard let image = image else { return }
+		guard let image = image else {
+			return
+		}
 
 		let bounds = view.bounds
 
@@ -107,14 +109,14 @@ final class Button: NSButton {
 	// MARK: - NSView
 
 	override var intrinsicContentSize: NSSize {
-		return CGSize(width: 32 + 8, height: 22 + 8)
+		CGSize(width: 32 + 8, height: 22 + 8)
 	}
 
 	// MARK: - NSControl
 
 	override class var cellClass: AnyClass? {
 		get {
-			return ButtonCell.self
+			ButtonCell.self
 		}
 
 		// swiftlint:disable:next unused_setter_value
@@ -124,6 +126,6 @@ final class Button: NSButton {
 	// MARK: - Private
 
 	private var buttonCell: ButtonCell? {
-		return cell as? ButtonCell
+		cell as? ButtonCell
 	}
 }

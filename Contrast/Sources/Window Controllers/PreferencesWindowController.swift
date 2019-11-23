@@ -33,7 +33,7 @@ final class PreferencesWindowController: NSWindowController {
 	// MARK: - NSResponder
 
 	override var acceptsFirstResponder: Bool {
-		return true
+		true
 	}
 
 	func cancel(_ sender: Any?) {
@@ -43,7 +43,7 @@ final class PreferencesWindowController: NSWindowController {
 	// MARK: - NSWindowController
 
 	override var windowNibName: NSNib.Name? {
-		return "Preferences"
+		"Preferences"
 	}
 
 	override func windowDidLoad() {
