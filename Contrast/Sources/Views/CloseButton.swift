@@ -10,6 +10,13 @@ private extension Theme {
 	}
 }
 
+// https://stackoverflow.com/a/48888619/118631
+private final class FirstMouseImageView: NSImageView {
+	override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
+		true
+	}
+}
+
 private final class CloseButtonCell: NSButtonCell {
 
 	var theme: Theme = .default
@@ -52,7 +59,7 @@ final class CloseButton: NSButton {
 	}
 
 	let imageView: NSImageView = {
-		let view = NSImageView()
+		let view = FirstMouseImageView()
 		view.wantsLayer = true
 		view.layer?.backgroundColor = NSColor.clear.cgColor
 		return view
@@ -95,6 +102,10 @@ final class CloseButton: NSButton {
 
 		// swiftlint:disable:next unused_setter_value
 		set {}
+	}
+
+	override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
+		true
 	}
 
 	// MARK: - NSButton

@@ -1,6 +1,9 @@
 import AppKit
 
 private final class CustomWindowView: NSView {
+
+	// MARK: - Properties
+
 	let closeButton: CloseButton = {
 		let view = CloseButton()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +23,8 @@ private final class CustomWindowView: NSView {
 		}
 	}
 
+	// MARK: - NSResponder
+
 	override func mouseEntered(with event: NSEvent) {
 		NSAnimationContext.runAnimationGroup({ context in
 			context.duration = 0.2
@@ -34,11 +39,19 @@ private final class CustomWindowView: NSView {
 		}, completionHandler: nil)
 	}
 
+	// MARK: - NSView
+
+	override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
+		true
+	}
+
 	override func updateTrackingAreas() {
 		let options: NSTrackingArea.Options = [.mouseEnteredAndExited, .activeAlways]
 		trackingArea = NSTrackingArea(rect: closeButton.frame, options: options, owner: self, userInfo: nil)
 		super.updateTrackingAreas()
 	}
+
+	// MARK: - Internal
 
 	func addCloseButton() {
 		closeButton.removeFromSuperview()
