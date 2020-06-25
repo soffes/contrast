@@ -91,19 +91,7 @@ class ColorsViewController: NSViewController {
 		return view
 	}()
 
-	private var position: Position? {
-		didSet {
-			foregroundInput.button.isActive = position == .foreground
-			backgroundInput.button.isActive = position == .background
-		}
-	}
-
-	private var eyeDropperController: EyeDropperController? {
-		willSet {
-			eyeDropperController?.delegate = nil
-			eyeDropperController?.cancel(self)
-		}
-	}
+	private var colorSampler: NSColorSampler?
 
 	// MARK: - Initializers
 
@@ -237,7 +225,7 @@ class ColorsViewController: NSViewController {
 	override func viewDidDisappear() {
 		super.viewDidDisappear()
 
-		eyeDropperController = nil
+		colorSampler = nil
 	}
 
 	// MARK: - Actions
@@ -253,11 +241,19 @@ class ColorsViewController: NSViewController {
 	@objc private func pickColor(_ sender: Button) {
 		NSSound.contrastPick.forcePlay()
 
-		let eyeDropper = EyeDropperController(delegate: self)
-		eyeDropper.startPicking()
-		eyeDropperController = eyeDropper
+		let position: Position = foregroundInput.button == sender ? .foreground : .background
+		updateButtons(with: position)
 
-		position = foregroundInput.button == sender ? .foreground : .background
+		let sampler = NSColorSampler()
+		sampler.show { [weak self] color in
+			self?.updateButtons(with: nil)
+
+			if let self = self, let color = color {
+				NSSound.contrastPickColor.forcePlay()
+				self.apply(color, to: position)
+			}
+		}
+		self.colorSampler = sampler
 	}
 
 	@objc private func swapColors(_ sender: Any?) {
@@ -266,6 +262,20 @@ class ColorsViewController: NSViewController {
 	}
 
 	// MARK: - Private
+
+	private func updateButtons(with position: Position?) {
+		foregroundInput.button.isActive = position == .foreground
+		backgroundInput.button.isActive = position == .background
+	}
+
+	private func apply(_ color: NSColor, to position: Position) {
+		switch position {
+		case .foreground:
+			theme.foregroundColor = color
+		case .background:
+			theme.backgroundColor = color
+		}
+	}
 
 	@objc private func themeDidChange(_ notification: Notification) {
 		if ColorsController.shared.theme == theme {
@@ -316,37 +326,6 @@ class ColorsViewController: NSViewController {
 	@objc private func updateTextFields() {
 		foregroundInput.updateTextField()
 		backgroundInput.updateTextField()
-	}
-}
-
-extension ColorsViewController: EyeDropperControllerDelegate {
-	func eyeDropperController(_ controller: EyeDropperController, didSelectColor color: NSColor, continuePicking: Bool) {
-		guard let position = position else {
-			return
-		}
-
-		switch position {
-		case .foreground:
-			theme.foregroundColor = color
-		case .background:
-			theme.backgroundColor = color
-		}
-
-		if continuePicking {
-			self.position = position.opposite
-
-			let eyeDropper = EyeDropperController(delegate: self)
-			eyeDropper.startPicking()
-			eyeDropperController = eyeDropper
-		} else {
-			eyeDropperController = nil
-			self.position = nil
-		}
-	}
-
-	func eyeDropperControllerDidCancel(_ controller: EyeDropperController) {
-		eyeDropperController = nil
-		position = nil
 	}
 }
 
