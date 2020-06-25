@@ -5,21 +5,21 @@ final class WelcomeViewController: NSViewController {
 	// MARK: - Properties
 
 	private let orangeView: NSView = {
-		let view = View(frame: CGRect(x: -210, y: 20, width: 254, height: 240))
+		let view = LayerView(frame: CGRect(x: -210, y: 20, width: 254, height: 240))
 		view.backgroundColor = NSColor(named: "Welcome - Orange")
 		view.rotate(byDegrees: -315)
 		return view
 	}()
 
 	private let blueView: NSView = {
-		let view = View(frame: CGRect(x: 185, y: -130, width: 230, height: 230))
+		let view = LayerView(frame: CGRect(x: 185, y: -130, width: 230, height: 230))
 		view.backgroundColor = NSColor(named: "Welcome - Blue")
 		view.layer?.cornerRadius = view.frame.height / 2
 		return view
 	}()
 
 	private let pinkView: NSView = {
-		let view = View(frame: CGRect(x: 260, y: 232, width: 203, height: 191))
+		let view = LayerView(frame: CGRect(x: 260, y: 232, width: 203, height: 191))
 		view.backgroundColor = NSColor(named: "Welcome - Pink")
 		view.rotate(byDegrees: -315)
 		return view
@@ -94,7 +94,7 @@ final class WelcomeViewController: NSViewController {
 	// MARK: - NSViewController
 
 	override func loadView() {
-		let view = View()
+		let view = LayerView()
 		view.backgroundColor = NSColor(named: "Welcome - Background")
 		self.view = view
 	}

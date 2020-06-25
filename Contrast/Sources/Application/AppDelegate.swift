@@ -10,7 +10,7 @@ import AppKit
 	private var preferencesWindowController: NSWindowController?
 
 	private var isQuietLaunch: Bool {
-		CommandLine.arguments.contains("quiet")
+		true //CommandLine.arguments.contains("quiet")
 	}
 
 	// MARK: - Actions

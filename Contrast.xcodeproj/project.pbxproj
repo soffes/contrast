@@ -54,7 +54,7 @@
 		2182D27A20D582BD000B5CD8 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D25620D582BD000B5CD8 /* CustomWindow.swift */; };
 		21A25E871F336D22000AD1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A25E811F336D22000AD1F1 /* Assets.xcassets */; };
 		21A25E8E1F336DCE000AD1F1 /* ContrastHelper.app in Embed Helper */ = {isa = PBXBuildFile; fileRef = 21A25E681F336CE5000AD1F1 /* ContrastHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		21C355FA22FF21D50018FDD6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C355F922FF21D50018FDD6 /* View.swift */; };
+		21C355FA22FF21D50018FDD6 /* LayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C355F922FF21D50018FDD6 /* LayerView.swift */; };
 		21DCFBD52301B5F300422979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DCFBD42301B5F300422979 /* AppDelegate.swift */; };
 		21DCFBD72301B75300422979 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DCFBD62301B75300422979 /* main.swift */; };
 		21F40ED023465B2900D9189E /* NSMenuItem+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F40ECF23465B2900D9189E /* NSMenuItem+Contrast.swift */; };
@@ -134,7 +134,7 @@
 		21A25E811F336D22000AD1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21A25E841F336D22000AD1F1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A25E901F337E41000AD1F1 /* ContrastHelper.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ContrastHelper.entitlements; sourceTree = "<group>"; };
-		21C355F922FF21D50018FDD6 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		21C355F922FF21D50018FDD6 /* LayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerView.swift; sourceTree = "<group>"; };
 		21DCFBD42301B5F300422979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21DCFBD62301B75300422979 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		21F40ECF23465B2900D9189E /* NSMenuItem+Contrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+Contrast.swift"; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 				2182D23F20D582BD000B5CD8 /* GridView.swift */,
 				2182D24020D582BD000B5CD8 /* Button.swift */,
 				2182D24120D582BD000B5CD8 /* WelcomeButton.swift */,
-				21C355F922FF21D50018FDD6 /* View.swift */,
+				21C355F922FF21D50018FDD6 /* LayerView.swift */,
 				2156F0E72313946500262926 /* ShortcutTextField.swift */,
 			);
 			path = Views;
@@ -581,7 +581,7 @@
 				2182D26620D582BD000B5CD8 /* TextField.swift in Sources */,
 				2182D25B20D582BD000B5CD8 /* Screenshot.swift in Sources */,
 				215710EE236AE9910041A6AB /* CGColor+Contrast.swift in Sources */,
-				21C355FA22FF21D50018FDD6 /* View.swift in Sources */,
+				21C355FA22FF21D50018FDD6 /* LayerView.swift in Sources */,
 				2182D27620D582BD000B5CD8 /* MenuController.swift in Sources */,
 				2182D26020D582BD000B5CD8 /* AppDelegate.swift in Sources */,
 				215710F3236AF6690041A6AB /* Preferences+PropertyWrappers.swift in Sources */,

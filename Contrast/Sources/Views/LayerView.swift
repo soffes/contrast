@@ -1,6 +1,6 @@
 import AppKit
 
-class View: NSView {
+class LayerView: NSView {
 
 	// MARK: - Properties
 
