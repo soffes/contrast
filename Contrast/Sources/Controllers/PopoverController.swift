@@ -1,51 +1,21 @@
 import AppKit
 
-protocol PopoverControllerDelegate: class {
-	func popoverControllerWillShow(popover: NSPopover) -> NSView?
-	func popoverControllerDidShow(popover: NSPopover)
-	func popoverControllerDidDismiss(popover: NSPopover)
-	func popoverControllerDidDetach(popover: NSPopover)
-}
-
-final class PopoverController: NSObject {
+final class PopoverController {
 
 	// MARK: - Properties
 
-	let popover: NSPopover
+	let contentViewController = ColorsViewController(isInPopover: false)
 
-	weak var delegate: PopoverControllerDelegate?
-
-	private var detachedWindow: NSWindow?
-
-	// MARK: - Initializers
-
-	override init() {
-		// Create popover
-		popover = NSPopover()
-		popover.animates = false
-		popover.contentViewController = ColorsViewController()
-
-		super.init()
-
-		popover.delegate = self
-
-		// Register for notifications
-		NotificationCenter.default.addObserver(self, selector: #selector(applicationWillResignActive),
-											   name: NSApplication.willResignActiveNotification, object: nil)
-	}
+	private lazy var window: NSWindow = {
+		let window = CustomWindow(contentViewController: contentViewController)
+		window.customCloseButton = true
+		return window
+	}()
 
 	// MARK: - Actions
 
 	func togglePopover() {
-		detachedWindow?.close()
-		detachedWindow = nil
-
-		if popover.isShown {
-			if popover.isDetached {
-				dismissPopover()
-				showPopover()
-				return
-			}
+		if window.isVisible {
 			dismissPopover()
 		} else {
 			showPopover()
@@ -53,70 +23,19 @@ final class PopoverController: NSObject {
 	}
 
 	@objc func showPopover() {
-		guard Preferences.shared.isTutorialCompleted,
-			let view = delegate?.popoverControllerWillShow(popover: popover) else
-		{
+		guard Preferences.shared.isTutorialCompleted else {
 			return
 		}
 
-		detachedWindow?.close()
-		detachedWindow = nil
-
 		NSApp.activate(ignoringOtherApps: true)
-		popover.show(relativeTo: view.bounds, of: view, preferredEdge: .minY)
+		window.makeKeyAndOrderFront(self)
 	}
 
 	@objc func dismissPopover() {
-		popover.close()
+		window.close()
 
 		if NSApp.isActive {
 			NSApp.deactivate()
 		}
-	}
-
-	@objc private func applicationWillResignActive(_ notification: Notification?) {
-		// Don't close when it's detached
-		if popover.isDetached {
-			return
-		}
-
-		dismissPopover()
-	}
-}
-
-extension PopoverController: NSPopoverDelegate {
-	func popoverDidShow(_ notification: Notification) {
-		delegate?.popoverControllerDidShow(popover: popover)
-	}
-
-	func popoverDidClose(_ notification: Notification) {
-		delegate?.popoverControllerDidDismiss(popover: popover)
-	}
-
-	func popoverShouldDetach(_ popover: NSPopover) -> Bool {
-		true
-	}
-
-	func popoverDidDetach(_ popover: NSPopover) {
-		delegate?.popoverControllerDidDetach(popover: popover)
-	}
-
-	func detachableWindow(for popover: NSPopover) -> NSWindow? {
-		guard let contentViewController = popover.contentViewController as? ColorsViewController else {
-			return nil
-		}
-
-		let viewController = ColorsViewController(theme: contentViewController.theme, isInPopover: false)
-		let window = CustomWindow(contentViewController: viewController)
-		window.customCloseButton = true
-		window.delegate = self
-		detachedWindow = window
-		return window
-	}
-}
-
-extension PopoverController: NSWindowDelegate {
-	func windowWillClose(_ notification: Notification) {
-		detachedWindow = nil
 	}
 }

@@ -72,9 +72,7 @@ final class HotKeysController {
 		}
 
 		controller.showPopover()
-		if let viewController = controller.popover.contentViewController as? ColorsViewController {
-			viewController.pickForeground()
-		}
+		controller.contentViewController.pickForeground()
 	}
 
 	private func pickBackgroundColor() {
@@ -83,9 +81,7 @@ final class HotKeysController {
 		}
 
 		controller.showPopover()
-		if let viewController = controller.popover.contentViewController as? ColorsViewController {
-			viewController.pickBackground()
-		}
+		controller.contentViewController.pickBackground()
 	}
 
 	// MARK: - Private

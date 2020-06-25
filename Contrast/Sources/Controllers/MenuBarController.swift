@@ -12,10 +12,6 @@ final class MenuBarController: NSObject {
 		(NSApp.delegate as? AppDelegate)?.menuBarController
 	}
 
-	var isShowingPopover: Bool {
-		popoverController.popover.isShown
-	}
-
 	// MARK: - Initializers
 
 	override init() {
@@ -25,8 +21,6 @@ final class MenuBarController: NSObject {
 		statusItem.image = #imageLiteral(resourceName: "MenuBarIcon")
 
 		super.init()
-
-		popoverController.delegate = self
 
 		// Show popover event
 		NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.leftMouseDown) { [weak self] event in
@@ -43,23 +37,5 @@ final class MenuBarController: NSObject {
 
 	func showPopover() {
 		popoverController.showPopover()
-	}
-}
-
-extension MenuBarController: PopoverControllerDelegate {
-	func popoverControllerWillShow(popover: NSPopover) -> NSView? {
-		statusItem.button
-	}
-
-	func popoverControllerDidShow(popover: NSPopover) {
-		statusItem.button?.isHighlighted = true
-	}
-
-	func popoverControllerDidDismiss(popover: NSPopover) {
-		statusItem.button?.isHighlighted = false
-	}
-
-	func popoverControllerDidDetach(popover: NSPopover) {
-		statusItem.button?.isHighlighted = false
 	}
 }
