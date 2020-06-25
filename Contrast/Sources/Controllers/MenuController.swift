@@ -20,13 +20,6 @@ final class MenuController: NSObject {
 		let menu = NSMenu()
 
 		if Preferences.shared.isTutorialCompleted {
-			if !isInPopover {
-				menu.addItem(NSMenuItem(title: "Attach to Menu Bar",
-										target: (NSApp.delegate as? AppDelegate)?.menuBarController.popoverController,
-										action: #selector(PopoverController.showPopover)))
-				menu.addItem(.separator())
-			}
-
 			menu.addItem(NSMenuItem(title: "About Contrast", target: self, action: #selector(showAbout)))
 
 			menu.addItem(.separator())
