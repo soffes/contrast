@@ -13,9 +13,7 @@
 		214AD809203BD545000207A6 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7F8203BD545000207A6 /* About.storyboard */; };
 		214AD80A203BD545000207A6 /* click_tiny.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FB203BD545000207A6 /* click_tiny.wav */; };
 		214AD80B203BD545000207A6 /* click_type.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FC203BD545000207A6 /* click_type.wav */; };
-		214AD80C203BD545000207A6 /* click_snap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FD203BD545000207A6 /* click_snap.wav */; };
 		214AD80D203BD545000207A6 /* slide_left.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FE203BD545000207A6 /* slide_left.wav */; };
-		214AD80E203BD545000207A6 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FF203BD545000207A6 /* dsa_pub.pem */; };
 		2156F0E82313946500262926 /* ShortcutTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156F0E72313946500262926 /* ShortcutTextField.swift */; };
 		215710EE236AE9910041A6AB /* CGColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710ED236AE9910041A6AB /* CGColor+Contrast.swift */; };
 		215710F3236AF6690041A6AB /* Preferences+PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710F2236AF6690041A6AB /* Preferences+PropertyWrappers.swift */; };
@@ -93,11 +91,8 @@
 		214AD7F9203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		214AD7FB203BD545000207A6 /* click_tiny.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_tiny.wav; sourceTree = "<group>"; };
 		214AD7FC203BD545000207A6 /* click_type.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_type.wav; sourceTree = "<group>"; };
-		214AD7FD203BD545000207A6 /* click_snap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_snap.wav; sourceTree = "<group>"; };
 		214AD7FE203BD545000207A6 /* slide_left.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slide_left.wav; sourceTree = "<group>"; };
-		214AD7FF203BD545000207A6 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		214AD803203BD545000207A6 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
-		214AD804203BD545000207A6 /* dsa_priv.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_priv.pem; sourceTree = "<group>"; };
 		214AD805203BD545000207A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2156F0E72313946500262926 /* ShortcutTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutTextField.swift; sourceTree = "<group>"; };
 		215710ED236AE9910041A6AB /* CGColor+Contrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+Contrast.swift"; sourceTree = "<group>"; };
@@ -174,7 +169,6 @@
 				214AD7F6203BD545000207A6 /* Preferences.xib */,
 				214AD7F8203BD545000207A6 /* About.storyboard */,
 				214AD7FA203BD545000207A6 /* Sounds */,
-				214AD7FF203BD545000207A6 /* dsa_pub.pem */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -184,7 +178,6 @@
 			children = (
 				214AD7FB203BD545000207A6 /* click_tiny.wav */,
 				214AD7FC203BD545000207A6 /* click_type.wav */,
-				214AD7FD203BD545000207A6 /* click_snap.wav */,
 				214AD7FE203BD545000207A6 /* slide_left.wav */,
 			);
 			path = Sounds;
@@ -194,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				214AD803203BD545000207A6 /* Contrast.entitlements */,
-				214AD804203BD545000207A6 /* dsa_priv.pem */,
 				214AD805203BD545000207A6 /* Info.plist */,
 			);
 			path = Support;
@@ -509,11 +501,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				214AD80C203BD545000207A6 /* click_snap.wav in Resources */,
 				214AD806203BD545000207A6 /* Assets.xcassets in Resources */,
 				214AD80A203BD545000207A6 /* click_tiny.wav in Resources */,
 				214AD808203BD545000207A6 /* Preferences.xib in Resources */,
-				214AD80E203BD545000207A6 /* dsa_pub.pem in Resources */,
 				214AD80B203BD545000207A6 /* click_type.wav in Resources */,
 				214AD80D203BD545000207A6 /* slide_left.wav in Resources */,
 				214AD809203BD545000207A6 /* About.storyboard in Resources */,
