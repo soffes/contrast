@@ -186,7 +186,7 @@ final class TextField: NSTextField {
 	private func themeDidChange() {
 		textFieldCell?.theme = theme
 		textColor = theme.textFieldTextColor
-		setNeedsDisplay()
+		needsDisplay = true
 	}
 
 	private var isFirstResponder: Bool {

@@ -51,7 +51,7 @@ final class PlainButton: NSButton {
 	var theme: Theme = .default {
 		didSet {
 			buttonCell?.theme = theme
-			setNeedsDisplay()
+			needsDisplay = true
 
 		}
 	}
