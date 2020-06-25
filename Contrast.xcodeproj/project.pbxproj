@@ -16,7 +16,6 @@
 		214AD80C203BD545000207A6 /* click_snap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FD203BD545000207A6 /* click_snap.wav */; };
 		214AD80D203BD545000207A6 /* slide_left.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FE203BD545000207A6 /* slide_left.wav */; };
 		214AD80E203BD545000207A6 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FF203BD545000207A6 /* dsa_pub.pem */; };
-		214AD80F203BD545000207A6 /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 214AD801203BD545000207A6 /* Native-Regular.ttf */; };
 		2156F0E82313946500262926 /* ShortcutTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156F0E72313946500262926 /* ShortcutTextField.swift */; };
 		215710EE236AE9910041A6AB /* CGColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710ED236AE9910041A6AB /* CGColor+Contrast.swift */; };
 		215710F3236AF6690041A6AB /* Preferences+PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710F2236AF6690041A6AB /* Preferences+PropertyWrappers.swift */; };
@@ -97,7 +96,6 @@
 		214AD7FD203BD545000207A6 /* click_snap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_snap.wav; sourceTree = "<group>"; };
 		214AD7FE203BD545000207A6 /* slide_left.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slide_left.wav; sourceTree = "<group>"; };
 		214AD7FF203BD545000207A6 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		214AD801203BD545000207A6 /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 		214AD803203BD545000207A6 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
 		214AD804203BD545000207A6 /* dsa_priv.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_priv.pem; sourceTree = "<group>"; };
 		214AD805203BD545000207A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				214AD7F8203BD545000207A6 /* About.storyboard */,
 				214AD7FA203BD545000207A6 /* Sounds */,
 				214AD7FF203BD545000207A6 /* dsa_pub.pem */,
-				214AD800203BD545000207A6 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -191,14 +188,6 @@
 				214AD7FE203BD545000207A6 /* slide_left.wav */,
 			);
 			path = Sounds;
-			sourceTree = "<group>";
-		};
-		214AD800203BD545000207A6 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				214AD801203BD545000207A6 /* Native-Regular.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		214AD802203BD545000207A6 /* Support */ = {
@@ -528,7 +517,6 @@
 				214AD80B203BD545000207A6 /* click_type.wav in Resources */,
 				214AD80D203BD545000207A6 /* slide_left.wav in Resources */,
 				214AD809203BD545000207A6 /* About.storyboard in Resources */,
-				214AD80F203BD545000207A6 /* Native-Regular.ttf in Resources */,
 				214AD807203BD545000207A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
