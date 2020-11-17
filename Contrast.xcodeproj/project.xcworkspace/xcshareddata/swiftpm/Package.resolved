@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Color",
+        "repositoryURL": "https://github.com/soffes/Color",
+        "state": {
+          "branch": null,
+          "revision": "5e645c105cfd5e9e00f3b7f0dbe327d92b03a4d1",
+          "version": "0.1.2"
+        }
+      },
+      {
+        "package": "HotKey",
+        "repositoryURL": "https://github.com/soffes/HotKey",
+        "state": {
+          "branch": null,
+          "revision": "c13662730cb5bc28de4a799854bbb018a90649bf",
+          "version": "0.1.3"
+        }
+      },
+      {
+        "package": "Mixpanel",
+        "repositoryURL": "https://github.com/soffes/Mixpanel",
+        "state": {
+          "branch": null,
+          "revision": "d03dc2abdcbbb01840c75c2313c77e5a327c2228",
+          "version": "0.2.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

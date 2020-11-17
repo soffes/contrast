@@ -31,12 +31,12 @@ final class Label: NSTextField {
 	// MARK: - Properties
 
 	var contentInsets: NSEdgeInsets {
-		set {
-			labelCell?.contentInsets = newValue
-		}
-
 		get {
 			labelCell?.contentInsets ?? NSEdgeInsetsZero
+		}
+
+		set {
+			labelCell?.contentInsets = newValue
 		}
 	}
 
