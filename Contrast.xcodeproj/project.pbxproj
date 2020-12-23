@@ -23,15 +23,12 @@
 		215710F5236AF88B0041A6AB /* ColorProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710F4236AF88B0041A6AB /* ColorProfile.swift */; };
 		21739E4B233E960200F3A8EF /* Color in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E4A233E960200F3A8EF /* Color */; };
 		21739E4E233E961100F3A8EF /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E4D233E961100F3A8EF /* HotKey */; };
-		21739E64233E985C00F3A8EF /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 21739E63233E985C00F3A8EF /* Mixpanel */; };
 		2182D25820D582BD000B5CD8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22C20D582BD000B5CD8 /* WelcomeViewController.swift */; };
 		2182D25920D582BD000B5CD8 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22D20D582BD000B5CD8 /* ColorsViewController.swift */; };
 		2182D25A20D582BD000B5CD8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D22E20D582BD000B5CD8 /* AboutViewController.swift */; };
 		2182D25B20D582BD000B5CD8 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23020D582BD000B5CD8 /* Screenshot.swift */; };
 		2182D25C20D582BD000B5CD8 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23120D582BD000B5CD8 /* HexColor.swift */; };
 		2182D25D20D582BD000B5CD8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23220D582BD000B5CD8 /* Theme.swift */; };
-		2182D25E20D582BD000B5CD8 /* Mixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23420D582BD000B5CD8 /* Mixpanel.swift */; };
-		2182D25F20D582BD000B5CD8 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23520D582BD000B5CD8 /* Secrets.swift */; };
 		2182D26020D582BD000B5CD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23620D582BD000B5CD8 /* AppDelegate.swift */; };
 		2182D26120D582BD000B5CD8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23820D582BD000B5CD8 /* Label.swift */; };
 		2182D26220D582BD000B5CD8 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182D23920D582BD000B5CD8 /* CloseButton.swift */; };
@@ -115,8 +112,6 @@
 		2182D23020D582BD000B5CD8 /* Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
 		2182D23120D582BD000B5CD8 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		2182D23220D582BD000B5CD8 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		2182D23420D582BD000B5CD8 /* Mixpanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mixpanel.swift; sourceTree = "<group>"; };
-		2182D23520D582BD000B5CD8 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		2182D23620D582BD000B5CD8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2182D23820D582BD000B5CD8 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		2182D23920D582BD000B5CD8 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
@@ -160,7 +155,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21739E64233E985C00F3A8EF /* Mixpanel in Frameworks */,
 				21739E4E233E961100F3A8EF /* HotKey in Frameworks */,
 				21739E4B233E960200F3A8EF /* Color in Frameworks */,
 			);
@@ -243,8 +237,6 @@
 		2182D23320D582BD000B5CD8 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				2182D23420D582BD000B5CD8 /* Mixpanel.swift */,
-				2182D23520D582BD000B5CD8 /* Secrets.swift */,
 				2182D23620D582BD000B5CD8 /* AppDelegate.swift */,
 			);
 			path = Application;
@@ -419,7 +411,6 @@
 			packageProductDependencies = (
 				21739E4A233E960200F3A8EF /* Color */,
 				21739E4D233E961100F3A8EF /* HotKey */,
-				21739E63233E985C00F3A8EF /* Mixpanel */,
 			);
 			productName = Contrast;
 			productReference = 218487061F04642C009EE112 /* Contrast.app */;
@@ -515,7 +506,6 @@
 			packageReferences = (
 				21739E49233E960200F3A8EF /* XCRemoteSwiftPackageReference "Color" */,
 				21739E4C233E961100F3A8EF /* XCRemoteSwiftPackageReference "HotKey" */,
-				21739E62233E985C00F3A8EF /* XCRemoteSwiftPackageReference "Mixpanel" */,
 			);
 			productRefGroup = 218487071F04642C009EE112 /* Products */;
 			projectDirPath = "";
@@ -608,7 +598,6 @@
 				2182D26320D582BD000B5CD8 /* PlainButton.swift in Sources */,
 				2182D26A20D582BD000B5CD8 /* WelcomeButton.swift in Sources */,
 				2182D25A20D582BD000B5CD8 /* AboutViewController.swift in Sources */,
-				2182D25F20D582BD000B5CD8 /* Secrets.swift in Sources */,
 				2182D27420D582BD000B5CD8 /* PopoverController.swift in Sources */,
 				2182D26D20D582BD000B5CD8 /* NSSound+Contrast.swift in Sources */,
 				215710F5236AF88B0041A6AB /* ColorProfile.swift in Sources */,
@@ -625,7 +614,6 @@
 				2182D26920D582BD000B5CD8 /* Button.swift in Sources */,
 				2182D27720D582BD000B5CD8 /* AboutWindowController.swift in Sources */,
 				2182D26220D582BD000B5CD8 /* CloseButton.swift in Sources */,
-				2182D25E20D582BD000B5CD8 /* Mixpanel.swift in Sources */,
 				2156F0E82313946500262926 /* ShortcutTextField.swift in Sources */,
 				2182D27A20D582BD000B5CD8 /* CustomWindow.swift in Sources */,
 				2182D27520D582BD000B5CD8 /* HotKeysController.swift in Sources */,
@@ -962,14 +950,6 @@
 				minimumVersion = 0.1.2;
 			};
 		};
-		21739E62233E985C00F3A8EF /* XCRemoteSwiftPackageReference "Mixpanel" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/soffes/Mixpanel";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -982,11 +962,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 21739E4C233E961100F3A8EF /* XCRemoteSwiftPackageReference "HotKey" */;
 			productName = HotKey;
-		};
-		21739E63233E985C00F3A8EF /* Mixpanel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21739E62233E985C00F3A8EF /* XCRemoteSwiftPackageReference "Mixpanel" */;
-			productName = Mixpanel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

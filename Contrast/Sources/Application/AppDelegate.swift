@@ -44,9 +44,6 @@ import AppKit
 
 extension AppDelegate: NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		// Start Mixpanel
-		mixpanel.track(event: "Launch")
-
 		// Setup listener for pings from ContrastHelper
 		let pingName = Notification.Name("com.nothingmagical.contrast.notification.ping")
 		DistributedNotificationCenter.default().addObserver(self, selector: #selector(ping), name: pingName,
@@ -79,10 +76,6 @@ extension AppDelegate: NSApplicationDelegate {
 				self?.menuBarController.showPopover()
 			}
 		}
-	}
-
-	func applicationDidBecomeActive(_ notification: Notification) {
-		mixpanel.track(event: "Activiate")
 	}
 
 	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
