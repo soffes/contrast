@@ -15,7 +15,6 @@
 		214AD80B203BD545000207A6 /* click_type.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FC203BD545000207A6 /* click_type.wav */; };
 		214AD80C203BD545000207A6 /* click_snap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FD203BD545000207A6 /* click_snap.wav */; };
 		214AD80D203BD545000207A6 /* slide_left.wav in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FE203BD545000207A6 /* slide_left.wav */; };
-		214AD80E203BD545000207A6 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 214AD7FF203BD545000207A6 /* dsa_pub.pem */; };
 		214AD80F203BD545000207A6 /* Native-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 214AD801203BD545000207A6 /* Native-Regular.ttf */; };
 		2156F0E82313946500262926 /* ShortcutTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156F0E72313946500262926 /* ShortcutTextField.swift */; };
 		215710EE236AE9910041A6AB /* CGColor+Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215710ED236AE9910041A6AB /* CGColor+Contrast.swift */; };
@@ -89,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		210C65062592F65C00AA5599 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		214AD7F3203BD545000207A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214AD7F5203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		214AD7F7203BD545000207A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
@@ -97,7 +97,6 @@
 		214AD7FC203BD545000207A6 /* click_type.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_type.wav; sourceTree = "<group>"; };
 		214AD7FD203BD545000207A6 /* click_snap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_snap.wav; sourceTree = "<group>"; };
 		214AD7FE203BD545000207A6 /* slide_left.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slide_left.wav; sourceTree = "<group>"; };
-		214AD7FF203BD545000207A6 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		214AD801203BD545000207A6 /* Native-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Native-Regular.ttf"; sourceTree = "<group>"; };
 		214AD803203BD545000207A6 /* Contrast.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Contrast.entitlements; sourceTree = "<group>"; };
 		214AD804203BD545000207A6 /* dsa_priv.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_priv.pem; sourceTree = "<group>"; };
@@ -178,7 +177,6 @@
 				214AD7F6203BD545000207A6 /* Preferences.xib */,
 				214AD7F8203BD545000207A6 /* About.storyboard */,
 				214AD7FA203BD545000207A6 /* Sounds */,
-				214AD7FF203BD545000207A6 /* dsa_pub.pem */,
 				214AD800203BD545000207A6 /* Fonts */,
 			);
 			path = Resources;
@@ -208,6 +206,7 @@
 			children = (
 				214AD803203BD545000207A6 /* Contrast.entitlements */,
 				214AD804203BD545000207A6 /* dsa_priv.pem */,
+				210C65062592F65C00AA5599 /* dsa_pub.pem */,
 				214AD805203BD545000207A6 /* Info.plist */,
 			);
 			path = Support;
@@ -526,7 +525,6 @@
 				214AD806203BD545000207A6 /* Assets.xcassets in Resources */,
 				214AD80A203BD545000207A6 /* click_tiny.wav in Resources */,
 				214AD808203BD545000207A6 /* Preferences.xib in Resources */,
-				214AD80E203BD545000207A6 /* dsa_pub.pem in Resources */,
 				214AD80B203BD545000207A6 /* click_type.wav in Resources */,
 				214AD80D203BD545000207A6 /* slide_left.wav in Resources */,
 				214AD809203BD545000207A6 /* About.storyboard in Resources */,
