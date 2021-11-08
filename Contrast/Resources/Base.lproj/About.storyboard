@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="mvE-gZ-4UD">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="mvE-gZ-4UD">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,19 +60,19 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="251" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVt-zD-dMC">
-                                <rect key="frame" x="18" y="20" width="208" height="11"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Copyright © 2019–2020 Nothing Magical Inc." usesSingleLineMode="YES" id="bND-f1-eAf">
+                                <rect key="frame" x="39" y="20" width="166" height="11"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Copyright © 2019–2021 Sam Soffes" usesSingleLineMode="YES" id="bND-f1-eAf">
                                     <font key="font" metaFont="miniSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Qv-dg-ZYZ">
-                                <rect key="frame" x="28" y="51" width="189" height="28"/>
+                                <rect key="frame" x="41" y="51" width="163" height="28"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="xqm-AW-7XQ">
                                     <font key="font" metaFont="smallSystem"/>
                                     <string key="title">Designed &amp; developed
-by Nothing Magical &amp; Studio MDS.</string>
+by Sam Soffes &amp; Studio MDS.</string>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
