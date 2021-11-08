@@ -1,6 +1,6 @@
 import AppKit
 
-protocol PopoverControllerDelegate: class {
+protocol PopoverControllerDelegate: AnyObject {
 	func popoverControllerWillShow(popover: NSPopover) -> NSView?
 	func popoverControllerDidShow(popover: NSPopover)
 	func popoverControllerDidDismiss(popover: NSPopover)

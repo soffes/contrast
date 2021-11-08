@@ -1,7 +1,7 @@
 import AppKit
 import Color
 
-protocol ColorsViewControllerDelegate: class {
+protocol ColorsViewControllerDelegate: AnyObject {
 	func colorsViewController(_ viewController: ColorsViewController, didChangeTheme theme: Theme)
 }
 

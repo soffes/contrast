@@ -160,9 +160,7 @@ final class WelcomeViewController: NSViewController {
 		start()
 		NSApp.deactivate()
 
-		let url = URL(string: "https://usecontrast.com/guide")!
-		let application = try? NSWorkspace.shared.open(url, options: [], configuration: [:])
-		application?.activate(options: [])
+		NSWorkspace.shared.open(URL(string: "https://usecontrast.com/guide")!)
 	}
 
 	@objc private func start() {

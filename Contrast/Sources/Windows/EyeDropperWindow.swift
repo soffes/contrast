@@ -1,6 +1,6 @@
 import AppKit
 
-protocol EyeDropperWindowDelegate: class {
+protocol EyeDropperWindowDelegate: AnyObject {
 	func eyeDropperWindow(_ window: EyeDropperWindow, didPickColor event: NSEvent)
 	func eyeDropperWindowDidCancel(_ window: EyeDropperWindow)
 }

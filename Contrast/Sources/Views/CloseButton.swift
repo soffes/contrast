@@ -47,7 +47,7 @@ final class CloseButton: NSButton {
 		didSet {
 			buttonCell?.theme = theme
 			updateImage()
-			setNeedsDisplay()
+			needsDisplay = true
 		}
 	}
 

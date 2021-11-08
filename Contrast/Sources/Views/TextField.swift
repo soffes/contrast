@@ -62,7 +62,7 @@ private final class TextFieldCell: NSTextFieldCell {
 	}
 }
 
-protocol TextFieldArrowDelegate: class {
+protocol TextFieldArrowDelegate: AnyObject {
 	func textField(_ textField: TextField, didPressUpWithShift shift: Bool)
 	func textField(_ textField: TextField, didPressDownWithShift shift: Bool)
 }
@@ -186,7 +186,7 @@ final class TextField: NSTextField {
 	private func themeDidChange() {
 		textFieldCell?.theme = theme
 		textColor = theme.textFieldTextColor
-		setNeedsDisplay()
+		needsDisplay = true
 	}
 
 	private var isFirstResponder: Bool {

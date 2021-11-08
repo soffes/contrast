@@ -22,7 +22,7 @@ final class MenuBarController: NSObject {
 		// Create menu bar item
 		let statusBar = NSStatusBar.system
 		statusItem = statusBar.statusItem(withLength: 28)
-		statusItem.image = #imageLiteral(resourceName: "MenuBarIcon")
+		statusItem.button?.image = #imageLiteral(resourceName: "MenuBarIcon")
 
 		super.init()
 
