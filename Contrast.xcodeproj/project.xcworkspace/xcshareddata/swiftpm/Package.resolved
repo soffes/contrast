@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Color",
-        "repositoryURL": "https://github.com/soffes/Color",
-        "state": {
-          "branch": null,
-          "revision": "5e645c105cfd5e9e00f3b7f0dbe327d92b03a4d1",
-          "version": "0.1.2"
-        }
-      },
-      {
-        "package": "HotKey",
-        "repositoryURL": "https://github.com/soffes/HotKey",
-        "state": {
-          "branch": null,
-          "revision": "c13662730cb5bc28de4a799854bbb018a90649bf",
-          "version": "0.1.3"
-        }
+  "pins" : [
+    {
+      "identity" : "color",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/soffes/Color",
+      "state" : {
+        "revision" : "5e645c105cfd5e9e00f3b7f0dbe327d92b03a4d1",
+        "version" : "0.1.2"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "hotkey",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/soffes/HotKey",
+      "state" : {
+        "revision" : "c13662730cb5bc28de4a799854bbb018a90649bf",
+        "version" : "0.1.3"
+      }
+    }
+  ],
+  "version" : 2
 }
