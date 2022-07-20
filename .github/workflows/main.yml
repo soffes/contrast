@@ -6,8 +6,7 @@ jobs:
     runs-on: macOS-12
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v1
-      - name: 'Select Xcode'
-        run: sudo xcode-select -s /Applications/Xcode_13.4.1app
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: 'Build'
         run: NO_SIGNING=1 rake build
