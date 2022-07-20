@@ -5,7 +5,7 @@
 
 [Contrast](https://usecontrast.com) for macOS v1. This version is no longer under active development. It’s available here for educational purposes. You do not have permission to redistribute the source code or binaries.
 
-Follow [@usecontrast](https://twitter.com/usecontrast) for information about Contrast v2 for macOS.
+Follow [@usecontrast](https://twitter.com/usecontrast) for information about Contrast for macOS v2.
 
 ## Download
 
