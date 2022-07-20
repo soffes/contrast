@@ -4,15 +4,8 @@ SCHEME_NAME = APP_NAME
 
 build_dir = 'build'
 
-desc 'Gather dependencies'
-task :bootstrap do
-  sh 'carthage bootstrap --platform macOS'
-end
-
 desc 'Build'
 task :build do
-  bootstrap_if_needed
-
   sh %(mkdir -p #{build_dir})
 
   signing = ENV['NO_SIGNING'] ? 'CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO' : ''
@@ -21,8 +14,6 @@ end
 
 desc 'Archive'
 task :archive => :build do
-  bootstrap_if_needed
-
   # Build
   sh %(mkdir -p #{build_dir})
   archive_path = "#{build_dir}/#{APP_NAME}.xcarchive"
@@ -124,10 +115,4 @@ def recent_changes(latest_tag = `git describe --tags --abbrev=0`.chomp)
   # Print changes since last tag
   log = `git log #{scope} --pretty=format:'%s' --abbrev-commit`.chomp
   puts log.gsub(/^([\w])/, '• \1') + "\n\n"
-end
-
-def bootstrap_if_needed
-  unless Dir.exists?('Carthage')
-    Rake::Task['bootstrap'].invoke()
-  end
 end
