@@ -9,4 +9,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: 'Build'
-        run: NO_SIGNING=1 rake build
+        run: NO_SIGNING=1 rake build | xcpretty
