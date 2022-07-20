@@ -51,7 +51,7 @@ final class PlainButton: NSButton {
 	var theme: Theme = .default {
 		didSet {
 			buttonCell?.theme = theme
-			setNeedsDisplay()
+			needsDisplay = true
 
 		}
 	}
@@ -91,7 +91,6 @@ final class PlainButton: NSButton {
 			PlainButtonCell.self
 		}
 
-		// swiftlint:disable:next unused_setter_value
 		set {}
 	}
 

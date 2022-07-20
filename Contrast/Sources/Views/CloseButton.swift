@@ -47,7 +47,7 @@ final class CloseButton: NSButton {
 		didSet {
 			buttonCell?.theme = theme
 			updateImage()
-			setNeedsDisplay()
+			needsDisplay = true
 		}
 	}
 
@@ -93,7 +93,6 @@ final class CloseButton: NSButton {
 			return CloseButtonCell.self
 		}
 
-		// swiftlint:disable:next unused_setter_value
 		set {}
 	}
 

@@ -80,7 +80,7 @@ final class Button: NSButton {
 	var theme: Theme = .default {
 		didSet {
 			buttonCell?.theme = theme
-			setNeedsDisplay()
+			needsDisplay = true
 
 		}
 	}
@@ -88,7 +88,7 @@ final class Button: NSButton {
 	var isActive = false {
 		didSet {
 			buttonCell?.isActive = isActive
-			setNeedsDisplay()
+			needsDisplay = true
 		}
 	}
 
@@ -119,7 +119,6 @@ final class Button: NSButton {
 			ButtonCell.self
 		}
 
-		// swiftlint:disable:next unused_setter_value
 		set {}
 	}
 

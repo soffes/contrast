@@ -1,6 +1,6 @@
 import AppKit
 
-protocol EyeDropperControllerDelegate: class {
+protocol EyeDropperControllerDelegate: AnyObject {
 	func eyeDropperController(_ controller: EyeDropperController, didSelectColor color: NSColor, continuePicking: Bool)
 	func eyeDropperControllerDidCancel(_ controller: EyeDropperController)
 }

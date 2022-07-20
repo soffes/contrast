@@ -52,7 +52,7 @@ final class WelcomeButton: NSButton {
 		didSet {
 			keyEquivalent = isPrimary ? "\r" : ""
 			(cell as? WelcomeButtonCell)?.isPrimary = isPrimary
-			setNeedsDisplay()
+			needsDisplay = true
 		}
 	}
 
@@ -94,13 +94,12 @@ final class WelcomeButton: NSButton {
 			WelcomeButtonCell.self
 		}
 
-		// swiftlint:disable:next unused_setter_value
 		set {}
 	}
 
 	// MARK: - Private
 
 	@objc private func activeDidChange() {
-		setNeedsDisplay()
+		needsDisplay = true
 	}
 }
