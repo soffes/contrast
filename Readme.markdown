@@ -11,6 +11,8 @@ Follow [@usecontrast](https://twitter.com/usecontrast) for information about Con
 
 Head over to the [Releases](https://github.com/soffes/contrast/releases) page and download `Contrast-x.x.zip`.
 
+⚠️ Contrast’s eye dropper probably doesn’t pick the hex color you are expecting. Read [usecontrast.com/hex](https://usecontrast.com/hex) for more information. Please don’t email me about this 😅
+
 ## Building
 
 Simply open the Xcode project and run the app. Contrast uses Swift Package Manager for dependencies, so Xcode will get these for you automatically. You may need to change the code signing team to be your own if it gives you an error about code signing.
